@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sakoonsay - Modern Spiritual Sanctuary & 7 Chakras Wellness Center. Experience divine peace, sacred solfeggio frequencies, aura cleansing, and temple blessings.">
+  <meta name="keywords" content="Sakoonsay, Chakras, Spiritual Sanctuary, Chakra Alignment, Meditation, Solfeggio Frequencies, Temple Darshan, Inner Peace">
+  <title>Sakoonsay | Sacred Spiritual Sanctuary & 7 Chakras Wellness</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+
+  <!-- Google Fonts: Cinzel & Plus Jakarta Sa                                                                n                                  ns -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom Design System Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background Aura Floating Elements -->
+  <div class="aura-overlay" aria-hidden="true">
+    <div class="aura-orb orb-1"></div>
+    <div class="aura-orb orb-2"></div>
+    <div class="aura-orb orb-3"></div>
+  </div>
+
+  <!-- Upper Small Header (Topbar with 432 Hz Sanctum Notice & Temple Chimes) -->
+  <aside class="site-topbar" aria-label="Sanctuary Status Bar">
+    <div class="container">
+      <div class="topbar-inner">
+        <!-- Left: Sacred Sanctum Notice -->
+        <div class="topbar-left">
+          <span class="topbar-badge">
+            <span class="pulse-dot emerald" style="width: 7px; height: 7px;"></span>
+            <span class="topbar-status-text">Sanctum Open • 432 Hz Solfeggio Active</span>
+          </span>
+          <span class="topbar-divider">|</span>
+          <span class="topbar-mantra"><i class="fa-solid fa-om" style="color: #FDE68A;"></i> ॐ शान्तिः शान्तिः शान्तिः</span>
+        </div>
+
+        <!-- Right: Continuous Temple Chimes Controller -->
+        <div class="topbar-right">
+          <button id="ambientSoundBtn" class="topbar-chimes-btn" title="Toggle Continuous 432 Hz + 108 Hz Temple Chimes & Meditation Sound">
+            <span class="chimes-waves" aria-hidden="true">
+              <span class="bar bar-1"></span>
+              <span class="bar bar-2"></span>
+              <span class="bar bar-3"></span>
+            </span>
+            <i class="fa-solid fa-om" style="color: #FDE68A;"></i>
+            <span id="ambientSoundText">Temple Chimes</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Glassmorphism Main Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Sacred Bell Chime Button (Mobile: Left, Desktop: Right) -->
+        <button id="headerChimeBtn" class="nav-bell-btn" title="Ring Sacred Temple Bell (Tank-Tan Chime)">
+          <i class="fa-solid fa-bell"></i>
+        </button>
+
+        <!-- Brand Logo with Clean Proportions (Mobile: Center, Desktop: Left) -->
+        <a href="#hero" class="brand" aria-label="Sakoonsay Home">
+          <img src="assets/images/logo.jpg" alt="Sakoonsay Sacred Emblem" class="brand-logo-img">
+          <div class="brand-text-wrap">
+            <span class="brand-title">SAKOONSAY</span>
+            <span class="brand-tagline">Spiritual & Chakra Sanctuary</span>
+          </div>
+        </a>
+
+        <!-- Desktop & iPad Nav Menu -->
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#hero" class="nav-link" title="Sanctuary"><i class="fa-solid fa-landmark-dome"></i> <span class="nav-text">Sanctuary</span></a></li>
+          <li><a href="#chakras" class="nav-link" title="7 Chakras"><i class="fa-solid fa-dharmachakra"></i> <span class="nav-text">7 Chakras</span></a></li>
+          <li><a href="#timings" class="nav-link" title="Daily Darshan"><i class="fa-regular fa-clock"></i> <span class="nav-text">Daily Darshan</span></a></li>
+          <li><a href="#services" class="nav-link" title="Offerings"><i class="fa-solid fa-spa"></i> <span class="nav-text">Offerings</span></a></li>
+          <li><a href="#diya" class="nav-link" title="Virtual Diya"><i class="fa-solid fa-fire-burner"></i> <span class="nav-text">Virtual Diya</span></a></li>
+          <li><a href="#quiz" class="nav-link" title="Aura Quiz"><i class="fa-solid fa-wand-magic-sparkles"></i> <span class="nav-text">Aura Quiz</span></a></li>
+          <li><a href="#resources" class="nav-link" title="Sacred Links"><i class="fa-solid fa-book-open"></i> <span class="nav-text">Sacred Links</span></a></li>
+          <li><a href="#connect" class="nav-link" title="Connect"><i class="fa-solid fa-envelope-open-text"></i> <span class="nav-text">Connect</span></a></li>
+        </ul>
+
+        <!-- Designer Mobile Hamburger Toggle (Right on Mobile) -->
+        <button class="designer-toggle" id="mobileNavToggle" aria-label="Toggle Mobile Navigation Menu">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Slide-In Sidebar Drawer & Dimmer Backdrop Overlay -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <img src="assets/images/logo.jpg" alt="Sakoonsay" class="drawer-logo-img">
+        <div>
+          <div class="drawer-title">SAKOONSAY</div>
+          <div class="drawer-tagline">Spiritual Sanctuary</div>
+        </div>
+      </div>
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close Navigation Drawer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Quick Sound Player inside Mobile Drawer -->
+    <div class="drawer-sound-card">
+      <button id="drawerAmbientSoundBtn" class="drawer-sound-toggle">
+        <i class="fa-solid fa-om" style="color: #FDE68A;"></i>
+        <span id="drawerAmbientSoundText">Temple Chimes: OFF</span>
+      </button>
+      <span class="drawer-sound-hint">432 Hz + 108 Hz Continuous Meditation</span>
+    </div>
+
+    <!-- Drawer Navigation Links with Icons -->
+    <nav class="drawer-nav">
+      <a href="#hero" class="drawer-link"><i class="fa-solid fa-landmark-dome"></i> Sanctuary Home</a>
+      <a href="#chakras" class="drawer-link"><i class="fa-solid fa-dharmachakra"></i> 7 Sacred Chakras</a>
+      <a href="#timings" class="drawer-link"><i class="fa-regular fa-clock"></i> Darshan & Aarti Timings</a>
+      <a href="#services" class="drawer-link"><i class="fa-solid fa-spa"></i> Healing Offerings</a>
+      <a href="#diya" class="drawer-link"><i class="fa-solid fa-fire-burner"></i> Virtual Sacred Diya</a>
+      <a href="#quiz" class="drawer-link"><i class="fa-solid fa-wand-magic-sparkles"></i> Aura Assessment Quiz</a>
+      <a href="#resources" class="drawer-link"><i class="fa-solid fa-book-open"></i> Sacred Links & Wisdom</a>
+      <a href="#connect" class="drawer-link"><i class="fa-solid fa-envelope-open-text"></i> Sanctum Address & Connect</a>
+    </nav>
+
+    <!-- Drawer Footer with Sanctum Hours -->
+    <div class="drawer-footer">
+      <div class="drawer-status-pill">
+        <span class="pulse-dot emerald"></span> Sanctum Open: 05:30 AM – 09:30 PM
+      </div>
+      <div class="drawer-mantra">ॐ शान्तिः शान्तिः शान्तिः</div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Content -->
+          <div class="hero-content">
+            <div class="hero-badge-wrap">
+              <span class="badge badge-open">
+                <span class="pulse-dot emerald"></span> Sanctum Open for Peace Seekers
+              </span>
+              <span class="section-tag" style="margin-bottom: 0;">
+                <i class="fa-solid fa-om"></i> Sakoon • Sukoon • Serenity
+              </span>
+            </div>
+
+            <h1 class="hero-title">
+              Awaken Inner Harmony & Divine <span class="spark">Chakra Radiance</span>
+            </h1>
+
+            <p class="hero-description">
+              Welcome to <strong>Sakoonsay</strong>, a serene sanctuary devoted to restorative energy, 
+              ancient 7 Chakras alignment, and profound spiritual tranquility. Breathe deeply, 
+              shed worldly stress, and reconnect with your eternal divine light.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#chakras" class="btn btn-primary">
+                <i class="fa-solid fa-dharmachakra"></i> Explore 7 Chakras
+              </a>
+              <a href="#diya" class="btn btn-secondary">
+                <i class="fa-solid fa-fire-burner"></i> Light a Sacred Diya
+              </a>
+            </div>
+
+            <!-- Sanctuary Vital Highlights -->
+            <div class="hero-stats">
+              <div class="hero-stat-item">
+                <h4 class="hero-stat-title"><span class="stat-number">7</span> <span class="stat-label">Centers</span></h4>
+                <p>Pranic Chakra Portals</p>
+              </div>
+              <div class="hero-stat-item">
+                <h4 class="hero-stat-title"><span class="stat-number">528</span> <span class="stat-label">Hz</span></h4>
+                <p>Heart Solfeggio Harmonics</p>
+              </div>
+              <div class="hero-stat-item">
+                <h4 class="hero-stat-title"><span class="stat-number">100%</span> <span class="stat-label">Pure</span></h4>
+                <p>Serene Sacred Sanctuary</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Visual Card -->
+          <div class="hero-visual-card">
+            <img src="assets/images/hero.jpg" alt="Meditative Seeker Aligned with 7 Radiant Chakras in Temple Sanctuary">
+            <!-- Floating Aura Badge -->
+            <div class="floating-aura-badge">
+              <div class="floating-aura-info">
+                <div class="floating-aura-icon">
+                  <i class="fa-solid fa-lotus"></i>
+                </div>
+                <div>
+                  <div class="floating-aura-title">Kundalini & Chakra Alignment</div>
+                  <div class="floating-aura-sub">From Muladhara to Sahasrara</div>
+                </div>
+              </div>
+              <div class="chakra-dots-row" title="7 Sacred Chakra Points">
+                <span class="chakra-pill-dot" style="background: #C0392B; color: #C0392B;" title="Root"></span>
+                <span class="chakra-pill-dot" style="background: #E65100; color: #E65100;" title="Sacral"></span>
+                <span class="chakra-pill-dot" style="background: #D4AF37; color: #D4AF37;" title="Solar Plexus"></span>
+                <span class="chakra-pill-dot" style="background: #2E7D32; color: #2E7D32;" title="Heart"></span>
+                <span class="chakra-pill-dot" style="background: #1E88E5; color: #1E88E5;" title="Throat"></span>
+                <span class="chakra-pill-dot" style="background: #4A306D; color: #4A306D;" title="Third Eye"></span>
+                <span class="chakra-pill-dot" style="background: #2E1A47; color: #2E1A47;" title="Crown"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         LIVE SANCTUM STATUS & DAILY RITUAL TIMINGS
+         ========================================================================== -->
+    <section id="timings" class="sanctum-strip">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-clock"></i> Sacred Timings</span>
+          <h2>Sanctum Darshan & Ritual Schedule</h2>
+          <p class="section-desc">Experience real-time spiritual rituals, chanting sessions, and peaceful darshan throughout the day.</p>
+        </div>
+
+        <div class="timings-grid">
+          <!-- Morning Aarti -->
+          <div class="glass-card timing-card">
+            <div class="timing-top">
+              <div class="timing-icon-wrap">
+                <i class="fa-solid fa-sun"></i>
+              </div>
+              <span id="morningAartiBadge" class="badge badge-open">
+                <span class="pulse-dot emerald"></span> Morning Aarti
+              </span>
+            </div>
+            <div>
+              <h3 class="timing-title">Mangala Aarti & Sunrise Dhyan</h3>
+              <p class="timing-hours"><i class="fa-regular fa-clock"></i> 05:30 AM – 07:30 AM</p>
+              <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-secondary);">
+                Dawn awakening ceremony, conch blowing, and grounding Root Chakra mantra chanting.
+              </p>
+            </div>
+          </div>
+
+          <!-- Midday Dhyanam -->
+          <div class="glass-card timing-card">
+            <div class="timing-top">
+              <div class="timing-icon-wrap">
+                <i class="fa-solid fa-om"></i>
+              </div>
+              <span id="dhyanaBadge" class="badge badge-open">
+                <span class="pulse-dot emerald"></span> Silent Sanctum
+              </span>
+            </div>
+            <div>
+              <h3 class="timing-title">Silent Chakra Dhyanam</h3>
+              <p class="timing-hours"><i class="fa-regular fa-clock"></i> 08:00 AM – 04:00 PM</p>
+              <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-secondary);">
+                Open hall for private contemplation, silent japa meditation, and healing energy absorption.
+              </p>
+            </div>
+          </div>
+
+          <!-- Sandhya Aarti -->
+          <div class="glass-card timing-card">
+            <div class="timing-top">
+              <div class="timing-icon-wrap">
+                <i class="fa-solid fa-fire"></i>
+              </div>
+              <span id="eveningAartiBadge" class="badge badge-notice">
+                <span class="pulse-dot amber"></span> Evening Ritual
+              </span>
+            </div>
+            <div>
+              <h3 class="timing-title">Sandhya Deepam & Maha Aarti</h3>
+              <p class="timing-hours"><i class="fa-regular fa-clock"></i> 06:00 PM – 07:30 PM</p>
+              <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-secondary);">
+                Evening brass lamp illuminations, camphor flames, floral offerings, and musical hymns.
+              </p>
+            </div>
+          </div>
+
+          <!-- Night Sound Bath -->
+          <div class="glass-card timing-card">
+            <div class="timing-top">
+              <div class="timing-icon-wrap">
+                <i class="fa-solid fa-moon"></i>
+              </div>
+              <span id="soundBathBadge" class="badge badge-notice">
+                <span class="pulse-dot amber"></span> Night Resonance
+              </span>
+            </div>
+            <div>
+              <h3 class="timing-title">Tibetan Singing Bowl Sound Bath</h3>
+              <p class="timing-hours"><i class="fa-regular fa-clock"></i> 08:00 PM – 09:30 PM</p>
+              <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-secondary);">
+                432 Hz and 528 Hz harmonic gong immersion to release fatigue and induce deep restorative sleep.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7 CHAKRAS SYSTEM INTERACTIVE EXPLORER
+         ========================================================================== -->
+    <section id="chakras" class="chakras-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-dharmachakra"></i> Sacred Energy Centers</span>
+          <h2>Explore The 7 Sacred Chakras</h2>
+          <p class="section-desc">
+            In Vedic tradition, the 7 Chakras are radiant vortices of spiritual life force (Prana). 
+            Select any chakra below to reveal its sacred frequency, seed mantra, crystal remedy, and resonant sound.
+          </p>
+        </div>
+
+        <div class="chakra-layout">
+          <!-- Left: 7 Chakras Nav List -->
+          <div class="chakra-nav-list" id="chakraNavList" role="tablist" aria-label="Chakra selection list">
+            <!-- Dynamically populated via app.js -->
+          </div>
+
+          <!-- Right: Active Chakra Glassmorphism Display Card -->
+          <div class="glass-card chakra-display-card" id="chakraDisplayCard">
+            <!-- Dynamically populated via app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         VIRTUAL SACRED DIYA & TEMPLE BLESSINGS (Interactive)
+         ========================================================================== -->
+    <section id="diya" class="diya-section">
+      <div class="container">
+        <div class="diya-banner-card">
+          <div class="diya-grid">
+            <!-- Left Narrative -->
+            <div>
+              <span class="section-tag" style="background: rgba(253, 230, 138, 0.15); color: #FDE68A; border-color: rgba(212, 175, 55, 0.4);">
+                <i class="fa-solid fa-hands-praying"></i> Eternal Sanctuary Flame
+              </span>
+              <h2 style="margin: 0.75rem 0 1.25rem;">Light a Virtual Sacred Diya For Peace & Well-being</h2>
+              <p style="margin-bottom: 1.5rem;">
+                Lighting a sacred flame (Deepam) dispels darkness, ignorance, and negative vibrations. 
+                Wherever you are in the world, dedicate a sacred flame at the Sakoonsay sanctuary altar for yourself, 
+                your family, or universal peace.
+              </p>
+              <div class="diya-actions" style="display: flex; gap: 0.85rem; align-items: center; flex-wrap: wrap;">
+                <button id="lightDiyaBtn" class="btn btn-secondary">
+                  <i class="fa-solid fa-fire-burner"></i> Light a Sacred Diya
+                </button>
+                <button class="btn btn-glass diya-sankalpa-btn" onclick="sendTempleBlessing('Peace, Health & Family Prosperity')">
+                  <i class="fa-solid fa-hands-praying"></i> Offer Peace Sankalpa (ॐ शान्तिः)
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Interactive Diya Vessel -->
+            <div class="diya-vessel-wrap">
+              <div class="diya-flame-container" id="diyaFlameContainer" title="Click to Light the Sacred Diya">
+                <div class="flame-particle" id="diyaFlame"></div>
+                <div class="diya-clay-base"></div>
+              </div>
+              <div class="diya-counter-wrap">
+                <span class="diya-counter-num" id="diyaCounterNum">14,280</span>
+                <span>Sacred Diyas Lit by Global Seekers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SPIRITUAL SERVICES & OFFERINGS
+         ========================================================================== -->
+    <section id="services" class="services-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-spa"></i> Healing Offerings</span>
+          <h2>Sanctuary Offerings & Energy Alignment</h2>
+          <p class="section-desc">
+            Holistic spiritual treatments designed to cleanse your aura, dissolve stress knots, and restore radiant vitality.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Card 1: Chakra Crystal Alignment -->
+          <div class="glass-card service-card">
+            <div class="service-img-wrap">
+              <img src="assets/images/chakra-healing.jpg" alt="Chakra Crystal Alignment Therapy">
+              <span class="service-tag-overlay"><i class="fa-solid fa-gem"></i> Pranic Healing</span>
+            </div>
+            <div class="service-content">
+              <div>
+                <h3 class="service-title">Chakra Alignment & Aura Cleansing</h3>
+                <p class="service-desc">
+                  Gentle hands-on and crystal therapy to unblock congested energy centers. Restores harmonious flow across all 7 chakras using pure amethyst, quartz, and sacred aromatherapy.
+                </p>
+              </div>
+              <div class="service-footer">
+                <span class="service-time"><i class="fa-regular fa-clock"></i> 60 - 90 Minutes Sadhana</span>
+                <button class="btn btn-primary" onclick="chantChakraMantra('Pranic Aura Alignment', 'OM', 528)">
+                  <i class="fa-solid fa-spa"></i> Experience Alignment
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Sound Bath & Singing Bowls -->
+          <div class="glass-card service-card">
+            <div class="service-img-wrap">
+              <img src="assets/images/sound-bath.jpg" alt="Himalayan Singing Bowls & Sacred Sound Therapy">
+              <span class="service-tag-overlay"><i class="fa-solid fa-music"></i> 528 Hz Healing</span>
+            </div>
+            <div class="service-content">
+              <div>
+                <h3 class="service-title">Himalayan Singing Bowl Sound Bath</h3>
+                <p class="service-desc">
+                  Bathe in resonant bronze Tibetan bowl frequencies, rain sticks, and gongs that wash over every cell. Transmutes nervous system exhaustion into profound meditative theta stillness.
+                </p>
+              </div>
+              <div class="service-footer">
+                <button id="soundBathChimeBtn" class="btn btn-glass">
+                  <i class="fa-solid fa-bell"></i> Hear Chime
+                </button>
+                <button class="btn btn-primary" onclick="toggleContinuousAmbientSound(true)">
+                  <i class="fa-solid fa-headphones"></i> Start Sound Bath
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Kundalini Breathwork & Meditation -->
+          <div class="glass-card service-card">
+            <div class="service-img-wrap">
+              <img src="assets/images/hero.jpg" alt="Kundalini Breathwork and Meditation Sanctuary">
+              <span class="service-tag-overlay"><i class="fa-solid fa-wind"></i> Sacred Pranayama</span>
+            </div>
+            <div class="service-content">
+              <div>
+                <h3 class="service-title">Kundalini Breathwork & Mantra Sadhana</h3>
+                <p class="service-desc">
+                  Guided master classes in Anulom Vilom, Bhastrika, and Vedic bija mantra chanting. Awaken your dormant spinal energy and expand cognitive peace and emotional resilience.
+                </p>
+              </div>
+              <div class="service-footer">
+                <span class="service-time"><i class="fa-regular fa-clock"></i> 75 Minutes Sadhana</span>
+                <button class="btn btn-primary" onclick="chantChakraMantra('Kundalini Breathwork', 'SO-HAM', 432)">
+                  <i class="fa-solid fa-wind"></i> Practice Sadhana
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CHAKRA BALANCE QUICK SELF-ASSESSMENT QUIZ
+         ========================================================================== -->
+    <section id="quiz" class="quiz-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Inner Intuition Check</span>
+          <h2>Discover Your Blocked Chakra</h2>
+          <p class="section-desc">
+            Take this quick 3-question self-assessment to identify which energy center needs gentle restoration and love today.
+          </p>
+        </div>
+
+        <div class="glass-card quiz-card">
+          <!-- Dynamic Quiz Question Box -->
+          <div id="quizQuestionBox" class="quiz-question-box">
+            <!-- Injected via app.js -->
+          </div>
+
+          <!-- Dynamic Quiz Result Box -->
+          <div id="quizResultBox" class="quiz-result-box">
+            <!-- Injected via app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SACRED LINKS & SPIRITUAL RESOURCE HUB
+         ========================================================================== -->
+    <section id="resources" class="resources-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-book-open"></i> Spiritual Wisdom Hub</span>
+          <h2>Sacred Links & Wisdom Portals</h2>
+          <p class="section-desc">
+            Explore authentic portals for Vedic philosophy, sacred chants, live darshans, and spiritual mindfulness.
+          </p>
+        </div>
+
+        <div class="resources-grid">
+          <!-- Link 1: Sacred Vedic Mantras -->
+          <a href="https://archive.org/details/vedic-chants" target="_blank" rel="noopener noreferrer" class="glass-card resource-card">
+            <div>
+              <div class="resource-top">
+                <div class="resource-icon"><i class="fa-solid fa-om"></i></div>
+                <div>
+                  <h3 class="resource-title">Vedic Chants & Suktas</h3>
+                  <span style="font-size: 0.78rem; color: var(--gold-antique); font-weight: 600;">Authentic Audio Archive</span>
+                </div>
+              </div>
+              <p class="resource-desc">
+                Listen to traditional Sanskrit recitations of the Gayatri Mantra, Mahamrityunjaya, and Purusha Suktam for spiritual elevation.
+              </p>
+            </div>
+            <div class="resource-arrow">
+              Listen to Sacred Chants <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <!-- Link 2: Bhagavad Gita Wisdom -->
+          <a href="https://www.holy-bhagavad-gita.org/" target="_blank" rel="noopener noreferrer" class="glass-card resource-card">
+            <div>
+              <div class="resource-top">
+                <div class="resource-icon"><i class="fa-solid fa-book-journal-whills"></i></div>
+                <div>
+                  <h3 class="resource-title">Bhagavad Gita Verse By Verse</h3>
+                  <span style="font-size: 0.78rem; color: var(--gold-antique); font-weight: 600;">Timeless Spiritual Philosophy</span>
+                </div>
+              </div>
+              <p class="resource-desc">
+                Immerse yourself in chapter translations on Karma Yoga, Bhakti Yoga, and Raja Yoga with philosophical commentaries.
+              </p>
+            </div>
+            <div class="resource-arrow">
+              Read Sacred Verses <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <!-- Link 3: Live Temple Darshans -->
+          <a href="https://www.youtube.com/results?search_query=live+temple+aarti+darshan" target="_blank" rel="noopener noreferrer" class="glass-card resource-card">
+            <div>
+              <div class="resource-top">
+                <div class="resource-icon"><i class="fa-solid fa-video"></i></div>
+                <div>
+                  <h3 class="resource-title">Live Temple Aarti & Darshan</h3>
+                  <span style="font-size: 0.78rem; color: var(--gold-antique); font-weight: 600;">Continuous Live Feeds</span>
+                </div>
+              </div>
+              <p class="resource-desc">
+                Connect your heart to sacred temple sanctums, live morning aartis, and evening lamp rituals from holy shrines worldwide.
+              </p>
+            </div>
+            <div class="resource-arrow">
+              Watch Live Darshan <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <!-- Link 4: Chakra Meditation Audio Guides -->
+          <a href="https://insighttimer.com/meditation-topics/chakras" target="_blank" rel="noopener noreferrer" class="glass-card resource-card">
+            <div>
+              <div class="resource-top">
+                <div class="resource-icon"><i class="fa-solid fa-headphones"></i></div>
+                <div>
+                  <h3 class="resource-title">Chakra Guided Meditations</h3>
+                  <span style="font-size: 0.78rem; color: var(--gold-antique); font-weight: 600;">Insight Sanctuary Library</span>
+                </div>
+              </div>
+              <p class="resource-desc">
+                Access guided sound baths, breathwork practices, and 432 Hz Solfeggio tracks to support your daily home sadhana.
+              </p>
+            </div>
+            <div class="resource-arrow">
+              Begin Meditation <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SANCTUARY PILGRIMAGE ADDRESS & SACRED CONNECT
+         ========================================================================== -->
+    <section id="connect" class="connect-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-envelope-open-text"></i> Sacred Correspondence</span>
+          <h2>Sanctum Address & Spiritual Connect</h2>
+          <p class="section-desc">
+            Whether you seek personal chakra guidance, wish to submit a prayer sankalpa, or desire to visit our serene sanctum, 
+            reach out through the sacred portal below.
+          </p>
+        </div>
+
+        <div class="connect-grid">
+          <!-- Left: Sanctum Holy Address & Info Card -->
+          <div class="glass-card connect-info-card">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+                <img src="assets/images/logo.jpg" alt="Sakoonsay" style="width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--gold-base); object-fit: cover;">
+                <div>
+                  <h3 style="font-size: 1.35rem; color: var(--midnight-purple); line-height: 1;">Sakoonsay Sanctum</h3>
+                  <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--gold-antique); letter-spacing: 0.15em; font-weight: 700;">Sacred Spiritual Sanctuary</span>
+                </div>
+              </div>
+
+              <p style="color: var(--text-secondary); font-size: 0.96rem; line-height: 1.65; margin-bottom: 2rem;">
+                Nestled amidst serene natural tranquility, our doors are open to truth seekers, meditators, 
+                and all who yearn for deep inner stillness.
+              </p>
+
+              <div class="connect-address-list">
+                <!-- Physical Address -->
+                <div class="connect-address-item">
+                  <div class="connect-address-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div>
+                    <div class="connect-address-title">Sanctum Pilgrimage Address</div>
+                    <div class="connect-address-text">
+                      Sacred Ghats & Divine Prana Valley, <br>
+                      Rishikesh - Varanasi Holy Spiritual Corridor, India
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sacred Email -->
+                <div class="connect-address-item">
+                  <div class="connect-address-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <div>
+                    <div class="connect-address-title">Sacred Correspondence Email</div>
+                    <div class="connect-address-text">
+                      <a href="mailto:peace@sakoonsay.org">peace@sakoonsay.org</a> • <a href="mailto:darshan@sakoonsay.org">darshan@sakoonsay.org</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sanctum Hours -->
+                <div class="connect-address-item">
+                  <div class="connect-address-icon">
+                    <i class="fa-regular fa-clock"></i>
+                  </div>
+                  <div>
+                    <div class="connect-address-title">Sanctum Darshan Hours</div>
+                    <div class="connect-address-text">
+                      Daily 05:30 AM – 09:30 PM (All 7 Days Open for Darshan & Dhyan)
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Chime Helpline -->
+                <div class="connect-address-item">
+                  <div class="connect-address-icon">
+                    <i class="fa-solid fa-phone"></i>
+                  </div>
+                  <div>
+                    <div class="connect-address-title">Sacred Chime Helpline</div>
+                    <div class="connect-address-text">
+                      <a href="tel:+911352430108">+91 (0) 135 243 0108</a> (Toll-Free Spiritual Inquiry)
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Real-time Status Badge -->
+            <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(74, 48, 109, 0.1);">
+              <span class="badge badge-open">
+                <span class="pulse-dot emerald"></span> Sanctum Altar Open for Seekers & Inquiries
+              </span>
+            </div>
+          </div>
+
+          <!-- Right: Sacred Connect & Address Form -->
+          <div class="glass-card connect-form-card">
+            <div class="connect-form-header">
+              <span class="section-tag" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-om"></i> Connect With Us</span>
+              <h3>Send Your Sacred Message</h3>
+              <p>Fill in your email and address details below. Our sanctum acharyas will respond with peaceful blessings.</p>
+            </div>
+
+            <form id="sanctumConnectForm">
+              <div class="form-row">
+                <!-- Seeker Name -->
+                <div class="form-group">
+                  <label for="connectName" class="form-label"><i class="fa-solid fa-user"></i> Full Name</label>
+                  <div class="input-with-icon">
+                    <input type="text" id="connectName" required placeholder="Your full name" class="form-input">
+                    <i class="fa-solid fa-user"></i>
+                  </div>
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group">
+                  <label for="connectEmail" class="form-label"><i class="fa-solid fa-envelope"></i> Email Address</label>
+                  <div class="input-with-icon">
+                    <input type="email" id="connectEmail" required placeholder="your.email@example.com" class="form-input">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- City / Full Address -->
+              <div class="form-group">
+                <label for="connectAddress" class="form-label"><i class="fa-solid fa-location-dot"></i> City & Complete Address</label>
+                <div class="input-with-icon">
+                  <input type="text" id="connectAddress" required placeholder="Enter your city, state or address" class="form-input">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+              </div>
+
+              <!-- Intention / Message -->
+              <div class="form-group">
+                <label for="connectMessage" class="form-label"><i class="fa-solid fa-hands-praying"></i> Sacred Sankalpa or Message</label>
+                <textarea id="connectMessage" rows="4" required placeholder="Write your spiritual intention, prayer request, or reflection..." class="form-input form-textarea"></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary form-submit-btn">
+                <i class="fa-solid fa-paper-plane"></i> Send Sacred Message & Receive Blessings (ॐ)
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SACRED SANCTUARY FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <div class="brand" style="margin-bottom: 0.5rem;">
+            <img src="assets/images/logo.jpg" alt="Sakoonsay Logo" class="brand-logo-img">
+            <span class="brand-title">SAKOONSAY</span>
+          </div>
+          <p class="footer-desc">
+            A spiritual oasis dedicated to peace, soul nourishment, and the radiant awakening of the 7 Chakras. 
+            Step inside our sanctuary and experience true serenity.
+          </p>
+          <div class="footer-socials">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://whatsapp.com" target="_blank" rel="noopener" class="footer-social-btn" title="WhatsApp Blessings"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: The 7 Chakras Quick Nav -->
+        <div>
+          <h4 class="footer-title">The 7 Chakras</h4>
+          <ul class="footer-links">
+            <li><a href="#chakras" onclick="jumpToChakra('root')"><i class="fa-solid fa-circle" style="color: #C0392B; font-size: 0.55rem;"></i> Muladhara (Root)</a></li>
+            <li><a href="#chakras" onclick="jumpToChakra('sacral')"><i class="fa-solid fa-circle" style="color: #E65100; font-size: 0.55rem;"></i> Svadhisthana (Sacral)</a></li>
+            <li><a href="#chakras" onclick="jumpToChakra('solar')"><i class="fa-solid fa-circle" style="color: #D4AF37; font-size: 0.55rem;"></i> Manipura (Solar Plexus)</a></li>
+            <li><a href="#chakras" onclick="jumpToChakra('heart')"><i class="fa-solid fa-circle" style="color: #2E7D32; font-size: 0.55rem;"></i> Anahata (Heart)</a></li>
+            <li><a href="#chakras" onclick="jumpToChakra('throat')"><i class="fa-solid fa-circle" style="color: #1E88E5; font-size: 0.55rem;"></i> Vishuddha (Throat)</a></li>
+            <li><a href="#chakras" onclick="jumpToChakra('thirdeye')"><i class="fa-solid fa-circle" style="color: #4A306D; font-size: 0.55rem;"></i> Ajna (Third Eye)</a></li>
+            <li><a href="#chakras" onclick="jumpToChakra('crown')"><i class="fa-solid fa-circle" style="color: #2E1A47; font-size: 0.55rem;"></i> Sahasrara (Crown)</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Sanctuary Quick Links -->
+        <div>
+          <h4 class="footer-title">Sanctuary Paths</h4>
+          <ul class="footer-links">
+            <li><a href="#hero"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i> Home & Sanctuary</a></li>
+            <li><a href="#timings"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i> Darshan Timings</a></li>
+            <li><a href="#services"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i> Healing Offerings</a></li>
+            <li><a href="#diya"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i> Virtual Sacred Diya</a></li>
+            <li><a href="#quiz"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i> Free Aura Assessment</a></li>
+            <li><a href="#resources"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i> Sacred Wisdom Links</a></li>
+            <li><a href="#connect"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i> Sanctum Connect & Address</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Daily Blessings Newsletter & Address Form -->
+        <div class="footer-blessing-card">
+          <h4 class="footer-title">Daily Sacred Blessings</h4>
+          <p style="font-size: 0.9rem; color: #A89FB7; margin-bottom: 1.1rem; line-height: 1.6;">
+            Subscribe to receive morning Sanskrit mantras, daily horoscope insights, and sanctum wisdom directly in your inbox.
+          </p>
+          <form id="footerBlessingForm" class="footer-blessing-form">
+            <div class="form-group" style="margin-bottom: 0.75rem;">
+              <div class="input-with-icon">
+                <input type="email" id="footerEmailInput" required placeholder="Enter your email address" class="form-input form-input-dark">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.85rem;">
+              <div class="input-with-icon">
+                <input type="text" id="footerAddressInput" placeholder="Enter your city or address (Optional)" class="form-input form-input-dark">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit-btn">
+              <i class="fa-solid fa-paper-plane"></i> Receive Sacred Blessings
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>Sakoonsay Spiritual Sanctuary</strong>. All Rights Reserved. 
+          <span style="margin-left: 0.75rem; color: var(--gold-glow); font-family: var(--font-heading);">ॐ शान्तिः शान्तिः शान्तिः</span>
+        </div>
+        <div>
+          <span>Designed with Sacred Harmony, Pastel Auras & Divine Gold</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="blessingToast" class="toast-blessing" role="alert" aria-live="polite"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="js/app.js"></script>
+</body>
+</html>

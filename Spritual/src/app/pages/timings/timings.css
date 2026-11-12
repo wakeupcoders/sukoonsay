@@ -1,0 +1,393 @@
+/* ==========================================================================
+   TEMPLE TIMINGS STYLES
+   ========================================================================== */
+
+.timings-hero-header {
+  padding: 4.5rem 0 3rem;
+  background: linear-gradient(180deg, rgba(240, 234, 248, 0.7) 0%, transparent 100%);
+}
+
+.live-status-hero-card {
+  max-width: 820px;
+  margin: 2.5rem auto 0;
+  padding: 1.5rem 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid var(--sacred-gold);
+  border-radius: var(--radius-xl);
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.status-indicator-col {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-title-lg {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+}
+
+.dual-clock-banner-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.clock-unit-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  border: 1px solid rgba(74, 48, 109, 0.15);
+}
+
+.sanctum-pill {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: rgba(212, 175, 55, 0.35);
+  color: var(--divine-purple-deep);
+}
+
+.country-pill {
+  background: rgba(230, 81, 0, 0.08);
+  border-color: rgba(230, 81, 0, 0.3);
+  color: #B23B00;
+}
+
+.hero-dst-tag {
+  background: #FF6F00;
+  color: #FFF;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.05rem 0.35rem;
+  border-radius: 4px;
+}
+
+.timings-country-switch-col {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: flex-end;
+}
+
+.switch-label-row {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.timings-country-select {
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  background: #FFFFFF;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--divine-purple-deep);
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.timings-country-select:focus {
+  border-color: var(--sacred-saffron);
+}
+
+.next-event-tag-wrap {
+  margin-top: 0.2rem;
+}
+
+.event-tag {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--sacred-saffron);
+}
+
+.event-val {
+  font-size: 0.95rem;
+  color: var(--divine-purple-deep);
+}
+
+/* Schedule Timeline */
+.schedule-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 3.5rem;
+}
+
+.schedule-slot-card {
+  display: grid;
+  grid-template-columns: 250px 1fr 180px;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  gap: 1.5rem;
+  border-left: 4px solid var(--sacred-gold);
+}
+
+.schedule-slot-card.aarti-card {
+  border-left-color: var(--sacred-saffron);
+  background: rgba(255, 248, 240, 0.9);
+}
+
+.schedule-slot-card.vishram-card {
+  border-left-color: var(--text-muted);
+  background: rgba(245, 243, 248, 0.85);
+  opacity: 0.9;
+}
+
+.slot-time-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.slot-local-time-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 0.35rem 0.55rem;
+  border-radius: var(--radius-sm);
+  margin-top: 0.3rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.local-time-head {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #795548;
+  text-transform: uppercase;
+}
+
+.local-converted-time {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--sacred-saffron);
+  font-family: monospace;
+  margin-top: 1px;
+}
+
+.local-offset-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #1565C0;
+  background: #E3F2FD;
+  padding: 0.05rem 0.3rem;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+.slot-time-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.slot-time-text {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--divine-purple-deep);
+}
+
+.slot-type-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--sacred-saffron);
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.slot-hi-title {
+  font-family: var(--font-sanskrit);
+  font-size: 0.92rem;
+  color: var(--sacred-saffron);
+}
+
+.slot-en-title {
+  font-size: 1.25rem;
+  color: var(--divine-purple-deep);
+  margin-bottom: 0.25rem;
+}
+
+.slot-desc-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.slot-action-col {
+  text-align: right;
+}
+
+.slot-book-btn {
+  padding: 0.55rem 1.2rem;
+  font-size: 0.85rem;
+}
+
+.aarti-tag {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: #FFF3E0;
+  color: #E65100;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 1px solid #FFE0B2;
+}
+
+.vishram-tag {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: #ECEFF1;
+  color: #455A64;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* Rules Grid */
+.temple-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+}
+
+.rule-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.8rem;
+}
+
+.rule-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.rule-box h4 {
+  font-size: 1.1rem;
+  color: var(--divine-purple-deep);
+  margin-bottom: 0.4rem;
+}
+
+.rule-box p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .schedule-slot-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .slot-action-col {
+    text-align: left;
+  }
+  .live-status-hero-card {
+    text-align: center;
+    justify-content: center;
+  }
+  .next-event-col {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .timings-hero-header {
+    padding: 3.5rem 0 1.8rem;
+  }
+  .live-status-hero-card {
+    padding: 1.3rem 1rem;
+    border-radius: var(--radius-lg);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+  }
+  .status-indicator-col {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .dual-clock-banner-row {
+    justify-content: center;
+  }
+  .timings-country-switch-col {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .timings-country-select {
+    width: 100%;
+    max-width: 260px;
+    padding: 0.5rem 0.8rem;
+  }
+  .schedule-slot-card {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-md);
+  }
+  .slot-time-text {
+    font-size: 1.15rem;
+  }
+  .slot-en-title {
+    font-size: 1.15rem;
+  }
+  .slot-action-col {
+    width: 100%;
+  }
+  .slot-book-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+  }
+  .temple-rules-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .rule-box {
+    padding: 1.25rem 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .live-status-hero-card {
+    padding: 1.1rem 0.85rem;
+  }
+  .schedule-slot-card {
+    padding: 1.1rem 0.85rem;
+  }
+}
+
+/* ==========================================================================
+   SMOOTH HOVER ANIMATIONS — Timings page
+   ========================================================================== */
+.schedule-slot-card {
+  transition:
+    transform  0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s ease;
+  will-change: transform, box-shadow;
+}
+.schedule-slot-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(74, 48, 109, 0.12), 0 0 16px rgba(212, 175, 55, 0.10);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.live-status-hero-card {
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
+}

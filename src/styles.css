@@ -68,7 +68,9 @@
    RESET & GLOBAL STYLES
    ========================================================================== */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -102,6 +104,7 @@ body {
   html {
     scroll-padding-top: 60px;
   }
+
   body {
     padding-top: 54px;
   }
@@ -138,13 +141,26 @@ body::after {
 }
 
 @keyframes floatOrb {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(40px, 30px) scale(1.08); }
-  100% { transform: translate(-30px, 50px) scale(0.95); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(40px, 30px) scale(1.08);
+  }
+
+  100% {
+    transform: translate(-30px, 50px) scale(0.95);
+  }
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
   color: var(--divine-purple-deep);
   line-height: 1.25;
@@ -319,6 +335,7 @@ img {
 }
 
 @media (max-width: 600px) {
+
   .btn-sacred-gold,
   .btn-royal-purple,
   .btn-saffron,
@@ -396,4 +413,3 @@ img {
   background: var(--sacred-gold);
   color: #180D26;
 }
-

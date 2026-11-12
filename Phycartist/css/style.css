@@ -1,0 +1,3329 @@
+/* ==========================================================================
+   SAKOONSAY - SPIRITUAL SANCTUARY & CHAKRA WELLNESS UI SYSTEM
+   Design Palette & Styling Guidelines applied strictly as specified
+   ========================================================================== */
+
+:root {
+  /* 1. Primary Background Aura Gradient */
+  --bg-aura-gradient: linear-gradient(90deg, #E5EBFA 0%, #F0EAF8 50%, #FBE5F5 100%);
+  --bg-aura-radial: radial-gradient(circle at 50% 20%, rgba(253, 230, 138, 0.35) 0%, rgba(240, 234, 248, 0.6) 45%, rgba(229, 235, 250, 0.9) 100%);
+
+  /* 2. Primary Spiritual Accents */
+  --gold-base: #D4AF37;
+  --gold-antique: #B3861B;
+  --gold-glow: #FDE68A;
+  --gold-soft-rgb: 212, 175, 55;
+
+  --saffron-deep: #E65100;
+  --saffron-amber: #FF9800;
+  --vermilion-ritual: #C0392B;
+
+  /* 3. Deep Sanctum & Headings */
+  --midnight-purple: #2E1A47;
+  --royal-purple: #4A306D;
+  --ultra-midnight: #1C1128;
+  --ultra-dark: #150D21;
+
+  /* 4. Typography & Neutrals */
+  --text-primary: #241E2F;
+  --text-secondary: #5C5468;
+  --text-muted: #827A91;
+  --text-light: #FDFBF7;
+  --text-white: #FFFFFF;
+
+  /* 5. Component Glassmorphism & Borders */
+  --glass-bg: rgba(255, 255, 255, 0.84);
+  --glass-blur: blur(14px);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-border-hover: rgba(212, 175, 55, 0.35);
+  --shadow-sacred: 0 16px 36px -10px rgba(74, 48, 109, 0.12), 0 0 24px -4px rgba(212, 175, 55, 0.18);
+  --shadow-hover: 0 22px 45px -8px rgba(46, 26, 71, 0.18), 0 0 32px 2px rgba(212, 175, 55, 0.28);
+  --shadow-glow: 0 0 25px rgba(212, 175, 55, 0.45);
+
+  /* 6. Gradients */
+  --cta-sunset: linear-gradient(135deg, #E65100 0%, #D4AF37 100%);
+  --cta-sunset-hover: linear-gradient(135deg, #FF9800 0%, #B3861B 100%);
+  --cta-luxury-gold: linear-gradient(135deg, #FDE68A 0%, #D4AF37 50%, #B3861B 100%);
+  --cta-luxury-hover: linear-gradient(135deg, #FFFFFF 0%, #FDE68A 60%, #D4AF37 100%);
+  --purple-gradient: linear-gradient(135deg, #2E1A47 0%, #4A306D 100%);
+
+  /* 7. Badges */
+  --badge-open-bg: #E8F5E9;
+  --badge-open-text: #2E7D32;
+  --badge-open-dot: #4CAF50;
+
+  --badge-notice-bg: #FFF3E0;
+  --badge-notice-text: #E65100;
+  --badge-notice-dot: #FF9800;
+
+  /* Fonts */
+  --font-heading: 'Cinzel', 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-aura-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  line-height: 1.65;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Subtle background aura orbs */
+.aura-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.aura-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  animation: floatOrb 22s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+  top: -10%;
+  right: -5%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #FDE68A 0%, rgba(251, 229, 245, 0) 70%);
+}
+
+.orb-2 {
+  bottom: 10%;
+  left: -8%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #F0EAF8 0%, rgba(229, 235, 250, 0) 70%);
+  animation-duration: 28s;
+}
+
+.orb-3 {
+  top: 45%;
+  right: 15%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(240, 234, 248, 0) 70%);
+  animation-duration: 18s;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, 40px) scale(1.08); }
+  100% { transform: translate(-25px, -30px) scale(0.95); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F0EAF8;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #D4AF37, #4A306D);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #E65100, #2E1A47);
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, .sacred-title {
+  font-family: var(--font-heading);
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  color: var(--midnight-purple);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  color: var(--midnight-purple);
+  line-height: 1.25;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 0.6rem;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  color: var(--royal-purple);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.text-gold {
+  color: var(--gold-base);
+}
+
+.text-gradient-gold {
+  background: var(--cta-luxury-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Container */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   UPPER SMALL HEADER (TOPBAR - 432 HZ SANCTUM STATUS & TEMPLE CHIMES)
+   ========================================================================== */
+.site-topbar {
+  background: linear-gradient(90deg, #120A1D 0%, #1C1128 50%, #2A1740 100%);
+  color: #D1C9DD;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  font-size: 0.82rem;
+  padding: 0.38rem 0;
+  position: relative;
+  z-index: 100;
+  transition: var(--transition-smooth);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.topbar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+}
+
+.topbar-divider {
+  color: rgba(212, 175, 55, 0.35);
+  font-size: 0.85rem;
+}
+
+.topbar-mantra {
+  color: var(--gold-glow);
+  font-family: var(--font-heading);
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Continuous Temple Chimes Button inside Upper Small Header */
+.topbar-chimes-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.28rem 0.95rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.topbar-chimes-btn i {
+  font-size: 0.9rem;
+  color: var(--gold-glow);
+  transition: transform 0.3s ease;
+}
+
+.topbar-chimes-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: var(--gold-glow);
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.45);
+}
+
+.topbar-chimes-btn:hover i {
+  transform: scale(1.15) rotate(15deg);
+}
+
+.topbar-chimes-btn:active {
+  transform: scale(0.95);
+}
+
+/* Playing State for Topbar Chimes */
+.topbar-chimes-btn.playing {
+  background: var(--cta-luxury-gold);
+  color: var(--midnight-purple);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.6);
+}
+
+.topbar-chimes-btn.playing i {
+  color: var(--midnight-purple);
+}
+
+.topbar-chimes-btn.playing .chimes-waves .bar {
+  background: var(--midnight-purple);
+  animation: waveBar 0.9s ease-in-out infinite alternate;
+}
+
+.topbar-chimes-btn.playing .chimes-waves .bar-1 { animation-delay: 0.1s; }
+.topbar-chimes-btn.playing .chimes-waves .bar-2 { animation-delay: 0.3s; }
+.topbar-chimes-btn.playing .chimes-waves .bar-3 { animation-delay: 0.2s; }
+
+/* ==========================================================================
+   CLEAN & ELEGANT SITE HEADER (MAIN STICKY HEADER)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 6px 20px -8px rgba(46, 26, 71, 0.08);
+  transition: var(--transition-smooth);
+}
+
+.site-header .container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 10px 28px -6px rgba(46, 26, 71, 0.12);
+  border-bottom-color: rgba(212, 175, 55, 0.4);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Brand Identity */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  order: 1;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.brand-logo-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--gold-base);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.brand:hover .brand-logo-img {
+  transform: rotate(15deg) scale(1.06);
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 1.38rem;
+  font-weight: 700;
+  color: var(--midnight-purple);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.brand-tagline {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold-antique);
+  font-weight: 700;
+  margin-top: 0.15rem;
+  white-space: nowrap;
+}
+
+/* Clean Desktop Nav Menu - STRICTLY ONE LINE */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  list-style: none;
+  order: 2;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  margin: 0;
+  padding: 0;
+  flex: 1 1 auto;
+}
+
+.nav-link {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.84rem;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  position: relative;
+  padding: 0.35rem 0.65rem;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.36rem;
+  white-space: nowrap !important;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+}
+
+.nav-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.nav-link i {
+  font-size: 0.78rem;
+  opacity: 0.8;
+  color: var(--gold-antique);
+  transition: opacity 0.22s ease, transform 0.22s ease, color 0.22s ease;
+  line-height: 1;
+}
+
+.nav-link::after {
+  display: none;
+}
+
+.nav-link:hover {
+  color: var(--saffron-deep);
+  background: rgba(230, 81, 0, 0.07);
+  border-color: rgba(212, 175, 55, 0.35);
+  transform: translateY(-1px);
+}
+
+.nav-link:hover i {
+  opacity: 1;
+  color: var(--saffron-deep);
+  transform: scale(1.15);
+}
+
+.nav-link.active-link {
+  color: var(--saffron-deep);
+  background: rgba(230, 81, 0, 0.09);
+  border-color: rgba(212, 175, 55, 0.45);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(230, 81, 0, 0.08);
+}
+
+.nav-link.active-link i {
+  opacity: 1;
+  color: var(--gold-antique);
+}
+
+/* Temple Chimes Continuous Sound Button (Shown in Laptop/Desktop Header) */
+.header-chimes-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.48rem 1.1rem;
+  border-radius: 50px;
+  background: rgba(46, 26, 71, 0.05);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  color: var(--midnight-purple);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 2px 10px rgba(46, 26, 71, 0.06);
+  white-space: nowrap;
+  order: 3;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.header-chimes-btn i {
+  font-size: 1.05rem;
+  color: var(--gold-antique);
+  transition: transform 0.3s ease;
+}
+
+.header-chimes-btn:hover {
+  background: #FFFFFF;
+  border-color: var(--gold-base);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
+  transform: translateY(-1px);
+}
+
+.header-chimes-btn:hover i {
+  transform: scale(1.15) rotate(15deg);
+}
+
+.header-chimes-btn:active {
+  transform: scale(0.96);
+}
+
+/* Sound Waves Animation Inside Button */
+.chimes-waves {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+}
+
+.chimes-waves .bar {
+  width: 2.5px;
+  height: 4px;
+  background: var(--gold-antique);
+  border-radius: 2px;
+  transition: height 0.3s ease;
+}
+
+/* Playing State for Desktop Header Chimes Button */
+.header-chimes-btn.playing {
+  background: var(--cta-luxury-gold);
+  color: var(--midnight-purple);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5), 0 4px 14px rgba(230, 81, 0, 0.25);
+  animation: chimesGlow 2.5s infinite alternate;
+}
+
+.header-chimes-btn.playing i {
+  color: var(--midnight-purple);
+}
+
+.header-chimes-btn.playing .chimes-waves .bar {
+  background: var(--midnight-purple);
+  animation: waveBar 0.9s ease-in-out infinite alternate;
+}
+
+.header-chimes-btn.playing .chimes-waves .bar-1 {
+  animation-delay: 0.1s;
+}
+
+.header-chimes-btn.playing .chimes-waves .bar-2 {
+  animation-delay: 0.3s;
+}
+
+.header-chimes-btn.playing .chimes-waves .bar-3 {
+  animation-delay: 0.2s;
+}
+
+@keyframes waveBar {
+  0% { height: 4px; }
+  50% { height: 14px; }
+  100% { height: 7px; }
+}
+
+@keyframes chimesGlow {
+  0% { box-shadow: 0 0 12px rgba(212, 175, 55, 0.35); }
+  100% { box-shadow: 0 0 24px rgba(212, 175, 55, 0.7); }
+}
+
+/* Tank-Tan Bell Button */
+.nav-bell-btn {
+  background: rgba(212, 175, 55, 0.12);
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold-antique);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.15);
+  order: 3;
+}
+
+.nav-bell-btn:hover {
+  background: var(--cta-luxury-gold);
+  color: var(--midnight-purple);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.45);
+  transform: scale(1.08);
+}
+
+.nav-bell-btn:active {
+  transform: scale(0.92);
+}
+
+/* Designer Mobile Hamburger Toggle */
+.designer-toggle {
+  display: none;
+  order: 4;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 3px 12px rgba(46, 26, 71, 0.08);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0;
+  transition: var(--transition-smooth);
+}
+
+.designer-toggle:hover {
+  background: #FFFFFF;
+  border-color: var(--gold-base);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
+}
+
+.designer-toggle .line {
+  width: 20px;
+  height: 2px;
+  background: var(--midnight-purple);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+  transform-origin: center;
+}
+
+.designer-toggle.active {
+  background: #FFFFFF;
+  border-color: var(--saffron-deep);
+}
+
+.designer-toggle.active .line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background: var(--saffron-deep);
+}
+
+.designer-toggle.active .line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.designer-toggle.active .line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background: var(--saffron-deep);
+}
+
+/* ==========================================================================
+   MOBILE SLIDE-IN SIDEBAR DRAWER & OVERLAY
+   ========================================================================== */
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 9, 23, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.mobile-drawer-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 310px;
+  max-width: 86vw;
+  background: linear-gradient(180deg, #1C1128 0%, #2A1740 60%, #150D21 100%);
+  z-index: 1001;
+  transform: translateX(105%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -15px 0 40px rgba(0, 0, 0, 0.5);
+  border-left: 1.5px solid rgba(212, 175, 55, 0.35);
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.5rem;
+  overflow-y: auto;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  margin-bottom: 1.25rem;
+}
+
+.drawer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.drawer-logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--gold-base);
+}
+
+.drawer-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.06em;
+}
+
+.drawer-tagline {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--gold-glow);
+  letter-spacing: 0.15em;
+}
+
+.drawer-close-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #FFFFFF;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.drawer-close-btn:hover {
+  background: var(--vermilion-ritual);
+  border-color: var(--vermilion-ritual);
+}
+
+.drawer-sound-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.drawer-sound-toggle {
+  width: 100%;
+  background: var(--cta-sunset);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  height: 38px;
+  min-height: 38px;
+  padding: 0 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(230, 81, 0, 0.25);
+  transition: var(--transition-smooth);
+}
+
+.drawer-sound-toggle.playing {
+  background: var(--cta-luxury-gold);
+  color: var(--midnight-purple);
+}
+
+.drawer-sound-hint {
+  display: block;
+  font-size: 0.72rem;
+  color: #D1C9DD;
+  text-align: center;
+  margin-top: 0.4rem;
+}
+
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.drawer-link {
+  color: #E2DBEC;
+  font-size: 0.98rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  transition: var(--transition-smooth);
+}
+
+.drawer-link i {
+  color: var(--gold-glow);
+  font-size: 1.05rem;
+  width: 22px;
+  text-align: center;
+}
+
+.drawer-link:hover, .drawer-link:active {
+  background: rgba(212, 175, 55, 0.15);
+  color: #FFFFFF;
+  transform: translateX(4px);
+}
+
+.drawer-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.drawer-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--gold-glow);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  margin-bottom: 0.6rem;
+}
+
+.drawer-mantra {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: #A89FB7;
+}
+
+
+
+
+/* ==========================================================================
+   SACRED BUTTON SYSTEM (Ergonomic, Touch-Friendly, Responsive)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1.3rem;
+  height: 40px;
+  min-height: 40px;
+  border-radius: 50px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.btn i {
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform 0.22s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Primary Sunset Button */
+.btn-primary {
+  background: var(--cta-sunset);
+  color: var(--text-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(230, 81, 0, 0.24), 0 2px 6px rgba(212, 175, 55, 0.2);
+}
+
+.btn-primary:hover {
+  background: var(--cta-sunset-hover);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 18px rgba(230, 81, 0, 0.32), 0 3px 10px rgba(212, 175, 55, 0.3);
+  color: var(--text-white);
+}
+
+.btn-primary:active {
+  transform: scale(0.97) translateY(0);
+  box-shadow: 0 2px 8px rgba(230, 81, 0, 0.28);
+}
+
+/* Secondary Gold Highlight Button */
+.btn-secondary {
+  background: var(--cta-luxury-gold);
+  color: var(--midnight-purple);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-secondary:hover {
+  background: var(--cta-luxury-hover);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.38);
+  color: var(--midnight-purple);
+}
+
+.btn-secondary:active {
+  transform: scale(0.97) translateY(0);
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.28);
+}
+
+/* Outlined Glass Button */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.2px solid rgba(212, 175, 55, 0.45);
+  color: var(--midnight-purple);
+  box-shadow: 0 2px 8px rgba(46, 26, 71, 0.04);
+}
+
+.btn-glass:hover {
+  background: #FFFFFF;
+  border-color: var(--gold-base);
+  color: var(--saffron-deep);
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.2);
+}
+
+.btn-glass:active {
+  transform: scale(0.97) translateY(0);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Dark Section Glass Button (Diya Sankalpa) */
+.diya-sankalpa-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #FFFFFF !important;
+  border: 1.2px solid rgba(212, 175, 55, 0.5) !important;
+}
+
+.diya-sankalpa-btn:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: var(--gold-glow) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.35) !important;
+}
+
+/* Form Submit Slim Button */
+.form-submit-btn {
+  width: 100%;
+  height: 42px;
+  min-height: 42px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-open {
+  background: var(--badge-open-bg);
+  color: var(--badge-open-text);
+  border: 1px solid rgba(76, 175, 80, 0.25);
+}
+
+.badge-notice {
+  background: var(--badge-notice-bg);
+  color: var(--badge-notice-text);
+  border: 1px solid rgba(255, 152, 0, 0.25);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.pulse-dot.emerald {
+  background: var(--badge-open-dot);
+  box-shadow: 0 0 0 rgba(76, 175, 80, 0.4);
+  animation: pulseGreen 1.8s infinite;
+}
+
+.pulse-dot.amber {
+  background: var(--badge-notice-dot);
+  box-shadow: 0 0 0 rgba(255, 152, 0, 0.4);
+  animation: pulseAmber 1.8s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(76, 175, 80, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+
+@keyframes pulseAmber {
+  0% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(255, 152, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0); }
+}
+
+/* Glassmorphism Card System */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sacred);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+/* Section Header Structure */
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212, 175, 55, 0.14);
+  color: var(--saffron-deep);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  margin-bottom: 0.85rem;
+}
+
+.section-tag i {
+  color: var(--gold-base);
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-top: 0.65rem;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+  padding: 3.5rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge-wrap {
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-title {
+  margin-bottom: 1.25rem;
+}
+
+.hero-title span.spark {
+  color: var(--gold-base);
+  font-style: italic;
+  display: inline-block;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.15rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(74, 48, 109, 0.12);
+  align-items: stretch;
+}
+
+.hero-stat-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 14px;
+  padding: 0.85rem 0.95rem;
+  transition: var(--transition-smooth);
+}
+
+.hero-stat-item:hover {
+  background: #FFFFFF;
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 4px 16px rgba(46, 26, 71, 0.08);
+  transform: translateY(-2px);
+}
+
+.hero-stat-item h4,
+.hero-stat-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.85vw, 1.6rem);
+  font-weight: 700;
+  color: var(--midnight-purple);
+  line-height: 1.2;
+  white-space: nowrap !important; /* CRITICAL: Never break '7' and 'Centers' across 2 lines */
+  margin: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.hero-stat-title .stat-number {
+  font-weight: 800;
+  color: var(--midnight-purple);
+  letter-spacing: -0.01em;
+}
+
+.hero-stat-title .stat-label {
+  font-weight: 600;
+  font-size: 0.88em;
+  color: var(--royal-purple);
+}
+
+.hero-stat-item p {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  margin-top: 0.35rem;
+  line-height: 1.35;
+}
+
+/* Hero Visual Card */
+.hero-visual-card {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px -15px rgba(46, 26, 71, 0.3), 0 0 40px rgba(212, 175, 55, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.hero-visual-card img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.hero-visual-card:hover img {
+  transform: scale(1.03);
+}
+
+/* Floating Aura Cards on Hero */
+.floating-aura-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 25px rgba(28, 17, 40, 0.15);
+}
+
+.floating-aura-info {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.floating-aura-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--cta-sunset);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: 0 0 15px rgba(230, 81, 0, 0.4);
+}
+
+.floating-aura-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--midnight-purple);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.floating-aura-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.chakra-dots-row {
+  display: flex;
+  gap: 6px;
+}
+
+.chakra-pill-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* ==========================================================================
+   DAILY SANCTUM & LIVE TEMPLE TIMINGS (Status Badges Feature)
+   ========================================================================== */
+.sanctum-strip {
+  padding: 2.5rem 0;
+  position: relative;
+  z-index: 5;
+}
+
+.timings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.timing-card {
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.timing-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timing-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--saffron-deep);
+  font-size: 1.2rem;
+}
+
+.timing-title {
+  font-size: 1.15rem;
+  color: var(--midnight-purple);
+  font-weight: 700;
+}
+
+.timing-hours {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   7 CHAKRAS SYSTEM INTERACTIVE EXPLORER
+   ========================================================================== */
+.chakras-section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.chakra-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Chakra Navigation List */
+.chakra-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.chakra-nav-btn {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition-smooth);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.chakra-nav-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: transparent;
+  transition: var(--transition-smooth);
+}
+
+.chakra-nav-btn:hover {
+  background: #FFFFFF;
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateX(4px);
+}
+
+.chakra-nav-btn.active {
+  background: #FFFFFF;
+  border-color: var(--gold-base);
+  box-shadow: 0 10px 24px rgba(46, 26, 71, 0.1), 0 0 20px rgba(212, 175, 55, 0.2);
+  transform: translateX(6px);
+}
+
+.chakra-nav-btn.active::before {
+  background: var(--chakra-color, var(--gold-base));
+}
+
+.chakra-symbol-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Number shown by default */
+.chakra-icon-num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* OM symbol hidden by default, visible on hover/active */
+.chakra-icon-om {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  opacity: 0;
+  transform: scale(0.6) rotate(-15deg);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.chakra-nav-btn:hover .chakra-icon-num,
+.chakra-nav-btn.active .chakra-icon-num {
+  opacity: 0;
+  transform: scale(0.6) rotate(15deg);
+}
+
+.chakra-nav-btn:hover .chakra-icon-om,
+.chakra-nav-btn.active .chakra-icon-om {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  animation: omPulse 2s ease-in-out infinite;
+}
+
+@keyframes omPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.12) rotate(8deg); opacity: 0.85; }
+}
+
+.chakra-nav-meta {
+  flex-grow: 1;
+}
+
+.chakra-nav-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--midnight-purple);
+  line-height: 1.2;
+}
+
+.chakra-nav-sanskrit {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.chakra-nav-location {
+  font-size: 0.78rem;
+  color: var(--gold-antique);
+  font-weight: 600;
+}
+
+/* Active Chakra Display Card */
+.chakra-display-card {
+  padding: 3rem;
+  min-height: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chakra-display-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(74, 48, 109, 0.1);
+  padding-bottom: 1.75rem;
+}
+
+.chakra-display-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.chakra-big-badge {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  box-shadow: 0 0 30px currentColor;
+  position: relative;
+}
+
+.chakra-big-badge::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px dashed rgba(212, 175, 55, 0.5);
+  animation: rotateDisc 20s linear infinite;
+}
+
+@keyframes rotateDisc {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.chakra-display-name {
+  font-size: 2.2rem;
+  color: var(--midnight-purple);
+  line-height: 1.1;
+}
+
+.chakra-display-sanskrit {
+  font-size: 1.1rem;
+  color: var(--gold-antique);
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.chakra-freq-badge {
+  background: rgba(46, 26, 71, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  text-align: right;
+}
+
+.chakra-freq-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+.chakra-freq-val {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--midnight-purple);
+  white-space: nowrap;
+}
+
+.chakra-description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Chakra Specs Grid */
+.chakra-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.chakra-spec-box {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  transition: var(--transition-smooth);
+}
+
+.chakra-spec-box:hover {
+  background: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+}
+
+.chakra-spec-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.chakra-spec-val {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--midnight-purple);
+  margin-top: 0.3rem;
+}
+
+/* Affirmation Quote Box */
+.chakra-affirmation {
+  background: linear-gradient(135deg, rgba(240, 234, 248, 0.8) 0%, rgba(251, 229, 245, 0.8) 100%);
+  border-left: 4px solid var(--gold-base);
+  border-radius: 0 14px 14px 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--royal-purple);
+}
+
+.chakra-affirmation strong {
+  display: block;
+  font-size: 0.78rem;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--saffron-deep);
+  margin-bottom: 0.3rem;
+}
+
+/* Chakra Audio Healing Action */
+.chakra-action-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(74, 48, 109, 0.1);
+}
+
+/* ==========================================================================
+   SPIRITUAL SERVICES & SANCTUARY OFFERINGS
+   ========================================================================== */
+.services-section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-img-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.service-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-img-wrap img {
+  transform: scale(1.06);
+}
+
+.service-tag-overlay {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(28, 17, 40, 0.8);
+  backdrop-filter: blur(10px);
+  color: var(--gold-glow);
+  padding: 0.3rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.service-content {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-title {
+  margin-bottom: 0.75rem;
+}
+
+.service-desc {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.service-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(74, 48, 109, 0.1);
+}
+
+.service-time {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* ==========================================================================
+   VIRTUAL SACRED DIYA & TEMPLE BLESSINGS (Interactive Feature)
+   ========================================================================== */
+.diya-section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.diya-banner-card {
+  background: linear-gradient(135deg, #1C1128 0%, #2E1A47 60%, #4A306D 100%);
+  color: var(--text-light);
+  border-radius: 28px;
+  padding: 3.5rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 25px 60px rgba(28, 17, 40, 0.4), 0 0 40px rgba(212, 175, 55, 0.2);
+}
+
+.diya-banner-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.diya-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  align-items: center;
+  gap: 3.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.diya-banner-card h2 {
+  color: #FFFFFF;
+}
+
+.diya-banner-card p {
+  color: #D1C9DD;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Diya Lamp Interactive Vessel */
+.diya-vessel-wrap {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.diya-flame-container {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.diya-flame-container:hover {
+  transform: scale(1.05);
+}
+
+.flame-particle {
+  width: 44px;
+  height: 70px;
+  background: linear-gradient(to top, #E65100, #FF9800, #FDE68A);
+  border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
+  position: absolute;
+  left: 50%;
+  top: 15px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 35px #FF9800, 0 0 60px #E65100;
+  animation: flicker 1.4s ease-in-out infinite alternate;
+  transform-origin: 50% 90%;
+  transition: opacity 0.5s ease;
+}
+
+.flame-particle.off {
+  opacity: 0;
+  box-shadow: none;
+}
+
+@keyframes flicker {
+  0% { transform: translateX(-50%) rotate(-2deg) scale(1); }
+  50% { transform: translateX(-50%) rotate(3deg) scale(1.08, 0.95); }
+  100% { transform: translateX(-50%) rotate(-1deg) scale(0.96, 1.04); }
+}
+
+.diya-clay-base {
+  width: 120px;
+  height: 48px;
+  background: linear-gradient(to bottom, #B3861B, #72500C);
+  border-radius: 0 0 60px 60px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: inset 0 4px 8px rgba(255, 255, 255, 0.25), 0 10px 20px rgba(0, 0, 0, 0.4);
+  border-top: 3px solid #D4AF37;
+}
+
+.diya-counter-wrap {
+  font-size: 0.95rem;
+  color: var(--gold-glow);
+  margin-top: 1rem;
+}
+
+.diya-counter-num {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: block;
+}
+
+/* ==========================================================================
+   CHAKRA BALANCE QUICK SELF-ASSESSMENT QUIZ
+   ========================================================================== */
+.quiz-section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.quiz-card {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.quiz-question-box {
+  margin-bottom: 2rem;
+}
+
+.quiz-step-indicator {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--saffron-deep);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-question-title {
+  font-size: 1.45rem;
+  color: var(--midnight-purple);
+  margin-bottom: 1.5rem;
+}
+
+.quiz-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.quiz-option-btn {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid rgba(74, 48, 109, 0.12);
+  border-radius: 14px;
+  padding: 1.1rem 1.4rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  text-align: left;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.quiz-option-btn:hover {
+  background: #FFFFFF;
+  border-color: var(--gold-base);
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.2);
+  transform: translateX(4px);
+}
+
+.quiz-option-btn.selected {
+  background: #FFFFFF;
+  border-color: var(--saffron-deep);
+  box-shadow: 0 6px 20px rgba(230, 81, 0, 0.2);
+  font-weight: 600;
+}
+
+.quiz-option-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.quiz-option-btn.selected .quiz-option-circle {
+  border-color: var(--saffron-deep);
+  background: var(--saffron-deep);
+}
+
+.quiz-option-btn.selected .quiz-option-circle::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FFFFFF;
+}
+
+/* Quiz Result Modal / Box */
+.quiz-result-box {
+  display: none;
+  text-align: center;
+  padding: 2rem 1rem;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.quiz-result-aura-circle {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: #fff;
+  box-shadow: 0 0 35px currentColor;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   SACRED LINKS & SPIRITUAL RESOURCE HUB
+   ========================================================================== */
+.resources-section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.resource-card {
+  padding: 1.75rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--glass-border);
+}
+
+.resource-card:hover {
+  text-decoration: none;
+}
+
+.resource-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.resource-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(46, 26, 71, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--midnight-purple);
+  font-size: 1.3rem;
+  transition: var(--transition-smooth);
+}
+
+.resource-card:hover .resource-icon {
+  background: var(--cta-sunset);
+  color: #FFFFFF;
+  border-color: transparent;
+  transform: rotate(6deg);
+}
+
+.resource-title {
+  font-size: 1.15rem;
+  color: var(--midnight-purple);
+  font-weight: 700;
+}
+
+.resource-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.resource-arrow {
+  color: var(--saffron-deep);
+  font-weight: 600;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.25s ease;
+}
+
+.resource-card:hover .resource-arrow {
+  gap: 0.75rem;
+  color: var(--gold-antique);
+}
+
+/* ==========================================================================
+   SACRED FORMS & INPUT DESIGN SYSTEM
+   ========================================================================== */
+.form-group {
+  margin-bottom: 1.15rem;
+  position: relative;
+  width: 100%;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--midnight-purple);
+  margin-bottom: 0.45rem;
+  font-family: var(--font-sans);
+}
+
+.form-label i {
+  color: var(--gold-antique);
+  font-size: 0.9rem;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-with-icon i {
+  position: absolute;
+  left: 1.1rem;
+  color: var(--gold-antique);
+  font-size: 0.95rem;
+  pointer-events: none;
+  transition: var(--transition-smooth);
+  z-index: 2;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  color: var(--midnight-purple);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(46, 26, 71, 0.04);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  box-sizing: border-box;
+}
+
+.input-with-icon .form-input {
+  padding-left: 2.75rem;
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+  color: #8E849E;
+  font-size: 0.92rem;
+}
+
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  background: #FFFFFF;
+  border-color: var(--gold-base);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35), 0 4px 12px rgba(46, 26, 71, 0.08);
+}
+
+.input-with-icon:focus-within i {
+  color: var(--saffron-deep);
+  transform: scale(1.1);
+}
+
+.form-textarea {
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Dark Theme Form Inputs (For Footer & Dark Cards) */
+.form-input-dark {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.form-input-dark::placeholder {
+  color: #A89FB7;
+}
+
+.form-input-dark:focus {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--gold-glow);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+  color: #FFFFFF;
+}
+
+.footer-blessing-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   SANCTUARY PILGRIMAGE ADDRESS & CONNECT SECTION
+   ========================================================================== */
+.connect-section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.connect-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+.connect-info-card {
+  padding: 2.75rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(240, 234, 248, 0.92) 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  border-radius: 24px;
+}
+
+.connect-address-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1.75rem 0;
+}
+
+.connect-address-item {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+}
+
+.connect-address-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: var(--cta-luxury-gold);
+  color: var(--midnight-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  margin-top: 2px;
+}
+
+.connect-address-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--midnight-purple);
+  margin-bottom: 0.25rem;
+}
+
+.connect-address-text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.connect-address-text a {
+  color: var(--saffron-deep);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.connect-address-text a:hover {
+  color: var(--gold-antique);
+  text-decoration: underline;
+}
+
+.connect-form-card {
+  padding: 2.75rem 2.5rem;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  border-radius: 24px;
+  box-shadow: 0 15px 40px -10px rgba(46, 26, 71, 0.1);
+}
+
+.connect-form-header {
+  margin-bottom: 1.75rem;
+}
+
+.connect-form-header h3 {
+  font-size: 1.6rem;
+  color: var(--midnight-purple);
+  margin-bottom: 0.35rem;
+}
+
+.connect-form-header p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   SACRED SANCTUARY FOOTER
+   ========================================================================== */
+.site-footer {
+  background: var(--ultra-dark);
+  color: #D1C9DD;
+  padding: 5rem 0 2rem;
+  position: relative;
+  border-top: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.footer-brand .brand-title {
+  color: #FFFFFF;
+}
+
+.footer-desc {
+  color: #A89FB7;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 1.2rem 0 1.5rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.footer-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--gold-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.footer-social-btn:hover {
+  background: var(--gold-base);
+  color: var(--ultra-dark);
+  border-color: var(--gold-glow);
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.footer-title {
+  font-family: var(--font-heading);
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 35px;
+  height: 2px;
+  background: var(--gold-base);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links a {
+  color: #A89FB7;
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer-links a:hover {
+  color: var(--gold-glow);
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #827A91;
+}
+
+/* ==========================================================================
+   SACRED TOAST BLESSING NOTIFICATION
+   ========================================================================== */
+.toast-blessing {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--ultra-midnight);
+  color: #fff;
+  border-left: 4px solid var(--gold-base);
+  border-radius: 14px;
+  padding: 1.1rem 1.6rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.25);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 440px;
+  transform: translateY(120px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+}
+
+.toast-blessing.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (All Screen Sizes)
+   ========================================================================== */
+@media (max-width: 1240px) {
+  .nav-menu {
+    gap: 0.25rem;
+  }
+  .nav-link {
+    font-size: 0.83rem;
+    padding: 0.35rem 0.65rem;
+  }
+  .header-chimes-btn {
+    padding: 0.42rem 0.85rem;
+    font-size: 0.84rem;
+    gap: 0.45rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .nav-menu {
+    gap: 0.15rem;
+  }
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.55rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .hero-badge-wrap, .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    gap: 0.85rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .hero-stat-item {
+    align-items: center;
+    text-align: center;
+    padding: 0.8rem 0.6rem;
+  }
+
+  .hero-stat-title {
+    justify-content: center;
+    white-space: nowrap !important;
+  }
+
+  .hero-visual-card {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .chakra-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .diya-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .diya-flame-container {
+    margin: 0 auto 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   IPAD & TABLET (PAD SIZE: 768px - 1260px): ICON-ONLY HEADER NAVIGATION
+   Only icons remain, text names removed to fit strictly on 1 row without overflow.
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1260px) {
+  .site-header .container {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  .navbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.5rem !important;
+    padding: 0.55rem 0 !important;
+    min-height: 60px !important;
+    width: 100%;
+  }
+
+  /* Brand Logo & Title on Left */
+  .brand {
+    order: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    text-align: left !important;
+  }
+
+  .brand-logo-img {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+
+  .brand-text-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .brand-title {
+    font-size: 1.15rem !important;
+    line-height: 1 !important;
+  }
+
+  .brand-tagline {
+    font-size: 0.52rem !important;
+    letter-spacing: 0.08em !important;
+    display: block !important;
+  }
+
+  /* Nav Menu Centered with Strictly Icons Only */
+  .nav-menu {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.38rem !important;
+    order: 2 !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    list-style: none !important;
+    flex: 0 1 auto !important;
+    white-space: nowrap !important;
+  }
+
+  /* REMOVE / HIDE LINK NAMES - KEEP ONLY ICONS IN PAD SIZE */
+  .nav-text {
+    display: none !important;
+  }
+
+  /* Luxury Circular Touch-Friendly Icon Buttons for iPad */
+  .nav-link {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    background: rgba(46, 26, 71, 0.04) !important;
+    border: 1px solid rgba(212, 175, 55, 0.28) !important;
+    color: var(--midnight-purple) !important;
+    transition: var(--transition-smooth) !important;
+    position: relative !important;
+    box-shadow: 0 2px 6px rgba(46, 26, 71, 0.04) !important;
+  }
+
+  .nav-link i {
+    font-size: 0.92rem !important;
+    color: var(--gold-antique) !important;
+    opacity: 0.9 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    transition: transform 0.22s ease, color 0.22s ease !important;
+  }
+
+  .nav-link:hover {
+    background: rgba(230, 81, 0, 0.1) !important;
+    border-color: var(--saffron-deep) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(230, 81, 0, 0.18) !important;
+  }
+
+  .nav-link:hover i {
+    color: var(--saffron-deep) !important;
+    transform: scale(1.18) !important;
+  }
+
+  .nav-link.active-link {
+    background: var(--cta-luxury-gold) !important;
+    border-color: #FFFFFF !important;
+    box-shadow: 0 3px 12px rgba(212, 175, 55, 0.4) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .nav-link.active-link i {
+    color: var(--midnight-purple) !important;
+    opacity: 1 !important;
+  }
+
+  /* Bell Chime Button on Right */
+  .nav-bell-btn {
+    order: 3 !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    font-size: 0.9rem !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    display: inline-flex !important;
+  }
+
+  /* Hide mobile hamburger toggle on iPad / Pad view */
+  .designer-toggle {
+    display: none !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .hero-badge-wrap, .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    gap: 0.85rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .hero-stat-item {
+    align-items: center;
+    text-align: center;
+    padding: 0.8rem 0.6rem;
+  }
+
+  .hero-stat-title {
+    justify-content: center;
+    white-space: nowrap !important;
+  }
+
+  .hero-visual-card {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .chakra-layout {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  /* Responsive Horizontal Chakra Selector Pill Bar for Mobile/Tablet */
+  .chakra-nav-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.35rem 0.25rem 0.85rem;
+    gap: 0.65rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-base) rgba(255, 255, 255, 0.3);
+  }
+
+  .chakra-nav-list::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .chakra-nav-list::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #D4AF37, #E65100);
+    border-radius: 10px;
+  }
+
+  .chakra-nav-btn {
+    flex: 0 0 auto;
+    width: auto;
+    min-height: 42px;
+    padding: 0.5rem 0.85rem;
+    border-radius: 50px;
+    gap: 0.5rem;
+    scroll-snap-align: start;
+    box-shadow: 0 3px 12px rgba(46, 26, 71, 0.1);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+  }
+
+  .chakra-nav-btn::before {
+    display: none;
+  }
+
+  .chakra-nav-btn.active {
+    transform: translateY(-2px);
+    border-color: var(--chakra-color, var(--gold-base));
+    box-shadow: 0 4px 16px rgba(46, 26, 71, 0.14);
+  }
+
+  .chakra-symbol-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  .chakra-icon-num,
+  .chakra-icon-om {
+    font-size: 0.82rem;
+  }
+
+  .chakra-nav-name {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .chakra-nav-sanskrit, .chakra-nav-location {
+    display: none;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .connect-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   MOBILE PHONES (<= 767px): HAMBURGER TOGGLE & FULL SLIDE DRAWER
+   ========================================================================== */
+@media (max-width: 767px) {
+  .site-header {
+    padding: 0;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 0 !important;
+    min-height: 64px !important;
+    gap: 0.5rem;
+    position: relative;
+    width: 100%;
+  }
+
+  /* 1. LEFT SIDE: Sacred Bell Button */
+  .nav-bell-btn {
+    order: 1 !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.95rem !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    background: rgba(212, 175, 55, 0.12) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+    color: var(--gold-antique) !important;
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.18) !important;
+    cursor: pointer;
+  }
+
+  /* 2. CENTER: Brand Logo & Title */
+  .brand {
+    order: 2 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    flex: 1 !important;
+    text-align: center !important;
+    text-decoration: none;
+    max-width: calc(100% - 95px) !important;
+  }
+
+  .brand-logo-img {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 1.2px solid var(--gold-base) !important;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.35) !important;
+    flex-shrink: 0 !important;
+  }
+
+  .brand-text-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    line-height: 1 !important;
+  }
+
+  .brand-title {
+    font-family: var(--font-heading) !important;
+    font-size: 1.18rem !important;
+    font-weight: 700 !important;
+    color: var(--midnight-purple) !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .brand-tagline {
+    display: none !important;
+  }
+
+  /* 3. RIGHT SIDE: Designer Toggle Button */
+  .designer-toggle {
+    order: 3 !important;
+    display: flex !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    border-radius: 12px !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+    box-shadow: 0 3px 14px rgba(46, 26, 71, 0.1) !important;
+  }
+
+  .designer-toggle .line {
+    width: 18px !important;
+    height: 2px !important;
+  }
+
+  .nav-menu {
+    display: none !important;
+  }
+
+  .header-chimes-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-topbar {
+    padding: 0.32rem 0;
+  }
+
+  .topbar-mantra, .topbar-divider {
+    display: none;
+  }
+
+  .topbar-status-text {
+    font-size: 0.74rem;
+  }
+
+  .topbar-chimes-btn {
+    padding: 0.22rem 0.65rem;
+    font-size: 0.74rem;
+    gap: 0.35rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .navbar {
+    padding: 0.88rem 0 !important;
+    min-height: 64px !important;
+    gap: 0.45rem;
+  }
+
+  .nav-bell-btn {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    font-size: 0.95rem !important;
+  }
+
+  .brand-logo-img {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+  }
+
+  .brand-title {
+    font-size: 1.15rem !important;
+  }
+
+  .designer-toggle {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+  }
+
+  .hero-section {
+    padding: 2rem 0 3.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.3rem);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  /* All Buttons in Hero Section: Full width, Touch Friendly, Centered */
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    padding: 0 1.15rem;
+    font-size: 0.86rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important;
+    padding-top: 1.25rem !important;
+  }
+
+  .hero-stat-item {
+    padding: 0.65rem 0.35rem !important;
+    border-radius: 12px !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .hero-stat-title {
+    font-size: clamp(0.95rem, 3.4vw, 1.2rem) !important;
+    white-space: nowrap !important;
+    justify-content: center !important;
+  }
+
+  .hero-stat-item p {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.2 !important;
+    margin-top: 0.2rem !important;
+  }
+
+  .hero-visual-card img {
+    height: 340px;
+  }
+
+  .floating-aura-badge {
+    position: relative;
+    inset: auto;
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .chakra-display-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 18px;
+  }
+
+  .chakra-display-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .chakra-freq-badge {
+    text-align: left;
+    width: 100%;
+  }
+
+  .chakra-specs-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Chakra Action Buttons: Full width & perfectly responsive slim */
+  .chakra-action-bar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+  }
+
+  .chakra-action-bar .btn {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    padding: 0 1.15rem;
+    font-size: 0.86rem;
+  }
+
+  .diya-banner-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .diya-counter-num {
+    font-size: 1.8rem;
+  }
+
+  /* Diya Action Buttons: Full width & touch friendly slim */
+  .diya-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+  }
+
+  .diya-actions .btn {
+    width: 100% !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 1.15rem !important;
+    font-size: 0.86rem !important;
+  }
+
+  /* Offerings Service Card Buttons: Full width & aligned slim */
+  .service-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .service-footer .btn {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    padding: 0 1.15rem;
+    font-size: 0.86rem;
+  }
+
+  .service-footer .service-time {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 0.82rem;
+  }
+
+  .quiz-card {
+    padding: 1.5rem 1rem;
+    border-radius: 18px;
+  }
+
+  .quiz-question-title {
+    font-size: 1.2rem;
+  }
+
+  /* Quiz Option Buttons */
+  .quiz-options-list {
+    gap: 0.75rem;
+  }
+
+  .quiz-option-btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 14px;
+    min-height: 44px;
+    gap: 0.75rem;
+  }
+
+  /* Quiz Result Buttons */
+  .quiz-result-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+  }
+
+  .quiz-result-actions .btn {
+    width: 100% !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 1.15rem !important;
+    font-size: 0.86rem !important;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glass-card {
+    padding: 1.25rem;
+  }
+
+  .connect-info-card, .connect-form-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .connect-form-header h3 {
+    font-size: 1.35rem;
+  }
+
+  .footer-blessing-card {
+    padding: 1.25rem 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .navbar {
+    padding: 0.75rem 0 !important;
+    min-height: 58px !important;
+    gap: 0.35rem;
+  }
+
+  .nav-bell-btn {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .brand {
+    gap: 0.35rem !important;
+    max-width: calc(100% - 80px) !important;
+  }
+
+  .brand-logo-img {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+  }
+
+  .brand-title {
+    font-size: 1.08rem !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  .designer-toggle {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+  }
+
+  .designer-toggle .line {
+    width: 15px !important;
+  }
+
+  /* Compact slim button padding on small screens */
+  .btn {
+    padding: 0 1rem !important;
+    font-size: 0.84rem !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    gap: 0.45rem !important;
+  }
+
+  .hero-actions .btn, 
+  .chakra-action-bar .btn, 
+  .diya-actions .btn, 
+  .service-footer .btn, 
+  .quiz-result-actions .btn,
+  .form-submit-btn {
+    height: 38px !important;
+    min-height: 38px !important;
+    padding: 0 1rem !important;
+    font-size: 0.84rem !important;
+  }
+
+  .quiz-option-btn {
+    padding: 0.7rem 0.9rem !important;
+    font-size: 0.86rem !important;
+    min-height: 42px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-title {
+    font-size: 0.92rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .brand-logo-img {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+  }
+
+  .nav-bell-btn {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .designer-toggle {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+
+  .hero-stats {
+    gap: 0.35rem !important;
+  }
+
+  .hero-stat-item {
+    padding: 0.5rem 0.25rem !important;
+  }
+
+  .hero-stat-title {
+    font-size: 0.85rem !important;
+  }
+
+  .hero-stat-item p {
+    font-size: 0.56rem !important;
+    letter-spacing: 0 !important;
+  }
+
+  .btn {
+    font-size: 0.82rem !important;
+    padding: 0 0.85rem !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    gap: 0.4rem !important;
+  }
+
+  .hero-actions .btn, 
+  .chakra-action-bar .btn, 
+  .diya-actions .btn, 
+  .service-footer .btn, 
+  .quiz-result-actions .btn,
+  .form-submit-btn {
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 0.85rem !important;
+    font-size: 0.82rem !important;
+  }
+}
+
