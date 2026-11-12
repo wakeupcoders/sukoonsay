@@ -1,9 +1,9 @@
-# Main Sakoonsay (Unified Sanctuary)
+# Sukoonsay (Unified Sanctuary)
 
 > **Where Modern Psychiatric Science Meets Eternal Temple Peace**
 
-**Main Sakoonsay** is the grand unified single-page portal built in **Angular 21** that bridges two specialized sister sanctuaries:
-1. **Sakoonsay Sanctuary (Clinical Psychiatry & Mental Health)**: Running on `http://localhost:3000`
+**Sukoonsay** is the grand unified single-page portal built in **Angular 21** that bridges two specialized sister sanctuaries:
+1. **Sukoonsay Sanctuary (Clinical Psychiatry & Mental Health)**: Running on `http://localhost:3000`
 2. **Sakoon-Temple (Spiritual Awakening & Vedic Darshan)**: Running on `http://localhost:4200`
 
 ---
@@ -33,7 +33,7 @@ Built strictly according to the specified sacred color palette:
 ## 🌟 Key Features
 
 1. **The Two Master Portal Showcase Cards**:
-   - **Card 1: Sakoonsay Psychiatrist & Mental Health Platform** (Doctor consultations, CBT, trauma recovery, burnout treatment, couples counseling) -> Direct link to `http://localhost:3000`.
+   - **Card 1: Sukoonsay Psychiatrist & Mental Health Platform** (Doctor consultations, CBT, trauma recovery, burnout treatment, couples counseling) -> Direct link to `http://localhost:3000`.
    - **Card 2: Sakoon-Temple Spiritual Sanctum** (Live darshan, virtual diya lighting, 7 Chakras energy alignment, sacred havan, Vedic astrology) -> Direct link to `http://localhost:4200`.
 
 2. **Human Stress & Problem Solving Center**:
@@ -75,7 +75,7 @@ npm start
 Starts `ng serve --port 4300`.
 
 ### Running the Sister Websites Simultaneously:
-- **Sakoonsay (Psychiatrist)**:
+- **Sukoonsay (Psychiatrist)**:
   ```bash
   cd d:\Sakoonsay
   node server.js

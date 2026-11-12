@@ -541,8 +541,8 @@ export class AppComponent implements OnInit, OnDestroy {
       name: 'Dr. Rajesh Sharma',
       location: 'New Delhi',
       problem: 'Severe Clinical Burnout & Panic at Work',
-      solution: 'Sakoonsay CBT Therapy + 432 Hz Solfeggio',
-      quote: 'I was on the verge of quitting my medical career due to crippling panic. Combining Sakoonsay clinical psychiatric therapy with evening temple sound healing gave me back my sanity.',
+      solution: 'Sukoonsay CBT Therapy + 432 Hz Solfeggio',
+      quote: 'I was on the verge of quitting my medical career due to crippling panic. Combining Sukoonsay clinical psychiatric therapy with evening temple sound healing gave me back my sanity.',
       avatarText: 'RS',
       rating: 5
     },
@@ -551,7 +551,7 @@ export class AppComponent implements OnInit, OnDestroy {
       location: 'Mumbai',
       problem: 'Devastating Breakup & Insomnia',
       solution: 'Sakoon-Temple Anahata Puja + Psychiatrist Counseling',
-      quote: 'I couldn’t sleep for 4 months. The dual approach of Main Sakoonsay—talking to a clinical therapist while also lighting virtual temple diyas and healing my heart chakra—restored my smile.',
+      quote: 'I couldn’t sleep for 4 months. The dual approach of Sukoonsay—talking to a clinical therapist while also lighting virtual temple diyas and healing my heart chakra—restored my smile.',
       avatarText: 'AD',
       rating: 5
     },
@@ -763,7 +763,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   copyMantra() {
-    const text = `"${this.currentMantra().sanskrit}" - ${this.currentMantra().meaning} (From Sakoonsay)`;
+    const text = `"${this.currentMantra().sanskrit}" - ${this.currentMantra().meaning} (From Sukoonsay)`;
     navigator.clipboard.writeText(text).then(() => {
       this.copiedAlert.set(true);
       setTimeout(() => this.copiedAlert.set(false), 2500);

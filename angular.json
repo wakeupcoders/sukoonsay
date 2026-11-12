@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "main-sakoonsay": {
+    "sukoonsay": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -54,10 +54,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "main-sakoonsay:build:production"
+              "buildTarget": "sukoonsay:build:production"
             },
             "development": {
-              "buildTarget": "main-sakoonsay:build:development"
+              "buildTarget": "sukoonsay:build:development"
             }
           },
           "defaultConfiguration": "development"

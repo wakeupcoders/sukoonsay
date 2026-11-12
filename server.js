@@ -1,4 +1,4 @@
-// Zero-Dependency Production Static Server for Main Sakoonsay
+// Zero-Dependency Production Static Server for Sukoonsay
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -28,7 +28,9 @@ if (fs.existsSync(envPath)) {
 }
 
 const PORT = process.env.PORT || 4300;
-const DIST_DIR = path.join(__dirname, 'dist', 'main-sakoonsay', 'browser');
+const DIST_DIR = fs.existsSync(path.join(__dirname, 'dist', 'sukoonsay', 'browser'))
+  ? path.join(__dirname, 'dist', 'sukoonsay', 'browser')
+  : path.join(__dirname, 'dist', 'main-sakoonsay', 'browser');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -80,7 +82,7 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`\n✨ ======================================================== ✨`);
-  console.log(`🌸 SAKOONSAY - UNIFIED SACRED SANCTUARY`);
+  console.log(`🌸 SUKOONSAY - UNIFIED SACRED SANCTUARY`);
   console.log(`🌐 Server running serenely at: http://localhost:${PORT}`);
   console.log(`🌐 Direct IPv4 URL: http://127.0.0.1:${PORT}`);
   console.log(`✨ ======================================================== ✨\n`);
