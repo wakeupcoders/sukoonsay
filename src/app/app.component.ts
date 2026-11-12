@@ -285,6 +285,10 @@ export class AppComponent implements OnInit, OnDestroy {
   dailyMantraIndex = signal<number>(0);
   copiedAlert = signal<boolean>(false);
 
+  // Distinct Motive Preloader State
+  isInitialLoading = signal<boolean>(true);
+  isFadingOut = signal<boolean>(false);
+
   // Mobile Responsive Drawer State
   mobileMenuOpen = signal<boolean>(false);
 
@@ -577,7 +581,13 @@ export class AppComponent implements OnInit, OnDestroy {
   });
 
   ngOnInit() {
-    // Keep ambient state ready
+    // Elegant sanctuary initial load fade-out
+    setTimeout(() => {
+      this.isFadingOut.set(true);
+      setTimeout(() => {
+        this.isInitialLoading.set(false);
+      }, 600);
+    }, 1100);
   }
 
   ngOnDestroy() {

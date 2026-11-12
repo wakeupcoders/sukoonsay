@@ -943,3 +943,152 @@ function scrollChakraPillIntoView(chakraId) {
   const scrollLeft = navList.scrollLeft + btnRect.left - listRect.left - (listRect.width / 2) + (btnRect.width / 2);
   navList.scrollTo({ left: scrollLeft, behavior: 'smooth' });
 }
+
+/* ==========================================================================
+   9. NEURO-CLINICAL PSYCHIATRY PRELOADER CONTROLLER
+   ========================================================================== */
+function initPsychiatryPreloader() {
+  const preloader = document.getElementById('psychiatryPreloader');
+  if (!preloader) return;
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 600);
+    }, 1000);
+  });
+
+  // Safety fallback in case window load fired earlier
+  setTimeout(() => {
+    if (preloader && !preloader.classList.contains('fade-out')) {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 600);
+    }
+  }, 2200);
+}
+initPsychiatryPreloader();
+
+/* ==========================================================================
+   10. 4-7-8 PRANAYAMA BREATHING CALMER INTERACTIVE CONTROLLER
+   ========================================================================== */
+let breathingActive = false;
+let breathCycle = 1;
+let breathTimer = null;
+let breathCounter = 0;
+
+function toggleBreathingExercise() {
+  if (breathingActive) {
+    stopBreathingExercise();
+  } else {
+    startBreathingExercise();
+  }
+}
+
+function startBreathingExercise() {
+  breathingActive = true;
+  breathCycle = 1;
+
+  const btnText = document.getElementById('breathingBtnText');
+  const btnIcon = document.getElementById('breathingBtnIcon');
+  const cycleIndicator = document.getElementById('cycleIndicator');
+  const cycleBadgeText = document.getElementById('cycleBadgeText');
+
+  if (btnText) btnText.textContent = 'Pause Exercise';
+  if (btnIcon) btnIcon.className = 'fa-solid fa-stop';
+  if (cycleIndicator) cycleIndicator.style.display = 'flex';
+  if (cycleBadgeText) cycleBadgeText.textContent = 'Cycle #' + breathCycle;
+
+  // Sound cue
+  if (window.playSolfeggioTone) {
+    window.playSolfeggioTone(432, 0.4);
+  }
+
+  runBreathingStep('Inhale', 4);
+}
+
+function stopBreathingExercise() {
+  breathingActive = false;
+  if (breathTimer) {
+    clearInterval(breathTimer);
+    breathTimer = null;
+  }
+
+  const ring = document.getElementById('breathRing');
+  const phaseText = document.getElementById('breathPhaseText');
+  const counterText = document.getElementById('breathCounterText');
+  const instructionText = document.getElementById('breathInstructionText');
+  const btnText = document.getElementById('breathingBtnText');
+  const btnIcon = document.getElementById('breathingBtnIcon');
+  const cycleIndicator = document.getElementById('cycleIndicator');
+
+  if (ring) {
+    ring.classList.remove('inhale', 'hold', 'exhale');
+  }
+  if (phaseText) phaseText.textContent = 'Ready';
+  if (counterText) counterText.textContent = '4-7-8';
+  if (instructionText) instructionText.textContent = 'Click Start to Begin';
+  if (btnText) btnText.textContent = 'Start 4-7-8 Breathing';
+  if (btnIcon) btnIcon.className = 'fa-solid fa-play';
+  if (cycleIndicator) cycleIndicator.style.display = 'none';
+}
+
+function runBreathingStep(phase, seconds) {
+  if (!breathingActive) return;
+
+  const ring = document.getElementById('breathRing');
+  const phaseText = document.getElementById('breathPhaseText');
+  const counterText = document.getElementById('breathCounterText');
+  const instructionText = document.getElementById('breathInstructionText');
+  const cycleBadgeText = document.getElementById('cycleBadgeText');
+
+  if (ring) {
+    ring.classList.remove('inhale', 'hold', 'exhale');
+    ring.classList.add(phase.toLowerCase());
+  }
+
+  if (phaseText) phaseText.textContent = phase;
+  if (counterText) counterText.textContent = seconds;
+
+  if (instructionText) {
+    if (phase === 'Inhale') {
+      instructionText.textContent = 'Breathe in divine light (4s)';
+    } else if (phase === 'Hold') {
+      instructionText.textContent = 'Hold calm in chest (7s)';
+    } else {
+      instructionText.textContent = 'Exhale all tension (8s)';
+    }
+  }
+
+  breathCounter = seconds;
+  if (breathTimer) clearInterval(breathTimer);
+
+  breathTimer = setInterval(() => {
+    if (!breathingActive) {
+      clearInterval(breathTimer);
+      return;
+    }
+    breathCounter--;
+    if (counterText) counterText.textContent = breathCounter;
+
+    if (breathCounter <= 0) {
+      clearInterval(breathTimer);
+      if (phase === 'Inhale') {
+        if (window.playSolfeggioTone) window.playSolfeggioTone(528, 0.3);
+        runBreathingStep('Hold', 7);
+      } else if (phase === 'Hold') {
+        if (window.playSolfeggioTone) window.playSolfeggioTone(396, 0.3);
+        runBreathingStep('Exhale', 8);
+      } else {
+        // Completed 1 cycle
+        breathCycle++;
+        if (cycleBadgeText) cycleBadgeText.textContent = 'Cycle #' + breathCycle;
+        if (window.playSolfeggioTone) window.playSolfeggioTone(432, 0.4);
+        runBreathingStep('Inhale', 4);
+      }
+    }
+  }, 1000);
+}

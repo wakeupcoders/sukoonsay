@@ -23,6 +23,25 @@
 </head>
 <body>
 
+  <!-- Distinct Neuro-Clinical Preloader for Sukoonsay Psychiatry -->
+  <div id="psychiatryPreloader" class="psychiatry-preloader">
+    <div class="neuro-glow-orb"></div>
+    <div class="psychiatry-preloader-card">
+      <div class="neuro-emblem-wrap">
+        <div class="synapse-ring-pulse"></div>
+        <div class="neuro-icon-center">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+      </div>
+      <h2 class="psychiatry-preloader-title">SUKOONSAY PSYCHIATRY</h2>
+      <div class="psychiatry-preloader-badge"><i class="fa-solid fa-shield-heart"></i> CLINICAL MENTAL HEALTH SANCTUARY</div>
+      <p class="psychiatry-preloader-sub">Calming Neural Pathways • Restoring Emotional Equilibrium</p>
+      <div class="neuro-progress-track">
+        <div class="neuro-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Background Aura Floating Elements -->
   <div class="aura-overlay" aria-hidden="true">
     <div class="aura-orb orb-1"></div>
@@ -85,6 +104,7 @@
           <li><a href="#timings" class="nav-link" title="Daily Darshan"><i class="fa-regular fa-clock"></i> <span class="nav-text">Daily Darshan</span></a></li>
           <li><a href="#services" class="nav-link" title="Offerings"><i class="fa-solid fa-spa"></i> <span class="nav-text">Offerings</span></a></li>
           <li><a href="#diya" class="nav-link" title="Virtual Diya"><i class="fa-solid fa-fire-burner"></i> <span class="nav-text">Virtual Diya</span></a></li>
+          <li><a href="#breathing" class="nav-link" title="4-7-8 Breathing"><i class="fa-solid fa-wind"></i> <span class="nav-text">4-7-8 Calmer</span></a></li>
           <li><a href="#quiz" class="nav-link" title="Aura Quiz"><i class="fa-solid fa-wand-magic-sparkles"></i> <span class="nav-text">Aura Quiz</span></a></li>
           <li><a href="#resources" class="nav-link" title="Sacred Links"><i class="fa-solid fa-book-open"></i> <span class="nav-text">Sacred Links</span></a></li>
           <li><a href="#connect" class="nav-link" title="Connect"><i class="fa-solid fa-envelope-open-text"></i> <span class="nav-text">Connect</span></a></li>
@@ -132,6 +152,7 @@
       <a href="#timings" class="drawer-link"><i class="fa-regular fa-clock"></i> Darshan & Aarti Timings</a>
       <a href="#services" class="drawer-link"><i class="fa-solid fa-spa"></i> Healing Offerings</a>
       <a href="#diya" class="drawer-link"><i class="fa-solid fa-fire-burner"></i> Virtual Sacred Diya</a>
+      <a href="#breathing" class="drawer-link"><i class="fa-solid fa-wind"></i> 4-7-8 Breathing Calmer</a>
       <a href="#quiz" class="drawer-link"><i class="fa-solid fa-wand-magic-sparkles"></i> Aura Assessment Quiz</a>
       <a href="#resources" class="drawer-link"><i class="fa-solid fa-book-open"></i> Sacred Links & Wisdom</a>
       <a href="#connect" class="drawer-link"><i class="fa-solid fa-envelope-open-text"></i> Sanctum Address & Connect</a>
@@ -386,6 +407,67 @@
                 <span class="diya-counter-num" id="diyaCounterNum">14,280</span>
                 <span>Sacred Diyas Lit by Global Seekers</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SOMATIC CALMING: THE SACRED 4-7-8 PRANAYAMA BREATHING CALMER
+         ========================================================================== -->
+    <section id="breathing" class="breathing-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-wind"></i> Somatic Vagus Nerve Calming</span>
+          <h2>The Sacred 4-7-8 Pranayama Calmer</h2>
+          <p class="section-desc">
+            Scientifically proven clinical breathwork to lower cortisol, calm the racing amygdala, and invoke deep psychological stillness in under 3 minutes.
+          </p>
+        </div>
+
+        <div class="glass-card breathing-card">
+          <!-- Animated Visual Breathing Circle -->
+          <div class="breath-visualizer-container">
+            <div id="breathRing" class="breath-outer-ring">
+              <div class="breath-middle-ring">
+                <div class="breath-core">
+                  <span id="breathPhaseText" class="phase-title">Ready</span>
+                  <span id="breathCounterText" class="counter-display">4-7-8</span>
+                  <span id="breathInstructionText" class="phase-instruction">Click Start to Begin</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls & Cycle Counter -->
+          <div class="breath-controls">
+            <button id="toggleBreathingBtn" class="btn btn-primary" onclick="toggleBreathingExercise()">
+              <i id="breathingBtnIcon" class="fa-solid fa-play"></i>
+              <span id="breathingBtnText">Start 4-7-8 Breathing</span>
+            </button>
+            <div id="cycleIndicator" class="cycle-indicator" style="display: none;">
+              <span class="cycle-badge" id="cycleBadgeText">Cycle #1</span>
+              <span class="cycle-hint">Complete 4 cycles for deep physiological calm.</span>
+            </div>
+          </div>
+
+          <!-- Instruction Steps Grid -->
+          <div class="breath-steps-info-grid">
+            <div class="b-step">
+              <span class="step-time">4 SECONDS</span>
+              <h5>Inhale Calm</h5>
+              <p>Breathe in slowly through the nose into your deep abdomen. Feel sacred oxygen rejuvenating your nervous system.</p>
+            </div>
+            <div class="b-step">
+              <span class="step-time">7 SECONDS</span>
+              <h5>Hold & Anchor</h5>
+              <p>Hold your breath gently without strain. Allow oxygen to oxygenate your bloodstream and quiet mental chatter.</p>
+            </div>
+            <div class="b-step">
+              <span class="step-time">8 SECONDS</span>
+              <h5>Exhale & Release</h5>
+              <p>Exhale completely through your mouth with a soft whoosh sound. Release every ounce of built-up tension.</p>
             </div>
           </div>
         </div>

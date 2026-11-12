@@ -146,4 +146,82 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.todayPanchang.set(matched);
     }
   }
+
+  // Daily Sacred Wisdom & Neuro Insight Mantras Collection
+  readonly mantras = [
+    {
+      sanskrit: 'ॐ असतो मा सद्गमय । तमसो मा ज्योतिर्गमय । मृत्योर्मा अमृतं गमय ॥',
+      english: 'Om Asato Ma Sadgamaya, Tamaso Ma Jyotirgamaya, Mrityor Ma Amritam Gamaya',
+      source: 'Brihadaranyaka Upanishad (1.3.28)',
+      meaning: 'Lead me from untruth to eternal truth; lead me from darkness to divine illumination; lead me from mortality to immortality.',
+      psychology: 'Cognitive reframing: Directs attention away from cognitive distortion toward objective inner peace and eternal awareness.'
+    },
+    {
+      sanskrit: 'ॐ शान्तिः शान्तिः शान्तिः',
+      english: 'Om Shanti, Shanti, Shanti',
+      source: 'Upanishadic Invocation',
+      meaning: 'May there be peace in the celestial cosmos, peace in nature and environment, and profound peace in mind, body and soul.',
+      psychology: 'Calms the sympathetic nervous system, inducing restorative alpha-theta brainwave coherence in under 60 seconds.'
+    },
+    {
+      sanskrit: 'योगः चित्तवृत्ति निरोधः',
+      english: 'Yogas Chitta Vritti Nirodha',
+      source: 'Patanjali Yoga Sutras (1.2)',
+      meaning: 'True spiritual yoga is the stilling and tranquil mastery of the fluctuating whirls and turbulence of the mind.',
+      psychology: 'Metacognitive defusion: Disconnects the conscious self from intrusive racing thoughts and rumination.'
+    },
+    {
+      sanskrit: 'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन । मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥',
+      english: 'Karmanye Vadhikaraste Ma Phaleshu Kadachana',
+      source: 'Bhagavad Gita (2.47)',
+      meaning: 'You have a sacred right to your dedicated action, but never to the anxious attachment over its fruits.',
+      psychology: 'Radical acceptance & locus of control: Dissolves performance anxiety and career paralysis by anchoring in present effort.'
+    },
+    {
+      sanskrit: 'सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः । सर्वे भद्राणि पश्यन्तु मा कश्चिद्दुःखभाग्भवेत् ॥',
+      english: 'Sarve Bhavantu Sukhinah, Sarve Santu Niramayah',
+      source: 'Brihadaranyaka Upanishad',
+      meaning: 'May all living beings abide in happiness; may all beings be free from illness and distress; may all behold auspiciousness.',
+      psychology: 'Universal loving-kindness (Metta): Triggers oxytocin release and downregulates amygdala-driven social anxiety.'
+    }
+  ];
+
+  readonly currentMantraIndex = signal(0);
+  readonly copiedAlert = signal(false);
+
+  nextMantra(): void {
+    this.currentMantraIndex.update(idx => (idx + 1) % this.mantras.length);
+    this.playSacredBellTone();
+  }
+
+  copyMantra(): void {
+    const m = this.mantras[this.currentMantraIndex()];
+    const text = `"${m.sanskrit}" - ${m.meaning} (From Sakoon Temple)`;
+    if (navigator?.clipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        this.copiedAlert.set(true);
+        setTimeout(() => this.copiedAlert.set(false), 2500);
+      });
+    }
+  }
+
+  private playSacredBellTone(): void {
+    try {
+      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(432, ctx.currentTime);
+      gain.gain.setValueAtTime(0.12, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.8);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 1.8);
+    } catch {
+      // Audio fallback
+    }
+  }
 }

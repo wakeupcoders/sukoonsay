@@ -477,6 +477,64 @@
   </div>
 </section>
 
+<!-- ==========================================================================
+     DAILY SACRED WISDOM & NEURO-INSIGHT (Vedic Mantras & Mind Solace)
+     ========================================================================== -->
+<section class="section-padding sacred-wisdom-section">
+  <div class="container">
+    <div class="text-center section-header-area">
+      <span class="sacred-crest-symbol">॥ नित्य आत्मज्ञान एवं शांति ॥</span>
+      <h2 class="section-heading-serif">Daily Sacred Wisdom &amp; Neuro Insight</h2>
+      <p class="section-lead-p">
+        Ancient Vedic shlokas harmonized with modern neuro-cognitive science for emotional resilience, mental clarity, and spiritual elevation.
+      </p>
+    </div>
+
+    <div class="sacred-mantra-card">
+      <div class="mantra-left-symbol">
+        <span class="om-golden-symbol">ॐ</span>
+      </div>
+
+      <div class="mantra-body">
+        <span class="mantra-source-pill">
+          <i class="fa-solid fa-scroll"></i> {{ mantras[currentMantraIndex()].source }}
+        </span>
+
+        <h3 class="sanskrit-verse">{{ mantras[currentMantraIndex()].sanskrit }}</h3>
+        <p class="phonetic-verse">"{{ mantras[currentMantraIndex()].english }}"</p>
+
+        <div class="mantra-meaning-box">
+          <h4 class="meaning-label"><i class="fa-solid fa-spa"></i> Sacred Meaning:</h4>
+          <p class="meaning-text">{{ mantras[currentMantraIndex()].meaning }}</p>
+        </div>
+
+        <div class="neuro-insight-box">
+          <div class="neuro-badge">
+            <span class="neuro-dot"></span> Neuroscience Insight
+          </div>
+          <p class="neuro-text">{{ mantras[currentMantraIndex()].psychology }}</p>
+        </div>
+
+        <div class="mantra-action-bar">
+          <button class="btn btn-temple-gold" (click)="nextMantra()">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0020 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 004 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+            Draw Another Sacred Wisdom
+          </button>
+
+          <button class="btn btn-temple-outline" (click)="copyMantra()">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Sacred Mantra
+          </button>
+
+          @if (copiedAlert()) {
+            <span class="copy-toast-pill">✓ Copied to clipboard!</span>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- DEVOTEE REFLECTIONS (AUTHENTIC TESTIMONIALS) -->
 <section class="section-padding devotee-reflections-section">
   <div class="container">
