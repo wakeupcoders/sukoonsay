@@ -83,8 +83,6 @@ server.listen(PORT, '0.0.0.0', () => {
   console.log(`🌸 SAKOONSAY - UNIFIED SACRED SANCTUARY`);
   console.log(`🌐 Server running serenely at: http://localhost:${PORT}`);
   console.log(`🌐 Direct IPv4 URL: http://127.0.0.1:${PORT}`);
-  console.log(`🧠 Sister Portal 1 (Psychiatrist): https://gentle-kringle-399d14.netlify.app/`);
-  console.log(`🪷 Sister Portal 2 (Sakoon-Temple): https://skoonsay.netlify.app/`);
   console.log(`✨ ======================================================== ✨\n`);
 });
 

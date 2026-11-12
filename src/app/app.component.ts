@@ -288,9 +288,9 @@ export class AppComponent implements OnInit, OnDestroy {
   // Mobile Responsive Drawer State
   mobileMenuOpen = signal<boolean>(false);
 
-  // Portal links - Real Live Netlify Deployments
-  psychiatristUrl = 'https://gentle-kringle-399d14.netlify.app/';
-  templeUrl = 'https://skoonsay.netlify.app/';
+  // Portal links - Configurable server routes or in-page anchors
+  psychiatristUrl = '#card-psychiatrist';
+  templeUrl = '#card-temple';
 
   // Preview Modal
   activePreviewModal = signal<'psychiatrist' | 'temple' | null>(null);
