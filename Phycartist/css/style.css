@@ -1829,79 +1829,282 @@ p {
   line-height: 1.7;
 }
 
-/* Diya Lamp Interactive Vessel */
-.diya-vessel-wrap {
-  text-align: center;
+/* ==========================================================================
+   INTERACTIVE SACRED BRASS DIYA & SOLFEGGIO TUNER (Mainskoonsay Standard)
+   ========================================================================== */
+.diya-section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.diya-banner-card {
+  padding: 3rem;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid var(--border-gold);
+  background: linear-gradient(135deg, rgba(30, 16, 48, 0.92) 0%, rgba(18, 10, 30, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* Falling flower petals */
+.petals-shower-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.petal {
+  position: absolute;
+  top: -40px;
+  font-size: 1.8rem;
+  opacity: 0.85;
+  animation: fallPetal 3.8s ease-in forwards;
+}
+
+.petal.p1 { left: 15%; animation-delay: 0.1s; }
+.petal.p2 { left: 32%; animation-delay: 0.4s; font-size: 2.2rem; }
+.petal.p3 { left: 48%; animation-delay: 0.2s; }
+.petal.p4 { left: 65%; animation-delay: 0.6s; font-size: 2rem; }
+.petal.p5 { left: 80%; animation-delay: 0.3s; }
+.petal.p6 { left: 92%; animation-delay: 0.5s; font-size: 1.6rem; }
+
+@keyframes fallPetal {
+  0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 1; }
+  50% { transform: translateY(220px) rotate(180deg) scale(1.1); }
+  100% { transform: translateY(500px) rotate(360deg) scale(0.6); opacity: 0; }
+}
+
+.diya-core-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.diya-visual-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 
-.diya-flame-container {
-  width: 140px;
-  height: 140px;
-  margin-bottom: 1.5rem;
+.diya-pedestal {
+  width: 220px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  position: relative;
   transition: transform 0.3s ease;
 }
 
-.diya-flame-container:hover {
+.diya-pedestal:hover {
   transform: scale(1.05);
 }
 
-.flame-particle {
-  width: 44px;
-  height: 70px;
-  background: linear-gradient(to top, #E65100, #FF9800, #FDE68A);
-  border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
-  position: absolute;
-  left: 50%;
-  top: 15px;
-  transform: translateX(-50%);
-  box-shadow: 0 0 35px #FF9800, 0 0 60px #E65100;
-  animation: flicker 1.4s ease-in-out infinite alternate;
-  transform-origin: 50% 90%;
-  transition: opacity 0.5s ease;
+.brass-diya-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 10px 24px rgba(212, 175, 55, 0.45));
 }
 
-.flame-particle.off {
-  opacity: 0;
-  box-shadow: none;
+.animated-flame {
+  animation: flickerFlame 2.5s infinite alternate ease-in-out;
+  transform-origin: 100px 105px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-@keyframes flicker {
-  0% { transform: translateX(-50%) rotate(-2deg) scale(1); }
-  50% { transform: translateX(-50%) rotate(3deg) scale(1.08, 0.95); }
-  100% { transform: translateX(-50%) rotate(-1deg) scale(0.96, 1.04); }
+.animated-flame.off {
+  opacity: 0 !important;
+  transform: scale(0.2) !important;
+  pointer-events: none;
 }
 
-.diya-clay-base {
-  width: 120px;
-  height: 48px;
-  background: linear-gradient(to bottom, #B3861B, #72500C);
-  border-radius: 0 0 60px 60px;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: inset 0 4px 8px rgba(255, 255, 255, 0.25), 0 10px 20px rgba(0, 0, 0, 0.4);
-  border-top: 3px solid #D4AF37;
+@keyframes flickerFlame {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.95; }
+  25% { transform: scale(1.05, 0.98) rotate(1deg); opacity: 1; }
+  50% { transform: scale(0.96, 1.06) rotate(-1deg); opacity: 0.92; }
+  75% { transform: scale(1.04, 1.02) rotate(1.5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 0.95; }
 }
 
-.diya-counter-wrap {
-  font-size: 0.95rem;
-  color: var(--gold-glow);
-  margin-top: 1rem;
+.diya-action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.25rem 0 1rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.diya-counter-num {
+.community-counter {
+  font-size: 0.92rem;
+  color: #D1C9DD;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.community-counter strong {
+  color: var(--sacred-saffron);
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 1.15rem;
+}
+
+.diya-prayer-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.prayer-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.prayer-label {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
   font-weight: 700;
+  color: #FDE68A;
+}
+
+.diya-dedication-input {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-gold);
+  background: rgba(255, 255, 255, 0.08);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
   color: #FFFFFF;
-  display: block;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.diya-dedication-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.diya-dedication-input:focus {
+  border-color: var(--sacred-gold);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+}
+
+.blessing-statement {
+  font-size: 0.92rem;
+  font-style: italic;
+  color: #FDE68A;
+  line-height: 1.5;
+  background: rgba(212, 175, 55, 0.12);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--sacred-gold);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+/* Solfeggio sound bath buttons */
+.solfeggio-selector-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  border: 1px solid var(--border-gold);
+}
+
+.solfeggio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.9rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sol-title {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #FDE68A;
+}
+
+.active-freq-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: var(--sacred-gold);
+  color: #180D26;
+  padding: 0.2rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.freq-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.65rem;
+}
+
+.freq-chip-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  color: #EAE5F3;
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.freq-chip-btn:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--sacred-gold);
+  transform: translateY(-2px);
+}
+
+.freq-chip-btn.active {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(230, 81, 0, 0.3) 100%);
+  border-color: var(--sacred-gold);
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.freq-chip-btn.active i {
+  color: var(--sacred-gold);
+}
+
+.freq-chip-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.freq-hz {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.freq-tag {
+  font-size: 0.68rem;
+  color: #D1C9DD;
+  opacity: 0.85;
+}
+
+@media (max-width: 860px) {
+  .diya-core-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .diya-banner-card {
+    padding: 1.8rem 1.25rem;
+  }
 }
 
 /* ==========================================================================

@@ -484,55 +484,130 @@ function initSoundEngine() {
 }
 
 /* ==========================================================================
-   3. VIRTUAL SACRED DIYA & TEMPLE BLESSINGS (Interactive)
+   3. VIRTUAL SACRED BRASS DIYA & SOLFEGGIO TUNER (Interactive Sanctuary Altar)
    ========================================================================== */
 function initVirtualDiya() {
-  const diyaContainer = document.getElementById('diyaFlameContainer');
-  const flameEl = document.getElementById('diyaFlame');
+  const diyaPedestal = document.getElementById('diyaPedestal');
+  const flameGroup = document.getElementById('animatedFlameGroup');
   const countEl = document.getElementById('diyaCounterNum');
   const lightBtn = document.getElementById('lightDiyaBtn');
+  const lightBtnText = document.getElementById('lightDiyaBtnText');
+  const toggleBtn = document.getElementById('toggleDiyaBtn');
+  const toggleIcon = document.getElementById('toggleDiyaIcon');
+  const toggleText = document.getElementById('toggleDiyaText');
+  const petalsContainer = document.getElementById('petalsShowerContainer');
+  const dedicationInput = document.getElementById('diyaDedicationInput');
+  const blessingText = document.getElementById('blessingQuoteText');
+  const freqChips = document.querySelectorAll('.freq-chip-btn');
+  const activeFreqBadge = document.getElementById('activeFreqBadge');
 
-  if (!diyaContainer || !flameEl || !countEl) return;
+  if (!diyaPedestal || !flameGroup || !countEl) return;
 
-  let currentCount = parseInt(localStorage.getItem('sakoonsay_diya_count') || '14280', 10);
+  let currentCount = parseInt(localStorage.getItem('sakoonsay_diya_count') || '14850', 10);
   let isDiyaLit = localStorage.getItem('sakoonsay_diya_lit') !== 'false';
+  let activeFreq = 528;
+
+  const dynamicBlessings = [
+    'May divine tranquility soothe your anxiety and grant everlasting peace to your heart.',
+    'May the sacred flame dissolve worries, fears, and psychological heaviness from your mind.',
+    'May peace radiate through your thoughts, nervous system, and home with pure calm.',
+    'May the eternal light awaken courage, clarity, and deep emotional balance within you.'
+  ];
 
   function updateDiyaDisplay() {
     countEl.textContent = currentCount.toLocaleString();
     if (isDiyaLit) {
-      flameEl.classList.remove('off');
-      if (lightBtn) lightBtn.innerHTML = '<i class="fa-solid fa-flame"></i> Diya is Glowing Sacredly';
+      flameGroup.classList.remove('off');
+      if (lightBtnText) lightBtnText.textContent = 'Offer Flower Petals & Re-light';
+      if (toggleText) toggleText.textContent = 'Blow Out Flame';
+      if (toggleIcon) toggleIcon.className = 'fa-solid fa-eye-slash';
     } else {
-      flameEl.classList.add('off');
-      if (lightBtn) lightBtn.innerHTML = '<i class="fa-solid fa-fire-burner"></i> Light a Sacred Diya';
+      flameGroup.classList.add('off');
+      if (lightBtnText) lightBtnText.textContent = 'Light Sacred Diya';
+      if (toggleText) toggleText.textContent = 'Kindle Diya';
+      if (toggleIcon) toggleIcon.className = 'fa-solid fa-eye';
     }
   }
 
-  updateDiyaDisplay();
+  function triggerPetalsShower() {
+    if (!petalsContainer) return;
+    petalsContainer.style.display = 'block';
+    petalsContainer.classList.remove('active');
+    void petalsContainer.offsetWidth;
+    petalsContainer.classList.add('active');
+    setTimeout(() => {
+      petalsContainer.style.display = 'none';
+    }, 4000);
+  }
 
-  function triggerLightDiya() {
+  function lightDiya(withPetals = true) {
     currentCount++;
     isDiyaLit = true;
     localStorage.setItem('sakoonsay_diya_count', currentCount.toString());
     localStorage.setItem('sakoonsay_diya_lit', 'true');
     updateDiyaDisplay();
 
-    // Sound chime
-    playSingingBowlTone(528, 3.5);
+    // Sound chime with current frequency
+    playSingingBowlTone(activeFreq, 4.0, 0.45);
 
-    // Visual flame boost
-    flameEl.style.transform = 'translateX(-50%) scale(1.35)';
-    setTimeout(() => {
-      flameEl.style.transform = '';
-    }, 400);
+    if (withPetals) {
+      triggerPetalsShower();
+    }
 
-    showBlessingToast('✨ Your Sacred Diya is lit! May peace, prosperity, and divine light illuminate your path.');
+    const dedication = dedicationInput ? dedicationInput.value.trim() : '';
+    if (dedication) {
+      showBlessingToast(`✨ Sacred Diya dedicated for: "${dedication}". May divine peace fulfill your prayer.`);
+    } else {
+      showBlessingToast('✨ Sacred Diya Lit! May divine light illuminate your path and dissolve distress.');
+    }
   }
 
-  diyaContainer.addEventListener('click', triggerLightDiya);
-  if (lightBtn) {
-    lightBtn.addEventListener('click', triggerLightDiya);
+  function toggleDiya() {
+    isDiyaLit = !isDiyaLit;
+    localStorage.setItem('sakoonsay_diya_lit', isDiyaLit ? 'true' : 'false');
+    updateDiyaDisplay();
+
+    if (isDiyaLit) {
+      playSingingBowlTone(activeFreq, 3.5, 0.4);
+      triggerPetalsShower();
+      showBlessingToast('🔥 Sacred Diya rekindled with divine flame.');
+    } else {
+      showBlessingToast('💨 Flame rested in quiet stillness. Click to rekindle whenever needed.');
+    }
   }
+
+  // Event Listeners
+  diyaPedestal.addEventListener('click', () => lightDiya(true));
+  if (lightBtn) lightBtn.addEventListener('click', () => lightDiya(true));
+  if (toggleBtn) toggleBtn.addEventListener('click', toggleDiya);
+
+  // Dedication input live blessing update
+  if (dedicationInput && blessingText) {
+    dedicationInput.addEventListener('input', () => {
+      const val = dedicationInput.value.trim();
+      if (val.length > 2) {
+        blessingText.textContent = `"Offering dedicated for '${val}': May peace and pure calm envelope this intention."`;
+      } else {
+        blessingText.textContent = `"${dynamicBlessings[0]}"`;
+      }
+    });
+  }
+
+  // Solfeggio frequency selection
+  freqChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      freqChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const freq = parseInt(chip.getAttribute('data-freq') || '528', 10);
+      const name = chip.getAttribute('data-name') || `${freq} Hz`;
+      activeFreq = freq;
+      if (activeFreqBadge) activeFreqBadge.textContent = `${name} Selected`;
+      playSingingBowlTone(activeFreq, 4.5, 0.45);
+      showBlessingToast(`🎵 ${name} Solfeggio Sound Bath Resonating.`);
+    });
+  });
+
+  updateDiyaDisplay();
 }
 
 /* ==========================================================================
@@ -759,15 +834,21 @@ function initModalsAndToasts() {
   const headerDiyaBtn = document.getElementById('headerDiyaBtn');
   if (headerDiyaBtn) {
     headerDiyaBtn.addEventListener('click', () => {
-      const diyaFlame = document.getElementById('diyaFlame');
+      const flameGroup = document.getElementById('animatedFlameGroup');
       const counterEl = document.getElementById('diyaCounterNum');
-      let currentCount = parseInt(localStorage.getItem('sakoonsay_diya_count') || '14280', 10) + 1;
+      let currentCount = parseInt(localStorage.getItem('sakoonsay_diya_count') || '14850', 10) + 1;
       localStorage.setItem('sakoonsay_diya_count', currentCount.toString());
       localStorage.setItem('sakoonsay_diya_lit', 'true');
       if (counterEl) counterEl.textContent = currentCount.toLocaleString();
-      if (diyaFlame) diyaFlame.classList.remove('off');
+      if (flameGroup) flameGroup.classList.remove('off');
 
-      playSingingBowlTone(528, 3.5);
+      const petals = document.getElementById('petalsShowerContainer');
+      if (petals) {
+        petals.style.display = 'block';
+        setTimeout(() => { petals.style.display = 'none'; }, 3500);
+      }
+
+      playSingingBowlTone(528, 4.0);
       showBlessingToast('✨ Sacred Diya Lit! May divine peace illuminate your heart and home. ॐ');
     });
   }

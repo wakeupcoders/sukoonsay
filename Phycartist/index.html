@@ -370,42 +370,165 @@
     </section>
 
     <!-- ==========================================================================
-         VIRTUAL SACRED DIYA & TEMPLE BLESSINGS (Interactive)
+         VIRTUAL SACRED BRASS DIYA & SOLFEGGIO TUNER (Interactive Sanctuary Altar)
          ========================================================================== -->
     <section id="diya" class="diya-section">
       <div class="container">
-        <div class="diya-banner-card">
-          <div class="diya-grid">
-            <!-- Left Narrative -->
-            <div>
-              <span class="section-tag" style="background: rgba(253, 230, 138, 0.15); color: #FDE68A; border-color: rgba(212, 175, 55, 0.4);">
-                <i class="fa-solid fa-hands-praying"></i> Eternal Sanctuary Flame
-              </span>
-              <h2 style="margin: 0.75rem 0 1.25rem;">Light a Virtual Sacred Diya For Peace & Well-being</h2>
-              <p style="margin-bottom: 1.5rem;">
-                Lighting a sacred flame (Deepam) dispels darkness, ignorance, and negative vibrations. 
-                Wherever you are in the world, dedicate a sacred flame at the Sakoonsay sanctuary altar for yourself, 
-                your family, or universal peace.
-              </p>
-              <div class="diya-actions" style="display: flex; gap: 0.85rem; align-items: center; flex-wrap: wrap;">
+        <div class="diya-banner-card glass-card">
+          <!-- Flower Petals Shower Animation Container -->
+          <div class="petals-shower-container" id="petalsShowerContainer" style="display: none;" aria-hidden="true">
+            <div class="petal p1">🌸</div>
+            <div class="petal p2">🪷</div>
+            <div class="petal p3">✨</div>
+            <div class="petal p4">🌸</div>
+            <div class="petal p5">🪷</div>
+            <div class="petal p6">✨</div>
+          </div>
+
+          <div class="section-header" style="text-align: center; margin-bottom: 2.2rem;">
+            <span class="section-tag" style="background: rgba(253, 230, 138, 0.15); color: #FDE68A; border-color: rgba(212, 175, 55, 0.4);">
+              <i class="fa-solid fa-fire text-saffron"></i> SACRED LIGHT & FREQUENCY HEALING
+            </span>
+            <h2 style="margin: 0.75rem 0 0.5rem; color: #FFFFFF;">Light a Sacred Virtual Diya for Peace of Mind</h2>
+            <p style="color: #D1C9DD; max-width: 680px; margin: 0 auto; font-size: 0.98rem; line-height: 1.6;">
+              In ancient sanctuary traditions, lighting a sacred ghee lamp symbolizes burning away distress, grief, and mental darkness to invoke divine clarity and inner stillness.
+            </p>
+          </div>
+
+          <div class="diya-core-layout">
+            <!-- Left: Virtual Brass Diya with Animated Sacred Flame & Actions -->
+            <div class="diya-visual-wrap">
+              <div class="diya-pedestal" id="diyaPedestal" title="Click to Light / Kindle the Sacred Diya">
+                <svg class="brass-diya-svg" viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="brassGrad" x1="0" y1="0" x2="200" y2="180">
+                      <stop offset="0%" stop-color="#FFF3B0"/>
+                      <stop offset="40%" stop-color="#D4AF37"/>
+                      <stop offset="80%" stop-color="#B3861B"/>
+                      <stop offset="100%" stop-color="#805B09"/>
+                    </linearGradient>
+                    <radialGradient id="flameInner" cx="50%" cy="60%" r="50%">
+                      <stop offset="0%" stop-color="#FFFFFF"/>
+                      <stop offset="35%" stop-color="#FFF3B0"/>
+                      <stop offset="70%" stop-color="#FF9800"/>
+                      <stop offset="100%" stop-color="#E65100"/>
+                    </radialGradient>
+                    <filter id="flameGlow" x="-50%" y="-50%" width="200%" height="200%">
+                      <feGaussianBlur stdDeviation="8" result="blur"/>
+                      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                    </filter>
+                  </defs>
+
+                  <!-- Base Stand -->
+                  <ellipse cx="100" cy="160" rx="60" ry="14" fill="url(#brassGrad)"/>
+                  <path d="M85 155 L90 125 L110 125 L115 155 Z" fill="url(#brassGrad)"/>
+
+                  <!-- Diya Body Bowl -->
+                  <path d="M30 110 C30 145 170 145 170 110 C155 110 135 118 100 118 C65 118 45 110 30 110 Z" fill="url(#brassGrad)"/>
+                  <ellipse cx="100" cy="110" rx="70" ry="16" fill="#805B09"/>
+                  <ellipse cx="100" cy="108" rx="65" ry="13" fill="#D4AF37" opacity="0.6"/>
+
+                  <!-- Sacred Flame (Interactive Lit state) -->
+                  <g id="animatedFlameGroup" filter="url(#flameGlow)" class="animated-flame">
+                    <!-- Outer Warm Corona -->
+                    <path d="M100 20 C85 55 70 80 100 105 C130 80 115 55 100 20 Z" fill="url(#flameInner)" opacity="0.95"/>
+                    <!-- Core Divine Spark -->
+                    <path d="M100 45 C92 65 85 78 100 95 C115 78 108 65 100 45 Z" fill="#FFFFFF"/>
+                  </g>
+                </svg>
+              </div>
+
+              <div class="diya-action-buttons">
                 <button id="lightDiyaBtn" class="btn btn-secondary">
-                  <i class="fa-solid fa-fire-burner"></i> Light a Sacred Diya
+                  <i class="fa-solid fa-fire text-saffron"></i>
+                  <span id="lightDiyaBtnText">Offer Flower Petals & Re-light</span>
                 </button>
-                <button class="btn btn-glass diya-sankalpa-btn" onclick="sendTempleBlessing('Peace, Health & Family Prosperity')">
-                  <i class="fa-solid fa-hands-praying"></i> Offer Peace Sankalpa (ॐ शान्तिः)
+                <button id="toggleDiyaBtn" class="btn btn-glass">
+                  <i id="toggleDiyaIcon" class="fa-solid fa-eye-slash"></i>
+                  <span id="toggleDiyaText">Blow Out Flame</span>
                 </button>
+              </div>
+
+              <div class="community-counter">
+                <i class="fa-solid fa-om text-gold"></i>
+                <span><strong id="diyaCounterNum">14,850</strong> Sacred Diyas Lit by Calmed Souls</span>
               </div>
             </div>
 
-            <!-- Right Interactive Diya Vessel -->
-            <div class="diya-vessel-wrap">
-              <div class="diya-flame-container" id="diyaFlameContainer" title="Click to Light the Sacred Diya">
-                <div class="flame-particle" id="diyaFlame"></div>
-                <div class="diya-clay-base"></div>
+            <!-- Right: Prayer Dedication & Solfeggio Sound Selector -->
+            <div class="diya-prayer-wrap">
+              <div class="prayer-input-group">
+                <label class="prayer-label"><i class="fa-solid fa-hand-holding-heart text-gold"></i> Dedicate Your Diya Offering:</label>
+                <input 
+                  type="text" 
+                  id="diyaDedicationInput"
+                  class="diya-dedication-input" 
+                  placeholder="e.g. For Anxiety Relief, Peaceful Sleep, Family Harmony..." 
+                />
+                <p class="blessing-statement" id="blessingStatement">
+                  <i class="fa-solid fa-quote-left text-gold"></i>
+                  <span id="blessingQuoteText">"May divine tranquility soothe your anxiety and grant everlasting peace to your heart."</span>
+                </p>
               </div>
-              <div class="diya-counter-wrap">
-                <span class="diya-counter-num" id="diyaCounterNum">14,280</span>
-                <span>Sacred Diyas Lit by Global Seekers</span>
+
+              <!-- Multi-Frequency Solfeggio Sound Bath Selector -->
+              <div class="solfeggio-selector-box">
+                <div class="solfeggio-header">
+                  <span class="sol-title"><i class="fa-solid fa-music text-purple"></i> Solfeggio Sound Bath Frequency:</span>
+                  <span class="active-freq-badge" id="activeFreqBadge">528 Hz Selected</span>
+                </div>
+
+                <div class="freq-buttons-grid">
+                  <button class="freq-chip-btn" data-freq="396" data-name="396 Hz" data-tag="Liberating Guilt & Fear">
+                    <i class="fa-solid fa-mountain text-saffron"></i>
+                    <div class="freq-chip-text">
+                      <span class="freq-hz">396 Hz</span>
+                      <span class="freq-tag">Liberating Fear</span>
+                    </div>
+                  </button>
+                  <button class="freq-chip-btn" data-freq="432" data-name="432 Hz" data-tag="Miracle Cosmic Calm">
+                    <i class="fa-solid fa-bell text-gold"></i>
+                    <div class="freq-chip-text">
+                      <span class="freq-hz">432 Hz</span>
+                      <span class="freq-tag">Miracle Calm</span>
+                    </div>
+                  </button>
+                  <button class="freq-chip-btn active" data-freq="528" data-name="528 Hz" data-tag="Transformation & DNA Repair">
+                    <i class="fa-solid fa-dna text-emerald"></i>
+                    <div class="freq-chip-text">
+                      <span class="freq-hz">528 Hz</span>
+                      <span class="freq-tag">DNA Repair</span>
+                    </div>
+                  </button>
+                  <button class="freq-chip-btn" data-freq="639" data-name="639 Hz" data-tag="Heart Connection & Love">
+                    <i class="fa-solid fa-heart text-vermilion"></i>
+                    <div class="freq-chip-text">
+                      <span class="freq-hz">639 Hz</span>
+                      <span class="freq-tag">Heart Harmony</span>
+                    </div>
+                  </button>
+                  <button class="freq-chip-btn" data-freq="741" data-name="741 Hz" data-tag="Intuition & Awakening">
+                    <i class="fa-solid fa-eye text-sky"></i>
+                    <div class="freq-chip-text">
+                      <span class="freq-hz">741 Hz</span>
+                      <span class="freq-tag">Intuition Clarity</span>
+                    </div>
+                  </button>
+                  <button class="freq-chip-btn" data-freq="852" data-name="852 Hz" data-tag="Spiritual Order">
+                    <i class="fa-solid fa-om text-purple"></i>
+                    <div class="freq-chip-text">
+                      <span class="freq-hz">852 Hz</span>
+                      <span class="freq-tag">Spiritual Order</span>
+                    </div>
+                  </button>
+                  <button class="freq-chip-btn" data-freq="963" data-name="963 Hz" data-tag="Crown Divine Consciousness">
+                    <i class="fa-solid fa-crown text-gold"></i>
+                    <div class="freq-chip-text">
+                      <span class="freq-hz">963 Hz</span>
+                      <span class="freq-tag">Divine Oneness</span>
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
