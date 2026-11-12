@@ -268,8 +268,7 @@ img {
   font-family: var(--font-serif);
   font-weight: 700;
   font-size: 0.95rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.03em;
   padding: 0.85rem 1.85rem;
   border-radius: var(--radius-pill);
   border: 1px solid rgba(212, 175, 55, 0.4);
