@@ -6736,3 +6736,129 @@ button:hover .cta-arrow {
     display: none;
   }
 }
+
+
+/* ==========================================================================
+   SUBPAGE SACRED HERO HEADERS (Luminous Royal Aura Theme)
+   ========================================================================== */
+.subpage-hero-header {
+  padding: 4.5rem 0 3.2rem;
+  background: linear-gradient(180deg, rgba(235, 240, 252, 0.95) 0%, rgba(244, 238, 251, 0.85) 50%, rgba(252, 234, 247, 0.5) 100%);
+  position: relative;
+  border-bottom: 1.5px solid rgba(212, 175, 55, 0.28);
+  box-shadow: 0 4px 20px rgba(74, 48, 109, 0.04);
+  text-align: center;
+}
+
+.subpage-hero-header .subpage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #FFFFFF;
+  border: 1.5px solid #D4AF37;
+  border-radius: 9999px;
+  padding: 0.4rem 1.25rem;
+  color: #8B5A00;
+  font-family: var(--font-serif);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.18);
+  margin-bottom: 1.1rem;
+}
+
+.subpage-hero-header .subpage-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  color: #2E1A47;
+  line-height: 1.22;
+  margin-bottom: 0.9rem;
+}
+
+.subpage-hero-header .subpage-desc {
+  color: #5C5468;
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.7;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   ATTRACTIVE CARD BUTTONS DESIGN SYSTEM
+   ========================================================================== */
+.btn-card-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.35rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #B3861B 100%) !important;
+  color: #180D26 !important;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.86rem;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+  transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-card-gold:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.55);
+  color: #180D26 !important;
+}
+
+.btn-card-saffron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.35rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #FFA000 0%, #E65100 100%) !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.86rem;
+  text-decoration: none;
+  border: 1px solid rgba(255, 230, 150, 0.4) !important;
+  box-shadow: 0 4px 14px rgba(230, 81, 0, 0.35);
+  transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-card-saffron:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(230, 81, 0, 0.55);
+  color: #FFFFFF !important;
+}
+
+.btn-card-purple {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.35rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #4A306D 0%, #2E1A47 100%) !important;
+  color: #F9E79F !important;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.86rem;
+  text-decoration: none;
+  border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+  box-shadow: 0 4px 14px rgba(46, 26, 71, 0.3);
+  transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-card-purple:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(46, 26, 71, 0.5);
+  color: #FFFFFF !important;
+  border-color: #D4AF37 !important;
+}
