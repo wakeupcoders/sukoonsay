@@ -6656,3 +6656,589 @@ button:hover .cta-arrow {
   background: var(--sacred-gold);
   color: #180D26;
 }
+
+
+/* ==========================================================================
+   SACRED HERO CAROUSEL, STATUS STRIP & HARMONIZED BUTTON SYSTEM
+   ========================================================================== */
+
+/* 1. Hero Carousel: Majestic, Responsive & Left-Right Sliding */
+.hero-carousel-section {
+  position: relative;
+  overflow: hidden;
+  background: #180D26;
+}
+
+#templeCarousel .carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#templeCarousel .carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+  height: 75vh;
+  min-height: 560px;
+  max-height: 780px;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+#templeCarousel .carousel-item.active,
+#templeCarousel .carousel-item-next,
+#templeCarousel .carousel-item-prev {
+  display: block;
+}
+
+.hero-slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(24, 13, 38, 0.42) 0%, rgba(24, 13, 38, 0.72) 55%, rgba(24, 13, 38, 0.94) 100%);
+  display: flex;
+  align-items: center;
+  padding: 3.5rem 0;
+}
+
+.hero-sacred-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 9999px;
+  background: rgba(212, 175, 55, 0.18);
+  border: 1.5px solid rgba(212, 175, 55, 0.6);
+  color: #F9E79F;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.2);
+}
+
+.hero-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.1rem, 4.4vw, 3.8rem);
+  color: #FFFFFF;
+  font-weight: 800;
+  line-height: 1.22;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero-lead-text {
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  color: #EAE6F4;
+  line-height: 1.7;
+  max-width: 660px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Indicators */
+#templeCarousel .carousel-indicators {
+  bottom: 24px;
+  margin-bottom: 0;
+  gap: 8px;
+  z-index: 15;
+}
+
+#templeCarousel .carousel-indicators [data-bs-target] {
+  width: 32px;
+  height: 6px;
+  border-radius: 9999px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.45);
+  transition: all 0.35s ease;
+}
+
+#templeCarousel .carousel-indicators .active {
+  width: 52px;
+  background: linear-gradient(90deg, #FDE68A 0%, #D4AF37 100%);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+}
+
+/* Prev / Next controls */
+#templeCarousel .carousel-control-prev,
+#templeCarousel .carousel-control-next {
+  width: 54px;
+  height: 54px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: rgba(30, 17, 44, 0.65);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0.85;
+  transition: all 0.28s ease;
+  z-index: 15;
+}
+
+#templeCarousel .carousel-control-prev {
+  left: 20px;
+}
+
+#templeCarousel .carousel-control-next {
+  right: 20px;
+}
+
+#templeCarousel .carousel-control-prev:hover,
+#templeCarousel .carousel-control-next:hover {
+  opacity: 1;
+  background: rgba(212, 175, 55, 0.25);
+  border-color: #FDE68A;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+@media (max-width: 768px) {
+  #templeCarousel .carousel-item {
+    height: auto;
+    min-height: 520px;
+  }
+  .hero-slide-overlay {
+    padding: 2.5rem 0 3.5rem;
+  }
+  #templeCarousel .carousel-control-prev,
+  #templeCarousel .carousel-control-next {
+    display: none;
+  }
+}
+
+/* 2. REAL-TIME SANCTUM STATUS STRIP (Zero Overlap, Anti-Collision Grid) */
+.sanctum-status-strip {
+  background: linear-gradient(135deg, #1A0D2A 0%, #2A1740 50%, #180D26 100%);
+  border-top: 2px solid rgba(212, 175, 55, 0.45);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 8px 30px rgba(24, 13, 38, 0.35);
+  position: relative;
+  z-index: 10;
+  padding: 1.1rem 0;
+}
+
+.status-strip-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .status-strip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .status-strip-grid {
+    grid-template-columns: 1.15fr 1.35fr 1.45fr auto;
+    gap: 1rem;
+  }
+}
+
+/* Status Cards inside Strip */
+.status-pill-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  min-height: 64px;
+}
+
+.status-pill-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.15);
+}
+
+.status-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #F9E79F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.status-card-content {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.status-label-heading {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.status-clock-val {
+  font-family: 'Cinzel', monospace;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+/* Badge Live Pulse */
+.badge-live-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(46, 125, 50, 0.25);
+  border: 1px solid #4CAF50;
+  color: #81C784;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.badge-live-pulse .pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  box-shadow: 0 0 8px #4CAF50;
+  animation: pulseStatus 1.6s infinite ease-in-out;
+}
+
+@keyframes pulseStatus {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+/* Country Sync Controls */
+.status-country-select {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #F9E79F !important;
+  border: 1px solid rgba(212, 175, 55, 0.45) !important;
+  border-radius: 10px !important;
+  font-size: 0.8rem !important;
+  padding: 0.35rem 0.65rem !important;
+  font-weight: 500;
+  max-width: 170px;
+  cursor: pointer;
+}
+
+.status-country-select option {
+  background: #241438 !important;
+  color: #FFFFFF !important;
+}
+
+.status-local-pill {
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 10px;
+  padding: 0.3rem 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.status-local-pill small {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.status-local-pill strong {
+  font-family: monospace;
+  font-size: 0.88rem;
+  color: #F9E79F;
+}
+
+/* Next Aarti & Countdown Box */
+.status-aarti-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status-aarti-local {
+  font-size: 0.72rem;
+  color: #F9E79F;
+  display: block;
+  white-space: nowrap;
+}
+
+.status-countdown-wrap {
+  background: linear-gradient(135deg, rgba(230, 81, 0, 0.25) 0%, rgba(255, 160, 0, 0.15) 100%);
+  border: 1px solid rgba(255, 160, 0, 0.5);
+  border-radius: 12px;
+  padding: 0.3rem 0.7rem;
+  text-align: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.status-countdown-wrap small {
+  display: block;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.1;
+}
+
+.status-countdown-val {
+  font-family: monospace;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #FFA000;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+/* Quick Strip Actions */
+.status-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.btn-strip-bell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: rgba(212, 175, 55, 0.18);
+  border: 1.5px solid #D4AF37;
+  color: #F9E79F;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-strip-bell:hover {
+  background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%);
+  color: #1A0D2A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.45);
+}
+
+.btn-strip-book {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #FFA000 0%, #E65100 100%);
+  color: #FFFFFF !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 4px 15px rgba(230, 81, 0, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-strip-book:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(230, 81, 0, 0.55);
+  color: #FFFFFF !important;
+}
+
+/* 3. COMPREHENSIVE BUTTON DESIGN SYSTEM (Attractive, Rounded & Themed) */
+
+/* General Button Pill Shape & Transitions */
+.btn {
+  border-radius: 9999px !important;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary / Gold Button */
+.btn-gold,
+.btn-hero-gold,
+.btn-primary,
+.btn-temple-gold {
+  background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #B3861B 100%) !important;
+  color: #180D26 !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+  text-decoration: none;
+}
+
+.btn-gold:hover,
+.btn-hero-gold:hover,
+.btn-primary:hover,
+.btn-temple-gold:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+  color: #180D26 !important;
+}
+
+/* Sacred Saffron / Warning Button */
+.btn-saffron,
+.btn-warning {
+  background: linear-gradient(135deg, #FF9800 0%, #E65100 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 230, 150, 0.35) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 6px 20px rgba(230, 81, 0, 0.35) !important;
+  text-decoration: none;
+}
+
+.btn-saffron:hover,
+.btn-warning:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(230, 81, 0, 0.55) !important;
+  color: #FFFFFF !important;
+}
+
+/* Royal Plum / Secondary Button */
+.btn-purple,
+.btn-secondary {
+  background: linear-gradient(135deg, #4A306D 0%, #2E1A47 100%) !important;
+  color: #F9E79F !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 6px 20px rgba(46, 26, 71, 0.3) !important;
+  text-decoration: none;
+}
+
+.btn-purple:hover,
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(46, 26, 71, 0.5) !important;
+  color: #FFFFFF !important;
+  border-color: #D4AF37 !important;
+}
+
+/* Hero Glass & Outline Gold Buttons */
+.btn-hero-glass,
+.btn-outline-warning,
+.btn-outline-gold {
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.75) !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+  text-decoration: none;
+}
+
+.btn-hero-glass:hover,
+.btn-outline-warning:hover,
+.btn-outline-gold:hover {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.35) 0%, rgba(179, 134, 27, 0.45) 100%) !important;
+  border-color: #FDE68A !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.4) !important;
+}
+
+/* Dark Outline Button (for light backgrounds) */
+.btn-outline-dark,
+.btn-temple-outline {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1.5px solid #D4AF37 !important;
+  color: #2E1A47 !important;
+  font-weight: 600 !important;
+  text-decoration: none;
+}
+
+.btn-outline-dark:hover,
+.btn-temple-outline:hover {
+  background: linear-gradient(135deg, #FFE082 0%, #D4AF37 100%) !important;
+  color: #180D26 !important;
+  border-color: #D4AF37 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35) !important;
+}
+
+/* Sacred Bell Buttons */
+.btn-hero-bell,
+.tb-icon-btn.ring-bell-btn,
+.tb-audio-btn {
+  border-radius: 9999px !important;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.22) 0%, rgba(179, 134, 27, 0.32) 100%) !important;
+  border: 1.5px solid #D4AF37 !important;
+  color: #F9E79F !important;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25) !important;
+}
+
+.btn-hero-bell:hover,
+.tb-icon-btn.ring-bell-btn:hover,
+.tb-audio-btn:hover {
+  background: linear-gradient(135deg, #FFE082 0%, #D4AF37 100%) !important;
+  color: #180D26 !important;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.55) !important;
+}
+
+/* Header Action Pill */
+.tb-cta-btn {
+  border-radius: 9999px !important;
+  background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #B3861B 100%) !important;
+  color: #180D26 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35) !important;
+}
+
+/* Calendar & Navigation Buttons */
+.nav-btn,
+.today-jump-btn {
+  border-radius: 9999px !important;
+  background: linear-gradient(135deg, #4A306D 0%, #2E1A47 100%) !important;
+  color: #F9E79F !important;
+  border: 1px solid rgba(212, 175, 55, 0.4) !important;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.nav-btn:hover,
+.today-jump-btn:hover {
+  background: linear-gradient(135deg, #FFE082 0%, #D4AF37 100%) !important;
+  color: #180D26 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+}
