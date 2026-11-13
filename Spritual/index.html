@@ -281,231 +281,296 @@
     </div>
   </aside>
 
-        <!-- ======================================================
-       3. HERO CAROUSEL SECTION (Majestic, Responsive, Auto-Sliding Left-Right)
+          <!-- ======================================================
+       3. HERO SLIDER SECTION (Authentic Angular Temple Experience)
        ====================================================== -->
-  <section id="hero" class="hero-carousel-section position-relative">
-    <div id="templeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="hover" data-bs-touch="true">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#templeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1 - Sacred Vedic Peace"></button>
-        <button type="button" data-bs-target="#templeCarousel" data-bs-slide-to="1" aria-label="Slide 2 - Maha Mrityunjaya Havan"></button>
-        <button type="button" data-bs-target="#templeCarousel" data-bs-slide-to="2" aria-label="Slide 3 - Vedic Astrology"></button>
-        <button type="button" data-bs-target="#templeCarousel" data-bs-slide-to="3" aria-label="Slide 4 - 24/7 Sanctum Darshan"></button>
-      </div>
-
-      <div class="carousel-inner">
-        <!-- Slide 1: Sacred Vedic Peace -->
-        <div class="carousel-item active" style="background-image: url('assets/images/hero-temple.jpg');">
-          <div class="hero-slide-overlay">
-            <div class="container text-center text-md-start">
-              <div class="col-lg-8 col-xl-7">
-                <div class="hero-sacred-badge mb-3">
-                  <span class="badge-om-pulse">ॐ</span>
-                  <span>॥ शान्तिः प्रशान्तिः परमात्मयोगः ॥</span>
-                </div>
-                <h1 class="hero-main-title">
-                  Experience Sacred <span class="text-gold-gradient">Vedic Peace</span> &amp; Blessings
-                </h1>
-                <p class="hero-lead-text mt-3">
-                  Step into Sukoon Temple — an authentic sanctuary for 24/7 Live Sanctum Darshan, Maha Ganga Aarti, Shastric havan rituals, and global devotee prayers.
-                </p>
-                <div class="d-flex gap-3 justify-content-center justify-content-md-start flex-wrap mt-4">
-                  <a href="services.html" class="btn-hero-gold">
-                    <i class="fa-solid fa-sparkles me-2"></i> Explore Sacred Pujas
-                  </a>
-                  <a href="live.html" class="btn-hero-glass">
-                    <i class="fa-solid fa-video me-2 text-danger"></i> Watch Live Darshan
-                  </a>
-                  <button class="btn-hero-bell trigger-sacred-bell" title="Sound 432Hz Bell">
-                    <i class="fa-solid fa-bell"></i>
-                  </button>
-                </div>
-              </div>
+  <section class="hero-slider-section">
+    <div class="slider-wrapper">
+      <!-- Slide 1: Welcome & Spiritual Haven -->
+      <div class="slide-item active-slide">
+        <div class="slide-image-backdrop" style="background-image: url('assets/images/hero-temple.jpg')"></div>
+        <div class="slide-overlay-gradient"></div>
+        
+        <div class="container slide-content-container">
+          <div class="slide-content">
+            <div class="slide-badge-row">
+              <span class="slide-badge">Spiritual Sanctuary</span>
+              <span class="slide-motto">॥ आत्मनः प्रशान्तौ सर्वस्य शान्तिः ॥</span>
             </div>
-          </div>
-        </div>
-
-        <!-- Slide 2: Maha Mrityunjaya Havan -->
-        <div class="carousel-item" style="background-image: url('assets/images/havan.jpg');">
-          <div class="hero-slide-overlay">
-            <div class="container text-center text-md-start">
-              <div class="col-lg-8 col-xl-7">
-                <div class="hero-sacred-badge mb-3" style="background: rgba(230, 81, 0, 0.22); border-color: #FFA000; color: #FFA000;">
-                  <span class="badge-om-pulse">🔥</span>
-                  <span>॥ पवित्र वैदिक यज्ञ एवं आहुति ॥</span>
-                </div>
-                <h1 class="hero-main-title">
-                  Maha Mrityunjaya &amp; <span style="color: #FFA000;">Griha Shanti Havan</span>
-                </h1>
-                <p class="hero-lead-text mt-3">
-                  Sacred fire offerings chanted by learned Vedic Acharyas to purify negative energies, protect families, and invite divine health and spiritual solace.
-                </p>
-                <div class="d-flex gap-3 justify-content-center justify-content-md-start flex-wrap mt-4">
-                  <a href="booking.html" class="btn-saffron">
-                    <i class="fa-solid fa-fire me-2"></i> Book Havan Offering
-                  </a>
-                  <a href="services.html" class="btn-hero-glass">
-                    <i class="fa-solid fa-list me-2"></i> View All Pujas
-                  </a>
-                  <button class="btn-hero-bell trigger-sacred-bell" title="Sound 432Hz Bell">
-                    <i class="fa-solid fa-bell"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3: Vedic Astrology & Kundali -->
-        <div class="carousel-item" style="background-image: url('assets/images/kundali.jpg');">
-          <div class="hero-slide-overlay">
-            <div class="container text-center text-md-start">
-              <div class="col-lg-8 col-xl-7">
-                <div class="hero-sacred-badge mb-3">
-                  <span class="badge-om-pulse">✨</span>
-                  <span>॥ ज्योतिष एवं नवग्रह शान्ति ॥</span>
-                </div>
-                <h1 class="hero-main-title">
-                  Vedic Astrology &amp; <span class="text-gold-gradient">Kundali Paramarsh</span>
-                </h1>
-                <p class="hero-lead-text mt-3">
-                  Understand your soul's karmic blueprint, dosha remedies, career transitions, and marital harmony through genuine Vedic Jyotish and birth chart calculations.
-                </p>
-                <div class="d-flex gap-3 justify-content-center justify-content-md-start flex-wrap mt-4">
-                  <a href="booking.html" class="btn-hero-gold">
-                    <i class="fa-solid fa-scroll me-2"></i> Consult Acharya
-                  </a>
-                  <a href="calendar.html" class="btn-hero-glass">
-                    <i class="fa-solid fa-calendar-days me-2"></i> Panchang Calendar
-                  </a>
-                  <button class="btn-hero-bell trigger-sacred-bell" title="Sound 432Hz Bell">
-                    <i class="fa-solid fa-bell"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 4: 24/7 Sanctum Darshan -->
-        <div class="carousel-item" style="background-image: url('assets/images/sanctum.jpg');">
-          <div class="hero-slide-overlay">
-            <div class="container text-center text-md-start">
-              <div class="col-lg-8 col-xl-7">
-                <div class="hero-sacred-badge mb-3">
-                  <span class="badge-om-pulse">🔱</span>
-                  <span>॥ नित्य दर्शन एवं महा आरती ॥</span>
-                </div>
-                <h1 class="hero-main-title">
-                  24/7 Sanctum <span class="text-gold-gradient">Darshan &amp; Aarti</span>
-                </h1>
-                <p class="hero-lead-text mt-3">
-                  Feel the divine presence of holy Haridwar. Watch daily Mangala, Rajbhog, and Maha Sandhya Aartis with live conch resonance from wherever you are.
-                </p>
-                <div class="d-flex gap-3 justify-content-center justify-content-md-start flex-wrap mt-4">
-                  <a href="live.html" class="btn-hero-gold">
-                    <i class="fa-solid fa-video me-2"></i> Watch Live Stream
-                  </a>
-                  <a href="timings.html" class="btn-hero-glass">
-                    <i class="fa-solid fa-clock me-2"></i> View Aarti Timings
-                  </a>
-                  <button class="btn-hero-bell trigger-sacred-bell" title="Sound 432Hz Bell">
-                    <i class="fa-solid fa-bell"></i>
-                  </button>
-                </div>
-              </div>
+            
+            <h1 class="slide-title">Welcome to Sakoon Temple</h1>
+            <p class="slide-subtitle">A Sacred Haven of Divine Peace, Authentic Vedic Rituals &amp; Spiritual Solace</p>
+            
+            <div class="slide-cta-row">
+              <a href="booking.html" class="btn-primary hero-btn">
+                <span class="btn-diya-icon">
+                  <svg viewBox="0 0 24 24" class="btn-svg-diya" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 2c.8 1.8 2 3.6 2 5.2 0 1.8-1 3-2 3s-2-1.2-2-3c0-1.6 1.2-3.4 2-5.2z" fill="#FFC107" stroke="#FFA000"/>
+                    <path d="M4 14c0 4 3.6 7 8 7s8-3 8-7H4z" fill="#E65100" stroke="#BF360C"/>
+                    <path d="M2 14h20" stroke="#BF360C" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span>Book Puja / Darshan</span>
+              </a>
+              <a href="calendar.html" class="btn-secondary hero-secondary-btn">
+                <span>Explore Panchang</span>
+                <span class="cta-arrow">→</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Left / Right Carousel Controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#templeCarousel" data-bs-slide="prev" aria-label="Previous Slide">
-        <i class="fa-solid fa-chevron-left text-warning fs-5"></i>
+      <!-- Slide 2: Vedic Havan & Yagya -->
+      <div class="slide-item">
+        <div class="slide-image-backdrop" style="background-image: url('assets/images/havan.jpg')"></div>
+        <div class="slide-overlay-gradient"></div>
+        
+        <div class="container slide-content-container">
+          <div class="slide-content">
+            <div class="slide-badge-row">
+              <span class="slide-badge">Divine Fire Rites</span>
+              <span class="slide-motto">॥ ॐ पावका नः सरस्वती वाजेभिर्वाजिनीवती ॥</span>
+            </div>
+            
+            <h1 class="slide-title">Sacred Vedic Havan &amp; Yagya</h1>
+            <p class="slide-subtitle">Maha Mrityunjaya, Gayatri &amp; Navagraha fire ceremonies by learned Vedic priests for purification and health.</p>
+            
+            <div class="slide-cta-row">
+              <a href="services.html" class="btn-primary hero-btn">
+                <span class="btn-diya-icon">
+                  <svg viewBox="0 0 24 24" class="btn-svg-diya" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 2c.8 1.8 2 3.6 2 5.2 0 1.8-1 3-2 3s-2-1.2-2-3c0-1.6 1.2-3.4 2-5.2z" fill="#FFC107" stroke="#FFA000"/>
+                    <path d="M4 14c0 4 3.6 7 8 7s8-3 8-7H4z" fill="#E65100" stroke="#BF360C"/>
+                    <path d="M2 14h20" stroke="#BF360C" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span>Explore Havan Vidhi</span>
+              </a>
+              <a href="booking.html" class="btn-secondary hero-secondary-btn">
+                <span>Schedule Ceremony</span>
+                <span class="cta-arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Kundali & Jyotish -->
+      <div class="slide-item">
+        <div class="slide-image-backdrop" style="background-image: url('assets/images/kundali.jpg')"></div>
+        <div class="slide-overlay-gradient"></div>
+        
+        <div class="container slide-content-container">
+          <div class="slide-content">
+            <div class="slide-badge-row">
+              <span class="slide-badge">Vedanga Jyotisha</span>
+              <span class="slide-motto">॥ ज्योतिषामपि तज्ज्योतिस्तमसः परमुच्यते ॥</span>
+            </div>
+            
+            <h1 class="slide-title">Kundali &amp; Jyotish Paramarsh</h1>
+            <p class="slide-subtitle">Accurate Janampatri horoscope reading, planetary dosha remedies, and career-marriage guidance.</p>
+            
+            <div class="slide-cta-row">
+              <a href="services.html" class="btn-primary hero-btn">
+                <span class="btn-diya-icon">
+                  <svg viewBox="0 0 24 24" class="btn-svg-diya" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 2c.8 1.8 2 3.6 2 5.2 0 1.8-1 3-2 3s-2-1.2-2-3c0-1.6 1.2-3.4 2-5.2z" fill="#FFC107" stroke="#FFA000"/>
+                    <path d="M4 14c0 4 3.6 7 8 7s8-3 8-7H4z" fill="#E65100" stroke="#BF360C"/>
+                    <path d="M2 14h20" stroke="#BF360C" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span>Kundali Guidance</span>
+              </a>
+              <a href="booking.html" class="btn-secondary hero-secondary-btn">
+                <span>Book Jyotish Slot</span>
+                <span class="cta-arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Tarot Card Predictions -->
+      <div class="slide-item">
+        <div class="slide-image-backdrop" style="background-image: url('assets/images/tarot.jpg')"></div>
+        <div class="slide-overlay-gradient"></div>
+        
+        <div class="container slide-content-container">
+          <div class="slide-content">
+            <div class="slide-badge-row">
+              <span class="slide-badge">Intuitive Divination</span>
+              <span class="slide-motto">॥ ब्रह्माण्डं चेतसा युक्ता ॥</span>
+            </div>
+            
+            <h1 class="slide-title">Tarot Card Predictions</h1>
+            <p class="slide-subtitle">Intuitive cosmic symbology and meditative spiritual readings for clarity, decisions, and inner balance.</p>
+            
+            <div class="slide-cta-row">
+              <a href="services.html" class="btn-primary hero-btn">
+                <span class="btn-diya-icon">
+                  <svg viewBox="0 0 24 24" class="btn-svg-diya" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 2c.8 1.8 2 3.6 2 5.2 0 1.8-1 3-2 3s-2-1.2-2-3c0-1.6 1.2-3.4 2-5.2z" fill="#FFC107" stroke="#FFA000"/>
+                    <path d="M4 14c0 4 3.6 7 8 7s8-3 8-7H4z" fill="#E65100" stroke="#BF360C"/>
+                    <path d="M2 14h20" stroke="#BF360C" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span>Tarot Readings</span>
+              </a>
+              <a href="booking.html" class="btn-secondary hero-secondary-btn">
+                <span>Book 1-on-1 Session</span>
+                <span class="cta-arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Inner Sanctum Darshan -->
+      <div class="slide-item">
+        <div class="slide-image-backdrop" style="background-image: url('assets/images/sanctum.jpg')"></div>
+        <div class="slide-overlay-gradient"></div>
+        
+        <div class="container slide-content-container">
+          <div class="slide-content">
+            <div class="slide-badge-row">
+              <span class="slide-badge">Tranquil Darshan</span>
+              <span class="slide-motto">॥ मन्दिरं शान्तिनिलयं पावनं मोक्षसाधनम् ॥</span>
+            </div>
+            
+            <h1 class="slide-title">Inner Sanctum Darshan</h1>
+            <p class="slide-subtitle">Immerse your soul in meditative stillness, fragrant temple dhoop, brass bells resonance, and sacred aartis.</p>
+            
+            <div class="slide-cta-row">
+              <a href="timings.html" class="btn-primary hero-btn">
+                <span class="btn-diya-icon">
+                  <svg viewBox="0 0 24 24" class="btn-svg-diya" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 2c.8 1.8 2 3.6 2 5.2 0 1.8-1 3-2 3s-2-1.2-2-3c0-1.6 1.2-3.4 2-5.2z" fill="#FFC107" stroke="#FFA000"/>
+                    <path d="M4 14c0 4 3.6 7 8 7s8-3 8-7H4z" fill="#E65100" stroke="#BF360C"/>
+                    <path d="M2 14h20" stroke="#BF360C" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span>View Aarti Schedule</span>
+              </a>
+              <a href="about.html" class="btn-secondary hero-secondary-btn">
+                <span>About Temple</span>
+                <span class="cta-arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Arrows -->
+      <button class="slider-arrow prev-arrow" id="heroPrevBtn" aria-label="Previous Slide" title="Previous Slide">
+        <svg viewBox="0 0 24 24" class="arrow-svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#templeCarousel" data-bs-slide="next" aria-label="Next Slide">
-        <i class="fa-solid fa-chevron-right text-warning fs-5"></i>
+      <button class="slider-arrow next-arrow" id="heroNextBtn" aria-label="Next Slide" title="Next Slide">
+        <svg viewBox="0 0 24 24" class="arrow-svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
       </button>
+
+      <!-- Carousel Dots -->
+      <div class="slider-dots" id="heroSliderDots">
+        <button class="dot-indicator active-dot" data-slide="0" aria-label="Go to slide 1"></button>
+        <button class="dot-indicator" data-slide="1" aria-label="Go to slide 2"></button>
+        <button class="dot-indicator" data-slide="2" aria-label="Go to slide 3"></button>
+        <button class="dot-indicator" data-slide="3" aria-label="Go to slide 4"></button>
+        <button class="dot-indicator" data-slide="4" aria-label="Go to slide 5"></button>
+      </div>
     </div>
   </section>
 
   <!-- ======================================================
-       4. REAL-TIME SANCTUM STATUS & GLOBAL TIME STRIP (Zero Overlap & Anti-Collision Grid)
+       4. SANCTUM STATUS & REAL-TIME DARSHAN STRIP (Authentic Floating Altar Card)
        ====================================================== -->
-  <section class="sanctum-status-strip position-relative">
-    <div class="container">
-      <div class="status-strip-grid">
-        <!-- Card 1: Haridwar Sanctum Live Status & IST Clock -->
-        <div class="status-pill-card">
-          <div class="status-card-icon">
-            <span style="font-family: 'Rozha One', serif; font-size: 1.25rem;">ॐ</span>
-          </div>
-          <div class="status-card-content">
-            <div class="status-label-heading">
-              <span>Haridwar Sanctum</span>
-            </div>
-            <div class="d-flex align-items-center gap-2 flex-wrap">
-              <span id="liveStatusBadge" class="badge-live-pulse">
-                <span class="pulse-dot"></span> OPEN NOW
-              </span>
-              <strong id="sanctumLiveClock" class="status-clock-val">IST --:--:--</strong>
-            </div>
-          </div>
+  <section class="sanctum-status-strip">
+    <div class="container strip-content">
+      
+      <!-- Item 1: Temple Gates Status -->
+      <div class="strip-item">
+        <div class="strip-icon-box">
+          <svg viewBox="0 0 24 24" class="strip-svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M12 2L3 9v11a2 2 0 002 2h14a2 2 0 002-2V9l-9-7z"/>
+            <path d="M9 22V12h6v10"/>
+            <path d="M12 2v4"/>
+          </svg>
         </div>
-
-        <!-- Card 2: Devotee Global Timezone Sync -->
-        <div class="status-pill-card">
-          <div class="status-card-icon">
-            <i class="fa-solid fa-earth-americas text-warning"></i>
+        <div class="strip-text-col">
+          <span class="strip-label">Temple Gates Status</span>
+          <div class="strip-value">
+            <span id="liveStatusBadge" class="pulse-dot-green"></span>
+            <strong id="liveStatusText">OPEN NOW • Pratah Kaal Darshan</strong>
           </div>
-          <div class="status-card-content">
-            <div class="status-label-heading">
-              <label for="heroCountrySelect" style="cursor: pointer; margin: 0;">Devotee Timezone Sync</label>
-            </div>
-            <div class="d-flex align-items-center gap-2 flex-wrap flex-sm-nowrap">
-              <select id="heroCountrySelect" class="status-country-select" aria-label="Select Devotee Country">
-                <!-- Populated via ALL_COUNTRIES in app.js -->
-              </select>
-              <div class="status-local-pill">
-                <small>Local:</small>
-                <strong id="devoteeCountryClock">--:--:--</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Next Sacred Aarti & Real-Time Countdown -->
-        <div class="status-pill-card">
-          <div class="status-card-icon">
-            <i class="fa-solid fa-fire text-warning"></i>
-          </div>
-          <div class="status-card-content">
-            <div class="d-flex align-items-center justify-content-between gap-2">
-              <div style="min-width: 0; flex-grow: 1;">
-                <div class="status-label-heading">Next Sacred Aarti</div>
-                <strong id="nextAartiName" class="status-aarti-title">Mangala Aarti (06:00 AM IST)</strong>
-                <span id="nextAartiLocalTime" class="status-aarti-local"></span>
-              </div>
-              <div class="status-countdown-wrap">
-                <small>STARTS IN</small>
-                <span id="aartiCountdown" class="status-countdown-val">00:00:00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4: Quick Action Buttons -->
-        <div class="status-actions-group">
-          <button class="btn-strip-bell trigger-sacred-bell audio-chime-toggle" title="Play 432 Hz Solfeggio Chimes">
-            <i class="fa-solid fa-bell"></i>
-            <span class="tb-btn-label">432Hz</span>
-          </button>
-          <a href="booking.html" class="btn-strip-book">
-            <span>Book Puja</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
         </div>
       </div>
+
+      <div class="strip-divider"></div>
+
+      <!-- Item 2: Sanctum & Local Clock with Country Timezone Selector -->
+      <div class="strip-item">
+        <div class="strip-icon-box">
+          <svg viewBox="0 0 24 24" class="strip-svg" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="9"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="strip-text-col">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="strip-label" style="margin: 0;">Sanctum &amp; Devotee Clock</span>
+            <select id="heroCountrySelect" class="sanctum-country-select" aria-label="Select Devotee Country">
+              <!-- Populated via ALL_COUNTRIES in app.js -->
+            </select>
+          </div>
+          <div class="strip-value mono-clock">
+            <span class="ist-clock" id="sanctumLiveClock">IST --:--:--</span>
+            <span class="local-clock-pill" id="devoteeCountryClock">--:--:--</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="strip-divider"></div>
+
+      <!-- Item 3: Next Sacred Event & Clean Aarti Countdown -->
+      <div class="strip-item">
+        <div class="strip-icon-box">
+          <svg viewBox="0 0 24 24" class="strip-svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 01-3.46 0"/>
+          </svg>
+        </div>
+        <div class="strip-text-col">
+          <span class="strip-label">Next Sacred Event</span>
+          <div class="strip-value next-event-val">
+            <span id="nextAartiName">Mangala Aarti</span> <span class="event-time-tag" id="nextAartiLocalTime">(06:00 AM IST)</span>
+            <span id="aartiCountdown" class="clean-countdown-badge">Starts in: 00:00:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="strip-divider"></div>
+
+      <!-- Item 4: Quick Sacred Actions -->
+      <div class="strip-action">
+        <button class="btn btn-sm trigger-sacred-bell audio-chime-toggle me-1" style="background: #FAF7F2; border: 1.5px solid #D4AF37; color: #8B5A00; border-radius: 6px; font-weight: 700; padding: 0.6rem 0.9rem;" title="Play 432 Hz Solfeggio Chimes">
+          <i class="fa-solid fa-bell me-1"></i> <span class="tb-btn-label">432Hz</span>
+        </button>
+        <a href="live.html" class="strip-live-btn" title="Watch Daily Live Havan &amp; Aarti">
+          <span class="live-dot-pulse-mini"></span>
+          <span>Live Darshan</span>
+        </a>
+        <a href="booking.html" class="strip-cta-btn">
+          <svg viewBox="0 0 24 24" class="btn-inline-svg" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2c.8 1.8 2 3.6 2 5.2 0 1.8-1 3-2 3s-2-1.2-2-3c0-1.6 1.2-3.4 2-5.2z" fill="#FFA000"/>
+            <path d="M4 14c0 4 3.6 7 8 7s8-3 8-7H4z" fill="#E65100"/>
+          </svg>
+          <span>Book Slot</span>
+        </a>
+      </div>
+
     </div>
   </section>
 

@@ -593,35 +593,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const liveStatusBadge = document.getElementById('liveStatusBadge');
     if (liveStatusBadge) {
-      if (liveStatusBadge.classList.contains('badge-live-pulse') || liveStatusBadge.id === 'liveStatusBadge') {
-        liveStatusBadge.className = status.isOpen ? 'badge-live-pulse' : 'badge bg-secondary px-3 py-2';
-        liveStatusBadge.innerHTML = status.isOpen 
-          ? '<span class="pulse-dot"></span> OPEN NOW' 
-          : '<span class="pulse-dot bg-warning"></span> SHAYAN REST';
-      }
+      liveStatusBadge.className = status.isOpen ? 'pulse-dot-green' : 'pulse-dot-orange';
+    }
+
+    const liveStatusText = document.getElementById('liveStatusText');
+    if (liveStatusText) {
+      liveStatusText.textContent = status.isOpen ? 'OPEN NOW • Pratah Kaal Darshan' : 'SHAYAN REST • Closed';
     }
 
     const aartiCountdownEl = document.getElementById('aartiCountdown');
     if (aartiCountdownEl) {
-      aartiCountdownEl.textContent = status.countdownStr;
+      aartiCountdownEl.textContent = `Starts in: ${status.countdownStr}`;
     }
 
     const country = getSelectedCountry();
 
     const nextAartiNameEl = document.getElementById('nextAartiName');
     if (nextAartiNameEl) {
-      nextAartiNameEl.textContent = `${status.nextEvent.name} (${status.nextEvent.time} IST)`;
+      nextAartiNameEl.textContent = status.nextEvent.name;
     }
 
     const nextAartiLocalEl = document.getElementById('nextAartiLocalTime');
     if (nextAartiLocalEl) {
-      if (country.code !== 'IN') {
-        const localAarti = convertIstTimeToLocal(status.nextEvent.time, country);
-        nextAartiLocalEl.textContent = `(Devotee Time: ${localAarti} ${country.tzName.split(' ')[0]})`;
-        nextAartiLocalEl.style.display = 'block';
-      } else {
-        nextAartiLocalEl.style.display = 'none';
-      }
+      nextAartiLocalEl.textContent = `(${status.nextEvent.time} IST)`;
     }
 
     // Devotee Country Clock
@@ -629,7 +623,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (countryClockEl) {
       const now = new Date();
       const localStr = now.toLocaleTimeString('en-US', { timeZone: country.tz, hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' });
-      countryClockEl.textContent = `${country.flag} ${localStr}`;
+      if (country.code !== 'IN') {
+        countryClockEl.textContent = `${country.code}: ${localStr}`;
+      } else {
+        countryClockEl.textContent = `Haridwar`;
+      }
     }
 
     const countrySubEl = document.getElementById('devoteeCountrySub');
@@ -674,6 +672,104 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateAllClocks();
   setInterval(updateAllClocks, 1000);
+
+  
+  // Hero Slider (Original Angular 5-Slide Experience)
+  function initHeroSlider() {
+    const slides = document.querySelectorAll('.hero-slider-section .slide-item');
+    const dots = document.querySelectorAll('.hero-slider-section .dot-indicator');
+    const prevBtn = document.getElementById('heroPrevBtn');
+    const nextBtn = document.getElementById('heroNextBtn');
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    let autoPlayTimer = null;
+
+    function showSlide(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      currentIndex = index;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active-slide', i === currentIndex);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active-dot', i === currentIndex);
+      });
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayTimer = setInterval(nextSlide, 6000);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimer) {
+        clearInterval(autoPlayTimer);
+        autoPlayTimer = null;
+      }
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        nextSlide();
+        startAutoPlay();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        prevSlide();
+        startAutoPlay();
+      });
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        const idx = parseInt(dot.getAttribute('data-slide') || '0', 10);
+        showSlide(idx);
+        startAutoPlay();
+      });
+    });
+
+    const sliderWrapper = document.querySelector('.hero-slider-section .slider-wrapper');
+    if (sliderWrapper) {
+      sliderWrapper.addEventListener('mouseenter', stopAutoPlay);
+      sliderWrapper.addEventListener('mouseleave', startAutoPlay);
+
+      let touchStartX = 0;
+      sliderWrapper.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoPlay();
+      }, { passive: true });
+
+      sliderWrapper.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 45) {
+          nextSlide();
+        } else if (touchEndX - touchStartX > 45) {
+          prevSlide();
+        }
+        startAutoPlay();
+      }, { passive: true });
+    }
+
+    startAutoPlay();
+  }
+
+  initHeroSlider();
 
   // 3. Sacred Bell Quick Triggers & 432 Hz Solfeggio Chimes
   let chimesActive = false;
