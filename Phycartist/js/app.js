@@ -1,5 +1,5 @@
 /**
- * SAKOONSAY - Spiritual Sanctuary & Chakra Wellness
+ * SUKOONSAY - Clinical & Spiritual Sanctuary Wellness
  * Interactive Engine: 7 Chakras, Web Audio Synthesizer, Sacred Diya, Quiz & Status Badges
  */
 
@@ -503,8 +503,8 @@ function initVirtualDiya() {
 
   if (!diyaPedestal || !flameGroup || !countEl) return;
 
-  let currentCount = parseInt(localStorage.getItem('sakoonsay_diya_count') || '14850', 10);
-  let isDiyaLit = localStorage.getItem('sakoonsay_diya_lit') !== 'false';
+  let currentCount = parseInt(localStorage.getItem('sukoonsay_diya_count') || localStorage.getItem('sakoonsay_diya_count') || '14850', 10);
+  let isDiyaLit = (localStorage.getItem('sukoonsay_diya_lit') || localStorage.getItem('sakoonsay_diya_lit')) !== 'false';
   let activeFreq = 528;
 
   const dynamicBlessings = [
@@ -543,8 +543,8 @@ function initVirtualDiya() {
   function lightDiya(withPetals = true) {
     currentCount++;
     isDiyaLit = true;
-    localStorage.setItem('sakoonsay_diya_count', currentCount.toString());
-    localStorage.setItem('sakoonsay_diya_lit', 'true');
+    localStorage.setItem('sukoonsay_diya_count', currentCount.toString());
+    localStorage.setItem('sukoonsay_diya_lit', 'true');
     updateDiyaDisplay();
 
     // Sound chime with current frequency
@@ -564,7 +564,7 @@ function initVirtualDiya() {
 
   function toggleDiya() {
     isDiyaLit = !isDiyaLit;
-    localStorage.setItem('sakoonsay_diya_lit', isDiyaLit ? 'true' : 'false');
+    localStorage.setItem('sukoonsay_diya_lit', isDiyaLit ? 'true' : 'false');
     updateDiyaDisplay();
 
     if (isDiyaLit) {
@@ -633,7 +633,7 @@ const quizQuestions = [
     ]
   },
   {
-    q: 'What is your primary spiritual intention at Sakoonsay sanctuary?',
+    q: 'What is your primary spiritual intention at Sukoonsay sanctuary?',
     options: [
       { text: 'Overcome burnout and build rock-solid peace and stability.', chakraId: 'root' },
       { text: 'Awaken artistic inspiration, passion, and flow in my life.', chakraId: 'sacral' },
@@ -836,9 +836,9 @@ function initModalsAndToasts() {
     headerDiyaBtn.addEventListener('click', () => {
       const flameGroup = document.getElementById('animatedFlameGroup');
       const counterEl = document.getElementById('diyaCounterNum');
-      let currentCount = parseInt(localStorage.getItem('sakoonsay_diya_count') || '14850', 10) + 1;
-      localStorage.setItem('sakoonsay_diya_count', currentCount.toString());
-      localStorage.setItem('sakoonsay_diya_lit', 'true');
+      let currentCount = parseInt(localStorage.getItem('sukoonsay_diya_count') || localStorage.getItem('sakoonsay_diya_count') || '14850', 10) + 1;
+      localStorage.setItem('sukoonsay_diya_count', currentCount.toString());
+      localStorage.setItem('sukoonsay_diya_lit', 'true');
       if (counterEl) counterEl.textContent = currentCount.toLocaleString();
       if (flameGroup) flameGroup.classList.remove('off');
 

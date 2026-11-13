@@ -1,4 +1,4 @@
-// Native Node.js Zero-Dependency Static File Server for Sakoonsay
+// Native Node.js Zero-Dependency Static File Server for Sukoonsay
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -47,5 +47,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`🌸 Sakoonsay Sanctuary is running serenely at: http://localhost:${PORT}`);
+  console.log(`🌸 Sukoonsay Sanctuary is running serenely at: http://localhost:${PORT}`);
 });
