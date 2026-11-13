@@ -43,8 +43,6 @@ jobs:
           [ -f Spritual/robots.txt ] && cp -a Spritual/robots.txt deploy/spiritual/ || true
           [ -f Spritual/sitemap.xml ] && cp -a Spritual/sitemap.xml deploy/spiritual/ || true
           [ -f Spritual/_redirects ] && cp -a Spritual/_redirects deploy/spiritual/ || true
-          [ -f Spritual/favicon.ico ] && cp -a Spritual/favicon.ico deploy/spiritual/ || true
-          [ -f Spritual/favicon.svg ] && cp -a Spritual/favicon.svg deploy/spiritual/ || true
 
           # Clinical Psychiatry static application (Phycartist)
           cp -a Phycartist/index.html Phycartist/css Phycartist/js Phycartist/assets deploy/phycartist/

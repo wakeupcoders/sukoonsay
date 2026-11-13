@@ -1,9 +1,0 @@
-{
-  "name": "sukoonsay",
-  "version": "1.0.0",
-  "description": "Sukoonsay - Unified Sanctuary for Clinical Psychiatry & Vedic Spiritual Peace",
-  "private": true,
-  "scripts": {
-    "start": "npx serve ."
-  }
-}
