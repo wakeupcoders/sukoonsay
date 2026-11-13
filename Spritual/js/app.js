@@ -588,7 +588,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const drawerClockEl = document.getElementById('drawerSanctumClock');
     if (drawerClockEl) {
-      drawerClockEl.textContent = `Haridwar IST ${status.istTimeString}`;
+      drawerClockEl.textContent = `Ropar Punjab IST ${status.istTimeString}`;
     }
 
     const liveStatusBadge = document.getElementById('liveStatusBadge');
@@ -626,7 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (country.code !== 'IN') {
         countryClockEl.textContent = `${country.code}: ${localStr}`;
       } else {
-        countryClockEl.textContent = `Haridwar`;
+        countryClockEl.textContent = `Ropar Punjab`;
       }
     }
 
@@ -637,7 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initAllCountryDropdowns() {
-    const dropdownIds = ['heroCountrySelect', 'drawerCountrySelect', 'calCountrySelect'];
+    const dropdownIds = ['heroCountrySelect', 'drawerCountrySelect', 'calCountrySelect', 'timingsCountrySelect'];
     const curCountry = getSelectedCountry();
 
     dropdownIds.forEach(id => {
