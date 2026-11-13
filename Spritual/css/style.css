@@ -6159,3 +6159,500 @@ button:hover .cta-arrow {
     gap: 0.8rem;
   }
 }
+
+/* ==========================================================================
+   HERO GLASSMORPHIC GLOBAL TIMEZONE & SANCTUM CONTROL HUB
+   ========================================================================== */
+.hero-slide-overlay {
+  min-height: 580px;
+  background: linear-gradient(180deg, rgba(24, 13, 38, 0.45) 0%, rgba(24, 13, 38, 0.88) 100%);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-sacred-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 9999px;
+  background: rgba(212, 175, 55, 0.22);
+  border: 1.5px solid var(--sacred-gold);
+  color: #F9E79F;
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.badge-om-pulse {
+  font-size: 1.1rem;
+  color: #FDE68A;
+  animation: pulseSacred 2s infinite ease-in-out;
+}
+
+@keyframes pulseSacred {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 6px #FDE68A); }
+}
+
+.hero-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 60%, #E65100 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-lead-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #E5EBFA;
+  max-width: 600px;
+  opacity: 0.95;
+}
+
+.btn-hero-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.8rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 50%, #B3861B 100%);
+  color: #180D26 !important;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.btn-hero-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(212, 175, 55, 0.6);
+  color: #180D26 !important;
+}
+
+.btn-hero-glass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.6rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF !important;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+
+.btn-hero-glass:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #FDE68A;
+  color: #FDE68A !important;
+  transform: translateY(-2px);
+}
+
+.btn-hero-bell {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--sacred-gold);
+  background: rgba(212, 175, 55, 0.25);
+  color: #FDE68A;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 1.1rem;
+}
+
+.btn-hero-bell:hover {
+  background: var(--sacred-gold);
+  color: #180D26;
+  transform: rotate(-15deg) scale(1.1);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
+/* Floating Glassmorphic Sanctum Control Hub (Right Column) */
+.hero-glass-control-card {
+  background: rgba(28, 17, 40, 0.85);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  border-radius: 24px;
+  padding: 1.6rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45), 0 0 30px rgba(212, 175, 55, 0.15);
+  color: #FFFFFF;
+}
+
+.card-hub-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  margin-bottom: 1rem;
+}
+
+.hub-emblem {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%);
+  color: #180D26;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+  flex-shrink: 0;
+}
+
+.hub-title {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #F9E79F;
+}
+
+.hub-subtitle {
+  font-size: 0.72rem;
+  color: #D1C9DD;
+}
+
+.badge-live-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(46, 125, 50, 0.25);
+  border: 1px solid #4CAF50;
+  color: #A5D6A7;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4CAF50;
+  box-shadow: 0 0 8px #4CAF50;
+  animation: pulseDot 1.4s infinite alternate;
+}
+
+@keyframes pulseDot {
+  0% { opacity: 0.5; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Time Grid: Haridwar vs Devotee Local */
+.hub-time-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.time-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 14px;
+  padding: 0.85rem;
+  text-align: center;
+}
+
+.time-box-ist {
+  border-left: 3px solid var(--sacred-gold);
+}
+
+.time-box-local {
+  border-left: 3px solid #29B6F6;
+}
+
+.time-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #D1C9DD;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.time-digits {
+  font-family: var(--font-sans);
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.time-sub {
+  font-size: 0.68rem;
+  color: #A89FB7;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+/* Country Selector */
+.hub-country-selector {
+  margin-bottom: 1rem;
+}
+
+.selector-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #F9E79F;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.hero-country-dropdown {
+  background: rgba(24, 13, 38, 0.95) !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.hero-country-dropdown option {
+  background: #180D26;
+  color: #FFFFFF;
+  padding: 8px;
+}
+
+.hero-country-dropdown:focus {
+  border-color: var(--sacred-gold) !important;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5) !important;
+}
+
+/* Aarti Countdown Strip */
+.hub-aarti-strip {
+  background: rgba(230, 81, 0, 0.12);
+  border: 1px solid rgba(255, 152, 0, 0.35);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 0.6rem;
+}
+
+.aarti-icon-ring {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(230, 81, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.aarti-meta-lbl {
+  font-size: 0.68rem;
+  color: #FFA000;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: block;
+  letter-spacing: 0.04em;
+}
+
+.aarti-name {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  color: #FFFFFF;
+  display: block;
+  line-height: 1.2;
+}
+
+.aarti-local-note {
+  font-size: 0.72rem;
+  color: #FDE68A;
+  display: block;
+}
+
+.countdown-badge {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.cd-lbl {
+  font-size: 0.65rem;
+  color: #A89FB7;
+  text-transform: uppercase;
+  display: block;
+}
+
+.cd-timer {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #FFA000;
+  letter-spacing: 0.06em;
+}
+
+/* Bottom Hub Action Buttons */
+.hub-bottom-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 0.75rem;
+}
+
+.btn-hub-audio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  background: rgba(212, 175, 55, 0.15);
+  color: #F9E79F;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-hub-audio:hover,
+.btn-hub-audio.active {
+  background: var(--sacred-gold);
+  color: #180D26;
+  border-color: #FDE68A;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+.btn-hub-book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #E65100 0%, #FFA000 100%);
+  color: #FFFFFF !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(230, 81, 0, 0.35);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  border: none;
+}
+
+.btn-hub-book:hover {
+  background: linear-gradient(135deg, #FF9800 0%, #D4AF37 100%);
+  color: #180D26 !important;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   ENHANCED MOBILE SIDEBAR DRAWER STYLING
+   ========================================================================== */
+.mobile-sidebar-drawer {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5EEFB 50%, #EFE5F8 100%) !important;
+  border-left: 2px solid rgba(212, 175, 55, 0.45) !important;
+  box-shadow: -15px 0 50px rgba(46, 26, 71, 0.25) !important;
+}
+
+.drawer-country-wrap {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 12px;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.drawer-country-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.drawer-country-select {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  font-size: 0.82rem;
+  padding: 0.35rem 0.6rem;
+  background: #FFFFFF;
+  color: #2E1A47;
+}
+
+.drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  color: var(--divine-purple-deep) !important;
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.22s ease;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  margin-bottom: 0.35rem;
+}
+
+.drawer-link-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.15);
+  color: #B3861B;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  flex-shrink: 0;
+  transition: all 0.22s ease;
+}
+
+.drawer-link:hover,
+.drawer-link.active {
+  background: linear-gradient(135deg, rgba(253, 230, 138, 0.4) 0%, rgba(212, 175, 55, 0.25) 100%) !important;
+  color: #E65100 !important;
+  border-color: rgba(212, 175, 55, 0.6);
+  padding-left: 1.15rem;
+  box-shadow: 0 3px 12px rgba(212, 175, 55, 0.15);
+}
+
+.drawer-link:hover .drawer-link-icon,
+.drawer-link.active .drawer-link-icon {
+  background: var(--sacred-gold);
+  color: #180D26;
+}

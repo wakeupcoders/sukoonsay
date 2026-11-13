@@ -184,9 +184,9 @@
     </nav>
   </header>
 
-  <!-- Mobile Off-Canvas Sidebar / Drawer -->
+    <!-- Mobile Off-Canvas Sidebar / Drawer -->
   <div id="sidebarBackdrop" class="sidebar-backdrop" style="display: none;"></div>
-  <aside id="mobileSidebarDrawer" class="mobile-sidebar-drawer">
+  <aside id="mobileSidebarDrawer" class="mobile-sidebar-drawer" aria-label="Mobile Sacred Drawer">
     <div class="drawer-header">
       <div class="drawer-brand">
         <div class="drawer-emblem">ॐ</div>
@@ -200,44 +200,92 @@
       </button>
     </div>
 
-    <div class="drawer-status-pill p-2 mb-3 rounded-3" style="background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.3); font-size: 0.78rem; color: #2E1A47;">
-      <span class="pulse-dot emerald d-inline-block rounded-circle bg-success me-1" style="width: 8px; height: 8px;"></span>
-      <span id="sanctumLiveClock2">IST Live Sanctum</span>
+    <!-- Live Sanctum Status Pill -->
+    <div class="drawer-status-pill p-2 mb-2 rounded-3" style="background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.35); font-size: 0.78rem; color: #2E1A47;">
+      <span class="pulse-dot d-inline-block rounded-circle bg-success me-1" style="width: 8px; height: 8px;"></span>
+      <span id="drawerSanctumClock">Haridwar IST: --:--:--</span>
     </div>
 
+    <!-- Devotee Country / Timezone Dropdown Selector inside Drawer -->
+    <div class="drawer-country-wrap">
+      <label for="drawerCountrySelect" class="drawer-country-label">
+        <i class="fa-solid fa-globe text-warning"></i> Devotee Country &amp; Timezone:
+      </label>
+      <select id="drawerCountrySelect" class="form-select drawer-country-select" aria-label="Select Devotee Country">
+        <!-- Populated via ALL_COUNTRIES in app.js -->
+      </select>
+    </div>
+
+    <!-- Drawer Navigation Links with Circular Medallion Icons -->
     <nav class="drawer-nav">
-      <a href="index.html" class="drawer-link"><i class="fa-solid fa-om text-warning"></i><span>Home</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
-      <a href="about.html" class="drawer-link"><i class="fa-solid fa-gopuram text-warning"></i><span>About Mandir</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
-      <a href="services.html" class="drawer-link"><i class="fa-solid fa-hands-praying text-warning"></i><span>Pujas &amp; Sevas</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
-      <a href="timings.html" class="drawer-link"><i class="fa-regular fa-clock text-warning"></i><span>Aarti Timings</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
-      <a href="live.html" class="drawer-link"><i class="fa-solid fa-video text-warning"></i><span>Live Darshan</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
-      <a href="calendar.html" class="drawer-link"><i class="fa-regular fa-calendar-days text-warning"></i><span>Panchang Calendar</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
-      <a href="booking.html" class="drawer-link"><i class="fa-solid fa-fire-burner text-warning"></i><span>Book Puja</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
-      <a href="contact.html" class="drawer-link"><i class="fa-solid fa-envelope text-warning"></i><span>Contact</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
+      <a href="index.html" class="drawer-link">
+        <span class="drawer-link-icon"><i class="fa-solid fa-om"></i></span>
+        <span>Home Sanctum</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="about.html" class="drawer-link">
+        <span class="drawer-link-icon"><i class="fa-solid fa-gopuram"></i></span>
+        <span>About Mandir &amp; Lineage</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="services.html" class="drawer-link">
+        <span class="drawer-link-icon"><i class="fa-solid fa-hands-praying"></i></span>
+        <span>Pujas &amp; Sevas</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="timings.html" class="drawer-link">
+        <span class="drawer-link-icon"><i class="fa-regular fa-clock"></i></span>
+        <span>Aarti Timings (IST &amp; Local)</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="live.html" class="drawer-link">
+        <span class="drawer-link-icon"><i class="fa-solid fa-video"></i></span>
+        <span>Live Darshan 24/7</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="calendar.html" class="drawer-link">
+        <span class="drawer-link-icon"><i class="fa-regular fa-calendar-days"></i></span>
+        <span>Hindu Panchang Calendar</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="booking.html" class="drawer-link">
+        <span class="drawer-link-icon"><i class="fa-solid fa-fire-burner"></i></span>
+        <span>Book Puja &amp; Havan</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="contact.html" class="drawer-link">
+        <span class="drawer-link-icon"><i class="fa-solid fa-envelope"></i></span>
+        <span>Contact &amp; Reach</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
     </nav>
 
+    <!-- Sanctuary Access Portal Quick Links -->
     <div class="mt-2 mb-3">
-      <a href="../index.html" class="d-block p-2 text-center rounded-3 text-decoration-none fw-bold mb-2" style="background: rgba(46, 26, 71, 0.08); color: #2E1A47; font-size: 0.82rem; border: 1px solid rgba(212, 175, 55, 0.3);">
-        <i class="fa-solid fa-arrow-left me-1"></i> Return to Sukoonsay Main
+      <a href="../index.html" class="d-flex align-items-center gap-2 p-2 rounded-3 text-decoration-none fw-bold mb-2 shadow-sm" style="background: linear-gradient(135deg, #2E1A47 0%, #150D21 100%); color: #F9E79F; font-size: 0.82rem; border: 1px solid rgba(212, 175, 55, 0.4);">
+        <i class="fa-solid fa-archway text-warning ms-1"></i>
+        <span>Return to Sukoonsay Main Hub ↗</span>
       </a>
-      <a href="../Phycartist/index.html" class="d-block p-2 text-center rounded-3 text-decoration-none fw-bold" style="background: rgba(212, 175, 55, 0.15); color: #B3861B; font-size: 0.82rem; border: 1px solid rgba(212, 175, 55, 0.4);">
-        <i class="fa-solid fa-brain me-1"></i> Psychiatry Sanctuary ↗
+      <a href="../Phycartist/index.html" class="d-flex align-items-center gap-2 p-2 rounded-3 text-decoration-none fw-bold shadow-sm" style="background: linear-gradient(135deg, #4A306D 0%, #2E1A47 100%); color: #FFFFFF; font-size: 0.82rem; border: 1px solid rgba(212, 175, 55, 0.4);">
+        <i class="fa-solid fa-brain" style="color: #BB86FC;"></i>
+        <span>Clinical Psychiatry Sanctuary ↗</span>
       </a>
     </div>
 
+    <!-- 432 Hz Solfeggio Audio Player Button in Drawer -->
     <div class="drawer-footer-audio">
-      <button class="btn btn-warning w-100 audio-chime-toggle text-dark fw-bold btn-sm" style="background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%); border: none;">
+      <button class="btn btn-warning w-100 audio-chime-toggle text-dark fw-bold btn-sm shadow-sm" style="background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%); border: none; padding: 0.55rem;">
         <i class="fa-solid fa-bell me-1"></i>
-        <span>Play 432Hz Sound</span>
+        <span class="tb-btn-label">Play 432Hz Sound</span>
       </button>
     </div>
   </aside>
 
-  <!-- ======================================================
-       3. HERO CAROUSEL SECTION
+    <!-- ======================================================
+       3. HERO CAROUSEL & GLOBAL SANCTUM CONTROL HUB
        ====================================================== -->
   <section id="hero" class="hero-carousel-section position-relative">
-    <div id="templeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+    <div id="templeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6500">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#templeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#templeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -247,26 +295,107 @@
 
       <div class="carousel-inner">
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="min-height: 520px; height: 75vh; background: url('assets/images/hero-temple.jpg') center/cover no-repeat;">
-          <div class="w-100 h-100 d-flex align-items-center" style="background: linear-gradient(180deg, rgba(24, 13, 38, 0.4) 0%, rgba(24, 13, 38, 0.85) 100%);">
-            <div class="container text-center text-md-start">
-              <div class="col-lg-8">
-                <span class="badge mb-3 px-3 py-2" style="background: rgba(212, 175, 55, 0.25); border: 1px solid #D4AF37; color: #F9E79F; font-family: 'Cinzel', serif;">
-                  ॥ शान्तिः प्रशान्तिः परमात्मयोगः ॥
-                </span>
-                <h1 style="font-family: 'Cinzel', serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); color: #FFFFFF; font-weight: 800; line-height: 1.2;">
-                  Experience Sacred <span style="color: #D4AF37;">Vedic Peace</span> &amp; Blessings
-                </h1>
-                <p style="font-size: 1.15rem; color: #E5EBFA; max-width: 620px;" class="mt-3">
-                  Step into Sukoon Temple — an authentic sanctuary for 24/7 Live Darshan, Maha Aarti, Shastric havan rituals, and spiritual awakening.
-                </p>
-                <div class="d-flex gap-3 mt-4 justify-content-center justify-content-md-start flex-wrap">
-                  <a href="#services" class="btn btn-lg px-4" style="background: linear-gradient(135deg, #D4AF37 0%, #B3861B 100%); color: #180D26; font-weight: 700; border-radius: 30px; font-family: 'Cinzel', serif;">
-                    Explore Sacred Pujas
-                  </a>
-                  <button class="btn btn-lg px-4 trigger-sacred-bell" style="background: rgba(255, 255, 255, 0.1); border: 1.5px solid #D4AF37; color: #FFFFFF; border-radius: 30px; font-family: 'Cinzel', serif;">
-                    <i class="fa-solid fa-bell me-2"></i> Ring Temple Bell
-                  </button>
+        <div class="carousel-item active" style="min-height: 600px; background: url('assets/images/hero-temple.jpg') center/cover no-repeat;">
+          <div class="hero-slide-overlay d-flex align-items-center py-5">
+            <div class="container">
+              <div class="row align-items-center g-4">
+                <!-- Left: Divine Headline & Invocations -->
+                <div class="col-lg-7 text-center text-lg-start">
+                  <div class="hero-sacred-badge mb-3">
+                    <span class="badge-om-pulse">ॐ</span>
+                    <span class="badge-text">॥ शान्तिः प्रशान्तिः परमात्मयोगः ॥</span>
+                  </div>
+                  <h1 class="hero-main-title">
+                    Experience Sacred <span class="text-gold-gradient">Vedic Peace</span> &amp; Blessings
+                  </h1>
+                  <p class="hero-lead-text mt-3">
+                    Step into Sukoon Temple — an authentic sacred sanctuary for 24/7 Live Sanctum Darshan, Maha Ganga Aarti, Shastric havan rituals, and global devotee prayers.
+                  </p>
+                  <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap mt-4">
+                    <a href="services.html" class="btn-hero-gold">
+                      <i class="fa-solid fa-sparkles me-2"></i> Explore Sacred Pujas
+                    </a>
+                    <a href="live.html" class="btn-hero-glass">
+                      <i class="fa-solid fa-video me-2 text-danger"></i> Watch Live Darshan
+                    </a>
+                    <button class="btn-hero-bell trigger-sacred-bell" title="Sound 432Hz Bell">
+                      <i class="fa-solid fa-bell"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Right: Glassmorphic Global Sanctum & Devotee Time Hub -->
+                <div class="col-lg-5">
+                  <div class="hero-glass-control-card">
+                    <!-- Header of Card -->
+                    <div class="card-hub-top">
+                      <div class="d-flex align-items-center gap-2">
+                        <span class="hub-emblem">ॐ</span>
+                        <div>
+                          <h5 class="hub-title mb-0">SANCTUM LIVE SYNC</h5>
+                          <small class="hub-subtitle">Haridwar Temple &amp; 18 Global Nations</small>
+                        </div>
+                      </div>
+                      <span id="liveStatusBadge" class="badge-live-pulse">
+                        <span class="pulse-dot"></span> OPEN NOW
+                      </span>
+                    </div>
+
+                    <!-- Two-Column Time Display (IST vs Devotee Local) -->
+                    <div class="hub-time-grid">
+                      <!-- Box 1: Haridwar IST -->
+                      <div class="time-box time-box-ist">
+                        <span class="time-label"><i class="fa-solid fa-location-dot text-warning"></i> Haridwar (IST)</span>
+                        <div id="sanctumLiveClock" class="time-digits">IST --:--:--</div>
+                        <span class="time-sub">Holy Ganga Sanctum Time</span>
+                      </div>
+                      <!-- Box 2: Devotee Local Time -->
+                      <div class="time-box time-box-local">
+                        <span class="time-label"><i class="fa-solid fa-globe text-info"></i> Devotee Local Time</span>
+                        <div id="devoteeCountryClock" class="time-digits">--:--:--</div>
+                        <span id="devoteeCountrySub" class="time-sub">Local Timezone</span>
+                      </div>
+                    </div>
+
+                    <!-- Global Devotee Country Selector -->
+                    <div class="hub-country-selector">
+                      <label for="heroCountrySelect" class="selector-label">
+                        <i class="fa-solid fa-earth-americas text-warning"></i> Devotee Country / Global Timezone:
+                      </label>
+                      <div class="selector-wrap">
+                        <select id="heroCountrySelect" class="form-select hero-country-dropdown" aria-label="Select Country Timezone">
+                          <!-- Populated via ALL_COUNTRIES in app.js -->
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Next Aarti Countdown Strip -->
+                    <div class="hub-aarti-strip">
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="aarti-icon-ring"><i class="fa-solid fa-fire text-warning"></i></div>
+                        <div>
+                          <span class="aarti-meta-lbl">Next Sacred Aarti</span>
+                          <strong id="nextAartiName" class="aarti-name">Maha Sandhya Aarti</strong>
+                          <span id="nextAartiLocalTime" class="aarti-local-note"></span>
+                        </div>
+                      </div>
+                      <div class="countdown-badge">
+                        <span class="cd-lbl">Starts In</span>
+                        <span id="aartiCountdown" class="cd-timer">00:00:00</span>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Actions -->
+                    <div class="hub-bottom-actions">
+                      <button class="btn-hub-audio audio-chime-toggle" title="Toggle 432 Hz Solfeggio sound">
+                        <span class="audio-bars"><span></span><span></span><span></span></span>
+                        <span class="tb-btn-label">432Hz Sound</span>
+                      </button>
+                      <a href="booking.html" class="btn-hub-book">
+                        <i class="fa-solid fa-calendar-check me-1"></i> Book Puja Sankalp
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -274,23 +403,47 @@
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-item" style="min-height: 520px; height: 75vh; background: url('assets/images/havan.jpg') center/cover no-repeat;">
-          <div class="w-100 h-100 d-flex align-items-center" style="background: linear-gradient(180deg, rgba(24, 13, 38, 0.4) 0%, rgba(24, 13, 38, 0.85) 100%);">
-            <div class="container text-center text-md-start">
-              <div class="col-lg-8">
-                <span class="badge mb-3 px-3 py-2" style="background: rgba(230, 81, 0, 0.25); border: 1px solid #FF9800; color: #FFA000; font-family: 'Cinzel', serif;">
-                  ॥ पवित्र वैदिक यज्ञ एवं आहुति ॥
-                </span>
-                <h1 style="font-family: 'Cinzel', serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); color: #FFFFFF; font-weight: 800; line-height: 1.2;">
-                  Maha Mrityunjaya &amp; <span style="color: #FF9800;">Griha Shanti Havan</span>
-                </h1>
-                <p style="font-size: 1.15rem; color: #E5EBFA; max-width: 620px;" class="mt-3">
-                  Sacred fire offerings chanted by learned Vedic Acharyas to purify negative energies, protect families, and invite divine health.
-                </p>
-                <div class="d-flex gap-3 mt-4 justify-content-center justify-content-md-start flex-wrap">
-                  <button class="btn btn-lg px-4" data-bs-toggle="modal" data-bs-target="#bookingModal" style="background: linear-gradient(135deg, #E65100 0%, #FFA000 100%); color: #fff; font-weight: 700; border-radius: 30px; font-family: 'Cinzel', serif;">
-                    Book Havan Offering
-                  </button>
+        <div class="carousel-item" style="min-height: 600px; background: url('assets/images/havan.jpg') center/cover no-repeat;">
+          <div class="hero-slide-overlay d-flex align-items-center py-5">
+            <div class="container">
+              <div class="row align-items-center g-4">
+                <div class="col-lg-7 text-center text-lg-start">
+                  <div class="hero-sacred-badge mb-3">
+                    <span class="badge-om-pulse">🔥</span>
+                    <span class="badge-text">॥ पवित्र वैदिक यज्ञ एवं आहुति ॥</span>
+                  </div>
+                  <h1 class="hero-main-title">
+                    Maha Mrityunjaya &amp; <span class="text-gold-gradient">Griha Shanti Havan</span>
+                  </h1>
+                  <p class="hero-lead-text mt-3">
+                    Sacred fire offerings chanted by learned Vedic Acharyas to purify negative energies, protect families, and invite divine health and spiritual solace.
+                  </p>
+                  <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap mt-4">
+                    <a href="booking.html" class="btn-hero-gold">
+                      <i class="fa-solid fa-fire me-2"></i> Book Havan Offering
+                    </a>
+                    <a href="services.html" class="btn-hero-glass">
+                      <i class="fa-solid fa-list me-2"></i> View All Pujas
+                    </a>
+                  </div>
+                </div>
+                <!-- Hub Duplicate on Slide 2 for visual balance -->
+                <div class="col-lg-5 d-none d-lg-block">
+                  <div class="p-4 rounded-4" style="background: rgba(28, 17, 40, 0.85); border: 1.5px solid rgba(212, 175, 55, 0.45); backdrop-filter: blur(20px);">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                      <span class="hub-emblem">🔥</span>
+                      <div>
+                        <h5 class="text-warning mb-0 font-serif">VEDIC HAVAN SANKALP</h5>
+                        <small class="text-white-50">108 Ahuti with Desi Cow Ghee &amp; Samagri</small>
+                      </div>
+                    </div>
+                    <p class="text-white-50 small mb-3">
+                      Conducted with pure ingredients, Belpatra, Guggul, and Vedic chanting for planetary protection and physical wellness.
+                    </p>
+                    <a href="booking.html" class="btn btn-warning w-100 fw-bold rounded-pill" style="background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%);">
+                      Schedule Online or In-Person Havan →
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -298,23 +451,46 @@
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="min-height: 520px; height: 75vh; background: url('assets/images/kundali.jpg') center/cover no-repeat;">
-          <div class="w-100 h-100 d-flex align-items-center" style="background: linear-gradient(180deg, rgba(24, 13, 38, 0.4) 0%, rgba(24, 13, 38, 0.85) 100%);">
-            <div class="container text-center text-md-start">
-              <div class="col-lg-8">
-                <span class="badge mb-3 px-3 py-2" style="background: rgba(74, 48, 109, 0.35); border: 1px solid #D4AF37; color: #F9E79F; font-family: 'Cinzel', serif;">
-                  ॥ ज्योतिष एवं नवग्रह शान्ति ॥
-                </span>
-                <h1 style="font-family: 'Cinzel', serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); color: #FFFFFF; font-weight: 800; line-height: 1.2;">
-                  Vedic Astrology &amp; <span style="color: #D4AF37;">Kundali Paramarsh</span>
-                </h1>
-                <p style="font-size: 1.15rem; color: #E5EBFA; max-width: 620px;" class="mt-3">
-                  Understand your soul karmic blueprint, dosha remedies, career transitions, and marital harmony through genuine Vedic Jyotish.
-                </p>
-                <div class="d-flex gap-3 mt-4 justify-content-center justify-content-md-start flex-wrap">
-                  <button class="btn btn-lg px-4" data-bs-toggle="modal" data-bs-target="#bookingModal" style="background: linear-gradient(135deg, #D4AF37 0%, #B3861B 100%); color: #180D26; font-weight: 700; border-radius: 30px; font-family: 'Cinzel', serif;">
-                    Consult Acharya
-                  </button>
+        <div class="carousel-item" style="min-height: 600px; background: url('assets/images/kundali.jpg') center/cover no-repeat;">
+          <div class="hero-slide-overlay d-flex align-items-center py-5">
+            <div class="container">
+              <div class="row align-items-center g-4">
+                <div class="col-lg-7 text-center text-lg-start">
+                  <div class="hero-sacred-badge mb-3">
+                    <span class="badge-om-pulse">✨</span>
+                    <span class="badge-text">॥ ज्योतिष एवं नवग्रह शान्ति ॥</span>
+                  </div>
+                  <h1 class="hero-main-title">
+                    Vedic Astrology &amp; <span class="text-gold-gradient">Kundali Paramarsh</span>
+                  </h1>
+                  <p class="hero-lead-text mt-3">
+                    Understand your soul's karmic blueprint, dosha remedies, career transitions, and marital harmony through genuine Vedic Jyotish and birth chart calculations.
+                  </p>
+                  <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap mt-4">
+                    <a href="booking.html" class="btn-hero-gold">
+                      <i class="fa-solid fa-scroll me-2"></i> Consult Acharya
+                    </a>
+                    <a href="calendar.html" class="btn-hero-glass">
+                      <i class="fa-solid fa-calendar-days me-2"></i> Panchang Calendar
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                  <div class="p-4 rounded-4" style="background: rgba(28, 17, 40, 0.85); border: 1.5px solid rgba(212, 175, 55, 0.45); backdrop-filter: blur(20px);">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                      <span class="hub-emblem">🪐</span>
+                      <div>
+                        <h5 class="text-warning mb-0 font-serif">NAVAGRAHA KUNDALI</h5>
+                        <small class="text-white-50">Planetary Alignments &amp; Remedial Yantras</small>
+                      </div>
+                    </div>
+                    <p class="text-white-50 small mb-3">
+                      Personalized birth chart analysis by Haridwar Vedic scholars to balance Saturn, Rahu, and Ketu influences.
+                    </p>
+                    <a href="booking.html" class="btn btn-warning w-100 fw-bold rounded-pill" style="background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%);">
+                      Book Astrological Session →
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -322,23 +498,46 @@
         </div>
 
         <!-- Slide 4 -->
-        <div class="carousel-item" style="min-height: 520px; height: 75vh; background: url('assets/images/sanctum.jpg') center/cover no-repeat;">
-          <div class="w-100 h-100 d-flex align-items-center" style="background: linear-gradient(180deg, rgba(24, 13, 38, 0.4) 0%, rgba(24, 13, 38, 0.85) 100%);">
-            <div class="container text-center text-md-start">
-              <div class="col-lg-8">
-                <span class="badge mb-3 px-3 py-2" style="background: rgba(212, 175, 55, 0.25); border: 1px solid #D4AF37; color: #F9E79F; font-family: 'Cinzel', serif;">
-                  ॥ नित्य दर्शन एवं आरती ॥
-                </span>
-                <h1 style="font-family: 'Cinzel', serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); color: #FFFFFF; font-weight: 800; line-height: 1.2;">
-                  24/7 Sanctum <span style="color: #D4AF37;">Darshan &amp; Aarti</span>
-                </h1>
-                <p style="font-size: 1.15rem; color: #E5EBFA; max-width: 620px;" class="mt-3">
-                  Feel the divine presence of holy Haridwar. Watch daily Mangala, Rajbhog, and Maha Sandhya Aartis from wherever you are.
-                </p>
-                <div class="d-flex gap-3 mt-4 justify-content-center justify-content-md-start flex-wrap">
-                  <a href="#timings" class="btn btn-lg px-4" style="background: linear-gradient(135deg, #D4AF37 0%, #B3861B 100%); color: #180D26; font-weight: 700; border-radius: 30px; font-family: 'Cinzel', serif;">
-                    View Aarti Timings
-                  </a>
+        <div class="carousel-item" style="min-height: 600px; background: url('assets/images/sanctum.jpg') center/cover no-repeat;">
+          <div class="hero-slide-overlay d-flex align-items-center py-5">
+            <div class="container">
+              <div class="row align-items-center g-4">
+                <div class="col-lg-7 text-center text-lg-start">
+                  <div class="hero-sacred-badge mb-3">
+                    <span class="badge-om-pulse">🔱</span>
+                    <span class="badge-text">॥ नित्य दर्शन एवं महा आरती ॥</span>
+                  </div>
+                  <h1 class="hero-main-title">
+                    24/7 Sanctum <span class="text-gold-gradient">Darshan &amp; Aarti</span>
+                  </h1>
+                  <p class="hero-lead-text mt-3">
+                    Feel the divine presence of holy Haridwar. Watch daily Mangala, Rajbhog, and Maha Sandhya Aartis with live conch resonance from wherever you are.
+                  </p>
+                  <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap mt-4">
+                    <a href="live.html" class="btn-hero-gold">
+                      <i class="fa-solid fa-video me-2"></i> Watch Live Stream
+                    </a>
+                    <a href="timings.html" class="btn-hero-glass">
+                      <i class="fa-solid fa-clock me-2"></i> View Aarti Timings
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                  <div class="p-4 rounded-4" style="background: rgba(28, 17, 40, 0.85); border: 1.5px solid rgba(212, 175, 55, 0.45); backdrop-filter: blur(20px);">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                      <span class="hub-emblem">🪔</span>
+                      <div>
+                        <h5 class="text-warning mb-0 font-serif">HOLY GANGA AARTI</h5>
+                        <small class="text-white-50">Evening Maha Sandhya Live Resonance</small>
+                      </div>
+                    </div>
+                    <p class="text-white-50 small mb-3">
+                      Consecrated camphor flames and 432 Hz Solfeggio bell vibrations transmitting inner peace to global devotees.
+                    </p>
+                    <a href="live.html" class="btn btn-warning w-100 fw-bold rounded-pill" style="background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%);">
+                      Join Live Aarti Stream →
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

@@ -586,11 +586,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (clockEl2) {
       clockEl2.textContent = `IST ${status.istTimeString}`;
     }
+    const drawerClockEl = document.getElementById('drawerSanctumClock');
+    if (drawerClockEl) {
+      drawerClockEl.textContent = `Haridwar IST ${status.istTimeString}`;
+    }
 
     const liveStatusBadge = document.getElementById('liveStatusBadge');
     if (liveStatusBadge) {
-      liveStatusBadge.className = `badge ${status.badgeClass} px-3 py-2`;
-      liveStatusBadge.textContent = status.statusText;
+      if (liveStatusBadge.classList.contains('badge-live-pulse') || liveStatusBadge.id === 'liveStatusBadge') {
+        liveStatusBadge.className = status.isOpen ? 'badge-live-pulse' : 'badge bg-secondary px-3 py-2';
+        liveStatusBadge.innerHTML = status.isOpen 
+          ? '<span class="pulse-dot"></span> OPEN NOW' 
+          : '<span class="pulse-dot bg-warning"></span> SHAYAN REST';
+      }
     }
 
     const aartiCountdownEl = document.getElementById('aartiCountdown');
@@ -598,20 +606,71 @@ document.addEventListener('DOMContentLoaded', () => {
       aartiCountdownEl.textContent = status.countdownStr;
     }
 
+    const country = getSelectedCountry();
+
     const nextAartiNameEl = document.getElementById('nextAartiName');
     if (nextAartiNameEl) {
       nextAartiNameEl.textContent = `${status.nextEvent.name} (${status.nextEvent.time} IST)`;
     }
 
+    const nextAartiLocalEl = document.getElementById('nextAartiLocalTime');
+    if (nextAartiLocalEl) {
+      if (country.code !== 'IN') {
+        const localAarti = convertIstTimeToLocal(status.nextEvent.time, country);
+        nextAartiLocalEl.textContent = `(Devotee Time: ${localAarti} ${country.tzName.split(' ')[0]})`;
+        nextAartiLocalEl.style.display = 'block';
+      } else {
+        nextAartiLocalEl.style.display = 'none';
+      }
+    }
+
     // Devotee Country Clock
-    const country = getSelectedCountry();
     const countryClockEl = document.getElementById('devoteeCountryClock');
     if (countryClockEl) {
       const now = new Date();
       const localStr = now.toLocaleTimeString('en-US', { timeZone: country.tz, hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' });
-      countryClockEl.textContent = `${country.flag} ${country.name}: ${localStr}`;
+      countryClockEl.textContent = `${country.flag} ${localStr}`;
+    }
+
+    const countrySubEl = document.getElementById('devoteeCountrySub');
+    if (countrySubEl) {
+      countrySubEl.textContent = `${country.name} (${country.tzName})`;
     }
   }
+
+  function initAllCountryDropdowns() {
+    const dropdownIds = ['heroCountrySelect', 'drawerCountrySelect', 'calCountrySelect'];
+    const curCountry = getSelectedCountry();
+
+    dropdownIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      el.innerHTML = ALL_COUNTRIES.map(c => `
+        <option value="${c.code}" ${c.code === curCountry.code ? 'selected' : ''}>
+          ${c.flag} ${c.name} (${c.tzName})
+        </option>
+      `).join('');
+
+      el.value = curCountry.code;
+
+      el.addEventListener('change', function() {
+        setSelectedCountry(this.value);
+        dropdownIds.forEach(otherId => {
+          const otherEl = document.getElementById(otherId);
+          if (otherEl && otherEl !== this) {
+            otherEl.value = this.value;
+          }
+        });
+        updateAllClocks();
+      });
+    });
+  }
+
+  initAllCountryDropdowns();
+  window.addEventListener('countryChanged', () => {
+    updateAllClocks();
+  });
 
   updateAllClocks();
   setInterval(updateAllClocks, 1000);
