@@ -5966,3 +5966,196 @@ button:hover .cta-arrow {
     display: none !important;
   }
 }
+
+/* ==========================================================================
+   HARMONIZED LUXURY MAIN FOOTER
+   Theme: Midnight Purple & Cosmic Dark with Sacred Gold & Saffron Accents
+   Matches MainSkoonsay & Phycartist Architecture
+   ========================================================================== */
+.main-footer {
+  background: linear-gradient(180deg, #2E1A47 0%, #180D26 100%) !important;
+  color: #FFFFFF !important;
+  padding: 5rem 0 2rem 0;
+  border-top: 2px solid var(--sacred-gold) !important;
+  box-shadow: 0 -6px 25px rgba(212, 175, 55, 0.18);
+  position: relative;
+  z-index: 10;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+
+.brand-footer-om {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--sacred-gold);
+  line-height: 1;
+  filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.5));
+}
+
+.footer-brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #F9E79F;
+}
+
+.footer-desc {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #E5EBFA;
+  opacity: 0.85;
+  margin-bottom: 1.2rem;
+}
+
+.footer-mantra-line {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--sacred-gold);
+  letter-spacing: 0.05em;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer-social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #FDE68A;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.footer-social-btn:hover {
+  background: var(--sacred-gold);
+  color: #180D26;
+  border-color: #FDE68A;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.footer-col-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: #F9E79F;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-col-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 35px;
+  height: 2px;
+  background: var(--sacred-gold);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  color: #E5EBFA;
+  opacity: 0.85;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--sacred-gold);
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.footer-timings {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: #E5EBFA;
+  margin-bottom: 1.25rem;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-timings li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.25);
+  padding-bottom: 0.35rem;
+}
+
+.footer-timings strong {
+  color: #F9E79F;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #E5EBFA;
+  opacity: 0.85;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 991.98px) {
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer-bottom-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+}
