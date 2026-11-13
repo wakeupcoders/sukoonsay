@@ -39,7 +39,7 @@ jobs:
           [ -f _redirects ] && cp -a _redirects deploy/root/ || true
 
           # Spiritual static application (Sukoon Temple)
-          cp -a Spritual/index.html Spritual/css Spritual/js Spritual/assets deploy/spiritual/
+          cp -a Spritual/*.html Spritual/css Spritual/js Spritual/assets deploy/spiritual/
           [ -f Spritual/robots.txt ] && cp -a Spritual/robots.txt deploy/spiritual/ || true
           [ -f Spritual/sitemap.xml ] && cp -a Spritual/sitemap.xml deploy/spiritual/ || true
           [ -f Spritual/_redirects ] && cp -a Spritual/_redirects deploy/spiritual/ || true
