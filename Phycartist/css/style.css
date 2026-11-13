@@ -71,18 +71,31 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 95px;
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
+  min-height: 100vh;
+  padding-top: 90px;
   font-family: var(--font-sans);
   background: var(--bg-aura-gradient);
   background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.65;
   overflow-x: hidden;
-  min-height: 100vh;
   position: relative;
+}
+
+@media (max-width: 860px) {
+  html {
+    scroll-padding-top: 60px;
+  }
+  body {
+    padding-top: 54px;
+  }
 }
 
 /* Subtle background aura orbs */
@@ -207,464 +220,465 @@ p {
 }
 
 /* ==========================================================================
-   UPPER SMALL HEADER (TOPBAR - 432 HZ SANCTUM STATUS & TEMPLE CHIMES)
+   FIXED DUAL-ROW SITE HEADER (Phycartist Psychiatry & Neuro Sanctuary)
+   Row 1: Topbar (Brand + 432Hz Sound + Bell ("Ball") + Main Sanctuary CTA + Hamburger) — height: 48px
+   Row 2: Navbar (All Navigation Links cleanly displayed below) — height: 40px
+   Total Desktop Height: 88px, collapses to 52px on mobile
    ========================================================================== */
-.site-topbar {
-  background: linear-gradient(90deg, #120A1D 0%, #1C1128 50%, #2A1740 100%);
-  color: #D1C9DD;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-  font-size: 0.82rem;
-  padding: 0.38rem 0;
-  position: relative;
-  z-index: 100;
-  transition: var(--transition-smooth);
-}
 
-.topbar-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.topbar-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-weight: 600;
-  color: #FFFFFF;
-  letter-spacing: 0.02em;
-}
-
-.topbar-divider {
-  color: rgba(212, 175, 55, 0.35);
-  font-size: 0.85rem;
-}
-
-.topbar-mantra {
-  color: var(--gold-glow);
-  font-family: var(--font-heading);
-  letter-spacing: 0.04em;
-  font-size: 0.85rem;
-}
-
-.topbar-right {
-  display: flex;
-  align-items: center;
-}
-
-/* Continuous Temple Chimes Button inside Upper Small Header */
-.topbar-chimes-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.28rem 0.95rem;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.45);
-  color: #FFFFFF;
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: var(--transition-smooth);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  white-space: nowrap;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.topbar-chimes-btn i {
-  font-size: 0.9rem;
-  color: var(--gold-glow);
-  transition: transform 0.3s ease;
-}
-
-.topbar-chimes-btn:hover {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: var(--gold-glow);
-  box-shadow: 0 0 14px rgba(212, 175, 55, 0.45);
-}
-
-.topbar-chimes-btn:hover i {
-  transform: scale(1.15) rotate(15deg);
-}
-
-.topbar-chimes-btn:active {
-  transform: scale(0.95);
-}
-
-/* Playing State for Topbar Chimes */
-.topbar-chimes-btn.playing {
-  background: var(--cta-luxury-gold);
-  color: var(--midnight-purple);
-  border-color: #FFFFFF;
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.6);
-}
-
-.topbar-chimes-btn.playing i {
-  color: var(--midnight-purple);
-}
-
-.topbar-chimes-btn.playing .chimes-waves .bar {
-  background: var(--midnight-purple);
-  animation: waveBar 0.9s ease-in-out infinite alternate;
-}
-
-.topbar-chimes-btn.playing .chimes-waves .bar-1 { animation-delay: 0.1s; }
-.topbar-chimes-btn.playing .chimes-waves .bar-2 { animation-delay: 0.3s; }
-.topbar-chimes-btn.playing .chimes-waves .bar-3 { animation-delay: 0.2s; }
-
-/* ==========================================================================
-   CLEAN & ELEGANT SITE HEADER (MAIN STICKY HEADER)
-   ========================================================================== */
+/* Full fixed header wrapper */
 .site-header {
-  position: sticky;
+  position: fixed !important;
   top: 0;
-  z-index: 99;
-  background: rgba(255, 255, 255, 0.94);
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-  box-shadow: 0 6px 20px -8px rgba(46, 26, 71, 0.08);
+  border-bottom: 1.5px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 4px 24px rgba(46, 26, 71, 0.10);
   transition: var(--transition-smooth);
-}
-
-.site-header .container {
-  max-width: 1440px;
-  width: 100%;
-  padding: 0 1.5rem;
 }
 
 .site-header.scrolled {
   background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 10px 28px -6px rgba(46, 26, 71, 0.12);
-  border-bottom-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 10px 28px -6px rgba(46, 26, 71, 0.16);
+  border-bottom-color: rgba(212, 175, 55, 0.5);
 }
 
-.navbar {
+/* ——— ROW 1: TOPBAR ——— */
+.hdr-topbar {
+  width: 100%;
+  height: 48px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.20);
+  background: linear-gradient(90deg, rgba(46, 26, 71, 0.05) 0%, rgba(212, 175, 55, 0.08) 50%, rgba(74, 48, 109, 0.05) 100%);
+}
+
+.hdr-topbar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.65rem 0;
-  gap: 1rem;
-  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  flex-wrap: nowrap;
 }
 
-/* Brand Identity */
-.brand {
-  display: inline-flex;
+/* Brand Link */
+.brand-link {
+  display: flex;
   align-items: center;
-  gap: 0.7rem;
-  text-decoration: none;
-  order: 1;
+  gap: 0.65rem;
   flex-shrink: 0;
+  text-decoration: none;
   transition: transform 0.25s ease;
 }
 
+.brand-link:hover {
+  transform: translateY(-1px);
+}
+
+.brand-emblem-wrap {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .brand-logo-img {
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   object-fit: cover;
   border: 1.5px solid var(--gold-base);
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
-  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.35);
   transition: transform 0.3s ease;
 }
 
-.brand:hover .brand-logo-img {
-  transform: rotate(15deg) scale(1.06);
+.brand-link:hover .brand-logo-img {
+  transform: rotate(15deg) scale(1.08);
 }
 
-.brand-text-wrap {
+.brand-text {
   display: flex;
   flex-direction: column;
+  line-height: 1.1;
 }
 
 .brand-title {
   font-family: var(--font-heading);
-  font-size: 1.38rem;
-  font-weight: 700;
-  color: var(--midnight-purple);
-  line-height: 1;
-  letter-spacing: 0.05em;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, var(--midnight-purple) 0%, var(--royal-purple) 50%, var(--gold-antique) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   white-space: nowrap;
 }
 
-.brand-tagline {
+.brand-subtitle {
   font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--gold-antique);
   font-weight: 700;
-  margin-top: 0.15rem;
+  color: var(--gold-antique);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
-/* Clean Desktop Nav Menu - STRICTLY ONE LINE */
-.nav-menu {
+/* Header Controls Button Group (Right side of Row 1) */
+.hdr-btn-group {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-  list-style: none;
-  order: 2;
-  flex-wrap: nowrap !important;
-  white-space: nowrap !important;
-  margin: 0;
-  padding: 0;
-  flex: 1 1 auto;
-}
-
-.nav-link {
-  color: var(--text-primary);
-  font-weight: 600;
-  font-size: 0.84rem;
-  text-decoration: none;
-  transition: var(--transition-smooth);
-  position: relative;
-  padding: 0.35rem 0.65rem;
-  border-radius: 50px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.36rem;
-  white-space: nowrap !important;
-  letter-spacing: 0.01em;
-  border: 1px solid transparent;
-}
-
-.nav-text {
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.nav-link i {
-  font-size: 0.78rem;
-  opacity: 0.8;
-  color: var(--gold-antique);
-  transition: opacity 0.22s ease, transform 0.22s ease, color 0.22s ease;
-  line-height: 1;
-}
-
-.nav-link::after {
-  display: none;
-}
-
-.nav-link:hover {
-  color: var(--saffron-deep);
-  background: rgba(230, 81, 0, 0.07);
-  border-color: rgba(212, 175, 55, 0.35);
-  transform: translateY(-1px);
-}
-
-.nav-link:hover i {
-  opacity: 1;
-  color: var(--saffron-deep);
-  transform: scale(1.15);
-}
-
-.nav-link.active-link {
-  color: var(--saffron-deep);
-  background: rgba(230, 81, 0, 0.09);
-  border-color: rgba(212, 175, 55, 0.45);
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(230, 81, 0, 0.08);
-}
-
-.nav-link.active-link i {
-  opacity: 1;
-  color: var(--gold-antique);
-}
-
-/* Temple Chimes Continuous Sound Button (Shown in Laptop/Desktop Header) */
-.header-chimes-btn {
-  display: inline-flex;
-  align-items: center;
   gap: 0.55rem;
-  padding: 0.48rem 1.1rem;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+
+/* 432 Hz Solfeggio Audio Button */
+.tb-audio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.85rem;
   border-radius: 50px;
-  background: rgba(46, 26, 71, 0.05);
-  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  background: rgba(212, 175, 55, 0.12);
   color: var(--midnight-purple);
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
+  font-size: 0.76rem;
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition-smooth);
-  box-shadow: 0 2px 10px rgba(46, 26, 71, 0.06);
   white-space: nowrap;
-  order: 3;
+  flex-shrink: 0;
+  font-family: var(--font-sans);
   user-select: none;
   -webkit-user-select: none;
 }
 
-.header-chimes-btn i {
-  font-size: 1.05rem;
-  color: var(--gold-antique);
-  transition: transform 0.3s ease;
-}
-
-.header-chimes-btn:hover {
-  background: #FFFFFF;
+.tb-audio-btn:hover {
+  background: rgba(212, 175, 55, 0.25);
   border-color: var(--gold-base);
-  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
   transform: translateY(-1px);
 }
 
-.header-chimes-btn:hover i {
-  transform: scale(1.15) rotate(15deg);
+.tb-audio-btn.playing,
+.tb-audio-btn.active {
+  background: var(--cta-luxury-gold);
+  color: var(--midnight-purple);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.65);
 }
 
-.header-chimes-btn:active {
-  transform: scale(0.96);
+.tb-btn-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
-/* Sound Waves Animation Inside Button */
-.chimes-waves {
-  display: flex;
+/* Sound Waves Animation Inside Audio Button */
+.audio-bars {
+  display: inline-flex;
   align-items: flex-end;
   gap: 2.5px;
-  height: 14px;
+  height: 12px;
 }
 
-.chimes-waves .bar {
+.audio-bars span {
   width: 2.5px;
+  background: currentColor;
+  border-radius: 1px;
   height: 4px;
-  background: var(--gold-antique);
-  border-radius: 2px;
-  transition: height 0.3s ease;
 }
 
-/* Playing State for Desktop Header Chimes Button */
-.header-chimes-btn.playing {
-  background: var(--cta-luxury-gold);
-  color: var(--midnight-purple);
-  border-color: #FFFFFF;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5), 0 4px 14px rgba(230, 81, 0, 0.25);
-  animation: chimesGlow 2.5s infinite alternate;
+.tb-audio-btn.playing .audio-bars span,
+.tb-audio-btn.active .audio-bars span {
+  animation: barBounce 1s infinite alternate;
 }
 
-.header-chimes-btn.playing i {
-  color: var(--midnight-purple);
+.tb-audio-btn.playing .audio-bars span:nth-child(1) { animation-delay: 0.1s; }
+.tb-audio-btn.playing .audio-bars span:nth-child(2) { animation-delay: 0.3s; }
+.tb-audio-btn.playing .audio-bars span:nth-child(3) { animation-delay: 0.2s; }
+
+@keyframes barBounce {
+  0% { height: 3px; }
+  50% { height: 12px; }
+  100% { height: 6px; }
 }
 
-.header-chimes-btn.playing .chimes-waves .bar {
-  background: var(--midnight-purple);
-  animation: waveBar 0.9s ease-in-out infinite alternate;
-}
-
-.header-chimes-btn.playing .chimes-waves .bar-1 {
-  animation-delay: 0.1s;
-}
-
-.header-chimes-btn.playing .chimes-waves .bar-2 {
-  animation-delay: 0.3s;
-}
-
-.header-chimes-btn.playing .chimes-waves .bar-3 {
-  animation-delay: 0.2s;
-}
-
-@keyframes waveBar {
-  0% { height: 4px; }
-  50% { height: 14px; }
-  100% { height: 7px; }
-}
-
-@keyframes chimesGlow {
-  0% { box-shadow: 0 0 12px rgba(212, 175, 55, 0.35); }
-  100% { box-shadow: 0 0 24px rgba(212, 175, 55, 0.7); }
-}
-
-/* Tank-Tan Bell Button */
+/* Sacred Temple Bell Button ("Ball") - prominently styled, easy to click! */
+.tb-icon-btn,
 .nav-bell-btn {
-  background: rgba(212, 175, 55, 0.12);
-  border: 1.5px solid rgba(212, 175, 55, 0.4);
-  color: var(--gold-antique);
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  display: flex;
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--midnight-purple);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
   cursor: pointer;
   transition: var(--transition-smooth);
+  flex-shrink: 0;
+  font-size: 0.88rem;
+  user-select: none;
+  -webkit-user-select: none;
   box-shadow: 0 2px 8px rgba(212, 175, 55, 0.15);
-  order: 3;
 }
 
+.tb-icon-btn i,
+.nav-bell-btn i {
+  color: var(--gold-antique);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.tb-icon-btn:hover,
 .nav-bell-btn:hover {
   background: var(--cta-luxury-gold);
-  color: var(--midnight-purple);
   border-color: #FFFFFF;
-  box-shadow: 0 0 14px rgba(212, 175, 55, 0.45);
-  transform: scale(1.08);
+  color: var(--midnight-purple);
+  transform: rotate(-15deg) scale(1.12);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.6);
 }
 
+.tb-icon-btn:hover i,
+.nav-bell-btn:hover i {
+  color: var(--midnight-purple);
+  transform: scale(1.1);
+}
+
+.tb-icon-btn:active,
 .nav-bell-btn:active {
   transform: scale(0.92);
 }
 
-/* Designer Mobile Hamburger Toggle */
+/* Return to Main Sanctuary CTA (Desktop) */
+.tb-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.32rem 1.05rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--midnight-purple) 0%, var(--royal-purple) 100%);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 3px 12px rgba(46, 26, 71, 0.3);
+  transition: var(--transition-smooth);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tb-cta-btn:hover {
+  background: var(--cta-luxury-gold);
+  color: var(--midnight-purple);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.45);
+  transform: translateY(-1px);
+}
+
+/* Mobile Hamburger Toggle */
+.mobile-toggle-btn,
 .designer-toggle {
   display: none;
-  order: 4;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1.5px solid rgba(212, 175, 55, 0.45);
-  box-shadow: 0 3px 12px rgba(46, 26, 71, 0.08);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  background: rgba(255, 255, 255, 0.9);
   cursor: pointer;
-  padding: 0;
   transition: var(--transition-smooth);
+  padding: 0;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(46, 26, 71, 0.08);
 }
 
+.mobile-toggle-btn:hover,
 .designer-toggle:hover {
   background: #FFFFFF;
   border-color: var(--gold-base);
-  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 3px 12px rgba(212, 175, 55, 0.25);
 }
 
+.ham-bar,
 .designer-toggle .line {
   width: 20px;
   height: 2px;
   background: var(--midnight-purple);
   border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
-  transform-origin: center;
+  transition: all 0.3s ease;
 }
 
-.designer-toggle.active {
-  background: #FFFFFF;
-  border-color: var(--saffron-deep);
-}
-
+.mobile-toggle-btn.open .bar-1,
+.mobile-toggle-btn.active .bar-1,
 .designer-toggle.active .line:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
   background: var(--saffron-deep);
 }
 
+.mobile-toggle-btn.open .bar-2,
+.mobile-toggle-btn.active .bar-2,
 .designer-toggle.active .line:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
 
+.mobile-toggle-btn.open .bar-3,
+.mobile-toggle-btn.active .bar-3,
 .designer-toggle.active .line:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
   background: var(--saffron-deep);
+}
+
+/* ——— ROW 2: NAVBAR (All Navigation Links cleanly displayed below!) ——— */
+.hdr-navbar {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.hdr-navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.35rem, 1.2vw, 1.35rem);
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  flex-wrap: nowrap;
+  height: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.hdr-navbar-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.hdr-navbar .nav-item,
+.hdr-navbar .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.25rem, 0.5vw, 0.42rem);
+  font-family: var(--font-heading);
+  font-size: clamp(0.72rem, 1.05vw, 0.86rem);
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.22s ease;
+  padding: 0 clamp(0.25rem, 0.5vw, 0.5rem);
+  position: relative;
+  white-space: nowrap;
+  height: 100%;
+  line-height: 40px;
+  text-decoration: none;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  border-radius: 0;
+}
+
+.hdr-navbar .nav-item i,
+.hdr-navbar .nav-link i {
+  font-size: clamp(0.68rem, 0.95vw, 0.82rem);
+  color: var(--gold-antique);
+  transition: transform 0.22s ease, color 0.22s ease;
+}
+
+.hdr-navbar .nav-item:hover,
+.hdr-navbar .nav-link:hover {
+  color: var(--saffron-deep);
+  background: transparent;
+  transform: none;
+}
+
+.hdr-navbar .nav-item:hover i,
+.hdr-navbar .nav-link:hover i {
+  color: var(--saffron-deep);
+  transform: scale(1.15);
+}
+
+.hdr-navbar .nav-item::after,
+.hdr-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--gold-base), var(--saffron-deep));
+  transition: width 0.25s ease;
+  transform: translateX(-50%);
+  border-radius: 2px 2px 0 0;
+}
+
+.hdr-navbar .nav-item:hover::after,
+.hdr-navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+.hdr-navbar .nav-item.active-link,
+.hdr-navbar .nav-link.active-link {
+  color: var(--midnight-purple);
+  font-weight: 700;
+  background: transparent;
+  box-shadow: none;
+}
+
+.hdr-navbar .nav-item.active-link i,
+.hdr-navbar .nav-link.active-link i {
+  color: var(--saffron-deep);
+}
+
+.hdr-navbar .nav-item.active-link::after,
+.hdr-navbar .nav-link.active-link::after {
+  width: 100%;
+}
+
+/* Responsive Collapsing for Mobile & Tablet */
+@media (max-width: 860px) {
+  .hdr-navbar {
+    display: none;
+  }
+
+  .hdr-topbar {
+    height: 52px;
+  }
+
+  .mobile-toggle-btn,
+  .designer-toggle {
+    display: flex;
+  }
+
+  .hdr-hide-xs {
+    display: none !important;
+  }
+
+  .brand-title {
+    font-size: 1.05rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.55rem;
+  }
 }
 
 /* ==========================================================================

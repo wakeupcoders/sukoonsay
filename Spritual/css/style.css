@@ -4747,3 +4747,734 @@ button:hover .cta-arrow {
     font-size: 1.2rem;
   }
 }
+
+/* ==========================================================================
+   COMBINED HINDU PANCHANG & GREGORIAN CALENDAR STYLES (PORTED FROM ANGULAR)
+   ========================================================================== */
+
+.calendar-hero-header {
+  padding: 4.5rem 0 2.5rem;
+  background: linear-gradient(180deg, rgba(240, 234, 248, 0.7) 0%, transparent 100%);
+}
+
+/* Calendar Country & Timezone Banner */
+.calendar-country-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.6rem;
+  margin-bottom: 1.4rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 238, 0.95) 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 20px rgba(74, 48, 109, 0.06);
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.cal-country-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cal-globe-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.cal-banner-heading {
+  font-size: 1.05rem;
+  color: var(--divine-purple-deep);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cal-dst-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: #FF6F00;
+  color: #FFF;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+.cal-banner-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+.cal-country-selector-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.cal-selector-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+  white-space: nowrap;
+}
+
+.cal-country-dropdown {
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  background: #FFFFFF;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--divine-purple-deep);
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cal-country-dropdown:focus {
+  border-color: var(--sacred-saffron);
+}
+
+.metric-local-tag {
+  display: block;
+  font-size: 0.78rem;
+  color: #1565C0;
+  background: rgba(21, 101, 192, 0.08);
+  border: 1px solid rgba(21, 101, 192, 0.2);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.35rem;
+}
+
+.metric-local-tag.shubh-tag {
+  color: #2E7D32;
+  background: rgba(46, 125, 50, 0.08);
+  border-color: rgba(46, 125, 50, 0.25);
+}
+
+.metric-local-tag.rahu-tag {
+  color: #C62828;
+  background: rgba(198, 40, 40, 0.08);
+  border-color: rgba(198, 40, 40, 0.25);
+}
+
+.calendar-control-card {
+  padding: 1.8rem 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 24px rgba(74, 48, 109, 0.08);
+}
+
+.calendar-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.month-title-wrap {
+  min-width: 240px;
+}
+
+.samvat-badge {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--sacred-saffron);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.current-month-heading {
+  font-size: 2.2rem;
+  color: var(--divine-purple-deep);
+  line-height: 1.1;
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+.month-hindi-sub {
+  font-family: var(--font-sanskrit);
+  font-size: 0.95rem;
+  color: var(--divine-purple-light);
+  margin-top: 2px;
+}
+
+/* Filter Pills */
+.filter-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(74, 48, 109, 0.15);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.filter-pill:hover {
+  background: #FFFFFF;
+  border-color: var(--sacred-gold);
+  color: var(--divine-purple-deep);
+}
+
+.filter-pill.active-pill {
+  background: linear-gradient(135deg, #E65100 0%, #D4AF37 100%);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(230, 81, 0, 0.3);
+}
+
+/* Navigation & Selectors */
+.nav-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(74, 48, 109, 0.2);
+  color: var(--divine-purple-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-btn:hover {
+  background: linear-gradient(135deg, #2E1A47 0%, #4A306D 100%);
+  border-color: var(--sacred-gold);
+  color: #FDE68A;
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 4px 14px rgba(74, 48, 109, 0.22);
+}
+
+.custom-select {
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(74, 48, 109, 0.2);
+  background: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--divine-purple-deep);
+  cursor: pointer;
+  outline: none;
+}
+
+.custom-select:focus {
+  border-color: var(--sacred-saffron);
+}
+
+.today-jump-btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(212, 175, 55, 0.15);
+  border: 1.5px solid var(--sacred-gold);
+  color: var(--divine-purple-deep);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.today-jump-btn:hover {
+  background: var(--sacred-gold);
+  color: #180D26;
+}
+
+/* Calendar Board & 7-Column Grid */
+.calendar-board-card {
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(74, 48, 109, 0.08);
+}
+
+.calendar-scroll-viewport {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.calendar-weekdays-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.weekday-cell {
+  background: linear-gradient(135deg, #2E1A47 0%, #4A306D 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.weekday-hi {
+  font-family: var(--font-sanskrit);
+  font-size: 0.95rem;
+  display: block;
+  color: #FDE68A;
+}
+
+.weekday-en {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+.calendar-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.calendar-day-cell {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(74, 48, 109, 0.12);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.65rem 0.5rem;
+  height: 135px;
+  max-height: 135px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.calendar-day-cell:hover {
+  background: #FFFFFF;
+  border-color: var(--sacred-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(74, 48, 109, 0.12);
+}
+
+.calendar-day-cell.other-month {
+  opacity: 0.35;
+  background: rgba(240, 234, 248, 0.3);
+}
+
+.calendar-day-cell.is-today {
+  border: 2px solid #E65100;
+  background: rgba(255, 243, 224, 0.85);
+  box-shadow: 0 0 12px rgba(230, 81, 0, 0.25);
+}
+
+.calendar-day-cell.is-selected {
+  border: 2.5px solid #D4AF37;
+  background: #FFFFFF;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+}
+
+.cell-top-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.3rem;
+}
+
+.tithi-desi-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.tithi-desi-name {
+  font-family: var(--font-sanskrit);
+  font-size: 0.82rem;
+  color: var(--divine-purple-deep);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 85px;
+}
+
+.paksha-desi-abbr {
+  font-size: 0.65rem;
+  color: var(--sacred-saffron);
+  font-weight: 700;
+}
+
+.gregorian-date-num {
+  font-family: var(--font-sans);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--divine-purple-deep);
+  line-height: 1;
+}
+
+.is-today .gregorian-date-num {
+  color: #E65100;
+}
+
+.cell-badges-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
+  max-height: 48px;
+  margin: 3px 0;
+}
+
+.badge-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 1.5px 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge-ekadashi {
+  background: #E8F5E9;
+  color: #2E7D32;
+  border: 1px solid rgba(46, 125, 50, 0.3);
+}
+
+.badge-purnima {
+  background: #FFF8E1;
+  color: #F57F17;
+  border: 1px solid rgba(245, 127, 23, 0.3);
+}
+
+.badge-amavasya {
+  background: #ECEFF1;
+  color: #37474F;
+  border: 1px solid rgba(55, 71, 79, 0.3);
+}
+
+.badge-fest {
+  background: #FCE4EC;
+  color: #C2185B;
+  border: 1px solid rgba(194, 24, 91, 0.3);
+}
+
+.cell-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  border-top: 1px dashed rgba(74, 48, 109, 0.12);
+  padding-top: 2px;
+}
+
+.nakshatra-foot-text {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Panchang Day Inspector Card */
+.panchang-inspector-card {
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  border: 2px solid var(--sacred-gold);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 252, 245, 0.98) 100%);
+  box-shadow: 0 12px 35px rgba(74, 48, 109, 0.12);
+}
+
+.inspector-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+  margin-bottom: 1.5rem;
+}
+
+.inspector-date-display {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.inspector-large-num {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--sacred-saffron);
+  font-family: var(--font-sans);
+  line-height: 1;
+}
+
+.inspector-en-date {
+  font-size: 1.3rem;
+  font-family: var(--font-serif);
+  color: var(--divine-purple-deep);
+  font-weight: 700;
+}
+
+.inspector-hi-tithi {
+  font-family: var(--font-sanskrit);
+  font-size: 1.15rem;
+  color: var(--divine-purple-light);
+}
+
+.inspector-samvat-tag {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.inspector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.inspector-metric-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(74, 48, 109, 0.12);
+  border-radius: var(--radius-md);
+}
+
+.metric-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.metric-content {
+  flex: 1;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.metric-val {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+}
+
+.metric-val.shubh-text {
+  color: #2E7D32;
+}
+
+.metric-val.rahu-text {
+  color: #C62828;
+}
+
+.metric-sub {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.inspector-festivals-list {
+  background: rgba(254, 237, 243, 0.5);
+  border: 1px solid rgba(194, 24, 91, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.fest-list-heading {
+  font-size: 0.95rem;
+  color: #C2185B;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.fest-detail-box {
+  background: #FFFFFF;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.6rem;
+  border: 1px solid rgba(194, 24, 91, 0.15);
+}
+
+.fest-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.35rem;
+}
+
+.fest-icon-lg {
+  font-size: 1.4rem;
+}
+
+.fest-hi-name {
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+}
+
+.fest-en-name {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.fest-significance-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.inspector-advice-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 243, 224, 0.7);
+  border: 1px solid rgba(230, 81, 0, 0.3);
+  border-radius: var(--radius-md);
+}
+
+.advice-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.inspector-advice-box strong {
+  color: #E65100;
+  font-size: 0.88rem;
+}
+
+.inspector-advice-box p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0.2rem 0 0;
+}
+
+/* Month Major Festivals Summary */
+.month-festivals-summary {
+  padding: 1.8rem 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-lg);
+}
+
+.summary-heading {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--divine-purple-deep);
+  margin-bottom: 1.2rem;
+}
+
+.events-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+.event-summary-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(74, 48, 109, 0.1);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.event-summary-item:hover {
+  background: #FFFFFF;
+  border-color: var(--sacred-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.event-date-chip {
+  background: linear-gradient(135deg, #2E1A47 0%, #4A306D 100%);
+  color: #FDE68A;
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.65rem;
+  text-align: center;
+  min-width: 50px;
+}
+
+.chip-day {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.chip-month {
+  font-size: 0.65rem;
+  color: #E2D9F3;
+  text-transform: uppercase;
+}
+
+.event-meta {
+  flex: 1;
+}
+
+.event-title {
+  font-size: 0.95rem;
+  color: var(--divine-purple-deep);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.event-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.event-view-link {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--sacred-saffron);
+}

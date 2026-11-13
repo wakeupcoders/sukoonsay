@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Hindu Panchang Calendar 2026 &amp; Auspicious Tithis | Sukoon Temple</title>
+  <title>Vedic Panchang Calendar 2026 &amp; Auspicious Tithis | Sukoon Temple</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <link rel="canonical" href="https://sakoontemple.com/calendar">
-  <meta name="description" content="View the authentic Hindu Panchang Calendar 2026. Auspicious festival dates, Ekadashi Vrat, Purnima, Amavasya, and Shubh Muhurat schedules by Sukoon Temple Haridwar.">
-  <meta name="keywords" content="Hindu Calendar 2026, Panchang Haridwar, Ekadashi Dates, Purnima Vrat, Shubh Muhurat, Sukoon Temple, Sukoonsay">
+  <meta name="description" content="Synchronized Hindu Vedic Panchang &amp; English Calendar. Track Vikram Samvat, Tithi, Paksha, Nakshatra, Ekadashi, Purnima, Amavasya, and Shubh Muhurat with global timezone sync by Sukoon Temple Haridwar.">
+  <meta name="keywords" content="Hindu Calendar 2026, Panchang Haridwar, Vikram Samvat 2083, Ekadashi Dates, Purnima Vrat, Amavasya, Abhijit Muhurat, Rahu Kaal, Sukoon Temple, Sukoonsay">
   <meta name="theme-color" content="#2E1A47">
 
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="alternate icon" type="image/x-icon" href="assets/icons/favicon.ico">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Cinzel, Outfit, Rozha One, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Rozha+One&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,9 +24,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body style="background: var(--bg-gradient); min-height: 100vh;">
 
-  <!-- Topbar Strip -->
+  <!-- ======================================================
+       HEADER WITH HARIDWAR CLOCK & CROSS-NAVIGATION
+       ====================================================== -->
   <header class="site-header">
     <div class="temple-topbar py-1" style="background: linear-gradient(90deg, #180D26 0%, #2E1A47 50%, #180D26 100%); border-bottom: 1px solid rgba(212, 175, 55, 0.35); font-size: 0.82rem; color: #F9E79F;">
       <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
@@ -34,6 +36,8 @@
           <span><i class="fa-solid fa-location-dot text-warning"></i> Haridwar, Uttarakhand</span>
           <span class="text-white-50">|</span>
           <span id="sanctumLiveClock" class="fw-semibold text-white">IST --:--:--</span>
+          <span class="text-white-50 d-none d-md-inline">|</span>
+          <span id="devoteeCountryClock" class="text-warning d-none d-md-inline"></span>
         </div>
         <div class="d-flex align-items-center gap-3">
           <a href="../index.html" class="text-decoration-none text-white-50" style="transition: color 0.2s;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
@@ -50,7 +54,7 @@
     </div>
 
     <!-- Main Navigation Bar -->
-    <nav class="navbar navbar-expand-lg" style="background: rgba(24, 13, 38, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212, 175, 55, 0.25);">
+    <nav class="navbar navbar-expand-lg" style="background: rgba(24, 13, 38, 0.96); backdrop-filter: blur(12px); border-bottom: 1.5px solid rgba(212, 175, 55, 0.35);">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
           <span style="font-size: 1.8rem; color: #D4AF37; font-family: 'Cinzel', serif;">ॐ</span>
@@ -71,7 +75,7 @@
             <li class="nav-item"><a class="nav-link text-white-50" href="services.html">Pujas &amp; Services</a></li>
             <li class="nav-item"><a class="nav-link text-white-50" href="timings.html">Aarti Timings</a></li>
             <li class="nav-item"><a class="nav-link text-white-50" href="live.html">Live Darshan</a></li>
-            <li class="nav-item"><a class="nav-link text-white active" href="calendar.html">Panchang</a></li>
+            <li class="nav-item"><a class="nav-link text-white active fw-bold" href="calendar.html">Panchang</a></li>
             <li class="nav-item"><a class="nav-link text-white-50" href="contact.html">Contact</a></li>
             <li class="nav-item ms-lg-2">
               <a href="booking.html" class="btn btn-sm" style="background: linear-gradient(135deg, #E65100 0%, #FFA000 100%); color: #fff; font-weight: 700; border-radius: 20px; padding: 6px 18px; border: none;">
@@ -84,132 +88,151 @@
     </nav>
   </header>
 
-  <!-- Page Header Banner -->
-  <section class="py-5" style="background: linear-gradient(180deg, #180D26 0%, #2E1A47 100%); color: #FFFFFF;">
-    <div class="container text-center py-4">
-      <span class="badge px-3 py-2 mb-3" style="background: rgba(212, 175, 55, 0.2); border: 1px solid #D4AF37; color: #F9E79F; font-family: 'Cinzel', serif;">
-        ॥ श्री वैदिक पंचांग एवं शुभ मुहूर्त ॥
+  <!-- ======================================================
+       HERO HEADER SECTION
+       ====================================================== -->
+  <section class="calendar-hero-header text-center">
+    <div class="container">
+      <span class="badge px-3 py-2 mb-3" style="background: rgba(212, 175, 55, 0.2); border: 1.5px solid #D4AF37; color: #2E1A47; font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 700;">
+        🕉️ ॥ श्री वैदिक पंचांग एवं नक्षत्र कैलेंडर ॥
       </span>
-      <h1 style="font-family: 'Cinzel', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; color: #F9E79F;">
-        Hindu Panchang Calendar 2026
+      <h1 class="page-main-title" style="font-family: 'Cinzel', serif; font-size: clamp(2.2rem, 4.5vw, 3.5rem); font-weight: 800; color: var(--divine-purple-deep); margin-bottom: 1rem;">
+        Combined Hindu &amp; English Calendar
       </h1>
-      <p class="text-white-50 lead mx-auto" style="max-width: 700px;">
-        Track auspicious Hindu tithis, Ekadashi fasts, Purnima, Amavasya, and major Sanatan festival dates calculated by Haridwar Acharyas.
+      <p class="page-main-desc mx-auto" style="max-width: 820px; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7;">
+        Experience our synchronized calendar uniting the traditional <strong>Desi Hindu Panchang</strong> (Vikram Samvat, Tithi, Paksha, Nakshatra, Purnima, Amavasya &amp; Ekadashi) with the <strong>English Gregorian Calendar</strong>. Navigate through multiple years (2020 – 2045), discover auspicious festival dates, and view daily Shubh Muhurats synced to your country timezone.
       </p>
     </div>
   </section>
 
-  <!-- Today's Live Panchang Widget -->
-  <section class="py-5" style="background: #FFFFFF;">
-    <div class="container">
-      <div class="row g-4">
-        <!-- Daily Astrological Details -->
-        <div class="col-lg-6">
-          <div class="p-4 rounded-4 h-100" style="background: rgba(240, 234, 248, 0.5); border: 1.5px solid rgba(212, 175, 55, 0.4);">
-            <span class="badge mb-3" style="background: #D4AF37; color: #180D26; font-weight: 700;">TODAY'S TITHI &amp; YOGA</span>
-            <h3 style="font-family: 'Cinzel', serif; color: #2E1A47;">Vikram Samvat 2083</h3>
-            <p class="text-muted">Auspicious lunar attributes for spiritual actions &amp; rituals.</p>
-            <ul class="list-unstyled mb-0">
-              <li class="py-2 border-bottom d-flex justify-content-between">
-                <span class="text-muted">Paksha &amp; Tithi:</span>
-                <strong>Shukla Paksha — Ekadashi</strong>
-              </li>
-              <li class="py-2 border-bottom d-flex justify-content-between">
-                <span class="text-muted">Nakshatra:</span>
-                <strong>Rohini (Up to 04:22 PM)</strong>
-              </li>
-              <li class="py-2 border-bottom d-flex justify-content-between">
-                <span class="text-muted">Yoga:</span>
-                <strong>Harshana Yoga</strong>
-              </li>
-              <li class="py-2 border-bottom d-flex justify-content-between">
-                <span class="text-muted">Karana:</span>
-                <strong>Vanija Karana</strong>
-              </li>
-              <li class="py-2 d-flex justify-content-between">
-                <span class="text-muted">Moon Sign (Chandra Rashi):</span>
-                <strong>Vrishabha (Taurus)</strong>
-              </li>
-            </ul>
+  <!-- ======================================================
+       CALENDAR APPLICATION MAIN WRAPPER
+       ====================================================== -->
+  <div id="panchangCalendarApp" class="container pb-5">
+
+    <!-- GLOBAL COUNTRY & TIMEZONE SYNC BANNER -->
+    <div class="calendar-country-banner">
+      <div class="cal-country-info">
+        <span class="cal-globe-icon">🌍</span>
+        <div>
+          <div class="cal-banner-heading">
+            <span id="calCountryNotice">Calendar Synced to Devotee Zone: <strong>India (IST)</strong></span>
+            <span class="cal-dst-pill">☀️ Live Time Sync</span>
+          </div>
+          <div class="cal-banner-desc">
+            Vedic Tithis, Abhijit Muhurat, Rahu Kaal, and Surya timings automatically convert to your local clock.
           </div>
         </div>
+      </div>
 
-        <!-- Muhurat Timings -->
-        <div class="col-lg-6">
-          <div class="p-4 rounded-4 h-100" style="background: rgba(240, 234, 248, 0.5); border: 1.5px solid rgba(212, 175, 55, 0.4);">
-            <span class="badge mb-3" style="background: #E65100; color: #fff; font-weight: 700;">DAILY SHUBH &amp; ASHUBH MUHURAT</span>
-            <h3 style="font-family: 'Cinzel', serif; color: #2E1A47;">Auspicious Windows</h3>
-            <p class="text-muted">Plan new undertakings, pujas, and travel within shubh muhurat.</p>
-            <ul class="list-unstyled mb-0">
-              <li class="py-2 border-bottom d-flex justify-content-between" style="background: rgba(39, 174, 96, 0.1); padding: 8px; border-radius: 6px;">
-                <span class="text-success fw-bold"><i class="fa-solid fa-sun me-1"></i> Abhijit Muhurat (Best):</span>
-                <strong class="text-success">11:45 AM - 12:35 PM</strong>
-              </li>
-              <li class="py-2 border-bottom d-flex justify-content-between">
-                <span class="text-muted">Brahma Muhurat (Dhyana):</span>
-                <strong>04:36 AM - 05:25 AM</strong>
-              </li>
-              <li class="py-2 border-bottom d-flex justify-content-between">
-                <span class="text-muted">Amrit Kaal:</span>
-                <strong>02:15 PM - 03:48 PM</strong>
-              </li>
-              <li class="py-2 border-bottom d-flex justify-content-between" style="background: rgba(192, 57, 43, 0.08); padding: 8px; border-radius: 6px;">
-                <span class="text-danger"><i class="fa-solid fa-ban me-1"></i> Rahu Kaal (Avoid New Actions):</span>
-                <strong class="text-danger">04:30 PM - 06:00 PM</strong>
-              </li>
-              <li class="py-2 d-flex justify-content-between">
-                <span class="text-muted">Yamagandam:</span>
-                <strong>12:00 PM - 01:30 PM</strong>
-              </li>
-            </ul>
-          </div>
+      <div class="cal-country-selector-box">
+        <label class="cal-selector-label" for="calCountrySelect"><i class="fa-solid fa-earth-americas me-1 text-warning"></i> Devotee Country:</label>
+        <select id="calCountrySelect" class="cal-country-dropdown" aria-label="Select Devotee Country">
+          <!-- Populated by JS -->
+        </select>
+      </div>
+    </div>
+
+    <!-- CALENDAR CONTROLS & HEADER BAR -->
+    <div class="calendar-control-card">
+      <div class="calendar-top-row">
+
+        <!-- Left: Month & Vikram Samvat Title -->
+        <div class="month-title-wrap">
+          <div id="calSamvatBadge" class="samvat-badge">विक्रम संवत 2083 • कार्तिक मास</div>
+          <h2 id="calCurrentMonthHeading" class="current-month-heading">November 2026</h2>
+          <div id="calMonthHindiSub" class="month-hindi-sub">नवंबर 2026</div>
+        </div>
+
+        <!-- Center: Quick Filter Pills -->
+        <div class="filter-pills-row">
+          <button type="button" class="filter-pill active-pill" data-filter="all">All Days</button>
+          <button type="button" class="filter-pill" data-filter="festivals">🪔 Festivals</button>
+          <button type="button" class="filter-pill" data-filter="ekadashi">🪷 Ekadashi</button>
+          <button type="button" class="filter-pill" data-filter="purnima-amavasya">🌕 Purnima / Amavasya</button>
+        </div>
+
+        <!-- Right: Multi-Year & Navigation Selectors -->
+        <div class="nav-actions-group">
+          <!-- Step Year Backward -->
+          <button id="calPrevYearBtn" class="nav-btn" title="Previous Year (पिछला वर्ष)" aria-label="Previous Year">
+            <i class="fa-solid fa-angles-left"></i>
+          </button>
+
+          <!-- Step Month Backward -->
+          <button id="calPrevMonthBtn" class="nav-btn" title="Previous Month (पिछला महीना)" aria-label="Previous Month">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+
+          <!-- Month Selector -->
+          <select id="calMonthSelect" class="custom-select" aria-label="Select Month">
+            <!-- Populated by JS -->
+          </select>
+
+          <!-- Year Selector (2020 - 2045) -->
+          <select id="calYearSelect" class="custom-select" aria-label="Select Year">
+            <!-- Populated by JS -->
+          </select>
+
+          <!-- Step Month Forward -->
+          <button id="calNextMonthBtn" class="nav-btn" title="Next Month (अगला महीना)" aria-label="Next Month">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+
+          <!-- Step Year Forward -->
+          <button id="calNextYearBtn" class="nav-btn" title="Next Year (अगला वर्ष)" aria-label="Next Year">
+            <i class="fa-solid fa-angles-right"></i>
+          </button>
+
+          <!-- Jump To Today -->
+          <button id="calJumpTodayBtn" class="today-jump-btn" title="Jump to Today's Date">
+            Today / आज
+          </button>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Major Sacred Festivals 2026 -->
-  <section class="py-5" style="background: #FDFBF7;">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h3 style="font-family: 'Cinzel', serif; color: #2E1A47; font-weight: 700;">Upcoming Auspicious Festivals</h3>
-        <p class="text-muted">Special temple aartis, havan ceremonies, and mahaprasad arrangements are conducted on these days.</p>
-      </div>
+    <!-- CALENDAR 7-COLUMN BOARD -->
+    <div class="calendar-board-card">
+      <div class="calendar-scroll-viewport">
+        <!-- 7-Day Header -->
+        <div class="calendar-weekdays-row">
+          <div class="weekday-cell"><span class="weekday-hi">रवि</span><span class="weekday-en">Sun</span></div>
+          <div class="weekday-cell"><span class="weekday-hi">सोम</span><span class="weekday-en">Mon</span></div>
+          <div class="weekday-cell"><span class="weekday-hi">मंगल</span><span class="weekday-en">Tue</span></div>
+          <div class="weekday-cell"><span class="weekday-hi">बुध</span><span class="weekday-en">Wed</span></div>
+          <div class="weekday-cell"><span class="weekday-hi">गुरु</span><span class="weekday-en">Thu</span></div>
+          <div class="weekday-cell"><span class="weekday-hi">शुक्र</span><span class="weekday-en">Fri</span></div>
+          <div class="weekday-cell"><span class="weekday-hi">शनि</span><span class="weekday-en">Sat</span></div>
+        </div>
 
-      <div class="row g-3">
-        <div class="col-md-6 col-lg-3">
-          <div class="p-3 bg-white rounded-3 border text-center h-100 shadow-sm">
-            <span class="badge bg-warning text-dark mb-2">Maha Parva</span>
-            <h5 style="font-family: 'Cinzel', serif; color: #2E1A47;">Maha Shivratri</h5>
-            <p class="text-muted small">Grand all-night 4-Prahar Rudrabhishek and continuous milk offerings.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="p-3 bg-white rounded-3 border text-center h-100 shadow-sm">
-            <span class="badge bg-warning text-dark mb-2">Chaitra Maas</span>
-            <h5 style="font-family: 'Cinzel', serif; color: #2E1A47;">Ram Navami</h5>
-            <p class="text-muted small">Celebration of Lord Rama's appearance with Ramcharitmanas path.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="p-3 bg-white rounded-3 border text-center h-100 shadow-sm">
-            <span class="badge bg-warning text-dark mb-2">Bhadrapada</span>
-            <h5 style="font-family: 'Cinzel', serif; color: #2E1A47;">Krishna Janmashtami</h5>
-            <p class="text-muted small">Midnight abhishek of Laddu Gopal and 108 bhog prasad distribution.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="p-3 bg-white rounded-3 border text-center h-100 shadow-sm">
-            <span class="badge bg-warning text-dark mb-2">Kartik Maas</span>
-            <h5 style="font-family: 'Cinzel', serif; color: #2E1A47;">Deepavali &amp; Lakshmi Puja</h5>
-            <p class="text-muted small">1,008 sacred brass ghee diya illumination throughout the temple sanctum.</p>
-          </div>
+        <!-- 35/42 Day Grid Cells (Rendered via JS) -->
+        <div id="calendarDaysGrid" class="calendar-days-grid">
+          <!-- Dynamically populated by initPanchangCalendar() -->
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Footer -->
+    <!-- PANCHANG DAY INSPECTOR / DETAIL CARD -->
+    <div id="panchangDayInspector" class="panchang-inspector-card" style="display: none;">
+      <!-- Populated dynamically when any day is clicked -->
+    </div>
+
+    <!-- MAJOR FESTIVALS THIS MONTH SUMMARY -->
+    <div class="month-festivals-summary">
+      <h3 class="summary-heading">
+        <span>🚩</span> Sacred Festivals &amp; Fasts in this Month
+      </h3>
+      <div id="calMajorEventsGrid" class="events-summary-grid">
+        <!-- Populated dynamically by JS -->
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ======================================================
+       FOOTER
+       ====================================================== -->
   <footer class="py-5" style="background: #180D26; color: #FFFFFF; border-top: 2px solid #D4AF37;">
     <div class="container">
       <div class="row g-4">
@@ -229,23 +252,24 @@
             <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">Home Sanctum</a></li>
             <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none">Sacred Pujas</a></li>
             <li class="mb-2"><a href="timings.html" class="text-white-50 text-decoration-none">Aarti Timings</a></li>
+            <li class="mb-2"><a href="live.html" class="text-white-50 text-decoration-none">Live Darshan</a></li>
             <li class="mb-2"><a href="booking.html" class="text-white-50 text-decoration-none">Book Puja</a></li>
           </ul>
         </div>
 
         <div class="col-sm-6 col-lg-2">
-          <h5 style="font-family: 'Cinzel', serif; color: #F9E79F; font-size: 1.05rem;" class="mb-3">Timings</h5>
+          <h5 style="font-family: 'Cinzel', serif; color: #F9E79F; font-size: 1.05rem;" class="mb-3">Sanctum Timings</h5>
           <ul class="list-unstyled text-white-50" style="font-size: 0.88rem;">
-            <li class="mb-1">Morning: 05:30 AM - 12:30 PM</li>
-            <li class="mb-1">Evening: 04:30 PM - 09:30 PM</li>
+            <li class="mb-1">Pratah: 05:30 AM – 12:30 PM</li>
+            <li class="mb-1">Sandhya: 04:30 PM – 09:30 PM</li>
             <li class="mb-1 text-warning">Live Darshan: 24/7</li>
           </ul>
         </div>
 
         <div class="col-lg-3">
           <h5 style="font-family: 'Cinzel', serif; color: #F9E79F; font-size: 1.05rem;" class="mb-3">Temple Bell</h5>
-          <button class="btn btn-sm w-100 trigger-sacred-bell" style="background: linear-gradient(135deg, #D4AF37 0%, #B3861B 100%); color: #180D26; font-weight: 700; border-radius: 20px;">
-            <i class="fa-solid fa-bell me-1"></i> Ring Sacred Bell
+          <button class="btn btn-sm w-100 trigger-sacred-bell" style="background: linear-gradient(135deg, #D4AF37 0%, #B3861B 100%); color: #180D26; font-weight: 700; border-radius: 20px; padding: 8px;">
+            <i class="fa-solid fa-bell me-1"></i> Ring Sacred 432Hz Bell
           </button>
         </div>
       </div>
@@ -261,4 +285,3 @@
   <script src="js/app.js"></script>
 </body>
 </html>
-

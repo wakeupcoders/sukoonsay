@@ -135,75 +135,71 @@
     <div class="aura-orb orb-3"></div>
   </div>
 
-  <!-- Upper Small Header (Topbar with 432 Hz Sanctum Notice & Temple Chimes) -->
-  <aside class="site-topbar" aria-label="Sanctuary Status Bar">
-    <div class="container">
-      <div class="topbar-inner">
-        <!-- Left: Sacred Sanctum Notice -->
-        <div class="topbar-left">
-          <span class="topbar-badge">
-            <span class="pulse-dot emerald" style="width: 7px; height: 7px;"></span>
-            <span class="topbar-status-text">Sanctum Open • 432 Hz Solfeggio Active</span>
-          </span>
-          <span class="topbar-divider">|</span>
-          <span class="topbar-mantra"><i class="fa-solid fa-om" style="color: #FDE68A;"></i> ॐ शान्तिः शान्तिः शान्तिः</span>
-        </div>
+  <!-- ======================================================
+       FIXED DUAL-ROW HEADER (Phycartist Psychiatry Portal)
+       Row 1 (topbar): Brand Logo + 432Hz Sound + Bell ("Ball") + Main Sanctuary CTA + Hamburger
+       Row 2 (navbar): Dedicated Navigation Links Below
+       ====================================================== -->
+  <header class="site-header">
+    <!-- ROW 1: TOPBAR -->
+    <div class="hdr-topbar">
+      <div class="hdr-topbar-inner">
+        <!-- Brand Link -->
+        <a href="#hero" class="brand-link" aria-label="Sukoonsay Psychiatry Home">
+          <div class="brand-emblem-wrap">
+            <img src="assets/images/logo.jpg" alt="Sukoonsay Psychiatry Sacred Emblem" class="brand-logo-img">
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">SUKOONSAY</span>
+            <span class="brand-subtitle">Clinical Psychiatry &amp; Neuro Sanctuary</span>
+          </div>
+        </a>
 
-        <!-- Right: Continuous Temple Chimes Controller -->
-        <div class="topbar-right">
-          <button id="ambientSoundBtn" class="topbar-chimes-btn" title="Toggle Continuous 432 Hz + 108 Hz Temple Chimes & Meditation Sound">
-            <span class="chimes-waves" aria-hidden="true">
-              <span class="bar bar-1"></span>
-              <span class="bar bar-2"></span>
-              <span class="bar bar-3"></span>
+        <!-- Header Controls (Right side of Row 1) -->
+        <div class="hdr-btn-group">
+          <!-- Continuous 432 Hz + 108 Hz Meditation Chimes Toggle -->
+          <button id="ambientSoundBtn" class="tb-audio-btn" title="Toggle 432 Hz Solfeggio &amp; Temple Chimes">
+            <span class="audio-bars" aria-hidden="true">
+              <span></span><span></span><span></span>
             </span>
-            <i class="fa-solid fa-om" style="color: #FDE68A;"></i>
-            <span id="ambientSoundText">Temple Chimes</span>
+            <span id="ambientSoundText" class="tb-btn-label">432Hz</span>
+          </button>
+
+          <!-- Sacred Temple Bell Button ("Ball") -->
+          <button id="headerChimeBtn" class="tb-icon-btn ring-bell-btn" title="Ring Sacred Temple Bell (Tank-Tan 432 Hz Chime)">
+            <i class="fa-solid fa-bell"></i>
+          </button>
+
+          <!-- Return to Main Sanctuary Hub CTA (Desktop) -->
+          <a href="../index.html" class="tb-cta-btn hdr-hide-xs" title="Return to Main Sanctuary">
+            <i class="fa-solid fa-archway"></i>
+            <span>Main Sanctuary</span>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button id="mobileNavToggle" class="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
+            <span class="ham-bar bar-1"></span>
+            <span class="ham-bar bar-2"></span>
+            <span class="ham-bar bar-3"></span>
           </button>
         </div>
       </div>
     </div>
-  </aside>
 
-  <!-- Sticky Glassmorphism Main Header -->
-  <header class="site-header">
-    <div class="container">
-      <nav class="navbar" aria-label="Main Navigation">
-        <!-- Sacred Bell Chime Button (Mobile: Left, Desktop: Right) -->
-        <button id="headerChimeBtn" class="nav-bell-btn" title="Ring Sacred Temple Bell (Tank-Tan Chime)">
-          <i class="fa-solid fa-bell"></i>
-        </button>
-
-        <!-- Brand Logo with Clean Proportions (Mobile: Center, Desktop: Left) -->
-        <a href="#hero" class="brand" aria-label="Sukoonsay Home">
-          <img src="assets/images/logo.jpg" alt="Sukoonsay Sacred Emblem" class="brand-logo-img">
-          <div class="brand-text-wrap">
-            <span class="brand-title">SUKOONSAY</span>
-            <span class="brand-tagline">Clinical & Spiritual Sanctuary</span>
-          </div>
-        </a>
-
-        <!-- Desktop & iPad Nav Menu -->
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="#hero" class="nav-link" title="Sanctuary"><i class="fa-solid fa-landmark-dome"></i> <span class="nav-text">Sanctuary</span></a></li>
-          <li><a href="#chakras" class="nav-link" title="7 Chakras"><i class="fa-solid fa-dharmachakra"></i> <span class="nav-text">7 Chakras</span></a></li>
-          <li><a href="#timings" class="nav-link" title="Daily Darshan"><i class="fa-regular fa-clock"></i> <span class="nav-text">Daily Darshan</span></a></li>
-          <li><a href="#services" class="nav-link" title="Offerings"><i class="fa-solid fa-spa"></i> <span class="nav-text">Offerings</span></a></li>
-          <li><a href="#diya" class="nav-link" title="Virtual Diya"><i class="fa-solid fa-fire-burner"></i> <span class="nav-text">Virtual Diya</span></a></li>
-          <li><a href="#breathing" class="nav-link" title="4-7-8 Breathing"><i class="fa-solid fa-wind"></i> <span class="nav-text">4-7-8 Calmer</span></a></li>
-          <li><a href="#quiz" class="nav-link" title="Aura Quiz"><i class="fa-solid fa-wand-magic-sparkles"></i> <span class="nav-text">Aura Quiz</span></a></li>
-          <li><a href="#resources" class="nav-link" title="Sacred Links"><i class="fa-solid fa-book-open"></i> <span class="nav-text">Sacred Links</span></a></li>
-          <li><a href="#connect" class="nav-link" title="Connect"><i class="fa-solid fa-envelope-open-text"></i> <span class="nav-text">Connect</span></a></li>
-        </ul>
-
-        <!-- Designer Mobile Hamburger Toggle (Right on Mobile) -->
-        <button class="designer-toggle" id="mobileNavToggle" aria-label="Toggle Mobile Navigation Menu">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-        </button>
-      </nav>
-    </div>
+    <!-- ROW 2: NAVBAR (All Navigation Links cleanly displayed below!) -->
+    <nav class="hdr-navbar" aria-label="Clinical Navigation">
+      <div class="hdr-navbar-inner">
+        <a href="#hero" class="nav-item nav-link active-link" title="Sanctuary"><i class="fa-solid fa-landmark-dome"></i><span>Sanctuary</span></a>
+        <a href="#chakras" class="nav-item nav-link" title="7 Chakras"><i class="fa-solid fa-dharmachakra"></i><span>7 Chakras</span></a>
+        <a href="#timings" class="nav-item nav-link" title="Clinical Hours"><i class="fa-regular fa-clock"></i><span>Clinical Hours</span></a>
+        <a href="#services" class="nav-item nav-link" title="Therapies"><i class="fa-solid fa-spa"></i><span>Therapies</span></a>
+        <a href="#diya" class="nav-item nav-link" title="Virtual Diya"><i class="fa-solid fa-fire-burner"></i><span>Virtual Diya</span></a>
+        <a href="#breathing" class="nav-item nav-link" title="4-7-8 Breathing"><i class="fa-solid fa-wind"></i><span>4-7-8 Calmer</span></a>
+        <a href="#quiz" class="nav-item nav-link" title="Aura Quiz"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Aura Quiz</span></a>
+        <a href="#resources" class="nav-item nav-link" title="Sacred Links"><i class="fa-solid fa-book-open"></i><span>Sacred Links</span></a>
+        <a href="#connect" class="nav-item nav-link" title="Consult"><i class="fa-solid fa-stethoscope"></i><span>Consult</span></a>
+      </div>
+    </nav>
   </header>
 
   <!-- Mobile Slide-In Sidebar Drawer & Dimmer Backdrop Overlay -->
