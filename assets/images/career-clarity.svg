@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgCareer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5EBFA"/>
+      <stop offset="50%" stop-color="#F0EAF8"/>
+      <stop offset="100%" stop-color="#FBE5F5"/>
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="50%" stop-color="#FF9800"/>
+      <stop offset="100%" stop-color="#E65100"/>
+    </linearGradient>
+    <linearGradient id="goldCar" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F9E79F"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#B3861B"/>
+    </linearGradient>
+    <filter id="solarGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="400" rx="20" fill="url(#bgCareer)"/>
+
+  <!-- Solar Rays of Focus & Mental Clarity -->
+  <g transform="translate(300, 190)" opacity="0.65">
+    <line x1="0" y1="-170" x2="0" y2="170" stroke="url(#goldCar)" stroke-width="1.5" stroke-dasharray="8 6"/>
+    <line x1="-170" y1="0" x2="170" y2="0" stroke="url(#goldCar)" stroke-width="1.5" stroke-dasharray="8 6"/>
+    <line x1="-120" y1="-120" x2="120" y2="120" stroke="url(#goldCar)" stroke-width="1.5" stroke-dasharray="8 6"/>
+    <line x1="-120" y1="120" x2="120" y2="-120" stroke="url(#goldCar)" stroke-width="1.5" stroke-dasharray="8 6"/>
+  </g>
+
+  <!-- Geometric Clarity Mandala -->
+  <polygon points="300,80 400,190 300,300 200,190" fill="none" stroke="url(#goldCar)" stroke-width="2" opacity="0.5"/>
+  <polygon points="300,95 385,190 300,285 215,190" fill="none" stroke="#E65100" stroke-width="1" opacity="0.4"/>
+
+  <!-- Sun Disc / Manipura Solar Plexus -->
+  <circle cx="300" cy="190" r="70" fill="url(#sunGrad)" filter="url(#solarGlow)" opacity="0.9"/>
+  <circle cx="300" cy="190" r="54" fill="#FFFFFF" opacity="0.95"/>
+
+  <!-- Calm Brain Silhouette Meets Cosmic Lotus -->
+  <g transform="translate(300, 190) scale(0.9)">
+    <!-- Stylized Balanced Brain Hemispheres in Gold -->
+    <path d="M-8 -30 C-25 -30 -38 -15 -38 5 C-38 25 -20 35 -8 38 Z" fill="url(#goldCar)"/>
+    <path d="M8 -30 C25 -30 38 -15 38 5 C38 25 20 35 8 38 Z" fill="url(#sunGrad)"/>
+    <!-- Synaptic Golden Light Spark -->
+    <circle cx="0" cy="5" r="7" fill="#FFFFFF" stroke="#D4AF37" stroke-width="2"/>
+    <line x1="-8" y1="-10" x2="-22" y2="-10" stroke="#FFFFFF" stroke-width="1.5"/>
+    <line x1="-8" y1="5" x2="-25" y2="5" stroke="#FFFFFF" stroke-width="1.5"/>
+    <line x1="-8" y1="20" x2="-20" y2="20" stroke="#FFFFFF" stroke-width="1.5"/>
+    <line x1="8" y1="-10" x2="22" y2="-10" stroke="#FFFFFF" stroke-width="1.5"/>
+    <line x1="8" y1="5" x2="25" y2="5" stroke="#FFFFFF" stroke-width="1.5"/>
+    <line x1="8" y1="20" x2="20" y2="20" stroke="#FFFFFF" stroke-width="1.5"/>
+  </g>
+
+  <!-- Base Mountain of Steely Resilience -->
+  <path d="M120 330 L300 240 L480 330 Z" fill="none" stroke="url(#goldCar)" stroke-width="2" opacity="0.6"/>
+
+  <rect x="180" y="340" width="240" height="34" rx="17" fill="#FFFFFF" stroke="url(#goldCar)" stroke-width="1.5"/>
+  <text x="300" y="362" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#2E1A47" letter-spacing="1">KARMA YOGA & FOCUS RESET</text>
+</svg>
+

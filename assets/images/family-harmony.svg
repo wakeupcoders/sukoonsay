@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgFam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBE5F5"/>
+      <stop offset="50%" stop-color="#F0EAF8"/>
+      <stop offset="100%" stop-color="#E5EBFA"/>
+    </linearGradient>
+    <linearGradient id="goldTree" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3B0"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#B3861B"/>
+    </linearGradient>
+    <linearGradient id="saffronFoliage" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9800"/>
+      <stop offset="50%" stop-color="#E65100"/>
+      <stop offset="100%" stop-color="#C0392B"/>
+    </linearGradient>
+    <radialGradient id="treeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#4A306D" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softTreeShine" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="400" rx="20" fill="url(#bgFam)"/>
+
+  <!-- Protective Sanctum Canopy Dome -->
+  <path d="M150 280 C150 120 450 120 450 280 Z" fill="url(#treeGlow)"/>
+  <path d="M160 280 C160 140 440 140 440 280" fill="none" stroke="url(#goldTree)" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"/>
+
+  <!-- Kalpavriksha (Sacred Wish-Fulfilling Family Tree) -->
+  <!-- Golden Trunk & Roots -->
+  <g filter="url(#softTreeShine)">
+    <path d="M285 290 C285 240 270 210 250 180 C275 190 290 205 300 220 C310 205 325 190 350 180 C330 210 315 240 315 290 Z" fill="url(#goldTree)"/>
+    <!-- Deep Strong Roots of Heritage -->
+    <path d="M285 290 C260 305 240 320 220 325 M315 290 C340 305 360 320 380 325 M300 290 L300 330" stroke="url(#goldTree)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Golden Foliage Boughs (Generational Harmony) -->
+  <g filter="url(#softTreeShine)">
+    <!-- Center Crown Foliage -->
+    <circle cx="300" cy="140" r="48" fill="url(#saffronFoliage)" opacity="0.9"/>
+    <!-- Left Bough Foliage -->
+    <circle cx="230" cy="165" r="38" fill="url(#goldTree)" opacity="0.85"/>
+    <!-- Right Bough Foliage -->
+    <circle cx="370" cy="165" r="38" fill="url(#goldTree)" opacity="0.85"/>
+    <!-- Upper Top Bloom -->
+    <circle cx="300" cy="95" r="28" fill="url(#goldTree)" opacity="0.9"/>
+  </g>
+
+  <!-- Sacred Protective Diya at Center of Household Tree -->
+  <g transform="translate(300, 245)" filter="url(#softTreeShine)">
+    <!-- Brass Diya Base -->
+    <path d="M-22 15 C-22 25 22 25 22 15 C15 15 10 18 0 18 C-10 18 -15 15 -22 15 Z" fill="url(#goldTree)"/>
+    <!-- Diya Bowl -->
+    <ellipse cx="0" cy="14" rx="20" ry="7" fill="#B3861B"/>
+    <!-- Golden Flame -->
+    <path d="M0 12 C-8 0 0 -18 0 -18 C0 -18 8 0 0 12 Z" fill="#FF9800"/>
+    <path d="M0 10 C-4 2 0 -10 0 -10 C0 -10 4 2 0 10 Z" fill="#FFF3B0"/>
+  </g>
+
+  <!-- Small Family Bird / Soul Symbols Nesting in Peace -->
+  <circle cx="260" cy="145" r="4" fill="#FFFFFF"/>
+  <circle cx="340" cy="145" r="4" fill="#FFFFFF"/>
+  <circle cx="300" cy="115" r="4" fill="#FFFFFF"/>
+
+  <rect x="175" y="340" width="250" height="34" rx="17" fill="#FFFFFF" stroke="url(#goldTree)" stroke-width="1.5"/>
+  <text x="300" y="362" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#2E1A47" letter-spacing="1">GRIHA SHANTI & FAMILY HARMONY</text>
+</svg>
+

@@ -1,0 +1,4497 @@
+/* ==========================================================================
+   SUKOONSAY - SACRED & ROYAL SANCTUARY DESIGN SYSTEM
+   Color Palette & Glassmorphism Design Tokens
+   ========================================================================== */
+
+:root {
+  /* Background Horizontal Gradient (Soft Peaceful Pastel Sky Blue -> Lavender -> Dawn Rose) */
+  --bg-gradient: linear-gradient(90deg, #E5EBFA 0%, #F0EAF8 50%, #FBE5F5 100%);
+  --bg-gradient-reverse: linear-gradient(90deg, #FBE5F5 0%, #F0EAF8 50%, #E5EBFA 100%);
+  --bg-soft-sky: #E5EBFA;
+  --bg-sacred-lavender: #F0EAF8;
+  --bg-dawn-rose: #FBE5F5;
+
+  /* Gold & Saffron Palette */
+  --sacred-gold: #D4AF37;
+  --sacred-gold-deep: #B3861B;
+  --sacred-gold-light: #F9E79F;
+  --sacred-saffron: #E65100;
+  --sacred-saffron-light: #FF9800;
+  --sacred-vermilion: #C0392B;
+
+  /* Deep Royal & Cosmic Purples */
+  --divine-purple-deep: #2E1A47;
+  --divine-purple: #4A306D;
+  --cosmic-dark: #180D26;
+  --purple-glow: rgba(74, 48, 109, 0.15);
+
+  /* Typography Colors */
+  --text-primary: #241E2F;
+  --text-secondary: #5C5468;
+  --text-muted: #827A91;
+  --text-white: #FFFFFF;
+
+  /* Cards, Surfaces & Borders */
+  --glass-card: rgba(255, 255, 255, 0.84);
+  --glass-card-hover: rgba(255, 255, 255, 0.94);
+  --glass-card-dark: rgba(24, 13, 38, 0.75);
+  --border-gold: rgba(212, 175, 55, 0.35);
+  --border-gold-strong: rgba(212, 175, 55, 0.7);
+  --border-subtle: rgba(212, 175, 55, 0.18);
+
+  /* Shadows & Glows */
+  --shadow-sacred: 0 8px 25px rgba(212, 175, 55, 0.25);
+  --shadow-sacred-lg: 0 16px 40px rgba(212, 175, 55, 0.32);
+  --shadow-glass: 0 10px 30px rgba(36, 30, 47, 0.08);
+  --shadow-purple: 0 12px 35px rgba(46, 26, 71, 0.28);
+  --gold-glow: 0 0 20px rgba(212, 175, 55, 0.45);
+
+  /* Fonts */
+  --font-serif: 'Cinzel', serif;
+  --font-display: 'Cinzel Decorative', 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ==========================================================================
+   RESET & GLOBAL STYLES
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 95px;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  /* topbar 48px + navbar 40px = 88px total header height */
+  padding-top: 90px;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.65;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* On mobile: only topbar row (52px) */
+@media (max-width: 860px) {
+  html {
+    scroll-padding-top: 60px;
+  }
+
+  body {
+    padding-top: 54px;
+  }
+}
+
+/* Subtle sacred aura gradient orbs in background */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+  opacity: 0.45;
+}
+
+body::before {
+  top: -100px;
+  right: -50px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.28), rgba(240, 234, 248, 0));
+  animation: floatOrb 18s ease-in-out infinite alternate;
+}
+
+body::after {
+  bottom: 10%;
+  left: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(74, 48, 109, 0.15), rgba(229, 235, 250, 0));
+  animation: floatOrb 22s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(40px, 30px) scale(1.08);
+  }
+
+  100% {
+    transform: translate(-30px, 50px) scale(0.95);
+  }
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  color: var(--divine-purple-deep);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.8vw, 2.75rem);
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Frosted Glassmorphism Utility */
+.glass-panel {
+  background: var(--glass-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sacred);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.glass-panel:hover {
+  background: var(--glass-card-hover);
+  border-color: var(--border-gold-strong);
+  box-shadow: var(--shadow-sacred-lg);
+}
+
+/* Sacred Buttons */
+.btn-sacred-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, var(--sacred-gold) 0%, var(--sacred-gold-deep) 100%);
+  color: #180D26;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.85rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-sacred-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.5);
+  background: linear-gradient(135deg, #F9E79F 0%, var(--sacred-gold) 100%);
+  color: #180D26;
+}
+
+.btn-royal-purple {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, var(--divine-purple-deep) 0%, var(--cosmic-dark) 100%);
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  padding: 0.85rem 1.85rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 6px 20px rgba(46, 26, 71, 0.35);
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-royal-purple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(46, 26, 71, 0.5), 0 0 15px rgba(212, 175, 55, 0.3);
+  border-color: var(--sacred-gold);
+}
+
+.btn-saffron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, var(--sacred-saffron) 0%, var(--sacred-saffron-light) 100%);
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  padding: 0.85rem 1.85rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(230, 81, 0, 0.3);
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-saffron:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(230, 81, 0, 0.45);
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  color: var(--divine-purple-deep);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--sacred-gold);
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-outline-gold:hover {
+  background: var(--sacred-gold);
+  color: #180D26;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+}
+
+@media (max-width: 600px) {
+
+  .btn-sacred-gold,
+  .btn-royal-purple,
+  .btn-saffron,
+  .btn-outline-gold {
+    padding: 0.52rem 0.95rem;
+    font-size: 0.78rem;
+    gap: 0.38rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Section Title Styling */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--border-gold);
+  color: var(--sacred-gold-deep);
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.85rem;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 3rem auto;
+}
+
+.section-header h2 {
+  color: var(--divine-purple-deep);
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.gold-divider {
+  width: 90px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--sacred-gold), var(--sacred-saffron), var(--sacred-gold), transparent);
+  margin: 1.25rem auto 0 auto;
+  border-radius: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F0EAF8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--sacred-gold) 0%, var(--divine-purple) 100%);
+  border-radius: 10px;
+  border: 2px solid #F0EAF8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--sacred-saffron) 0%, var(--sacred-gold-deep) 100%);
+}
+
+/* Selection Color */
+::selection {
+  background: var(--sacred-gold);
+  color: #180D26;
+}
+/* ==========================================================================
+   SUKOONSAY - SACRED COMPONENT STYLESHEET   
+   ========================================================================== */
+
+/* 1. TOPBAR */
+.sanctum-topbar {
+  background: linear-gradient(90deg, #2E1A47 0%, #180D26 50%, #2E1A47 100%);
+  color: #FFFFFF;
+  font-size: 0.83rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+  position: relative;
+  z-index: 100;
+}
+
+.topbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.pulse-indicator {
+  position: relative;
+  display: inline-flex;
+  width: 9px;
+  height: 9px;
+}
+
+.pulse-core {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #FF9800;
+  box-shadow: 0 0 10px #FF9800;
+  animation: pulseSacred 2s infinite;
+}
+
+@keyframes pulseSacred {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 14px #D4AF37; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.topbar-divider {
+  color: rgba(212, 175, 55, 0.5);
+}
+
+.topbar-mantra {
+  font-family: var(--font-serif);
+  color: #F9E79F;
+  letter-spacing: 0.04em;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.topbar-audio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #F9E79F;
+  padding: 0.28rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.topbar-audio-btn:hover,
+.topbar-audio-btn.active {
+  background: var(--sacred-gold);
+  color: #180D26;
+  border-color: #FFFFFF;
+}
+
+.topbar-quick-bell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  transition: all var(--transition-fast);
+}
+
+.topbar-quick-bell:hover {
+  background: var(--sacred-saffron);
+  border-color: var(--sacred-saffron);
+  transform: translateY(-1px);
+}
+
+.audio-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.audio-bars span {
+  width: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  height: 4px;
+}
+
+.audio-bars.playing span:nth-child(1) {
+  animation: barBounce 1s infinite alternate;
+}
+.audio-bars.playing span:nth-child(2) {
+  animation: barBounce 0.7s infinite alternate 0.2s;
+}
+.audio-bars.playing span:nth-child(3) {
+  animation: barBounce 1.2s infinite alternate 0.4s;
+}
+
+@keyframes barBounce {
+  0% { height: 3px; }
+  100% { height: 12px; }
+}
+
+/* ============================================================
+   DUAL-ROW FIXED SITE HEADER
+   Row 1: Topbar (Logo + Buttons)  — height: 48px
+   Row 2: Navbar (Nav Links only)  — height: 40px
+   Total: 88px desktop, collapses to 48px on mobile
+   ============================================================ */
+
+/* Wrapper — the full fixed header box */
+.site-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1.5px solid var(--border-gold);
+  box-shadow: 0 4px 24px rgba(46, 26, 71, 0.10);
+}
+
+/* ——— ROW 1: TOPBAR ——— */
+.hdr-topbar {
+  width: 100%;
+  height: 48px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.20);
+  background: linear-gradient(90deg, rgba(46,26,71,0.04) 0%, rgba(212,175,55,0.06) 50%, rgba(230,81,0,0.04) 100%);
+}
+
+.hdr-topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  flex-wrap: nowrap;
+}
+
+/* Brand Link */
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.brand-emblem-wrap {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.4));
+  flex-shrink: 0;
+}
+
+.brand-lotus-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, var(--divine-purple-deep) 0%, var(--sacred-gold-deep) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+.brand-subtitle {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--sacred-saffron);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Button Group (right side of topbar) */
+.hdr-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+
+/* 432 Hz Audio Button */
+.tb-audio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-gold);
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--divine-purple-deep);
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+}
+
+.tb-audio-btn:hover,
+.tb-audio-btn.active {
+  background: var(--sacred-gold);
+  color: #180D26;
+  border-color: rgba(255,255,255,0.6);
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.35);
+}
+
+.tb-btn-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* Temple Bell Icon Button */
+.tb-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  background: rgba(212, 175, 55, 0.10);
+  color: var(--divine-purple-deep);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+  font-size: 0.82rem;
+}
+
+.tb-icon-btn:hover {
+  background: var(--sacred-gold);
+  color: #180D26;
+  transform: rotate(-12deg) scale(1.08);
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.35);
+}
+
+/* CTA Button (topbar) */
+.tb-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 1rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--divine-purple-deep) 0%, var(--cosmic-dark) 100%);
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 3px 12px rgba(46, 26, 71, 0.3);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tb-cta-btn:hover {
+  background: linear-gradient(135deg, var(--sacred-gold) 0%, var(--sacred-gold-deep) 100%);
+  color: #180D26;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Hamburger Toggle */
+.mobile-toggle-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-gold);
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.mobile-toggle-btn:hover {
+  background: #FFFFFF;
+  border-color: var(--sacred-gold);
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+}
+
+.ham-bar {
+  width: 20px;
+  height: 2px;
+  background: var(--divine-purple-deep);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mobile-toggle-btn.open .bar-1 {
+  transform: translateY(7px) rotate(45deg);
+  background: var(--sacred-saffron);
+}
+
+.mobile-toggle-btn.open .bar-2 {
+  opacity: 0;
+}
+
+.mobile-toggle-btn.open .bar-3 {
+  transform: translateY(-7px) rotate(-45deg);
+  background: var(--sacred-saffron);
+}
+
+/* ——— ROW 2: NAVBAR (Navigation Links) ——— */
+.hdr-navbar {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.hdr-navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 1.5vw, 1.5rem);
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  flex-wrap: nowrap;
+  height: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.hdr-navbar-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.hdr-navbar .nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.2rem, 0.5vw, 0.4rem);
+  font-family: var(--font-serif);
+  font-size: clamp(0.7rem, 1.1vw, 0.86rem);
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  padding: 0 clamp(0.2rem, 0.5vw, 0.4rem);
+  position: relative;
+  white-space: nowrap;
+  height: 100%;
+  line-height: 40px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.hdr-navbar .nav-item i {
+  font-size: clamp(0.65rem, 1vw, 0.82rem);
+}
+
+.hdr-navbar .nav-item span {
+  font-size: clamp(0.68rem, 1.05vw, 0.84rem);
+}
+
+.hdr-navbar .nav-item:hover {
+  color: var(--sacred-saffron);
+}
+
+.hdr-navbar .nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sacred-gold), var(--sacred-saffron));
+  transition: width var(--transition-fast);
+  transform: translateX(-50%);
+  border-radius: 2px 2px 0 0;
+}
+
+.hdr-navbar .nav-item:hover::after {
+  width: 100%;
+}
+
+/* audio-bars inside topbar audio btn */
+.audio-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 10px;
+}
+
+.audio-bars span {
+  width: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  height: 3px;
+}
+
+.audio-bars.playing span:nth-child(1) {
+  animation: barBounce 1s infinite alternate;
+}
+.audio-bars.playing span:nth-child(2) {
+  animation: barBounce 0.7s infinite alternate 0.2s;
+}
+.audio-bars.playing span:nth-child(3) {
+  animation: barBounce 1.2s infinite alternate 0.4s;
+}
+
+/* Helper: hide on extra small */
+.hdr-hide-xs { display: inline-flex; }
+
+
+
+/* ==========================================================================
+   MOBILE OFF-CANVAS SIDEBAR DRAWER
+   ========================================================================== */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 13, 38, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1998;
+  animation: fadeIn 0.25s ease;
+}
+
+.mobile-sidebar-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  max-width: 86vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-left: 2px solid var(--border-gold);
+  box-shadow: -10px 0 35px rgba(24, 13, 38, 0.3);
+  z-index: 1999;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.mobile-sidebar-drawer.drawer-open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-gold);
+  margin-bottom: 1rem;
+}
+
+.drawer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.drawer-emblem {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--divine-purple-deep) 0%, var(--cosmic-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: 1px solid var(--border-gold);
+}
+
+.drawer-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--divine-purple-deep);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.drawer-sub {
+  font-size: 0.68rem;
+  color: var(--sacred-saffron);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.drawer-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.drawer-close-btn:hover {
+  background: var(--sacred-vermilion);
+  color: #FFFFFF;
+}
+
+.drawer-status-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--divine-purple-deep);
+  margin-bottom: 1.25rem;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--sacred-saffron);
+  box-shadow: 0 0 6px var(--sacred-saffron);
+}
+
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.5rem;
+}
+
+.drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.drawer-link i:first-child {
+  width: 20px;
+  font-size: 1rem;
+}
+
+.drawer-link .link-arrow {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: transform var(--transition-fast);
+}
+
+.drawer-link:hover {
+  background: rgba(240, 234, 248, 0.8);
+  color: var(--sacred-saffron);
+}
+
+.drawer-link:hover .link-arrow {
+  transform: translateX(3px);
+  color: var(--sacred-saffron);
+}
+
+/* Two Portals in Mobile Sidebar */
+.drawer-portals-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.dp-title {
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--sacred-gold-deep);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.drawer-portal-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-gold);
+  transition: all var(--transition-fast);
+}
+
+.psychiatrist-card {
+  background: rgba(46, 26, 71, 0.06);
+  border-color: rgba(74, 48, 109, 0.3);
+}
+
+.temple-card {
+  background: rgba(230, 81, 0, 0.06);
+  border-color: rgba(230, 81, 0, 0.3);
+}
+
+.drawer-portal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dp-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+}
+
+.psychiatrist-card .dp-icon {
+  background: var(--divine-purple-deep);
+  color: #FFFFFF;
+}
+
+.temple-card .dp-icon {
+  background: var(--sacred-saffron);
+  color: #FFFFFF;
+}
+
+.dp-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.dp-text strong {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--divine-purple-deep);
+}
+
+.dp-text span {
+  font-size: 0.72rem;
+  color: var(--sacred-saffron);
+}
+
+.drawer-footer-audio {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-gold);
+}
+
+.btn-sm {
+  padding: 0.55rem 1.25rem !important;
+  font-size: 0.82rem !important;
+}
+
+.btn-lg {
+  padding: 1.05rem 2.2rem !important;
+  font-size: 1.05rem !important;
+}
+
+/* 3. HERO */
+.hero-section {
+  padding: 3.5rem 0 4.5rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.hero-title {
+  margin: 1.2rem auto;
+  max-width: 980px;
+  font-weight: 800;
+}
+
+.highlight-purple {
+  background: linear-gradient(135deg, var(--divine-purple-deep) 0%, var(--divine-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.highlight-gold {
+  background: linear-gradient(135deg, var(--sacred-saffron) 0%, var(--sacred-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.18rem;
+  max-width: 820px;
+  margin: 0 auto 2.5rem auto;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Mobile Sacred Badges (shown on mobile/tablet instead of lengthy subtitle) */
+.hero-mobile-badges {
+  display: none;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 auto 1.75rem auto;
+  max-width: 540px;
+}
+
+.hm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+}
+
+.hero-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  max-width: 860px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.hero-portal-card-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding: 1.35rem 1.6rem;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border-gold);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-sacred);
+  text-align: left;
+  transition: all var(--transition-smooth);
+}
+
+.hero-portal-card-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sacred-lg);
+  border-color: var(--sacred-gold);
+}
+
+.hero-portal-card-btn.psychiatrist-theme:hover {
+  border-color: var(--divine-purple);
+  box-shadow: 0 12px 30px rgba(46, 26, 71, 0.25);
+}
+
+.hero-portal-card-btn.temple-theme:hover {
+  border-color: var(--sacred-saffron);
+  box-shadow: 0 12px 30px rgba(230, 81, 0, 0.25);
+}
+
+.icon-orb {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.psychiatrist-theme .icon-orb {
+  background: linear-gradient(135deg, var(--divine-purple-deep) 0%, var(--divine-purple) 100%);
+  color: #FFFFFF;
+}
+
+.temple-theme .icon-orb {
+  background: linear-gradient(135deg, var(--sacred-saffron) 0%, var(--sacred-gold) 100%);
+  color: #FFFFFF;
+}
+
+.text-group {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.category-label {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sacred-gold-deep);
+}
+
+.portal-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+  margin: 0.15rem 0;
+}
+
+.portal-detail {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.arrow-icon {
+  color: var(--sacred-gold);
+  font-size: 1.15rem;
+  transition: transform var(--transition-fast);
+}
+
+.hero-portal-card-btn:hover .arrow-icon {
+  transform: translateX(6px);
+}
+
+/* Stats */
+.hero-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.25rem;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--divine-purple-deep);
+  background: linear-gradient(135deg, var(--divine-purple-deep) 0%, var(--sacred-gold-deep) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 0.35rem;
+}
+
+/* 4. THE TWO MASTER SHOWCASE CARDS */
+.portals-section {
+  padding: 4.5rem 0;
+}
+
+.portals-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2.2rem;
+}
+
+.master-portal-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid var(--border-gold);
+  background: var(--glass-card);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-sacred);
+  transition: all var(--transition-smooth);
+}
+
+.master-portal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-sacred-lg);
+}
+
+.clinical-card:hover {
+  border-color: var(--divine-purple);
+}
+
+.temple-card:hover {
+  border-color: var(--sacred-saffron);
+}
+
+.portal-image-container {
+  position: relative;
+  height: 290px;
+  overflow: hidden;
+}
+
+.portal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.master-portal-card:hover .portal-img {
+  transform: scale(1.05);
+}
+
+.portal-img-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.clinical-overlay {
+  background: linear-gradient(180deg, rgba(46, 26, 71, 0.15) 0%, rgba(24, 13, 38, 0.85) 100%);
+}
+
+.temple-overlay {
+  background: linear-gradient(180deg, rgba(230, 81, 0, 0.15) 0%, rgba(46, 26, 71, 0.88) 100%);
+}
+
+.portal-category-tag {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(8px);
+}
+
+.clinical-tag {
+  background: rgba(46, 26, 71, 0.85);
+  color: #F9E79F;
+  border: 1px solid var(--border-gold);
+}
+
+.temple-tag {
+  background: rgba(230, 81, 0, 0.9);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.live-status-pill {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(24, 13, 38, 0.85);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2ECC71;
+  box-shadow: 0 0 8px #2ECC71;
+}
+
+.sacred-dot {
+  background: #FF9800;
+  box-shadow: 0 0 8px #FF9800;
+}
+
+.portal-content {
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.portal-sub {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--sacred-gold-deep);
+  letter-spacing: 0.1em;
+}
+
+.portal-title {
+  font-size: 1.75rem;
+  margin: 0.2rem 0;
+  color: var(--divine-purple-deep);
+}
+
+.portal-role {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--sacred-saffron);
+  margin-bottom: 1rem;
+}
+
+.portal-summary {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 1.6rem;
+}
+
+/* Mobile Portal Chips (displayed instead of lengthy feature lists on mobile/tablet) */
+.portal-chips-mobile {
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+}
+
+.portal-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--border-gold);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.portal-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.93rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.feature-item i {
+  margin-top: 0.25rem;
+  font-size: 1.05rem;
+}
+
+.portal-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.portal-launch-btn {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.78rem 1.35rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.portal-footer-actions .btn-outline-gold {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.78rem 1.25rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.portal-link-footnote {
+  margin-top: 1.25rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.code-link {
+  font-family: monospace;
+  color: var(--sacred-saffron);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* 5. STRESS SOLVING SECTION */
+.stress-section {
+  padding: 4.5rem 0;
+}
+
+.problem-selector-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.problem-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid var(--border-gold);
+  color: var(--divine-purple-deep);
+  transition: all var(--transition-smooth);
+}
+
+.problem-pill-btn:hover {
+  background: #FFFFFF;
+  border-color: var(--sacred-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+}
+
+.problem-pill-btn.active {
+  background: linear-gradient(135deg, var(--divine-purple-deep) 0%, var(--cosmic-dark) 100%);
+  color: #FFFFFF;
+  border-color: var(--sacred-gold);
+  box-shadow: 0 6px 20px rgba(46, 26, 71, 0.35);
+}
+
+.problem-pill-btn.active i {
+  color: var(--sacred-gold);
+}
+
+.pill-full-text {
+  display: inline;
+}
+
+.pill-short-text {
+  display: none;
+}
+
+.problem-detail-card {
+  padding: 2.8rem;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid var(--border-gold);
+  box-shadow: var(--shadow-sacred);
+}
+
+.problem-header-area {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.problem-icon-orb {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sacred-gold) 0%, var(--sacred-saffron) 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  flex-shrink: 0;
+}
+
+.problem-cat-badge {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--sacred-saffron);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.problem-title-block h3 {
+  font-size: 1.85rem;
+  margin: 0.25rem 0;
+}
+
+.problem-sub {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+.problem-illustration-box {
+  margin-left: auto;
+  width: 240px;
+  height: 150px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sacred);
+  border: 1.5px solid var(--border-gold);
+  background: rgba(255, 255, 255, 0.9);
+  flex-shrink: 0;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.problem-illustration-box:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-sacred-lg);
+}
+
+.problem-inline-svg-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.problem-inline-svg-wrap svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.problem-svg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.symptoms-box {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  border-left: 4px solid var(--sacred-vermilion);
+  margin-bottom: 2rem;
+}
+
+.box-title {
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.symptoms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+
+.symptom-tag {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dual-solution-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.2rem;
+}
+
+.solution-col {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sol-badge-wrap {
+  margin-bottom: 0.6rem;
+}
+
+.sol-badge {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.clinical-sub-badge {
+  background: rgba(74, 48, 109, 0.12);
+  color: var(--divine-purple-deep);
+  border: 1px solid rgba(74, 48, 109, 0.3);
+}
+
+.temple-sub-badge {
+  background: rgba(230, 81, 0, 0.12);
+  color: var(--sacred-saffron);
+  border: 1px solid rgba(230, 81, 0, 0.3);
+}
+
+.sol-header h4 {
+  font-size: 1.25rem;
+  margin-bottom: 1.1rem;
+}
+
+.sol-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.6rem;
+  flex-grow: 1;
+}
+
+.sol-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.sol-points li i {
+  margin-top: 0.25rem;
+}
+
+.sol-btn {
+  margin-top: auto;
+}
+
+.mantra-affirmation-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+  padding: 1.8rem;
+  background: linear-gradient(135deg, rgba(24, 13, 38, 0.88) 0%, rgba(46, 26, 71, 0.94) 100%);
+  color: #FFFFFF;
+  border: 1.5px solid var(--sacred-gold);
+}
+
+.mantra-label,
+.affirmation-label {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--sacred-gold);
+  margin-bottom: 0.45rem;
+}
+
+.mantra-sanskrit {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #F9E79F;
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+}
+
+.mantra-trans {
+  font-size: 0.88rem;
+  color: #E5EBFA;
+  opacity: 0.9;
+}
+
+.affirmation-text {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #FFFFFF;
+  line-height: 1.5;
+}
+
+/* 6. NAVIGATOR */
+.navigator-section {
+  padding: 4.5rem 0;
+}
+
+.navigator-wrapper {
+  padding: 3rem;
+  border-radius: var(--radius-xl);
+}
+
+.navigator-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.form-group-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.form-label {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+  margin-bottom: 1.1rem;
+  line-height: 1.4;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+.option-button-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.05rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-gold);
+  background: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  line-height: 1.35;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: normal;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+  transition: all var(--transition-fast);
+}
+
+.option-btn i {
+  font-size: 1.05rem;
+  width: 22px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.option-btn span {
+  display: inline-block;
+  white-space: normal;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+.option-btn:hover {
+  background: #FFFFFF;
+  border-color: var(--sacred-gold);
+}
+
+.option-btn.selected {
+  background: linear-gradient(135deg, var(--divine-purple-deep) 0%, var(--divine-purple) 100%);
+  color: #FFFFFF;
+  border-color: var(--sacred-gold);
+  box-shadow: 0 4px 15px rgba(46, 26, 71, 0.3);
+}
+
+.option-btn.selected i {
+  color: var(--sacred-gold);
+}
+
+.intensity-slider-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.intensity-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1.05rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-gold);
+  background: rgba(255, 255, 255, 0.85);
+  text-align: left;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: normal;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+  transition: all var(--transition-fast);
+}
+
+.intensity-title {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+.intensity-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+.intensity-btn.selected {
+  background: linear-gradient(135deg, var(--sacred-saffron) 0%, var(--sacred-saffron-light) 100%);
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(230, 81, 0, 0.35);
+}
+
+.intensity-btn.selected .intensity-title,
+.intensity-btn.selected .intensity-desc {
+  color: #FFFFFF;
+}
+
+.prescription-result {
+  padding: 2.2rem;
+  background: #FFFFFF;
+  border: 1.5px solid var(--sacred-gold);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  box-sizing: border-box;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+.prescription-header {
+  margin-bottom: 1.5rem;
+}
+
+.badge-rx {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--sacred-vermilion);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.prescription-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.rx-step-card {
+  padding: 1.35rem 1.15rem;
+  border-radius: var(--radius-md);
+  background: rgba(240, 234, 248, 0.55);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+.rx-step-card.primary-focus {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(240, 234, 248, 0.8) 100%);
+  border-color: var(--sacred-gold);
+}
+
+.rx-num {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--sacred-gold-deep);
+  margin-bottom: 0.35rem;
+}
+
+.rx-step-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+  margin-bottom: 0.65rem;
+  line-height: 1.35;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+.rx-portal-recommendation,
+.rx-step-card p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin-bottom: 1.1rem;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+.rx-btn-wrap {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.rx-btn-wrap a,
+.rx-btn-wrap button,
+.rx-step-card button {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 0.65rem 0.95rem !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+  line-height: 1.35 !important;
+  border-radius: var(--radius-pill) !important;
+}
+
+/* 7. 4-7-8 BREATHING CALMER */
+.breathing-section {
+  padding: 4.5rem 0;
+}
+
+.breathing-box {
+  padding: 3rem 2rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.breath-visualizer-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem auto 2.5rem auto;
+}
+
+.breath-outer-ring {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  padding: 12px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(74, 48, 109, 0.05) 70%);
+  border: 2px dashed var(--sacred-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 4s ease;
+}
+
+.breath-outer-ring.inhale {
+  transform: scale(1.28);
+  border-style: solid;
+  border-color: var(--sacred-gold);
+  box-shadow: 0 0 45px rgba(212, 175, 55, 0.5);
+}
+
+.breath-outer-ring.hold {
+  transform: scale(1.28);
+  border-style: solid;
+  border-color: var(--sacred-saffron);
+  box-shadow: 0 0 55px rgba(255, 152, 0, 0.6);
+}
+
+.breath-outer-ring.exhale {
+  transform: scale(0.9);
+  border-style: dashed;
+  border-color: var(--divine-purple);
+  box-shadow: 0 0 20px rgba(74, 48, 109, 0.3);
+  transition-duration: 8s;
+}
+
+.breath-middle-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 234, 248, 0.95) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-gold);
+  box-shadow: inset 0 2px 10px rgba(212, 175, 55, 0.2);
+}
+
+.breath-core {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.phase-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--divine-purple-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.counter-display {
+  font-family: var(--font-serif);
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--sacred-gold-deep);
+  line-height: 1;
+  margin: 0.3rem 0;
+}
+
+.phase-instruction {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  max-width: 150px;
+}
+
+.breath-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.cycle-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cycle-badge {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: var(--sacred-gold);
+  color: #180D26;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.cycle-hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.breath-steps-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.b-step {
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--border-gold);
+}
+
+.step-time {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--sacred-saffron);
+  letter-spacing: 0.08em;
+}
+
+.b-step h5 {
+  font-size: 1.05rem;
+  margin: 0.35rem 0;
+}
+
+.b-step p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* 7.5. INTERACTIVE VIRTUAL DIYA & SOLFEGGIO TUNER */
+.virtual-diya-section {
+  padding: 4.5rem 0;
+  position: relative;
+}
+
+.diya-interactive-card {
+  padding: 3rem;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid var(--border-gold);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(240, 234, 248, 0.9) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Falling flower petals */
+.petals-shower-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.petal {
+  position: absolute;
+  top: -40px;
+  font-size: 1.8rem;
+  opacity: 0.85;
+  animation: fallPetal 3.8s ease-in forwards;
+}
+
+.petal.p1 { left: 15%; animation-delay: 0.1s; }
+.petal.p2 { left: 32%; animation-delay: 0.4s; font-size: 2.2rem; }
+.petal.p3 { left: 48%; animation-delay: 0.2s; }
+.petal.p4 { left: 65%; animation-delay: 0.6s; font-size: 2rem; }
+.petal.p5 { left: 80%; animation-delay: 0.3s; }
+.petal.p6 { left: 92%; animation-delay: 0.5s; font-size: 1.6rem; }
+
+@keyframes fallPetal {
+  0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 1; }
+  50% { transform: translateY(220px) rotate(180deg) scale(1.1); }
+  100% { transform: translateY(500px) rotate(360deg) scale(0.6); opacity: 0; }
+}
+
+.diya-core-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.diya-visual-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.diya-pedestal {
+  width: 220px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brass-diya-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 10px 20px rgba(212, 175, 55, 0.4));
+}
+
+.animated-flame {
+  animation: flickerFlame 2.5s infinite alternate ease-in-out;
+  transform-origin: 100px 105px;
+}
+
+@keyframes flickerFlame {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.95; }
+  25% { transform: scale(1.05, 0.98) rotate(1deg); opacity: 1; }
+  50% { transform: scale(0.96, 1.06) rotate(-1deg); opacity: 0.92; }
+  75% { transform: scale(1.04, 1.02) rotate(1.5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 0.95; }
+}
+
+.diya-action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.25rem 0 1rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-md {
+  padding: 0.75rem 1.6rem !important;
+  font-size: 0.92rem !important;
+}
+
+.community-counter {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.community-counter strong {
+  color: var(--sacred-saffron);
+}
+
+.diya-prayer-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.prayer-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.prayer-label {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+}
+
+.diya-dedication-input {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-gold);
+  background: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.diya-dedication-input:focus {
+  border-color: var(--sacred-gold);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+}
+
+.blessing-statement {
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  background: rgba(212, 175, 55, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--sacred-gold);
+}
+
+/* Solfeggio sound bath buttons */
+.solfeggio-selector-box {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  border: 1px solid var(--border-gold);
+}
+
+.solfeggio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.9rem;
+}
+
+.sol-title {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+}
+
+.active-freq-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--sacred-gold);
+  color: #180D26;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+}
+
+.freq-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.65rem;
+}
+
+.freq-chip-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-gold);
+  background: #FFFFFF;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.freq-chip-btn:hover {
+  background: rgba(240, 234, 248, 0.8);
+  border-color: var(--sacred-gold);
+}
+
+.freq-chip-btn.active {
+  background: linear-gradient(135deg, var(--divine-purple-deep) 0%, var(--divine-purple) 100%);
+  color: #FFFFFF;
+  border-color: var(--sacred-gold);
+  box-shadow: 0 4px 12px rgba(46, 26, 71, 0.25);
+}
+
+.freq-chip-btn.active i {
+  color: var(--sacred-gold);
+}
+
+.freq-chip-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.freq-hz {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.freq-tag {
+  font-size: 0.68rem;
+  opacity: 0.8;
+}
+
+/* 7 Chakras Energy Alignment Banner */
+.chakras-energy-banner {
+  border-top: 1.5px solid rgba(212, 175, 55, 0.35);
+  padding-top: 1.8rem;
+}
+
+.chakra-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.ch-badge {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--sacred-saffron);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ch-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.chakras-pills-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.chakra-circle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  background: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.chakra-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ch-color);
+  box-shadow: 0 0 6px var(--ch-color);
+}
+
+.chakra-circle-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--ch-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.chakra-circle-btn.active {
+  background: var(--ch-color);
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chakra-circle-btn.active .chakra-dot {
+  background: #FFFFFF;
+  box-shadow: 0 0 8px #FFFFFF;
+}
+
+.selected-chakra-panel {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  border: 1px solid var(--border-gold);
+}
+
+.chakra-info-head h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.chakra-grid-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.ch-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dt-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ch-detail-item p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 860px) {
+  .diya-core-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 7.8. INNER PEACE CALCULATOR */
+.calculator-section {
+  padding: 4.5rem 0;
+}
+
+.calculator-box {
+  padding: 3rem;
+  border-radius: var(--radius-xl);
+}
+
+.calc-layout-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.calc-sliders-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.slider-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sl-title {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+}
+
+.sl-val-badge {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--sacred-gold-deep);
+  background: rgba(212, 175, 55, 0.15);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+}
+
+.sacred-slider {
+  width: 100%;
+  accent-color: var(--sacred-gold);
+  cursor: pointer;
+  height: 6px;
+  border-radius: 4px;
+}
+
+.slider-endpoints {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.calc-result-column {
+  padding: 2.2rem;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border-gold);
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--shadow-sacred);
+}
+
+.circular-meter-wrap {
+  width: 160px;
+  height: 160px;
+  margin-bottom: 1.5rem;
+}
+
+.circle-dial {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(var(--sacred-gold) 0deg, var(--sacred-saffron) var(--score-deg), rgba(74, 48, 109, 0.1) var(--score-deg) 360deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+}
+
+.dial-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-number {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--divine-purple-deep);
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--sacred-gold-deep);
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+
+.score-diagnosis {
+  margin-bottom: 1.5rem;
+}
+
+.diagnosis-badge {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.65rem;
+}
+
+.high-peace {
+  background: rgba(39, 174, 96, 0.12);
+  color: #27AE60;
+  border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+.moderate-peace {
+  background: rgba(255, 152, 0, 0.12);
+  color: #E65100;
+  border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.critical-peace {
+  background: rgba(192, 57, 43, 0.12);
+  color: #C0392B;
+  border: 1px solid rgba(192, 57, 43, 0.3);
+}
+
+.score-diagnosis p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.calc-cta-actions {
+  width: 100%;
+}
+
+@media (max-width: 860px) {
+  .calc-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 8. DUAL WISDOM MATRIX */
+.matrix-section {
+  padding: 4.5rem 0;
+}
+
+.matrix-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-xl);
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.matrix-table th {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 1.3rem 1.5rem;
+  border-bottom: 2px solid var(--sacred-gold);
+  background: rgba(24, 13, 38, 0.06);
+}
+
+.matrix-table th.col-dimension {
+  width: 22%;
+  color: var(--text-primary);
+}
+
+.matrix-table th.col-clinical {
+  width: 39%;
+  color: var(--divine-purple-deep);
+}
+
+.matrix-table th.col-temple {
+  width: 39%;
+  color: var(--sacred-saffron);
+}
+
+.matrix-table td {
+  padding: 1.15rem 1.5rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.dim-title {
+  color: var(--divine-purple-deep) !important;
+  font-family: var(--font-serif);
+}
+
+.matrix-table tr:hover td {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* 9. SACRED GALLERY */
+.gallery-section {
+  padding: 4.5rem 0;
+}
+
+.gallery-mosaic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.8rem;
+}
+
+.mosaic-item {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.mosaic-img-box {
+  height: 220px;
+  overflow: hidden;
+}
+
+.mosaic-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.mosaic-item:hover .mosaic-img-box img {
+  transform: scale(1.08);
+}
+
+.mosaic-caption {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.caption-tag {
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--sacred-saffron);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+
+.mosaic-caption h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.mosaic-caption p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+/* 10. DAILY MANTRA DISPENSER */
+.mantra-dispenser-section {
+  padding: 3rem 0;
+}
+
+.mantra-card-container {
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid var(--sacred-gold);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 234, 248, 0.9) 100%);
+  gap: 2.5rem;
+}
+
+.mantra-left-decor {
+  font-size: 5rem;
+  color: var(--sacred-gold);
+  opacity: 0.35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mantra-core-content {
+  flex-grow: 1;
+}
+
+.mantra-header-tag {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--sacred-saffron);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+  display: inline-block;
+}
+
+.sanskrit-text {
+  font-size: 2.2rem;
+  color: var(--divine-purple-deep);
+  margin-bottom: 0.35rem;
+}
+
+.english-phonetic {
+  font-size: 1.05rem;
+  color: var(--sacred-gold-deep);
+  margin-bottom: 1rem;
+}
+
+.meaning-prose {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.psychology-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: rgba(74, 48, 109, 0.08);
+  border-left: 3px solid var(--divine-purple);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.mantra-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.copy-success-badge {
+  font-size: 0.85rem;
+  color: #27AE60;
+  font-weight: 600;
+}
+
+/* 11. TESTIMONIALS */
+.testimonials-section {
+  padding: 4.5rem 0;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+}
+
+.test-card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.stars-row {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.test-quote {
+  font-size: 0.98rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.test-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.avatar-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--divine-purple-deep) 0%, var(--sacred-gold) 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.meta-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--divine-purple-deep);
+}
+
+.meta-loc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.meta-sol {
+  font-size: 0.78rem;
+  color: var(--sacred-saffron);
+  font-weight: 600;
+  margin-top: 0.15rem;
+}
+
+/* 12. FINAL CTA */
+.final-cta-section {
+  padding: 4.5rem 0;
+}
+
+.final-cta-box {
+  padding: 3.5rem 2rem;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid var(--sacred-gold);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 234, 248, 0.9) 100%);
+}
+
+.final-cta-box h2 {
+  margin: 1rem auto;
+  max-width: 720px;
+}
+
+.final-cta-box p {
+  max-width: 680px;
+  margin: 0 auto 2.5rem auto;
+  font-size: 1.1rem;
+}
+
+.dual-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.cta-btn i {
+  font-size: 1.8rem;
+}
+
+.btn-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-txt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.85;
+  letter-spacing: 0.05em;
+}
+
+.main-txt {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.emergency-disclaimer {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  background: rgba(192, 57, 43, 0.08);
+  border: 1px solid rgba(192, 57, 43, 0.3);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-align: left;
+}
+
+/* 13. FOOTER */
+.main-footer {
+  background: linear-gradient(180deg, #2E1A47 0%, #180D26 100%);
+  color: #FFFFFF;
+  padding: 5rem 0 2rem 0;
+  border-top: 2px solid var(--sacred-gold);
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+
+.brand-footer-icon {
+  font-size: 1.8rem;
+}
+
+.footer-brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #F9E79F;
+}
+
+.footer-desc {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #E5EBFA;
+  opacity: 0.85;
+  margin-bottom: 1.2rem;
+}
+
+.footer-mantra-line {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--sacred-gold);
+  letter-spacing: 0.05em;
+}
+
+.footer-col-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: #F9E79F;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-col-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 35px;
+  height: 2px;
+  background: var(--sacred-gold);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  color: #E5EBFA;
+  opacity: 0.85;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links a:hover {
+  color: var(--sacred-gold);
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.footer-timings {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: #E5EBFA;
+  margin-bottom: 1.25rem;
+}
+
+.footer-timings li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.25);
+  padding-bottom: 0.35rem;
+}
+
+.footer-timings strong {
+  color: #F9E79F;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #E5EBFA;
+  opacity: 0.75;
+}
+
+.footer-sub-links a {
+  color: #F9E79F;
+}
+
+/* 14. MODAL */
+.preview-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 13, 38, 0.75);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.preview-modal-card {
+  width: 100%;
+  max-width: 620px;
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-size: 1.35rem;
+  color: var(--text-muted);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: var(--sacred-vermilion);
+  color: #FFFFFF;
+}
+
+.modal-header h3 {
+  font-size: 1.55rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.modal-body p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.modal-specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background: rgba(240, 234, 248, 0.6);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.8rem;
+}
+
+.spec-row {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.88rem;
+}
+
+.spec-label {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--divine-purple-deep);
+  margin-bottom: 0.15rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+/* Helper Text Classes */
+.text-gold { color: var(--sacred-gold) !important; }
+.text-saffron { color: var(--sacred-saffron) !important; }
+.text-purple { color: var(--divine-purple) !important; }
+.text-vermilion { color: var(--sacred-vermilion) !important; }
+.w-100 { width: 100%; }
+
+/* Responsive Media Queries */
+
+/* ——— Tablet / smaller desktop: hide navbar row links + show hamburger ——— */
+@media (max-width: 860px) {
+  .hdr-navbar {
+    display: none !important;
+  }
+  .mobile-toggle-btn {
+    display: flex !important;
+  }
+  .hdr-hide-xs {
+    display: none !important;
+  }
+  /* body padding adjusts: only topbar row (48px) */
+}
+
+/* ——— Larger tablet nav still visible but compact ——— */
+@media (min-width: 861px) and (max-width: 1100px) {
+  .hdr-navbar-inner {
+    gap: clamp(0.3rem, 0.8vw, 0.75rem);
+    padding: 0 1rem;
+  }
+  .hdr-navbar .nav-item span {
+    display: none; /* icons only on smaller screens — saves space */
+  }
+  .hdr-navbar .nav-item {
+    padding: 0 0.35rem;
+  }
+  .hdr-navbar .nav-item i {
+    font-size: 1rem;
+  }
+}
+
+/* ——— Standard desktop ——— */
+@media (min-width: 1101px) and (max-width: 1240px) {
+  .hdr-navbar-inner {
+    gap: clamp(0.4rem, 1vw, 1rem);
+    padding: 0 1rem;
+  }
+  .hdr-navbar .nav-item span {
+    font-size: 0.75rem;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE MEDIA QUERIES - PERFECT MOBILE SIZING & OVERFLOW FIXES
+   ============================================================ */
+
+/* Global card, panel & container overflow safety */
+.glass-panel,
+.problem-detail-card,
+.master-portal-card,
+.stat-card,
+.test-card,
+.testimonial-card,
+.freq-card,
+.matrix-table-card,
+.chakra-detail-box,
+.calculator-card,
+.calc-result-column,
+.prescription-result,
+.mantra-affirmation-banner,
+.mantra-card-container,
+.preview-modal-card,
+.dual-cta-banner {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+/* Navigator & Interactive Buttons Safety - WORDS NEVER SPLIT/BREAK */
+.navigator-wrapper,
+.form-group-card,
+.option-btn,
+.intensity-btn,
+.rx-step-card,
+.rx-btn-wrap,
+.rx-btn-wrap a,
+.rx-btn-wrap button,
+.rx-step-card button {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+@media (max-width: 1024px) {
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .navigator-wrapper {
+    padding: 2.2rem 1.5rem !important;
+  }
+  .prescription-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .portals-showcase-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem;
+  }
+  .portal-image-container {
+    height: 240px;
+  }
+  .portal-content {
+    padding: 1.6rem 1.25rem;
+  }
+  .portal-title {
+    font-size: 1.45rem;
+  }
+  .portal-summary {
+    font-size: 0.92rem;
+    margin-bottom: 1.25rem;
+  }
+  .portal-footer-actions {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .portal-launch-btn,
+  .portal-footer-actions .btn-outline-gold {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 860px) {
+  .problem-header-area {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.15rem;
+  }
+  .problem-icon-orb {
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+  }
+  .problem-title-block h3 {
+    font-size: 1.45rem;
+  }
+  .problem-sub {
+    font-size: 0.92rem;
+  }
+  .problem-illustration-box {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 320px;
+    height: 165px;
+  }
+  .dual-solution-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+  }
+  .solution-col {
+    padding: 1.35rem 1.1rem;
+  }
+  .mantra-affirmation-banner {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+    padding: 1.35rem 1.1rem;
+  }
+  .mantra-sanskrit {
+    font-size: 1.1rem;
+    line-height: 1.45;
+  }
+  .hero-actions {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .calc-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+  .calculator-card {
+    padding: 1.5rem 1.1rem;
+  }
+  .navigator-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .matrix-section,
+  .gallery-section,
+  .portals-section,
+  .stress-section {
+    padding: 3.25rem 0;
+  }
+}
+
+/* Tablet & Mobile: Replace lengthy text with Sacred Visual Badges/Chips */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(1.85rem, 6.5vw, 2.75rem);
+    margin: 0.85rem auto 1.25rem auto;
+  }
+
+  /* User requirement: replace lengthy text with visual logos/badges */
+  .hero-subtitle {
+    display: none !important;
+  }
+  .hero-mobile-badges {
+    display: flex !important;
+  }
+
+  /* Master Cards: replace bulky feature list with visual chips */
+  .portal-features-list {
+    display: none !important;
+  }
+  .portal-chips-mobile {
+    display: flex !important;
+  }
+  .portal-summary {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.15rem !important;
+  }
+
+  .hero-portal-card-btn {
+    padding: 0.95rem 1.1rem;
+    gap: 0.85rem;
+  }
+  .icon-orb {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+  .portal-name {
+    font-size: 1.05rem;
+  }
+  .portal-detail {
+    font-size: 0.78rem;
+  }
+  .navigator-wrapper {
+    padding: 1.5rem 1.1rem;
+  }
+  .prescription-result {
+    padding: 1.35rem 1rem;
+  }
+  .prescription-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+  .gallery-mosaic {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+  }
+  .mosaic-item {
+    height: 230px;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+  }
+  .test-card {
+    padding: 1.35rem 1.1rem;
+  }
+  .mantra-card-container {
+    flex-direction: column !important;
+    padding: 1.75rem 1.25rem !important;
+    gap: 1.25rem !important;
+  }
+  .mantra-left-decor {
+    display: none !important;
+  }
+  .sanskrit-text {
+    font-size: 1.45rem !important;
+  }
+  .meaning-prose {
+    font-size: 0.95rem !important;
+  }
+  .final-cta-box {
+    padding: 2.2rem 1.25rem !important;
+    text-align: center;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .final-cta-box h2 {
+    font-size: 1.55rem;
+  }
+  .final-cta-box p {
+    font-size: 0.92rem;
+    margin-bottom: 1.6rem;
+  }
+  .dual-cta-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  .dual-cta-buttons .cta-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    justify-content: center;
+    padding: 0.75rem 1.15rem;
+  }
+}
+
+/* ============================================================
+   MOBILE PHONES (<= 600px)
+   All buttons scaled down, no text overflowing cards, clean chips
+   ============================================================ */
+@media (max-width: 600px) {
+  /* Container comfortable padding */
+  .container {
+    padding: 0 0.85rem !important;
+  }
+
+  /* Topbar compact */
+  .hdr-topbar {
+    height: 52px;
+  }
+  .hdr-topbar-inner {
+    padding: 0 0.85rem;
+  }
+  .brand-emblem-wrap {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-title {
+    font-size: 0.95rem;
+  }
+  .brand-subtitle {
+    font-size: 0.55rem;
+  }
+  .tb-audio-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.68rem;
+  }
+  .tb-cta-btn {
+    display: none !important;
+  }
+  .mobile-toggle-btn {
+    width: 34px;
+    height: 34px;
+  }
+  .ham-bar {
+    width: 18px;
+  }
+
+  /* ALL BUTTONS SIZED DOWN COMPACTLY ON MOBILE */
+  .btn-sacred-gold,
+  .btn-royal-purple,
+  .btn-saffron,
+  .btn-outline-gold,
+  .portal-launch-btn,
+  .sol-btn,
+  .cta-btn,
+  .calc-btn {
+    padding: 0.52rem 0.95rem !important;
+    font-size: 0.78rem !important;
+    gap: 0.38rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .btn-sm {
+    padding: 0.38rem 0.75rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  .btn-lg {
+    padding: 0.65rem 1.15rem !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* Hero quick pathway buttons */
+  .hero-portal-card-btn {
+    padding: 0.8rem 0.9rem !important;
+    gap: 0.65rem !important;
+  }
+  .hero-portal-card-btn .icon-orb {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1rem !important;
+  }
+  .hero-portal-card-btn .portal-name {
+    font-size: 0.92rem !important;
+  }
+  .hero-portal-card-btn .portal-detail {
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+  }
+  .dual-cta-buttons .cta-btn .btn-text-block .top-txt {
+    font-size: 0.66rem !important;
+  }
+  .dual-cta-buttons .cta-btn .btn-text-block .main-txt {
+    font-size: 0.82rem !important;
+  }
+
+  /* Switch full text to short text on mobile pills */
+  .pill-full-text {
+    display: none !important;
+  }
+  .pill-short-text {
+    display: inline !important;
+  }
+
+  /* REDUCE EXCESSIVE VERTICAL GAPS BETWEEN SECTIONS ON MOBILE (User Request) */
+  .hero-section {
+    padding: 1.35rem 0 1.15rem 0 !important;
+  }
+  .portals-section,
+  .stress-section,
+  .navigator-section,
+  .breathing-section,
+  .virtual-diya-section,
+  .calculator-section,
+  .matrix-section,
+  .gallery-section,
+  .mantra-dispenser-section,
+  .testimonials-section,
+  .final-cta-section {
+    padding: 1.25rem 0 !important;
+  }
+
+  /* Section title badges & compact headers */
+  .section-badge {
+    font-size: 0.68rem !important;
+    padding: 0.22rem 0.65rem !important;
+    margin-bottom: 0.45rem !important;
+  }
+  .section-header {
+    margin-bottom: 1.15rem !important;
+  }
+  .section-header h2 {
+    font-size: 1.35rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .section-header p {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+  }
+  .gold-divider {
+    margin: 0.65rem auto 0 auto !important;
+  }
+
+  /* Hero stats */
+  .hero-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.55rem;
+  }
+  .stat-card {
+    padding: 0.85rem 0.55rem;
+  }
+  .stat-number {
+    font-size: 1.45rem;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+  }
+
+  /* Master Portal Card Padding on Mobile */
+  .master-portal-card .portal-content {
+    padding: 1.15rem 0.85rem !important;
+  }
+  .master-portal-card .portal-title {
+    font-size: 1.35rem !important;
+  }
+  .master-portal-card .portal-role {
+    font-size: 0.82rem !important;
+  }
+
+  /* Stress Solution Card & Pills */
+  .problem-selector-nav {
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+  .problem-pill-btn {
+    padding: 0.38rem 0.7rem !important;
+    font-size: 0.74rem !important;
+    gap: 0.35rem;
+  }
+  .problem-detail-card {
+    padding: 1.15rem 0.85rem !important;
+    border-radius: var(--radius-lg);
+  }
+  .problem-title-block h3 {
+    font-size: 1.35rem !important;
+  }
+  .problem-sub {
+    font-size: 0.85rem !important;
+  }
+  .problem-illustration-box {
+    height: 135px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.65rem auto 0 auto !important;
+  }
+  .symptoms-box {
+    padding: 0.85rem 0.75rem !important;
+    margin-bottom: 1.15rem !important;
+  }
+  .symptoms-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.45rem;
+  }
+  .symptom-tag {
+    font-size: 0.76rem !important;
+    padding: 0.4rem 0.65rem !important;
+    line-height: 1.35 !important;
+  }
+  .dual-solution-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.95rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .solution-col {
+    padding: 1.1rem 0.85rem !important;
+  }
+  .sol-header h4 {
+    font-size: 1.02rem !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.35 !important;
+  }
+  .sol-points li {
+    font-size: 0.78rem !important;
+    gap: 0.45rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.65rem !important;
+  }
+  .sol-points li i {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .mantra-affirmation-banner {
+    grid-template-columns: 1fr !important;
+    padding: 1.1rem 0.85rem !important;
+    gap: 0.95rem !important;
+  }
+  .mantra-sanskrit {
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  .mantra-trans {
+    font-size: 0.76rem !important;
+    line-height: 1.4 !important;
+  }
+  .affirmation-text {
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Navigator options & buttons on mobile - ZERO OVERFLOW, NO BROKEN WORDS */
+  .navigator-wrapper {
+    padding: 1.25rem 0.85rem !important;
+  }
+  .navigator-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .form-group-card {
+    padding: 0 !important;
+  }
+  .form-label {
+    font-size: 0.88rem !important;
+    margin-bottom: 0.75rem !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+  .option-btn {
+    padding: 0.55rem 0.8rem !important;
+    font-size: 0.8rem !important;
+    gap: 0.5rem !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+    width: 100% !important;
+  }
+  .option-btn i {
+    font-size: 0.95rem !important;
+    width: 20px !important;
+  }
+  .intensity-btn {
+    padding: 0.55rem 0.8rem !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+    width: 100% !important;
+  }
+  .intensity-title {
+    font-size: 0.82rem !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+  .intensity-desc {
+    font-size: 0.7rem !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+  .prescription-result {
+    padding: 1.15rem 0.85rem !important;
+  }
+  .prescription-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+  .rx-step-card {
+    padding: 0.95rem 0.85rem !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+  .rx-step-card h4 {
+    font-size: 0.92rem !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+  .rx-step-card p {
+    font-size: 0.8rem !important;
+    line-height: 1.45 !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+  .rx-btn-wrap {
+    margin-top: 0.75rem !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+  .rx-btn-wrap a,
+  .rx-btn-wrap button,
+  .rx-step-card button {
+    padding: 0.55rem 0.85rem !important;
+    font-size: 0.78rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-transform: none !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+
+  /* Mantra Dispenser Card (No overflow on mobile) */
+  .mantra-card-container {
+    flex-direction: column !important;
+    padding: 1.15rem 0.85rem !important;
+    gap: 0.85rem !important;
+  }
+  .mantra-left-decor {
+    display: none !important;
+  }
+  .sanskrit-text {
+    font-size: 1.15rem !important;
+    line-height: 1.35 !important;
+    word-break: break-word !important;
+  }
+  .english-phonetic {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.55rem !important;
+  }
+  .meaning-prose {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  .psychology-box {
+    font-size: 0.76rem !important;
+    padding: 0.55rem 0.7rem !important;
+    margin-bottom: 0.95rem !important;
+  }
+  .mantra-actions-row {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.5rem !important;
+  }
+  .mantra-actions-row button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Testimonials */
+  .test-card {
+    padding: 1.15rem 0.85rem !important;
+  }
+  .test-quote {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Peace Calculator */
+  .calculator-card {
+    padding: 1.15rem 0.85rem !important;
+  }
+  .calc-result-column {
+    padding: 1.15rem 0.85rem !important;
+  }
+  .circular-meter-wrap {
+    width: 130px !important;
+    height: 130px !important;
+    margin-bottom: 0.9rem !important;
+  }
+  .score-number {
+    font-size: 1.85rem !important;
+  }
+
+  /* 432 Hz Solfeggio frequencies */
+  .frequencies-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem;
+  }
+  .freq-card {
+    padding: 0.85rem 0.55rem;
+  }
+  .freq-hz {
+    font-size: 1.15rem;
+  }
+  .freq-title {
+    font-size: 0.74rem;
+  }
+  .freq-chakra {
+    font-size: 0.65rem;
+  }
+
+  /* 4-7-8 Breathing box */
+  .breathing-box {
+    padding: 1.25rem 0.75rem;
+  }
+  .breathing-circle-outer {
+    width: 200px;
+    height: 200px;
+  }
+  .breath-seconds {
+    font-size: 2.5rem;
+  }
+  .breath-label {
+    font-size: 0.98rem;
+  }
+
+  /* Virtual Diya */
+  .diya-interactive-card {
+    padding: 1.25rem 0.75rem;
+  }
+  .brass-diya-stage {
+    height: 180px;
+  }
+  .blessing-card {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  /* 7 Chakras pills */
+  .chakras-nav {
+    gap: 0.3rem;
+  }
+  .chakra-pill {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.72rem;
+  }
+  .chakra-detail-box {
+    padding: 1.1rem 0.8rem;
+  }
+
+  /* Dual Wisdom Matrix Table */
+  .matrix-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+  .matrix-table {
+    min-width: 480px;
+  }
+  .matrix-table th {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.82rem;
+  }
+  .matrix-table td {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.76rem;
+    line-height: 1.4;
+  }
+
+  /* Preview Modal on Mobile */
+  .preview-modal-card {
+    padding: 1.25rem 0.85rem !important;
+    margin: 0.65rem !important;
+    max-height: 92vh !important;
+    overflow-y: auto !important;
+    border-radius: var(--radius-lg) !important;
+  }
+  .preview-modal-card .modal-header h3 {
+    font-size: 1.2rem !important;
+  }
+  .preview-modal-card .modal-body p {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.85rem !important;
+  }
+  .preview-modal-card .modal-specs-list {
+    padding: 0.85rem !important;
+    gap: 0.65rem !important;
+    margin-bottom: 1.15rem !important;
+  }
+  .preview-modal-card .spec-row {
+    font-size: 0.78rem !important;
+  }
+  .preview-modal-card .modal-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.5rem !important;
+  }
+  .preview-modal-card .modal-actions a,
+  .preview-modal-card .modal-actions button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Final CTA Card ("Do Not Carry Your Pain Alone") - FIXED BUTTONS INSIDE CARD */
+  .final-cta-box {
+    padding: 1.5rem 0.85rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .final-cta-box h2 {
+    font-size: 1.35rem !important;
+    margin: 0.45rem auto 0.55rem auto !important;
+    line-height: 1.35 !important;
+  }
+  .final-cta-box p {
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+    margin: 0 auto 1.25rem auto !important;
+  }
+  .dual-cta-buttons {
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .dual-cta-buttons .cta-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important; /* CRITICAL FIX: eliminates 320px minimum width so buttons fit 100% inside card */
+    box-sizing: border-box !important;
+    justify-content: center !important;
+    padding: 0.65rem 0.95rem !important;
+    border-radius: var(--radius-pill) !important;
+  }
+  .cta-btn i {
+    font-size: 1.3rem !important;
+    flex-shrink: 0 !important;
+  }
+  .cta-btn .btn-text-block {
+    text-align: left !important;
+  }
+  .cta-btn .btn-text-block .top-txt {
+    font-size: 0.62rem !important;
+  }
+  .cta-btn .btn-text-block .main-txt {
+    font-size: 0.82rem !important;
+    line-height: 1.3 !important;
+  }
+  .emergency-disclaimer {
+    font-size: 0.74rem !important;
+    padding: 0.65rem 0.75rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 2.5rem 0 1.25rem 0;
+  }
+  .footer-col {
+    text-align: center;
+  }
+  .footer-brand {
+    justify-content: center;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.65rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .frequencies-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .problem-detail-card {
+    padding: 0.95rem 0.7rem !important;
+  }
+  .brand-title {
+    font-size: 0.85rem !important;
+  }
+  .problem-pill-btn {
+    padding: 0.32rem 0.6rem !important;
+    font-size: 0.7rem !important;
+  }
+  .btn-sacred-gold,
+  .btn-royal-purple,
+  .btn-saffron,
+  .btn-outline-gold {
+    padding: 0.48rem 0.85rem !important;
+    font-size: 0.74rem !important;
+  }
+}
+
+/* ==========================================================================
+   UNIFIED SANCTUARY PRELOADER (Main Sukoonsay Landing Page)
+   Distinct Motive: Harmonizing Clinical Science & Vedic Soul Peace
+   ========================================================================== */
+.unified-sanctuary-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #FDFBFF 0%, #F0EAF8 50%, #E5EBFA 100%);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s ease;
+}
+
+.unified-sanctuary-preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-backdrop-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, rgba(74, 48, 109, 0.12) 40%, transparent 70%);
+  animation: preloaderPulseGlow 3s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes preloaderPulseGlow {
+  0% { transform: scale(0.85); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+.preloader-card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  max-width: 440px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  border-radius: 28px;
+  box-shadow: 0 20px 60px rgba(46, 26, 71, 0.15), 0 0 30px rgba(212, 175, 55, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.preloader-emblem-wrap {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.35rem;
+}
+
+.preloader-ring-pulse {
+  position: absolute;
+  inset: -8px;
+  border: 2px dashed rgba(212, 175, 55, 0.6);
+  border-radius: 50%;
+  animation: preloaderRotateRing 14s linear infinite;
+}
+
+@keyframes preloaderRotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.preloader-dual-halo {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.preloader-dual-halo .halo-purple {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top left, rgba(74, 48, 109, 0.25), transparent 60%);
+  animation: preloaderHaloSpin 4s ease-in-out infinite alternate;
+}
+
+.preloader-dual-halo .halo-saffron {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle at bottom right, rgba(230, 81, 0, 0.25), transparent 60%);
+  animation: preloaderHaloSpin 4s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes preloaderHaloSpin {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+.preloader-lotus-svg {
+  width: 72px;
+  height: 72px;
+  filter: drop-shadow(0 4px 14px rgba(212, 175, 55, 0.45));
+  animation: preloaderLotusFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes preloaderLotusFloat {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-4px) scale(1.04); }
+}
+
+.preloader-text-group {
+  margin-bottom: 1.4rem;
+}
+
+.preloader-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  background: linear-gradient(135deg, #2E1A47 0%, #4A306D 40%, #B3861B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.35rem;
+}
+
+.preloader-sanskrit {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #B3861B;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.preloader-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: #5C5468;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.preloader-progress-track {
+  width: 180px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(46, 26, 71, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.preloader-progress-bar {
+  width: 45%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #D4AF37, #FF9800, #4A306D);
+  animation: preloaderProgressMove 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes preloaderProgressMove {
+  0% { transform: translateX(-60%); }
+  100% { transform: translateX(160%); }
+}
+
+
