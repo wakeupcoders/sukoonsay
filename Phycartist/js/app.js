@@ -932,14 +932,18 @@ function initMobileNav() {
 
   function openDrawer() {
     toggleBtn?.classList.add('active');
+    toggleBtn?.classList.add('open');
     drawer?.classList.add('open');
+    drawer?.classList.add('drawer-open');
     overlay?.classList.add('active');
     document.body.style.overflow = 'hidden'; // prevent background scrolling while drawer is open
   }
 
   function closeDrawer() {
     toggleBtn?.classList.remove('active');
+    toggleBtn?.classList.remove('open');
     drawer?.classList.remove('open');
+    drawer?.classList.remove('drawer-open');
     overlay?.classList.remove('active');
     document.body.style.overflow = '';
   }

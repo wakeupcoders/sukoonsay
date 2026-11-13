@@ -836,7 +836,8 @@ img {
   font-size: clamp(0.68rem, 1.05vw, 0.84rem);
 }
 
-.hdr-navbar .nav-item:hover {
+.hdr-navbar .nav-item:hover,
+.hdr-navbar .nav-item.active-link {
   color: var(--sacred-saffron);
 }
 
@@ -853,7 +854,8 @@ img {
   border-radius: 2px 2px 0 0;
 }
 
-.hdr-navbar .nav-item:hover::after {
+.hdr-navbar .nav-item:hover::after,
+.hdr-navbar .nav-item.active-link::after {
   width: 100%;
 }
 

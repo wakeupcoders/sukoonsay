@@ -29,64 +29,120 @@
   <!-- ======================================================
        HEADER WITH HARIDWAR CLOCK & CROSS-NAVIGATION
        ====================================================== -->
+    <!-- ======================================================
+       FIXED DUAL-ROW HEADER
+       Row 1 (topbar): Brand + 432Hz Sound + Ball Bell + CTA + Hamburger
+       Row 2 (navbar): Navigation Links with Hover/Scroll Underline
+       ====================================================== -->
   <header class="site-header">
-    <div class="temple-topbar py-1" style="background: linear-gradient(90deg, #180D26 0%, #2E1A47 50%, #180D26 100%); border-bottom: 1px solid rgba(212, 175, 55, 0.35); font-size: 0.82rem; color: #F9E79F;">
-      <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
-        <div class="d-flex align-items-center gap-3">
-          <span><i class="fa-solid fa-location-dot text-warning"></i> Haridwar, Uttarakhand</span>
-          <span class="text-white-50">|</span>
-          <span id="sanctumLiveClock" class="fw-semibold text-white">IST --:--:--</span>
-          <span class="text-white-50 d-none d-md-inline">|</span>
-          <span id="devoteeCountryClock" class="text-warning d-none d-md-inline"></span>
-        </div>
-        <div class="d-flex align-items-center gap-3">
-          <a href="../index.html" class="text-decoration-none text-white-50" style="transition: color 0.2s;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
-            <i class="fa-solid fa-arrow-left"></i> Sukoonsay Main
+    <!-- ROW 1: TOPBAR -->
+    <div class="hdr-topbar">
+      <div class="hdr-topbar-inner">
+        <!-- Brand Link -->
+        <a href="index.html" class="brand-link">
+          <div class="brand-emblem-wrap">
+            <span>ॐ</span>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">SUKOON TEMPLE</span>
+            <span class="brand-subtitle">Vedic Peace &amp; Sacred Sanctum</span>
+          </div>
+        </a>
+
+        <!-- Header Buttons (Right) -->
+        <div class="hdr-btn-group">
+          <!-- 432 Hz Solfeggio Audio Button -->
+          <button class="tb-audio-btn audio-chime-toggle" title="432 Hz Solfeggio Chimes">
+            <span class="audio-bars">
+              <span></span><span></span><span></span>
+            </span>
+            <span class="tb-btn-label">432Hz</span>
+          </button>
+
+          <!-- Temple Bell Button ("Ball") -->
+          <button class="tb-icon-btn ring-bell-btn trigger-sacred-bell" title="Ring Sacred Temple Bell">
+            <i class="fa-solid fa-bell"></i>
+          </button>
+
+          <!-- Return to Sukoonsay Main CTA (Desktop) -->
+          <a href="../index.html" class="tb-cta-btn hdr-hide-xs" title="Return to Sukoonsay Main">
+            <i class="fa-solid fa-archway"></i>
+            <span>Sukoonsay Main</span>
           </a>
-          <a href="../Phycartist/index.html" class="text-decoration-none" style="color: #F9E79F;">
-            <i class="fa-solid fa-brain"></i> Psychiatry Clinic
-          </a>
-          <button class="btn btn-sm trigger-sacred-bell" style="background: rgba(212, 175, 55, 0.2); border: 1px solid var(--sacred-gold); color: #F9E79F; border-radius: 20px; font-size: 0.75rem; padding: 2px 10px;" title="Ring Sacred Temple Bell">
-            <i class="fa-solid fa-bell"></i> 432Hz Bell
+
+          <!-- Mobile Hamburger Toggle -->
+          <button id="mobileToggleBtn" class="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
+            <span class="ham-bar bar-1"></span>
+            <span class="ham-bar bar-2"></span>
+            <span class="ham-bar bar-3"></span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Main Navigation Bar -->
-    <nav class="navbar navbar-expand-lg" style="background: rgba(24, 13, 38, 0.96); backdrop-filter: blur(12px); border-bottom: 1.5px solid rgba(212, 175, 55, 0.35);">
-      <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-          <span style="font-size: 1.8rem; color: #D4AF37; font-family: 'Cinzel', serif;">ॐ</span>
-          <div>
-            <div style="font-family: 'Cinzel', serif; font-weight: 800; font-size: 1.25rem; color: #D4AF37; letter-spacing: 0.05em; line-height: 1;">SUKOON TEMPLE</div>
-            <small style="font-size: 0.68rem; color: #FFA000; letter-spacing: 0.08em; text-transform: uppercase;">A Sukoonsay Sacred Sanctum</small>
-          </div>
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#templeNavbar" aria-controls="templeNavbar" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(212, 175, 55, 0.4);">
-          <span class="fa-solid fa-bars" style="color: #D4AF37;"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="templeNavbar">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
-            <li class="nav-item"><a class="nav-link text-white-50" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link text-white-50" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link text-white-50" href="services.html">Pujas &amp; Services</a></li>
-            <li class="nav-item"><a class="nav-link text-white-50" href="timings.html">Aarti Timings</a></li>
-            <li class="nav-item"><a class="nav-link text-white-50" href="live.html">Live Darshan</a></li>
-            <li class="nav-item"><a class="nav-link text-white active fw-bold" href="calendar.html">Panchang</a></li>
-            <li class="nav-item"><a class="nav-link text-white-50" href="contact.html">Contact</a></li>
-            <li class="nav-item ms-lg-2">
-              <a href="booking.html" class="btn btn-sm" style="background: linear-gradient(135deg, #E65100 0%, #FFA000 100%); color: #fff; font-weight: 700; border-radius: 20px; padding: 6px 18px; border: none;">
-                <i class="fa-solid fa-calendar-check me-1"></i> Book Puja
-              </a>
-            </li>
-          </ul>
-        </div>
+    <!-- ROW 2: NAVBAR (All Navigation Links cleanly displayed below) -->
+    <nav class="hdr-navbar" aria-label="Sacred Temple Navigation">
+      <div class="hdr-navbar-inner">
+        <a href="index.html" class="nav-item"><i class="fa-solid fa-om"></i><span>Home</span></a>
+        <a href="about.html" class="nav-item"><i class="fa-solid fa-gopuram"></i><span>About Mandir</span></a>
+        <a href="services.html" class="nav-item"><i class="fa-solid fa-hands-praying"></i><span>Pujas &amp; Sevas</span></a>
+        <a href="timings.html" class="nav-item"><i class="fa-regular fa-clock"></i><span>Aarti Timings</span></a>
+        <a href="live.html" class="nav-item"><i class="fa-solid fa-video"></i><span>Live Darshan</span></a>
+        <a href="calendar.html" class="nav-item"><i class="fa-regular fa-calendar-days"></i><span>Panchang Calendar</span></a>
+        <a href="booking.html" class="nav-item"><i class="fa-solid fa-fire-burner"></i><span>Book Puja</span></a>
+        <a href="contact.html" class="nav-item"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
       </div>
     </nav>
   </header>
+
+  <!-- Mobile Off-Canvas Sidebar / Drawer -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop" style="display: none;"></div>
+  <aside id="mobileSidebarDrawer" class="mobile-sidebar-drawer">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <div class="drawer-emblem">ॐ</div>
+        <div>
+          <h4 class="drawer-title">SUKOON TEMPLE</h4>
+          <span class="drawer-sub">Vedic Peace Sanctum</span>
+        </div>
+      </div>
+      <button id="drawerCloseBtn" class="drawer-close-btn" aria-label="Close Navigation Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="drawer-status-pill p-2 mb-3 rounded-3" style="background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.3); font-size: 0.78rem; color: #2E1A47;">
+      <span class="pulse-dot emerald d-inline-block rounded-circle bg-success me-1" style="width: 8px; height: 8px;"></span>
+      <span id="sanctumLiveClock2">IST Live Sanctum</span>
+    </div>
+
+    <nav class="drawer-nav">
+      <a href="index.html" class="drawer-link"><i class="fa-solid fa-om text-warning"></i><span>Home</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
+      <a href="about.html" class="drawer-link"><i class="fa-solid fa-gopuram text-warning"></i><span>About Mandir</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
+      <a href="services.html" class="drawer-link"><i class="fa-solid fa-hands-praying text-warning"></i><span>Pujas &amp; Sevas</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
+      <a href="timings.html" class="drawer-link"><i class="fa-regular fa-clock text-warning"></i><span>Aarti Timings</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
+      <a href="live.html" class="drawer-link"><i class="fa-solid fa-video text-warning"></i><span>Live Darshan</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
+      <a href="calendar.html" class="drawer-link"><i class="fa-regular fa-calendar-days text-warning"></i><span>Panchang Calendar</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
+      <a href="booking.html" class="drawer-link"><i class="fa-solid fa-fire-burner text-warning"></i><span>Book Puja</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
+      <a href="contact.html" class="drawer-link"><i class="fa-solid fa-envelope text-warning"></i><span>Contact</span><i class="fa-solid fa-chevron-right link-arrow"></i></a>
+    </nav>
+
+    <div class="mt-2 mb-3">
+      <a href="../index.html" class="d-block p-2 text-center rounded-3 text-decoration-none fw-bold mb-2" style="background: rgba(46, 26, 71, 0.08); color: #2E1A47; font-size: 0.82rem; border: 1px solid rgba(212, 175, 55, 0.3);">
+        <i class="fa-solid fa-arrow-left me-1"></i> Return to Sukoonsay Main
+      </a>
+      <a href="../Phycartist/index.html" class="d-block p-2 text-center rounded-3 text-decoration-none fw-bold" style="background: rgba(212, 175, 55, 0.15); color: #B3861B; font-size: 0.82rem; border: 1px solid rgba(212, 175, 55, 0.4);">
+        <i class="fa-solid fa-brain me-1"></i> Psychiatry Sanctuary ↗
+      </a>
+    </div>
+
+    <div class="drawer-footer-audio">
+      <button class="btn btn-warning w-100 audio-chime-toggle text-dark fw-bold btn-sm" style="background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%); border: none;">
+        <i class="fa-solid fa-bell me-1"></i>
+        <span>Play 432Hz Sound</span>
+      </button>
+    </div>
+  </aside>
 
   <!-- ======================================================
        HERO HEADER SECTION

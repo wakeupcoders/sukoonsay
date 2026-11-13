@@ -654,9 +654,9 @@ p {
 }
 
 /* Responsive Collapsing for Mobile & Tablet */
-@media (max-width: 860px) {
+@media (max-width: 991.98px) {
   .hdr-navbar {
-    display: none;
+    display: none !important;
   }
 
   .hdr-topbar {
@@ -665,7 +665,7 @@ p {
 
   .mobile-toggle-btn,
   .designer-toggle {
-    display: flex;
+    display: flex !important;
   }
 
   .hdr-hide-xs {

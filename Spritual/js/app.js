@@ -616,10 +616,136 @@ document.addEventListener('DOMContentLoaded', () => {
   updateAllClocks();
   setInterval(updateAllClocks, 1000);
 
-  // 3. Sacred Bell Quick Triggers
-  document.querySelectorAll('.trigger-sacred-bell').forEach(btn => {
+  // 3. Sacred Bell Quick Triggers & 432 Hz Solfeggio Chimes
+  let chimesActive = false;
+  let chimeInterval = null;
+
+  function toggleAmbientChimes() {
+    chimesActive = !chimesActive;
+    const audioBtns = document.querySelectorAll('.audio-chime-toggle');
+    const audioBars = document.querySelectorAll('.audio-bars');
+
+    if (chimesActive) {
+      getAudioContext();
+      playSacredBell();
+      chimeInterval = setInterval(() => {
+        if (chimesActive) playSacredBell();
+      }, 8000);
+
+      audioBtns.forEach(btn => {
+        btn.classList.add('active');
+        const label = btn.querySelector('.tb-btn-label');
+        if (label) label.textContent = '432Hz ▶';
+      });
+      audioBars.forEach(bar => bar.classList.add('playing'));
+    } else {
+      if (chimeInterval) {
+        clearInterval(chimeInterval);
+        chimeInterval = null;
+      }
+      audioBtns.forEach(btn => {
+        btn.classList.remove('active');
+        const label = btn.querySelector('.tb-btn-label');
+        if (label) label.textContent = '432Hz';
+      });
+      audioBars.forEach(bar => bar.classList.remove('playing'));
+    }
+  }
+
+  document.querySelectorAll('.trigger-sacred-bell, .ring-bell-btn').forEach(btn => {
     btn.addEventListener('click', playSacredBell);
   });
+  document.querySelectorAll('.audio-chime-toggle').forEach(btn => {
+    btn.addEventListener('click', toggleAmbientChimes);
+  });
+
+  // 3b. Mobile Off-Canvas Sidebar / Drawer
+  const mobileToggle = document.getElementById('mobileToggleBtn');
+  const mobileDrawer = document.getElementById('mobileSidebarDrawer');
+  const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+
+  function openMobileMenu() {
+    if (mobileDrawer) {
+      mobileDrawer.classList.add('drawer-open');
+      mobileDrawer.classList.add('open');
+    }
+    if (sidebarBackdrop) sidebarBackdrop.style.display = 'block';
+    if (mobileToggle) {
+      mobileToggle.classList.add('open');
+      mobileToggle.classList.add('active');
+    }
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    if (mobileDrawer) {
+      mobileDrawer.classList.remove('drawer-open');
+      mobileDrawer.classList.remove('open');
+    }
+    if (sidebarBackdrop) sidebarBackdrop.style.display = 'none';
+    if (mobileToggle) {
+      mobileToggle.classList.remove('open');
+      mobileToggle.classList.remove('active');
+    }
+    document.body.style.overflow = '';
+  }
+
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+      if (mobileDrawer && (mobileDrawer.classList.contains('drawer-open') || mobileDrawer.classList.contains('open'))) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+  }
+
+  if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeMobileMenu);
+  if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeMobileMenu);
+
+  document.querySelectorAll('.drawer-link').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  // 3c. Active Nav Link Detection (Page & In-Page Sections)
+  const currentPath = window.location.pathname;
+  const navItems = document.querySelectorAll('.hdr-navbar .nav-item');
+  let matchedCurrentPage = false;
+
+  navItems.forEach(item => {
+    const href = item.getAttribute('href') || '';
+    const cleanHref = href.split('#')[0];
+    if (cleanHref && currentPath.endsWith(cleanHref)) {
+      item.classList.add('active-link');
+      matchedCurrentPage = true;
+    }
+  });
+
+  // If on index or root, track section scroll
+  if (!matchedCurrentPage || currentPath.endsWith('index.html') || currentPath.endsWith('/Spritual/') || currentPath.endsWith('/Spritual')) {
+    const trackedSecs = document.querySelectorAll('section[id], header[id]');
+    function trackSanctumScroll() {
+      const scrollPos = window.scrollY + 130;
+      let curId = '';
+      trackedSecs.forEach(sec => {
+        if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
+          curId = '#' + sec.id;
+        }
+      });
+      if (curId) {
+        navItems.forEach(item => {
+          const href = item.getAttribute('href') || '';
+          if (href === curId || href.endsWith(curId)) {
+            navItems.forEach(i => i.classList.remove('active-link'));
+            item.classList.add('active-link');
+          }
+        });
+      }
+    }
+    window.addEventListener('scroll', trackSanctumScroll, { passive: true });
+    trackSanctumScroll();
+  }
 
   // 4. PANCHANG CALENDAR CONTROLLER (Runs when on calendar.html)
   const calendarContainer = document.getElementById('panchangCalendarApp');

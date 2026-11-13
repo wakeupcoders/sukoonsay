@@ -584,5 +584,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial calculation
   calculatePeaceScore();
+
+  // 6. SCROLL TRACKING & ACTIVE LINK UNDERLINE (Matches Phycartist)
+  const trackedSections = document.querySelectorAll('section[id]');
+  const mainNavLinks = document.querySelectorAll('.hdr-navbar .nav-item');
+
+  function updateActiveNavLink() {
+    let currentId = '';
+    const scrollPos = window.scrollY + 140;
+
+    trackedSections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = '#' + section.id;
+      }
+    });
+
+    mainNavLinks.forEach(link => {
+      link.classList.remove('active-link');
+      if (link.getAttribute('href') === currentId) {
+        link.classList.add('active-link');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+  updateActiveNavLink();
 });
 
