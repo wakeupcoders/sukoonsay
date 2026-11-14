@@ -63,9 +63,9 @@
     <div class="hdr-topbar">
       <div class="hdr-topbar-inner">
         <!-- Brand Link -->
-        <a href="index.html" class="brand-link">
+        <a href="index.html" class="brand-link" aria-label="Sukoon Temple Home">
           <div class="brand-emblem-wrap">
-            <span>ॐ</span>
+            <img src="assets/icons/temple-logo.svg" alt="Sukoon Temple Sacred Emblem" class="brand-logo-img" onerror="this.onerror=null;this.src='assets/images/logo.jpg';">
           </div>
           <div class="brand-text">
             <span class="brand-title">SUKOON TEMPLE</span>
@@ -124,7 +124,9 @@
   <aside id="mobileSidebarDrawer" class="mobile-sidebar-drawer" aria-label="Mobile Sacred Drawer">
     <div class="drawer-header">
       <div class="drawer-brand">
-        <span class="drawer-om">ॐ</span>
+        <div class="drawer-emblem">
+          <img src="assets/icons/temple-logo.svg" alt="Sukoon Temple" class="drawer-logo-img" onerror="this.onerror=null;this.src='assets/images/logo.jpg';">
+        </div>
         <div>
           <div class="drawer-title">SUKOON TEMPLE</div>
           <div class="drawer-tagline">Vedic Peace &amp; Sacred Sanctum</div>
@@ -194,22 +196,29 @@
     </nav>
 
     <!-- Sanctuary Access Portal Quick Links -->
-    <div class="mt-2 mb-3">
-      <a href="../index.html" class="d-flex align-items-center gap-2 p-2 rounded-3 text-decoration-none fw-bold mb-2 shadow-sm" style="background: linear-gradient(135deg, #2E1A47 0%, #150D21 100%); color: #F9E79F; font-size: 0.82rem; border: 1px solid rgba(212, 175, 55, 0.4);">
-        <i class="fa-solid fa-archway text-warning ms-1"></i>
-        <span>Return to Sukoonsay Main Hub ↗</span>
+    <div class="drawer-portals-section">
+      <div class="dp-title">DIRECT SANCTUARY ACCESS</div>
+      <a href="../index.html" class="drawer-portal-card sukoonsay-hub-card">
+        <div class="dp-icon"><i class="fa-solid fa-archway"></i></div>
+        <div class="dp-text">
+          <strong>Sukoonsay Main Hub</strong>
+          <span>Access Sanctuary ↗</span>
+        </div>
       </a>
-      <a href="../Phycartist/index.html" class="d-flex align-items-center gap-2 p-2 rounded-3 text-decoration-none fw-bold shadow-sm" style="background: linear-gradient(135deg, #4A306D 0%, #2E1A47 100%); color: #FFFFFF; font-size: 0.82rem; border: 1px solid rgba(212, 175, 55, 0.4);">
-        <i class="fa-solid fa-brain" style="color: #BB86FC;"></i>
-        <span>Clinical Psychiatry Sanctuary ↗</span>
+      <a href="../Phycartist/index.html" class="drawer-portal-card psychiatry-card">
+        <div class="dp-icon"><i class="fa-solid fa-brain"></i></div>
+        <div class="dp-text">
+          <strong>Psychiatrist Sanctuary</strong>
+          <span>Access Portal ↗</span>
+        </div>
       </a>
     </div>
 
     <!-- 432 Hz Solfeggio Audio Player Button in Drawer -->
     <div class="drawer-footer-audio">
-      <button class="btn btn-warning w-100 audio-chime-toggle text-dark fw-bold btn-sm shadow-sm" style="background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%); border: none; padding: 0.55rem;">
-        <i class="fa-solid fa-bell me-1"></i>
-        <span class="tb-btn-label">Play 432Hz Sound</span>
+      <button class="drawer-audio-btn audio-chime-toggle">
+        <i class="fa-solid fa-bell"></i>
+        <span>Play 432Hz Sound</span>
       </button>
     </div>
   </aside>
