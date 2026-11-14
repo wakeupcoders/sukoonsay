@@ -606,7 +606,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const liveStatusBadge = document.getElementById('liveStatusBadge');
     if (liveStatusBadge) {
-      liveStatusBadge.className = status.isOpen ? 'pulse-dot-green' : 'pulse-dot-orange';
+      if (liveStatusBadge.classList.contains('badge') || liveStatusBadge.classList.contains('rounded-pill')) {
+        liveStatusBadge.className = status.isOpen 
+          ? 'badge bg-success px-3 py-2 fw-semibold rounded-pill d-inline-flex align-items-center gap-2' 
+          : 'badge bg-secondary px-3 py-2 fw-semibold rounded-pill d-inline-flex align-items-center gap-2';
+        liveStatusBadge.innerHTML = status.isOpen 
+          ? '<span class="pulse-dot-green" style="display:inline-block;"></span> OPEN NOW • Pratah Kaal Darshan' 
+          : '<span class="pulse-dot-orange" style="display:inline-block;"></span> SHAYAN REST • Closed';
+      } else {
+        liveStatusBadge.className = status.isOpen ? 'pulse-dot-green' : 'pulse-dot-orange';
+      }
     }
 
     const liveStatusText = document.getElementById('liveStatusText');
@@ -616,7 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const aartiCountdownEl = document.getElementById('aartiCountdown');
     if (aartiCountdownEl) {
-      aartiCountdownEl.textContent = `Starts in: ${status.countdownStr}`;
+      aartiCountdownEl.textContent = status.countdownStr;
     }
 
     const country = getSelectedCountry();

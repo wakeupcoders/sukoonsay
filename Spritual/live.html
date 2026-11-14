@@ -246,14 +246,14 @@
 
         <!-- Quick Share & YouTube Controls -->
         <div class="d-flex align-items-center gap-2 flex-wrap">
-          <button id="setLiveLinkBtn" class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#youtubeLinkModal" title="Set or Update YouTube Live Link">
-            <i class="fa-solid fa-gear me-1"></i> Stream Settings
+          <button id="setLiveLinkBtn" class="btn btn-sm btn-outline-dark d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="modal" data-bs-target="#youtubeLinkModal" title="Set or Update YouTube Live Link" style="padding: 6px 14px; border-radius: 9999px;">
+            <i class="fa-solid fa-gear"></i> <span>Stream Settings</span>
           </button>
-          <a id="shareWhatsappBtn" href="https://api.whatsapp.com/send?text=Join%20Sukoon%20Temple%20Special%20Live%20Darshan%20now:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm" style="background: #25D366; color: #fff; border-radius: 9999px; font-weight: 700; padding: 5px 14px;">
-            <i class="fa-brands fa-whatsapp me-1"></i> Share Live
+          <a id="shareWhatsappBtn" href="https://api.whatsapp.com/send?text=Join%20Sukoon%20Temple%20Special%20Live%20Darshan%20now:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm d-inline-flex align-items-center justify-content-center gap-2" style="background: #25D366; color: #fff; border-radius: 9999px; font-weight: 700; padding: 6px 15px;">
+            <i class="fa-brands fa-whatsapp fs-6"></i> <span>Share Live</span>
           </a>
-          <a id="openYoutubeLiveBtn" href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold" style="padding: 5px 14px;">
-            <i class="fa-brands fa-youtube text-danger me-1"></i> Watch on YouTube ↗
+          <a id="openYoutubeLiveBtn" href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold d-inline-flex align-items-center justify-content-center gap-2" style="padding: 6px 16px;">
+            <i class="fa-brands fa-youtube text-danger fs-6"></i> <span>Watch on YouTube ↗</span>
           </a>
         </div>
       </div>
@@ -270,11 +270,22 @@
                 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(24,13,38,0.7) 100%);"></div>
 
                 <!-- Center Play Indicator for YouTube Streams -->
-                <div class="position-absolute top-50 start-50 translate-middle text-center">
-                  <a id="playStreamBtn" href="https://www.youtube.com" target="_blank" rel="noopener" class="rounded-circle d-inline-flex align-items-center justify-content-center shadow-lg mb-2" style="width: 76px; height: 76px; background: rgba(220, 38, 38, 0.95); color: #fff; text-decoration: none; border: 3px solid #FDE68A; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                    <i class="fa-solid fa-play fs-3 ps-1"></i>
-                  </a>
-                  <span class="d-block text-white fw-bold font-serif shadow-sm" style="font-size: 0.95rem; text-shadow: 0 2px 6px #000;">Click to Join YouTube Live Stream</span>
+                <div class="position-absolute top-50 start-50 translate-middle text-center w-100 px-3" style="max-width: 440px; z-index: 5;">
+                  <div class="p-3 p-md-4 rounded-4 shadow-lg text-center" style="background: rgba(24, 13, 38, 0.88); border: 1.5px solid rgba(212, 175, 55, 0.65); backdrop-filter: blur(8px);">
+                    <a id="playStreamBtn" href="https://www.youtube.com" target="_blank" rel="noopener" class="rounded-circle d-inline-flex align-items-center justify-content-center shadow-lg mb-2" style="width: 68px; height: 68px; background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%); color: #fff; text-decoration: none; border: 2.5px solid #FDE68A; transition: transform 0.25s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                      <i class="fa-solid fa-play fs-4" style="margin-left: 3px;"></i>
+                    </a>
+                    <h5 class="text-white fw-bold mb-1 font-serif" style="font-size: 1.05rem; letter-spacing: 0.04em;">Sukoon Temple Live Broadcast</h5>
+                    <p class="text-white-50 small mb-3">Live streaming directly on special festival days &amp; evening Maha Aarti.</p>
+                    <div class="d-flex justify-content-center gap-2">
+                      <button class="btn btn-sm btn-card-gold d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="modal" data-bs-target="#youtubeLinkModal">
+                        <i class="fa-solid fa-gear"></i> <span>Set Stream Link</span>
+                      </button>
+                      <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light rounded-pill px-3 d-inline-flex align-items-center justify-content-center gap-2">
+                        <i class="fa-brands fa-youtube text-danger"></i> <span>YouTube ↗</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -421,11 +432,11 @@
               </div>
             </div>
             <div class="d-flex gap-2">
-              <a href="https://api.whatsapp.com/send?text=Join%20Maha%20Shivratri%20Live%20YouTube%20Aarti%20from%20Sukoon%20Temple:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm btn-outline-success flex-fill rounded-pill">
-                <i class="fa-brands fa-whatsapp"></i> Share
+              <a href="https://api.whatsapp.com/send?text=Join%20Maha%20Shivratri%20Live%20YouTube%20Aarti%20from%20Sukoon%20Temple:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm btn-outline-success flex-fill rounded-pill d-inline-flex align-items-center justify-content-center gap-2 py-2">
+                <i class="fa-brands fa-whatsapp fs-6"></i> <span>Share</span>
               </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold flex-fill text-center">
-                Watch Live
+              <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold flex-fill d-inline-flex align-items-center justify-content-center gap-2 py-2">
+                <i class="fa-brands fa-youtube text-danger fs-6"></i> <span>Watch Live</span>
               </a>
             </div>
           </div>
@@ -449,11 +460,11 @@
               </div>
             </div>
             <div class="d-flex gap-2">
-              <a href="https://api.whatsapp.com/send?text=Join%20Navratri%20Chandi%20Havan%20Live%20on%20YouTube:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm btn-outline-success flex-fill rounded-pill">
-                <i class="fa-brands fa-whatsapp"></i> Share
+              <a href="https://api.whatsapp.com/send?text=Join%20Navratri%20Chandi%20Havan%20Live%20on%20YouTube:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm btn-outline-success flex-fill rounded-pill d-inline-flex align-items-center justify-content-center gap-2 py-2">
+                <i class="fa-brands fa-whatsapp fs-6"></i> <span>Share</span>
               </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold flex-fill text-center">
-                Watch Live
+              <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold flex-fill d-inline-flex align-items-center justify-content-center gap-2 py-2">
+                <i class="fa-brands fa-youtube text-danger fs-6"></i> <span>Watch Live</span>
               </a>
             </div>
           </div>
@@ -477,11 +488,11 @@
               </div>
             </div>
             <div class="d-flex gap-2">
-              <a href="https://api.whatsapp.com/send?text=Watch%20Janmashtami%20Midnight%20Aarti%20Live:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm btn-outline-success flex-fill rounded-pill">
-                <i class="fa-brands fa-whatsapp"></i> Share
+              <a href="https://api.whatsapp.com/send?text=Watch%20Janmashtami%20Midnight%20Aarti%20Live:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm btn-outline-success flex-fill rounded-pill d-inline-flex align-items-center justify-content-center gap-2 py-2">
+                <i class="fa-brands fa-whatsapp fs-6"></i> <span>Share</span>
               </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold flex-fill text-center">
-                Watch Live
+              <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold flex-fill d-inline-flex align-items-center justify-content-center gap-2 py-2">
+                <i class="fa-brands fa-youtube text-danger fs-6"></i> <span>Watch Live</span>
               </a>
             </div>
           </div>
@@ -505,11 +516,11 @@
               </div>
             </div>
             <div class="d-flex gap-2">
-              <a href="https://api.whatsapp.com/send?text=Watch%20Kartik%20Purnima%20108%20Deepa%20Aarti%20Live:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm btn-outline-success flex-fill rounded-pill">
-                <i class="fa-brands fa-whatsapp"></i> Share
+              <a href="https://api.whatsapp.com/send?text=Watch%20Kartik%20Purnima%20108%20Deepa%20Aarti%20Live:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm btn-outline-success flex-fill rounded-pill d-inline-flex align-items-center justify-content-center gap-2 py-2">
+                <i class="fa-brands fa-whatsapp fs-6"></i> <span>Share</span>
               </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold flex-fill text-center">
-                Watch Live
+              <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold flex-fill d-inline-flex align-items-center justify-content-center gap-2 py-2">
+                <i class="fa-brands fa-youtube text-danger fs-6"></i> <span>Watch Live</span>
               </a>
             </div>
           </div>

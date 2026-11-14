@@ -7009,3 +7009,54 @@ button:hover .cta-arrow {
   50% { transform: translateX(0%); }
   100% { transform: translateX(100%); }
 }
+
+
+/* ==========================================================================
+   BUTTON & ICON VERTICAL CENTERING AND NUMERIC STABILITY FIXES
+   ========================================================================== */
+.btn, .btn-card-gold, .btn-card-saffron, .tb-cta-btn, .tb-audio-btn, .tb-icon-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.45rem;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.btn i, .btn-card-gold i, .btn-card-saffron i, .tb-cta-btn i, .tb-icon-btn i {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+}
+
+.btn span, .btn-card-gold span, .btn-card-saffron span {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
+/* Tabular Numbers for Jitter-Free Clocks & Countdowns */
+.font-monospace, #sanctumLiveClock, #sanctumLiveClock2, #devoteeCountryClock, #aartiCountdown, .slot-time-ist {
+  font-variant-numeric: tabular-nums !important;
+  font-feature-settings: "tnum" 1 !important;
+  letter-spacing: 0.02em;
+}
+
+/* Aarti Slot Cards Equal Height & Fixed Top Slot */
+.aarti-slot-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.aarti-slot-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(46, 26, 71, 0.12) !important;
+}
+
+.slot-active-status {
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+}
