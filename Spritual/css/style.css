@@ -6369,16 +6369,16 @@ button:hover .cta-arrow {
     margin: 0 !important;
     line-height: 1 !important;
     box-sizing: border-box !important;
-    background: rgba(255, 255, 255, 0.12) !important;
-    border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.55) !important;
+    box-shadow: 0 2px 8px rgba(46, 26, 71, 0.12) !important;
     cursor: pointer !important;
   }
 
   .hdr-topbar-left .ring-bell-btn i,
   .hdr-topbar-left .tb-icon-btn i {
     font-size: 0.95rem !important;
-    color: #FDE68A !important;
+    color: var(--sacred-saffron, #E65100) !important;
     margin: 0 !important;
     line-height: 1 !important;
   }
@@ -6410,6 +6410,9 @@ button:hover .cta-arrow {
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
+    background: linear-gradient(135deg, #2E1A47 0%, #150D21 100%) !important;
+    border: 1.5px solid var(--sacred-gold, #D4AF37) !important;
+    border-radius: 50% !important;
   }
 
   .brand-logo-img {
@@ -6428,19 +6431,25 @@ button:hover .cta-arrow {
   }
 
   .brand-title {
+    font-family: var(--font-serif) !important;
     font-size: 0.98rem !important;
-    letter-spacing: 0.04em !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.05em !important;
     line-height: 1.1 !important;
     white-space: nowrap !important;
-    color: #FFFFFF !important;
+    color: var(--divine-purple-deep, #2E1A47) !important;
+    background: linear-gradient(135deg, #2E1A47 0%, #B3861B 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
   }
 
   .brand-subtitle {
     font-size: 0.48rem !important;
-    letter-spacing: 0.02em !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.03em !important;
     line-height: 1 !important;
     white-space: nowrap !important;
-    color: #D4AF37 !important;
+    color: var(--sacred-saffron, #E65100) !important;
   }
 
   /* RIGHT: Controls & Hamburger Menu Toggle */
@@ -6484,9 +6493,9 @@ button:hover .cta-arrow {
     max-height: 38px !important;
     aspect-ratio: 1 / 1 !important;
     border-radius: 10px !important;
-    background: rgba(255, 255, 255, 0.12) !important;
-    border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.55) !important;
+    box-shadow: 0 2px 8px rgba(46, 26, 71, 0.12) !important;
     cursor: pointer !important;
     padding: 0 !important;
     margin: 0 !important;
@@ -6496,7 +6505,7 @@ button:hover .cta-arrow {
   .mobile-toggle-btn .ham-bar {
     width: 18px !important;
     height: 2px !important;
-    background: #FFFFFF !important;
+    background: var(--divine-purple-deep, #2E1A47) !important;
     border-radius: 2px !important;
     transition: all 0.25s ease !important;
     display: block !important;
@@ -7559,7 +7568,7 @@ button:hover .cta-arrow {
 /* ==========================================================================
    BUTTON & ICON VERTICAL CENTERING AND NUMERIC STABILITY FIXES
    ========================================================================== */
-.btn, .btn-card-gold, .btn-card-saffron, .tb-cta-btn, .tb-audio-btn, .tb-icon-btn {
+.btn, .btn-card-gold, .btn-card-saffron {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -7568,7 +7577,7 @@ button:hover .cta-arrow {
   text-align: center;
 }
 
-.btn i, .btn-card-gold i, .btn-card-saffron i, .tb-cta-btn i, .tb-icon-btn i {
+.btn i, .btn-card-gold i, .btn-card-saffron i {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
