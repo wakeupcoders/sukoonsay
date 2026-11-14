@@ -162,7 +162,14 @@
     <!-- ROW 1: TOPBAR -->
     <div class="hdr-topbar">
       <div class="hdr-topbar-inner">
-        <!-- Brand Link -->
+        <!-- Sacred Temple Bell Button ("Ball") - Left on Mobile, Grouped on Desktop -->
+        <div class="hdr-topbar-left">
+          <button id="headerChimeBtn" class="tb-icon-btn ring-bell-btn" title="Ring Sacred Temple Bell (Tank-Tan 432 Hz Chime)" aria-label="Ring Temple Bell">
+            <i class="fa-solid fa-bell"></i>
+          </button>
+        </div>
+
+        <!-- Brand Link (Centered on Mobile, Left-aligned on Desktop) -->
         <a href="#hero" class="brand-link" aria-label="Sukoonsay Psychiatry Home">
           <div class="brand-emblem-wrap">
             <img src="assets/images/logo.jpg" alt="Sukoonsay Psychiatry Sacred Emblem" class="brand-logo-img">
@@ -173,19 +180,14 @@
           </div>
         </a>
 
-        <!-- Header Controls (Right side of Row 1) -->
+        <!-- Header Controls (Right side: 432Hz & CTA for Desktop; Hamburger Toggle for Mobile) -->
         <div class="hdr-btn-group">
-          <!-- Continuous 432 Hz + 108 Hz Meditation Chimes Toggle -->
-          <button id="ambientSoundBtn" class="tb-audio-btn" title="Toggle 432 Hz Solfeggio &amp; Temple Chimes">
+          <!-- Continuous 432 Hz + 108 Hz Meditation Chimes Toggle (Desktop only, moved to drawer on mobile) -->
+          <button id="ambientSoundBtn" class="tb-audio-btn hdr-hide-mobile" title="Toggle 432 Hz Solfeggio &amp; Temple Chimes">
             <span class="audio-bars" aria-hidden="true">
               <span></span><span></span><span></span>
             </span>
             <span id="ambientSoundText" class="tb-btn-label">432Hz</span>
-          </button>
-
-          <!-- Sacred Temple Bell Button ("Ball") -->
-          <button id="headerChimeBtn" class="tb-icon-btn ring-bell-btn" title="Ring Sacred Temple Bell (Tank-Tan 432 Hz Chime)">
-            <i class="fa-solid fa-bell"></i>
           </button>
 
           <!-- Return to Main Sanctuary Hub CTA (Desktop) -->
@@ -194,7 +196,7 @@
             <span>Main Sanctuary</span>
           </a>
 
-          <!-- Mobile Hamburger Toggle -->
+          <!-- Mobile Hamburger Toggle (Right side on mobile) -->
           <button id="mobileNavToggle" class="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
             <span class="ham-bar bar-1"></span>
             <span class="ham-bar bar-2"></span>

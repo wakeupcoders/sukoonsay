@@ -272,12 +272,22 @@ p {
 
 /* Brand Link */
 .brand-link {
+  order: 1;
   display: flex;
   align-items: center;
   gap: 0.65rem;
   flex-shrink: 0;
   text-decoration: none;
   transition: transform 0.25s ease;
+}
+
+/* Header Topbar Left Zone (Bell on mobile, grouped right on desktop) */
+.hdr-topbar-left {
+  order: 2;
+  margin-left: auto;
+  margin-right: 0.55rem;
+  display: flex;
+  align-items: center;
 }
 
 .brand-link:hover {
@@ -335,6 +345,7 @@ p {
 
 /* Header Controls Button Group (Right side of Row 1) */
 .hdr-btn-group {
+  order: 3;
   display: flex;
   align-items: center;
   gap: 0.55rem;
@@ -459,6 +470,17 @@ p {
 .tb-icon-btn:active,
 .nav-bell-btn:active {
   transform: scale(0.92);
+}
+
+.ring-bell-btn.ringing i,
+.tb-icon-btn:active i {
+  animation: bellShake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes bellShake {
+  0%, 100% { transform: rotate(0); }
+  20%, 60% { transform: rotate(-24deg); }
+  40%, 80% { transform: rotate(24deg); }
 }
 
 /* Return to Main Sanctuary CTA (Desktop) */
@@ -660,24 +682,170 @@ p {
   }
 
   .hdr-topbar {
-    height: 52px;
+    height: 54px !important;
   }
 
-  .mobile-toggle-btn,
-  .designer-toggle {
+  .hdr-topbar-inner {
     display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    padding: 0 0.85rem !important;
+    width: 100% !important;
   }
 
-  .hdr-hide-xs {
-    display: none !important;
+  /* LEFT: Sacred Temple Bell ("Ball") Button */
+  .hdr-topbar-left {
+    order: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    z-index: 5 !important;
+  }
+
+  #headerChimeBtn,
+  .hdr-topbar-left .ring-bell-btn {
+    display: inline-flex !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    border-radius: 50% !important;
+    aspect-ratio: 1 / 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    box-shadow: 0 2px 8px rgba(46, 26, 71, 0.12) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+    cursor: pointer !important;
+  }
+
+  #headerChimeBtn i {
+    font-size: 0.95rem !important;
+    color: var(--saffron-deep, #E65100) !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+
+  /* CENTER: Brand Logo & Title */
+  .brand-link {
+    order: 2 !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.45rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: calc(100% - 100px) !important;
+    z-index: 3 !important;
+    pointer-events: auto !important;
+    text-decoration: none !important;
+  }
+
+  .brand-emblem-wrap {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .brand-logo-img {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+  }
+
+  .brand-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    line-height: 1 !important;
   }
 
   .brand-title {
-    font-size: 1.05rem;
+    font-size: 0.98rem !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
   }
 
   .brand-subtitle {
-    font-size: 0.55rem;
+    font-size: 0.48rem !important;
+    letter-spacing: 0.03em !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    color: var(--gold-antique, #B3861B) !important;
+  }
+
+  /* RIGHT: Controls & Hamburger Menu Toggle */
+  .hdr-btn-group {
+    order: 3 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin: 0 !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    z-index: 5 !important;
+  }
+
+  /* 432 Hz button removed from header on mobile (present in drawer) */
+  #ambientSoundBtn,
+  .tb-audio-btn,
+  .hdr-hide-mobile {
+    display: none !important;
+  }
+
+  /* Main Sanctuary CTA hidden on mobile */
+  .hdr-hide-xs,
+  .tb-cta-btn {
+    display: none !important;
+  }
+
+  /* Right-aligned Hamburger Toggle Button */
+  .mobile-toggle-btn,
+  #mobileNavToggle {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    border-radius: 10px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
+    box-shadow: 0 2px 8px rgba(46, 26, 71, 0.12) !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mobile-toggle-btn .ham-bar {
+    width: 18px !important;
+    height: 2px !important;
+    background: var(--midnight-purple, #1C1128) !important;
+    border-radius: 2px !important;
+    transition: all 0.25s ease !important;
+    display: block !important;
   }
 }
 

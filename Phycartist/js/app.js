@@ -857,6 +857,11 @@ function initModalsAndToasts() {
   const headerChimeBtn = document.getElementById('headerChimeBtn');
   if (headerChimeBtn) {
     headerChimeBtn.addEventListener('click', () => {
+      headerChimeBtn.classList.remove('ringing');
+      void headerChimeBtn.offsetWidth; // trigger reflow for clean re-animation
+      headerChimeBtn.classList.add('ringing');
+      setTimeout(() => headerChimeBtn.classList.remove('ringing'), 700);
+
       playSingingBowlTone(432, 4.5);
       showBlessingToast('🔔 Sacred Temple Bell (432 Hz Solfeggio) resonated across the sanctuary.');
     });
