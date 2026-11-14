@@ -5882,87 +5882,119 @@ button:hover .cta-arrow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 1.15rem;
+  gap: 0.65rem;
+  padding-bottom: 1.1rem;
   border-bottom: 1px solid rgba(212, 175, 55, 0.28);
   margin-bottom: 1rem;
 }
 
 .drawer-brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .drawer-emblem,
 .drawer-om {
-  width: 38px;
-  height: 38px;
-  min-width: 38px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #2E1A47 0%, #150D21 100%);
-  border: 1.5px solid #D4AF37;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: #FDE68A;
-  font-family: var(--font-serif);
-  flex-shrink: 0;
-  overflow: hidden;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  max-width: 34px !important;
+  max-height: 34px !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #2E1A47 0%, #150D21 100%) !important;
+  border: 1.5px solid #D4AF37 !important;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.45) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  color: #FDE68A !important;
+  font-family: var(--font-serif) !important;
+  flex-shrink: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .drawer-emblem img,
 .drawer-om img,
 .drawer-logo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  display: block !important;
 }
 
 .drawer-title {
   font-family: 'Cinzel', serif !important;
-  font-size: 1.12rem !important;
+  font-size: 0.96rem !important;
   font-weight: 800 !important;
   color: #FFFDF8 !important;
-  margin: 0;
-  line-height: 1.15;
-  letter-spacing: 0.06em !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.05em !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  display: inline-flex !important;
+  align-items: center !important;
 }
 
 .drawer-sub,
 .drawer-tagline {
-  font-size: 0.66rem !important;
-  color: #FDE68A !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
-  margin-top: 2px;
+  display: none !important; /* Tagline removed in sidebar drawer as requested */
 }
 
 .drawer-close-btn {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  background: rgba(255, 255, 255, 0.08);
-  color: #FDE68A;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  max-width: 34px !important;
+  max-height: 34px !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.4) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #FDE68A !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   cursor: pointer;
   transition: all 0.25s ease;
-  font-size: 1.1rem;
+  font-size: 0.95rem !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+}
+
+.drawer-close-btn i {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .drawer-close-btn:hover {
-  background: #E65100;
-  color: #FFFFFF;
-  border-color: #FFA000;
+  background: #E65100 !important;
+  color: #FFFFFF !important;
+  border-color: #FFA000 !important;
   transform: rotate(90deg);
 }
 
@@ -5983,13 +6015,17 @@ button:hover .cta-arrow {
 }
 
 .drawer-pulse-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  width: 9px !important;
+  height: 9px !important;
+  min-width: 9px !important;
+  min-height: 9px !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
   background: #00E676;
   box-shadow: 0 0 10px #00E676;
   animation: pulseDot 1.4s infinite alternate;
-  flex-shrink: 0;
+  flex-shrink: 0 !important;
+  display: inline-block;
 }
 
 .drawer-country-box {
@@ -6052,16 +6088,25 @@ button:hover .cta-arrow {
 }
 
 .drawer-link-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+  max-width: 30px !important;
+  max-height: 30px !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
   background: rgba(212, 175, 55, 0.14);
   color: #FDE68A;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   font-size: 0.85rem;
-  flex-shrink: 0;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1 !important;
   transition: all 0.22s ease;
 }
 
@@ -6137,15 +6182,24 @@ button:hover .cta-arrow {
 }
 
 .drawer-portal-card .dp-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  max-width: 34px !important;
+  max-height: 34px !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   font-size: 1rem;
-  flex-shrink: 0;
+  flex-shrink: 0 !important;
   border: 1px solid rgba(212, 175, 55, 0.4);
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1 !important;
 }
 
 .sukoonsay-hub-card .dp-icon {
