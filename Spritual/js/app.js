@@ -552,7 +552,6 @@ function getSanctumStatus() {
     istTimeString: istDate.toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' })
   };
 }
-}
 
 // =========================================================================
 // 5. DOM INITIALIZATION & PAGE HOOKS
