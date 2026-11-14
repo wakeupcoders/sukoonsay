@@ -1009,6 +1009,14 @@ function initMobileNav() {
     });
   }
 
+  // Instant active link switch on click
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.forEach(l => l.classList.remove('active-link'));
+      link.classList.add('active-link');
+    });
+  });
+
   window.addEventListener('scroll', updateActiveLink, { passive: true });
   updateActiveLink();
 }

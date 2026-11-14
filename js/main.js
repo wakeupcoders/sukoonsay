@@ -593,21 +593,35 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentId = '';
     const scrollPos = window.scrollY + 140;
 
-    trackedSections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      if (scrollPos >= top && scrollPos < top + height) {
-        currentId = '#' + section.id;
-      }
-    });
+    if (window.scrollY < 200) {
+      currentId = '#hero';
+    } else {
+      trackedSections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          currentId = '#' + section.id;
+        }
+      });
+    }
 
-    mainNavLinks.forEach(link => {
-      link.classList.remove('active-link');
-      if (link.getAttribute('href') === currentId) {
-        link.classList.add('active-link');
-      }
-    });
+    if (currentId) {
+      mainNavLinks.forEach(link => {
+        link.classList.remove('active-link');
+        if (link.getAttribute('href') === currentId) {
+          link.classList.add('active-link');
+        }
+      });
+    }
   }
+
+  // Instant active state switch on click
+  mainNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mainNavLinks.forEach(l => l.classList.remove('active-link'));
+      link.classList.add('active-link');
+    });
+  });
 
   window.addEventListener('scroll', updateActiveNavLink, { passive: true });
   updateActiveNavLink();

@@ -886,6 +886,12 @@ document.addEventListener('DOMContentLoaded', () => {
       item.classList.add('active-link');
       matchedCurrentPage = true;
     }
+
+    // Instant active link switch on click
+    item.addEventListener('click', () => {
+      navItems.forEach(i => i.classList.remove('active-link'));
+      item.classList.add('active-link');
+    });
   });
 
   // If on index or root, track section scroll
