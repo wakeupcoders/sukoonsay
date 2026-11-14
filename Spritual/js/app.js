@@ -566,13 +566,26 @@ function getSanctumStatus() {
 // 5. DOM INITIALIZATION & PAGE HOOKS
 // =========================================================================
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Temple Preloader
+  // 1. Temple Preloader - Fast, Graceful, Responsive Fade Out
   const preloader = document.getElementById('templePreloader');
   if (preloader) {
-    setTimeout(() => {
+    let preloaderDismissed = false;
+    const hidePreloader = () => {
+      if (preloaderDismissed) return;
+      preloaderDismissed = true;
       preloader.classList.add('fade-out');
-      setTimeout(() => { preloader.style.display = 'none'; }, 600);
-    }, 900);
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+      }, 550);
+    };
+
+    if (document.readyState === 'complete') {
+      setTimeout(hidePreloader, 350);
+    } else {
+      window.addEventListener('load', () => setTimeout(hidePreloader, 350));
+      setTimeout(hidePreloader, 1200); // Fail-safe fallback
+    }
   }
 
   // 2. Real-time Live Clock & Status Tick

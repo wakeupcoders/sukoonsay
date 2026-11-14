@@ -34,6 +34,11 @@
        Row 1 (topbar): Brand + 432Hz Sound + Ball Bell + CTA + Hamburger
        Row 2 (navbar): Navigation Links with Hover/Scroll Underline
        ====================================================== -->
+    <!-- ======================================================
+       FIXED DUAL-ROW HEADER
+       Row 1 (topbar): Brand + 432Hz Sound + Ball Bell + CTA + Hamburger
+       Row 2 (navbar): Navigation Links with Hover/Scroll Underline
+       ====================================================== -->
   <header class="site-header">
     <!-- ROW 1: TOPBAR -->
     <div class="hdr-topbar">
@@ -83,88 +88,86 @@
     <!-- ROW 2: NAVBAR (All Navigation Links cleanly displayed below) -->
     <nav class="hdr-navbar" aria-label="Sacred Temple Navigation">
       <div class="hdr-navbar-inner">
-        <a href="index.html" class="nav-item"><i class="fa-solid fa-om"></i><span>Home</span></a>
-        <a href="about.html" class="nav-item"><i class="fa-solid fa-gopuram"></i><span>About Mandir</span></a>
-        <a href="services.html" class="nav-item"><i class="fa-solid fa-hands-praying"></i><span>Pujas &amp; Sevas</span></a>
-        <a href="timings.html" class="nav-item"><i class="fa-regular fa-clock"></i><span>Aarti Timings</span></a>
-        <a href="live.html" class="nav-item"><i class="fa-solid fa-video"></i><span>Live Darshan</span></a>
-        <a href="calendar.html" class="nav-item"><i class="fa-regular fa-calendar-days"></i><span>Panchang Calendar</span></a>
-        <a href="booking.html" class="nav-item"><i class="fa-solid fa-fire-burner"></i><span>Book Puja</span></a>
-        <a href="contact.html" class="nav-item"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
+        <a href="index.html" class="nav-item "><i class="fa-solid fa-om"></i><span>Home</span></a>
+        <a href="about.html" class="nav-item "><i class="fa-solid fa-gopuram"></i><span>About Mandir</span></a>
+        <a href="services.html" class="nav-item "><i class="fa-solid fa-hands-praying"></i><span>Pujas &amp; Sevas</span></a>
+        <a href="timings.html" class="nav-item "><i class="fa-regular fa-clock"></i><span>Aarti Timings</span></a>
+        <a href="live.html" class="nav-item "><i class="fa-solid fa-video"></i><span>Live Darshan</span></a>
+        <a href="calendar.html" class="nav-item active-link"><i class="fa-regular fa-calendar-days"></i><span>Panchang Calendar</span></a>
+        <a href="booking.html" class="nav-item "><i class="fa-solid fa-fire-burner"></i><span>Book Puja</span></a>
+        <a href="contact.html" class="nav-item "><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
       </div>
     </nav>
   </header>
 
-    <!-- Mobile Off-Canvas Sidebar / Drawer -->
+  <!-- Mobile Off-Canvas Sidebar / Drawer -->
   <div id="sidebarBackdrop" class="sidebar-backdrop" style="display: none;"></div>
   <aside id="mobileSidebarDrawer" class="mobile-sidebar-drawer" aria-label="Mobile Sacred Drawer">
     <div class="drawer-header">
       <div class="drawer-brand">
-        <div class="drawer-emblem">ॐ</div>
+        <span class="drawer-om">ॐ</span>
         <div>
-          <h4 class="drawer-title">SUKOON TEMPLE</h4>
-          <span class="drawer-sub">Vedic Peace Sanctum</span>
+          <div class="drawer-title">SUKOON TEMPLE</div>
+          <div class="drawer-tagline">Vedic Peace &amp; Sacred Sanctum</div>
         </div>
       </div>
-      <button id="drawerCloseBtn" class="drawer-close-btn" aria-label="Close Navigation Menu">
+      <button id="drawerCloseBtn" class="drawer-close-btn" aria-label="Close Mobile Menu">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
 
-    <!-- Live Sanctum Status Pill -->
-    <div class="drawer-status-pill p-2 mb-2 rounded-3" style="background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.35); font-size: 0.78rem; color: #2E1A47;">
-      <span class="pulse-dot d-inline-block rounded-circle bg-success me-1" style="width: 8px; height: 8px;"></span>
-      <span id="drawerSanctumClock">Rupnagar (Ropar), Punjab IST: --:--:--</span>
+    <!-- Live Sanctum Status Badge inside Drawer -->
+    <div class="drawer-status-strip">
+      <span class="drawer-pulse-dot"></span>
+      <span id="drawerSanctumClock">Ropar Punjab (IST): --:--:--</span>
     </div>
 
-    <!-- Devotee Country / Timezone Dropdown Selector inside Drawer -->
-    <div class="drawer-country-wrap">
-      <label for="drawerCountrySelect" class="drawer-country-label">
-        <i class="fa-solid fa-globe text-warning"></i> Devotee Country &amp; Timezone:
-      </label>
-      <select id="drawerCountrySelect" class="form-select drawer-country-select" aria-label="Select Devotee Country">
-        <!-- Populated via ALL_COUNTRIES in app.js -->
+    <!-- Devotee Country Switcher in Drawer -->
+    <div class="drawer-country-box">
+      <label for="drawerCountrySelect"><i class="fa-solid fa-earth-americas me-1 text-warning"></i> Devotee Timezone:</label>
+      <select id="drawerCountrySelect" class="drawer-country-select" aria-label="Select Devotee Country">
+        <!-- Populated by JS -->
       </select>
     </div>
 
-    <!-- Drawer Navigation Links with Circular Medallion Icons -->
-    <nav class="drawer-nav">
-      <a href="index.html" class="drawer-link">
+    <!-- Navigation Links in Drawer -->
+    <nav class="drawer-nav" aria-label="Mobile Drawer Navigation">
+      <a href="index.html" class="drawer-link ">
         <span class="drawer-link-icon"><i class="fa-solid fa-om"></i></span>
-        <span>Home Sanctum</span>
+        <span>Sanctum Home</span>
         <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
       </a>
-      <a href="about.html" class="drawer-link">
+      <a href="about.html" class="drawer-link ">
         <span class="drawer-link-icon"><i class="fa-solid fa-gopuram"></i></span>
-        <span>About Mandir &amp; Lineage</span>
+        <span>About Mandir &amp; Heritage</span>
         <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
       </a>
-      <a href="services.html" class="drawer-link">
+      <a href="services.html" class="drawer-link ">
         <span class="drawer-link-icon"><i class="fa-solid fa-hands-praying"></i></span>
         <span>Pujas &amp; Sevas</span>
         <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
       </a>
-      <a href="timings.html" class="drawer-link">
+      <a href="timings.html" class="drawer-link ">
         <span class="drawer-link-icon"><i class="fa-regular fa-clock"></i></span>
         <span>Aarti Timings (IST &amp; Local)</span>
         <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
       </a>
-      <a href="live.html" class="drawer-link">
+      <a href="live.html" class="drawer-link ">
         <span class="drawer-link-icon"><i class="fa-solid fa-video"></i></span>
         <span>Live Darshan 24/7</span>
         <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
       </a>
-      <a href="calendar.html" class="drawer-link">
+      <a href="calendar.html" class="drawer-link active">
         <span class="drawer-link-icon"><i class="fa-regular fa-calendar-days"></i></span>
         <span>Hindu Panchang Calendar</span>
         <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
       </a>
-      <a href="booking.html" class="drawer-link">
+      <a href="booking.html" class="drawer-link ">
         <span class="drawer-link-icon"><i class="fa-solid fa-fire-burner"></i></span>
         <span>Book Puja &amp; Havan</span>
         <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
       </a>
-      <a href="contact.html" class="drawer-link">
+      <a href="contact.html" class="drawer-link ">
         <span class="drawer-link-icon"><i class="fa-solid fa-envelope"></i></span>
         <span>Contact &amp; Reach</span>
         <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
