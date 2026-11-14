@@ -1004,19 +1004,17 @@ p {
 
 .drawer-title {
   font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #FFFFFF;
   letter-spacing: 0.06em;
+  line-height: 1;
+  margin: 0;
   white-space: nowrap;
 }
 
 .drawer-tagline {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  color: var(--gold-glow);
-  letter-spacing: 0.15em;
-  white-space: nowrap;
+  display: none !important; /* Tagline removed in sidebar drawer as requested */
 }
 
 .drawer-close-btn {
