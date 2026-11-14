@@ -5549,12 +5549,22 @@ button:hover .cta-arrow {
 
 /* Brand Link */
 .brand-link {
+  order: 1;
   display: flex;
   align-items: center;
   gap: 0.65rem;
   flex-shrink: 0;
   text-decoration: none;
   transition: transform 0.25s ease;
+}
+
+/* Header Topbar Left Zone (Bell on mobile, grouped right on desktop) */
+.hdr-topbar-left {
+  order: 2;
+  margin-left: auto;
+  margin-right: 0.55rem;
+  display: flex;
+  align-items: center;
 }
 
 .brand-link:hover {
@@ -5624,6 +5634,7 @@ button:hover .cta-arrow {
 
 /* Button Group (right side of topbar) */
 .hdr-btn-group {
+  order: 3;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -5714,6 +5725,18 @@ button:hover .cta-arrow {
   color: #180D26;
   transform: rotate(-12deg) scale(1.08);
   box-shadow: 0 2px 10px rgba(212, 175, 55, 0.35);
+}
+
+.ring-bell-btn.ringing i,
+.trigger-sacred-bell:active i,
+.tb-icon-btn:active i {
+  animation: bellShake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes bellShake {
+  0%, 100% { transform: rotate(0); }
+  20%, 60% { transform: rotate(-24deg); }
+  40%, 80% { transform: rotate(24deg); }
 }
 
 /* CTA Button (topbar) */
@@ -6304,28 +6327,179 @@ button:hover .cta-arrow {
   .hdr-navbar {
     display: none !important;
   }
-  .mobile-toggle-btn {
-    display: flex !important;
+  .hdr-topbar {
+    height: 54px !important;
   }
+  .hdr-topbar-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    padding: 0 0.85rem !important;
+    width: 100% !important;
+  }
+
+  /* LEFT: Sacred Temple Bell ("Ball") Button */
+  .hdr-topbar-left {
+    order: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    z-index: 5 !important;
+  }
+
+  .hdr-topbar-left .ring-bell-btn,
+  .hdr-topbar-left .tb-icon-btn {
+    display: inline-flex !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    max-width: 38px !important;
+    max-height: 38px !important;
+    border-radius: 50% !important;
+    aspect-ratio: 1 / 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+    cursor: pointer !important;
+  }
+
+  .hdr-topbar-left .ring-bell-btn i,
+  .hdr-topbar-left .tb-icon-btn i {
+    font-size: 0.95rem !important;
+    color: #FDE68A !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+
+  /* CENTER: Brand Logo & Title */
+  .brand-link {
+    order: 2 !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.45rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: calc(100% - 100px) !important;
+    z-index: 3 !important;
+    pointer-events: auto !important;
+    text-decoration: none !important;
+  }
+
+  .brand-emblem-wrap {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .brand-logo-img {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+  }
+
+  .brand-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+  }
+
+  .brand-title {
+    font-size: 0.98rem !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+    color: #FFFFFF !important;
+  }
+
+  .brand-subtitle {
+    font-size: 0.48rem !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    color: #D4AF37 !important;
+  }
+
+  /* RIGHT: Controls & Hamburger Menu Toggle */
+  .hdr-btn-group {
+    order: 3 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin: 0 !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    z-index: 5 !important;
+  }
+
+  /* 432 Hz button removed from header on mobile */
+  .tb-audio-btn,
+  .hdr-hide-mobile {
+    display: none !important;
+  }
+
+  /* Sukoonsay Main CTA button removed on mobile */
+  .tb-cta-btn,
   .hdr-hide-xs {
     display: none !important;
   }
-  .hdr-topbar {
-    height: 52px;
+
+  /* Right-aligned Hamburger Toggle Button */
+  .mobile-toggle-btn {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    max-width: 38px !important;
+    max-height: 38px !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 10px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
   }
-  .hdr-topbar-inner {
-    padding: 0 1.1rem;
-  }
-  .brand-emblem-wrap {
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-  }
-  .brand-title {
-    font-size: 1.08rem;
-  }
-  .brand-subtitle {
-    font-size: 0.58rem;
+
+  .mobile-toggle-btn .ham-bar {
+    width: 18px !important;
+    height: 2px !important;
+    background: #FFFFFF !important;
+    border-radius: 2px !important;
+    transition: all 0.25s ease !important;
+    display: block !important;
   }
 }
 
@@ -6404,131 +6578,14 @@ button:hover .cta-arrow {
   }
 }
 
-@media (max-width: 768px) {
-  .hdr-topbar {
-    height: 50px;
-  }
-  .hdr-topbar-inner {
-    padding: 0 0.85rem;
-    gap: 0.5rem;
-  }
-  .brand-link {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.55rem;
-    flex-shrink: 1;
-    min-width: 0;
-  }
-  .brand-emblem-wrap {
-    width: 34px;
-    height: 34px;
-    min-width: 34px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .brand-text {
-    display: flex !important;
-    flex-direction: column !important;
-    min-width: 0;
-    overflow: hidden;
-  }
-  .brand-title {
-    font-size: 1rem !important;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.15;
-  }
-  .brand-subtitle {
-    font-size: 0.55rem !important;
-    letter-spacing: 0.03em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #D4AF37;
-    line-height: 1.1;
-  }
-  .hdr-btn-group {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.4rem;
-    flex-shrink: 0;
-  }
-  .tb-audio-btn {
-    padding: 0.25rem 0.55rem;
-    font-size: 0.72rem;
-  }
-  .tb-icon-btn {
-    width: 30px;
-    height: 30px;
-    font-size: 0.8rem;
-  }
-  .mobile-toggle-btn {
-    width: 34px;
-    height: 34px;
-  }
-  .ham-bar {
-    width: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hdr-topbar {
-    height: 48px;
-  }
-  .hdr-topbar-inner {
-    padding: 0 0.65rem;
-    gap: 0.35rem;
-  }
-  .brand-link {
-    gap: 0.45rem;
-  }
-  .brand-emblem-wrap {
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
-  }
-  .brand-title {
-    font-size: 0.9rem !important;
-    letter-spacing: 0.02em;
-  }
-  .brand-subtitle {
-    font-size: 0.5rem !important;
-    letter-spacing: 0.02em;
-  }
-  .hdr-btn-group {
-    gap: 0.3rem;
-  }
-  .tb-audio-btn {
-    padding: 0.22rem 0.45rem;
-    font-size: 0.68rem;
-  }
-  .tb-audio-btn .audio-bars {
-    display: none;
-  }
-  .tb-icon-btn {
-    width: 28px;
-    height: 28px;
-    font-size: 0.75rem;
-  }
-  .mobile-toggle-btn {
-    width: 32px;
-    height: 32px;
-  }
-  .ham-bar {
-    width: 16px;
-  }
-}
-
 @media (max-width: 360px) {
   .hdr-topbar-inner {
     padding: 0 0.45rem;
   }
   .brand-emblem-wrap {
-    width: 28px;
-    height: 28px;
-    min-width: 28px;
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
   }
   .brand-title {
     font-size: 0.84rem !important;

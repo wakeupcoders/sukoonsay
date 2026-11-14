@@ -819,7 +819,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.querySelectorAll('.trigger-sacred-bell, .ring-bell-btn').forEach(btn => {
-    btn.addEventListener('click', playSacredBell);
+    btn.addEventListener('click', () => {
+      btn.classList.remove('ringing');
+      void btn.offsetWidth;
+      btn.classList.add('ringing');
+      setTimeout(() => btn.classList.remove('ringing'), 700);
+      playSacredBell();
+    });
   });
   document.querySelectorAll('.audio-chime-toggle').forEach(btn => {
     btn.addEventListener('click', toggleAmbientChimes);

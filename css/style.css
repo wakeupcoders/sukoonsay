@@ -596,11 +596,21 @@ img {
 
 /* Brand Link */
 .brand-link {
+  order: 1;
   display: flex;
   align-items: center;
   gap: 0.6rem;
   flex-shrink: 0;
   text-decoration: none;
+}
+
+/* Header Topbar Left Zone (Bell on mobile, grouped right on desktop) */
+.hdr-topbar-left {
+  order: 2;
+  margin-left: auto;
+  margin-right: 0.55rem;
+  display: flex;
+  align-items: center;
 }
 
 .brand-emblem-wrap {
@@ -646,6 +656,7 @@ img {
 
 /* Button Group (right side of topbar) */
 .hdr-btn-group {
+  order: 3;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -707,6 +718,17 @@ img {
   color: #180D26;
   transform: rotate(-12deg) scale(1.08);
   box-shadow: 0 2px 10px rgba(212, 175, 55, 0.35);
+}
+
+.ring-bell-btn.ringing i,
+.tb-icon-btn:active i {
+  animation: bellShake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes bellShake {
+  0%, 100% { transform: rotate(0); }
+  20%, 60% { transform: rotate(-24deg); }
+  40%, 80% { transform: rotate(24deg); }
 }
 
 /* CTA Button (topbar) */
@@ -3453,14 +3475,184 @@ img {
   .hdr-navbar {
     display: none !important;
   }
-  .mobile-toggle-btn {
-    display: flex !important;
+  body {
+    padding-top: 54px !important;
   }
+  .hdr-topbar {
+    height: 54px !important;
+  }
+  .hdr-topbar-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    padding: 0 0.85rem !important;
+    width: 100% !important;
+  }
+
+  /* LEFT: Sacred Temple Bell ("Ball") Button */
+  .hdr-topbar-left {
+    order: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    z-index: 5 !important;
+  }
+
+  .hdr-topbar-left .ring-bell-btn,
+  .hdr-topbar-left .tb-icon-btn {
+    display: inline-flex !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    max-width: 38px !important;
+    max-height: 38px !important;
+    border-radius: 50% !important;
+    aspect-ratio: 1 / 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
+    box-shadow: 0 2px 8px rgba(46, 26, 71, 0.12) !important;
+    cursor: pointer !important;
+  }
+
+  .hdr-topbar-left .ring-bell-btn i,
+  .hdr-topbar-left .tb-icon-btn i {
+    font-size: 0.95rem !important;
+    color: var(--sacred-saffron, #E65100) !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+
+  /* CENTER: Brand Logo & Title */
+  .brand-link {
+    order: 2 !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.45rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: calc(100% - 100px) !important;
+    z-index: 3 !important;
+    pointer-events: auto !important;
+    text-decoration: none !important;
+  }
+
+  .brand-emblem-wrap {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .brand-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+  }
+
+  .brand-title {
+    font-size: 0.98rem !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+  }
+
+  .brand-subtitle {
+    font-size: 0.5rem !important;
+    letter-spacing: 0.03em !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    color: var(--sacred-saffron, #E65100) !important;
+  }
+
+  /* RIGHT: Controls & Hamburger Menu Toggle */
+  .hdr-btn-group {
+    order: 3 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin: 0 !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    z-index: 5 !important;
+  }
+
+  /* 432 Hz button removed from header on mobile */
+  .tb-audio-btn,
+  .hdr-hide-mobile {
+    display: none !important;
+  }
+
+  /* Enter Sanctuaries CTA hidden on mobile */
+  .tb-cta-btn,
   .hdr-hide-xs {
     display: none !important;
   }
-  body {
-    padding-top: 52px !important;
+
+  /* Right-aligned Hamburger Toggle Button */
+  .mobile-toggle-btn {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    max-width: 38px !important;
+    max-height: 38px !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 10px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
+    box-shadow: 0 2px 8px rgba(46, 26, 71, 0.12) !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mobile-toggle-btn .ham-bar {
+    width: 18px !important;
+    height: 2px !important;
+    background: var(--midnight-purple, #1C1128) !important;
+    border-radius: 2px !important;
+    transition: all 0.25s ease !important;
+    display: block !important;
+  }
+
+  /* Sidebar drawer: only SUKOONSAY title in center */
+  .drawer-sub {
+    display: none !important;
+  }
+  .drawer-title {
+    margin: 0 !important;
+    line-height: 1 !important;
+    font-size: 1.15rem !important;
   }
 }
 

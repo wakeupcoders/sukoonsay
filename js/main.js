@@ -117,7 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', toggleAmbientChimes);
   });
   document.querySelectorAll('.ring-bell-btn').forEach(btn => {
-    btn.addEventListener('click', playSacredBell);
+    btn.addEventListener('click', () => {
+      btn.classList.remove('ringing');
+      void btn.offsetWidth;
+      btn.classList.add('ringing');
+      setTimeout(() => btn.classList.remove('ringing'), 700);
+      playSacredBell();
+    });
   });
 
   // 3. MOBILE OFFCANVAS DRAWER
