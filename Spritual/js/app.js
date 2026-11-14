@@ -503,54 +503,45 @@ const AARTI_SCHEDULE = [
 
 function getSanctumStatus() {
   const now = new Date();
-  // Get current hour and min in IST (UTC+5:30)
+  // Get current hour, min, and sec in IST (UTC+5:30)
   const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
   const istDate = new Date(utc + (3600000 * 5.5));
   const curHr = istDate.getHours();
   const curMin = istDate.getMinutes();
+  const curSec = istDate.getSeconds();
+  const nowTotalSeconds = curHr * 3600 + curMin * 60 + curSec;
+
+  // Morning Darshan: 05:30 (330m) to 12:30 (750m)
+  // Evening Darshan: 16:30 (990m) to 21:30 (1290m)
   const totalMin = curHr * 60 + curMin;
+  const isMorningOpen = (totalMin >= 330 && totalMin < 750);
+  const isEveningOpen = (totalMin >= 990 && totalMin < 1290);
+  const isOpen = isMorningOpen || isEveningOpen;
 
-  // Morning Darshan: 05:30 (330) to 12:30 (750)
-  // Evening Darshan: 16:30 (990) to 21:30 (1290)
-  let isOpen = false;
-  let statusText = 'CLOSED NOW • Sanctum Shayan';
+  let statusText = 'CLOSED FOR VISHRAM';
   let badgeClass = 'bg-secondary';
-
-  if (totalMin >= 330 && totalMin < 750) {
-    isOpen = true;
-    statusText = 'OPEN NOW • Pratah Kaal Darshan';
+  if (isOpen) {
+    statusText = isMorningOpen ? 'OPEN NOW • Pratah Kaal' : 'OPEN NOW • Sandhya Kaal';
     badgeClass = 'bg-success';
-  } else if (totalMin >= 990 && totalMin < 1290) {
-    isOpen = true;
-    statusText = 'OPEN NOW • Sandhya Kaal Darshan';
-    badgeClass = 'bg-success';
-  } else if (totalMin >= 750 && totalMin < 990) {
-    isOpen = false;
-    statusText = 'CLOSED NOW • Afternoon Shayan (Reopens at 04:30 PM)';
-    badgeClass = 'bg-warning text-dark';
-  } else {
-    isOpen = false;
-    statusText = 'CLOSED NOW • Night Shayan (Opens at 05:30 AM)';
-    badgeClass = 'bg-secondary';
   }
 
-  // Find next upcoming event
+  // Find next upcoming event in exact seconds
   let nextEvent = AARTI_SCHEDULE[0];
-  let minDiff = 99999;
+  let minDiffSec = 999999;
   for (const item of AARTI_SCHEDULE) {
-    const itemMin = item.hr * 60 + item.min;
-    let diff = itemMin - totalMin;
-    if (diff < 0) diff += 1440; // Next day
-    if (diff < minDiff && diff > 0) {
-      minDiff = diff;
+    const itemSec = item.hr * 3600 + item.min * 60;
+    let diffSec = itemSec - nowTotalSeconds;
+    if (diffSec <= 0) diffSec += 86400; // Next day
+    if (diffSec < minDiffSec) {
+      minDiffSec = diffSec;
       nextEvent = item;
     }
   }
 
-  const hoursLeft = Math.floor(minDiff / 60);
-  const minsLeft = minDiff % 60;
-  const secsLeft = 60 - istDate.getSeconds();
-  const countdownStr = `${String(hoursLeft).padStart(2, '0')}:${String(minsLeft).padStart(2, '0')}:${String(secsLeft % 60).padStart(2, '0')}`;
+  const hoursLeft = Math.floor(minDiffSec / 3600);
+  const minsLeft = Math.floor((minDiffSec % 3600) / 60);
+  const secsLeft = minDiffSec % 60;
+  const countdownStr = `${String(hoursLeft).padStart(2, '0')}:${String(minsLeft).padStart(2, '0')}:${String(secsLeft).padStart(2, '0')}`;
 
   return {
     isOpen,
@@ -560,6 +551,7 @@ function getSanctumStatus() {
     countdownStr,
     istTimeString: istDate.toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' })
   };
+}
 }
 
 // =========================================================================
@@ -640,16 +632,14 @@ document.addEventListener('DOMContentLoaded', () => {
       nextAartiLocalEl.textContent = `(${status.nextEvent.time} IST)`;
     }
 
-    // Devotee Country Clock
+    // Devotee Country Clock (Pure Monospace Tabular Format)
     const countryClockEl = document.getElementById('devoteeCountryClock');
     if (countryClockEl) {
       const now = new Date();
-      const localStr = now.toLocaleTimeString('en-US', { timeZone: country.tz, hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' });
-      if (country.code !== 'IN') {
-        countryClockEl.textContent = `${country.code}: ${localStr}`;
-      } else {
-        countryClockEl.textContent = `Ropar Punjab`;
-      }
+      try {
+        const localStr = now.toLocaleTimeString('en-US', { timeZone: country.tz, hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        countryClockEl.textContent = localStr;
+      } catch(e) {}
     }
 
     const countrySubEl = document.getElementById('devoteeCountrySub');

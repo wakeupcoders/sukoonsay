@@ -938,10 +938,8 @@
 
       highlightCurrentSlot();
       updateConvertedSlotTimes();
-      setInterval(() => {
-        highlightCurrentSlot();
-        updateConvertedSlotTimes();
-      }, 1000);
+      // Only highlightCurrentSlot runs on interval; slot times do not need recalculating every second
+      setInterval(highlightCurrentSlot, 1000);
 
       window.addEventListener('countryChanged', updateConvertedSlotTimes);
     });
