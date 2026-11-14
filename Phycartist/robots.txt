@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sukoonsay.com/psychiatry/sitemap.xml
-
+Sitemap: https://sukoonsay.com/Phycartist/sitemap.xml
+Sitemap: https://sukoonsay.com/sitemap.xml

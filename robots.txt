@@ -1,5 +1,12 @@
+# ==============================================================================
+# Sukoonsay Unified Sanctuary - Robots.txt
+# Comprehensive Search Engine Crawler Directives (Google, Bing, Yahoo, DuckDuckGo)
+# ==============================================================================
+
 User-agent: *
 Allow: /
 
+# Canonical Sitemaps
 Sitemap: https://sukoonsay.com/sitemap.xml
-
+Sitemap: https://sukoonsay.com/Spritual/sitemap.xml
+Sitemap: https://sukoonsay.com/Phycartist/sitemap.xml

@@ -1,34 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- 1. Home / Master Portal -->
   <url>
     <loc>https://sukoonsay.com/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://sukoonsay.com/#portals</loc>
-    <lastmod>2026-11-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://sukoonsay.com/#stress-solutions</loc>
-    <lastmod>2026-11-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sukoonsay.com/#peace-calculator</loc>
-    <lastmod>2026-11-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sukoonsay.com/#wisdom-matrix</loc>
-    <lastmod>2026-11-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-</urlset>
 
+  <!-- 2. Clinical Psychiatry & Therapy Sanctuary -->
+  <url>
+    <loc>https://sukoonsay.com/Phycartist/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 3. Sukoon Temple Sanctum Home -->
+  <url>
+    <loc>https://sukoonsay.com/Spritual/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 4. 24/7 Sanctum Live Darshan & YouTube Streams -->
+  <url>
+    <loc>https://sukoonsay.com/Spritual/live.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 5. Aarti Timings & Sanctum Darshan Schedule -->
+  <url>
+    <loc>https://sukoonsay.com/Spritual/timings.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 6. Online Puja Booking & Acharya Consultation -->
+  <url>
+    <loc>https://sukoonsay.com/Spritual/booking.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <!-- 7. Sacred Vedic Pujas, Havans & Astrological Sevas -->
+  <url>
+    <loc>https://sukoonsay.com/Spritual/services.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 8. Hindu Panchang Calendar & Auspicious Tithis -->
+  <url>
+    <loc>https://sukoonsay.com/Spritual/calendar.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 9. About Sukoon Temple Heritage & Acharyas -->
+  <url>
+    <loc>https://sukoonsay.com/Spritual/about.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 10. Contact & Mandir Directions (Ropar, Punjab) -->
+  <url>
+    <loc>https://sukoonsay.com/Spritual/contact.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+</urlset>
