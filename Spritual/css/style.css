@@ -2760,13 +2760,25 @@ img {
   height: 100%;
   background-size: cover;
   background-position: center;
-  transform: scale(1.05);
-  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: scale(1.04);
+  transition: transform 3s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform;
 }
 
 .slide-item.active-slide .slide-image-backdrop {
-  transform: scale(1);
+  animation: heroCinematicBreathe 14s ease-in-out infinite alternate;
+}
+
+@keyframes heroCinematicBreathe {
+  0% {
+    transform: scale(1.02) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.08) translate(-1%, -0.6%);
+  }
+  100% {
+    transform: scale(1.04) translate(0.8%, 0.4%);
+  }
 }
 
 .slide-overlay-gradient {
@@ -7655,7 +7667,7 @@ button:hover .cta-arrow {
     #4A1C0A 70%,
     #2C1000 100%
   );
-  padding: 4.5rem 0 5rem;
+  padding: 1.25rem 0 1.5rem;
   overflow: hidden;
   text-align: center;
   color: #FFF;
@@ -7698,8 +7710,8 @@ button:hover .cta-arrow {
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  margin-bottom: 1.2rem;
-  font-size: 1.8rem;
+  margin-bottom: 0.35rem;
+  font-size:  1.35rem;
 }
 
 .diya-anim {
@@ -7720,7 +7732,7 @@ button:hover .cta-arrow {
 
 .om-symbol {
   font-family: var(--font-sanskrit, serif);
-  font-size: 2.5rem;
+  font-size: 1.85rem;
   color: #FFD54F;
   text-shadow: 0 0 20px rgba(255, 213, 79, 0.8), 0 0 40px rgba(255, 165, 0, 0.4);
   animation: omGlow 3s ease-in-out infinite alternate;
@@ -7740,20 +7752,20 @@ button:hover .cta-arrow {
 
 .hero-title {
   font-family: var(--font-serif, 'Cinzel', serif);
-  font-size: 3.6rem;
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
   font-weight: 800;
   color: #FFFFFF;
   letter-spacing: 0.04em;
-  margin: 0.6rem 0 0.9rem;
+  margin:  0.25rem 0 0.35rem;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
   animation: fadeSlideDown 0.65s ease 0.1s both;
 }
 
 .hero-desc {
-  font-size: 1.12rem;
+  font-size: 0.92rem;
   color: rgba(255, 255, 255, 0.85);
   max-width: 620px;
-  margin: 0 auto 1.5rem;
+  margin:  0 auto 0.6rem;
   line-height: 1.65;
   animation: fadeSlideDown 0.7s ease 0.2s both;
 }
@@ -7859,7 +7871,7 @@ button:hover .cta-arrow {
 }
 .hero-wave-divider svg {
   width: 100%;
-  height: 48px;
+  height:  20px;
 }
 
 /* ============================================================
@@ -8371,7 +8383,7 @@ button:hover .cta-arrow {
 }
 
 @media (max-width: 640px) {
-  .darshan-hero { padding: 3.5rem 0 4rem; }
+  .darshan-hero { padding: 1rem 0 1.25rem; }
   .hero-title { font-size: 2.2rem; letter-spacing: 0.02em; }
   .hero-desc { font-size: 0.98rem; }
   .hero-emblem-row { font-size: 1.5rem; gap: 1rem; }
@@ -8918,4 +8930,50 @@ button:hover .cta-arrow {
   color: #FFF;
   border-color: #D4AF37;
   transform: translateY(-1px);
+}
+/* Full Screen Player Immersion Styles */
+.player-frame-wrap:fullscreen,
+.player-frame-wrap:-webkit-full-screen {
+  width: 100vw !important;
+  height: 100vh !important;
+  padding-bottom: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  max-width: none !important;
+  background: #000 !important;
+  z-index: 9999999;
+}
+.player-frame-wrap:fullscreen iframe,
+.player-frame-wrap:-webkit-full-screen iframe {
+  width: 100vw !important;
+  height: 100vh !important;
+  border-radius: 0 !important;
+}
+.player-overlay-fs-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(18, 9, 29, 0.78);
+  border: 1.5px solid rgba(212, 175, 55, 0.65);
+  color: #FFD54F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+}
+.player-overlay-fs-btn:hover {
+  background: rgba(212, 175, 55, 0.95);
+  color: #1a0b2e;
+  transform: scale(1.08);
+}
+.btn-fullscreen-toggle:hover {
+  background: rgba(212, 175, 55, 0.35) !important;
+  color: #5c4803 !important;
 }

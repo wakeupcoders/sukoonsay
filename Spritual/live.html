@@ -307,7 +307,7 @@
   <!-- ======================================================
        4. MAIN PLAYER SECTION (SCREENSHOTS 3 & 4)
        ====================================================== -->
-  <section class="player-section section-padding py-5" style="background: #FDFBF7;">
+  <section class="player-section" style="background: #FDFBF7; padding: 1.25rem 0 2rem;">
     <div class="container player-container">
       <div class="live-wrapper">
         <!-- Live badge + title -->
@@ -325,9 +325,15 @@
         </div>
 
         <!-- High-Definition Video Player Frame with Glowing Ring -->
-        <div class="player-frame-wrap mb-3 position-relative">
+                <!-- High-Definition Video Player Frame with Glowing Ring & Full Screen Capability -->
+        <div id="playerFrameWrap" class="player-frame-wrap mb-3 position-relative">
           <div class="player-glow-ring"></div>
           
+          <!-- Fullscreen Overlay Button -->
+          <button id="playerOverlayFsBtn" class="player-overlay-fs-btn" title="Toggle Full Screen" aria-label="Toggle Full Screen">
+            <i class="fa-solid fa-expand"></i>
+          </button>
+
           <!-- YouTube Live Stream / Aarti Player -->
           <iframe
             id="liveStreamIframe"
@@ -338,11 +344,6 @@
             allowfullscreen
             loading="lazy">
           </iframe>
-
-          <!-- Fallback local sample video (Hidden by default, used on demand) -->
-          <video id="liveVideoPlayer" loop muted playsinline controls poster="assets/images/hero-temple.jpg" style="display: none;">
-            <source src="assets/videos/sample-darshan.mp4" type="video/mp4">
-          </video>
         </div>
 
         <!-- Watch on YouTube & Refresh Controls -->
@@ -365,8 +366,8 @@
             </svg>
             Refresh
           </button>
-          <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 ms-auto" id="toggleSampleVidBtn" title="Toggle Tranquil Offline Sample">
-            <i class="fa-solid fa-film me-1"></i> Sample Video
+          <button class="btn btn-sm rounded-pill px-3 ms-auto fw-bold btn-fullscreen-toggle" id="fullScreenBtn" title="Full Screen Immersion" style="background: rgba(212, 175, 55, 0.15); border: 1.5px solid rgba(212, 175, 55, 0.6); color: #8A6D05; transition: all 0.25s ease;">
+            <i class="fa-solid fa-expand me-1"></i> Full Screen
           </button>
         </div>
 
