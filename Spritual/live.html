@@ -302,7 +302,7 @@
         </div>
 
         <!-- Watch on YouTube & Refresh Controls -->
-        <div class="live-actions-row d-flex align-items-center gap-2 mb-3">
+        <div class="live-actions-row">
           <a
             id="ytWatchBtn"
             href="https://www.youtube.com/watch?v=p1potl1sbjA"
@@ -314,16 +314,19 @@
             </svg>
             Watch on YouTube
           </a>
-          <button class="btn-refresh" id="refreshStreamBtn" title="Refresh live stream">
-            <svg viewBox="0 0 24 24" class="refresh-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="1 4 1 10 7 10"/>
-              <path d="M3.51 15a9 9 0 1 0 .49-4.99"/>
-            </svg>
-            Refresh
-          </button>
-          <button class="btn btn-sm rounded-pill px-3 fw-bold btn-fullscreen-toggle" id="fullScreenBtn" title="Full Screen Immersion">
-            <i class="fa-solid fa-expand me-1"></i> Full Screen
-          </button>
+          <div class="refresh-fullscreen-row">
+            <button class="btn-refresh" id="refreshStreamBtn" title="Refresh live stream">
+              <svg viewBox="0 0 24 24" class="refresh-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="1 4 1 10 7 10"/>
+                <path d="M3.51 15a9 9 0 1 0 .49-4.99"/>
+              </svg>
+              <span>Refresh</span>
+            </button>
+            <button class="btn-fullscreen-toggle" id="fullScreenBtn" title="Full Screen Immersion">
+              <i class="fa-solid fa-expand me-1"></i>
+              <span>Full Screen</span>
+            </button>
+          </div>
         </div>
 
         <!-- Audio Guide Tip Banner (Exact from Screenshot 3) -->

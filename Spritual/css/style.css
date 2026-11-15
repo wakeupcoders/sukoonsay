@@ -8452,8 +8452,6 @@ button:hover .cta-arrow {
   .connect-title { font-size: 1.5rem; }
   .connect-card { padding: 2rem 1.2rem; }
 
-  .live-actions-row { flex-direction: column; align-items: flex-start; }
-
   .programs-grid { gap: 1rem; }
   .program-card { padding: 1.1rem; gap: 0.85rem; }
   .program-icon-wrap { width: 42px; height: 42px; font-size: 1.3rem; }
@@ -9269,17 +9267,19 @@ body.live-darshan-page {
 
 .live-actions-row {
   display: flex !important;
+  flex-direction: row !important;
   align-items: center !important;
+  justify-content: space-between !important;
   gap: 0.75rem !important;
   margin-bottom: 1.5rem !important;
-  flex-wrap: wrap !important;
 }
 
 .btn-yt-watch {
   display: inline-flex !important;
   align-items: center !important;
   gap: 0.5rem !important;
-  padding: 0.65rem 1.4rem !important;
+  padding: 0 1.4rem !important;
+  height: 44px !important;
   background: #FF0000 !important;
   color: #FFF !important;
   border-radius: 9999px !important;
@@ -9288,6 +9288,7 @@ body.live-darshan-page {
   text-decoration: none !important;
   box-shadow: 0 4px 14px rgba(255, 0, 0, 0.3) !important;
   white-space: nowrap !important;
+  box-sizing: border-box !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 
@@ -9297,20 +9298,37 @@ body.live-darshan-page {
   color: #FFF !important;
 }
 
-.btn-refresh {
+.refresh-fullscreen-row {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+}
+
+.btn-refresh,
+.btn-fullscreen-toggle {
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
   gap: 0.45rem !important;
-  padding: 0.62rem 1.25rem !important;
+  height: 44px !important;
+  padding: 0 1.25rem !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-refresh {
   background: rgba(255, 255, 255, 0.95) !important;
   color: #2E1A47 !important;
   border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
-  border-radius: 9999px !important;
-  font-weight: 600 !important;
-  font-size: 0.9rem !important;
-  cursor: pointer !important;
-  white-space: nowrap !important;
-  transition: all 0.2s ease !important;
 }
 
 .btn-refresh:hover {
@@ -9320,19 +9338,9 @@ body.live-darshan-page {
 }
 
 .btn-fullscreen-toggle {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.45rem !important;
-  padding: 0.62rem 1.25rem !important;
-  font-size: 0.9rem !important;
-  font-weight: 700 !important;
-  border-radius: 9999px !important;
-  margin-left: auto !important;
-  white-space: nowrap !important;
   background: rgba(212, 175, 55, 0.15) !important;
   border: 1.5px solid rgba(212, 175, 55, 0.6) !important;
   color: #8A6D05 !important;
-  transition: all 0.25s ease !important;
 }
 
 .btn-fullscreen-toggle:hover {
@@ -9395,54 +9403,52 @@ body.live-darshan-page {
   }
 }
 
-/* Mobile Responsive: Perfectly Equal Refresh & Full Screen Buttons */
+/* Mobile Responsive: Perfectly Equal Refresh & Full Screen Buttons in ONE SINGLE ROW */
 @media (max-width: 768px) {
   .live-actions-row {
     display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 0.65rem !important;
+    flex-direction: column !important;
     align-items: stretch !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+    margin-bottom: 1.25rem !important;
   }
 
   .btn-yt-watch {
     width: 100% !important;
+    height: 44px !important;
     justify-content: center !important;
-    padding: 0.72rem 1.25rem !important;
-    order: 1 !important;
-    font-size: 0.92rem !important;
     text-align: center !important;
+    font-size: 0.92rem !important;
+    padding: 0 1.25rem !important;
+    box-sizing: border-box !important;
   }
 
-  .btn-refresh {
-    flex: 1 1 0% !important;
+  .refresh-fullscreen-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: 0.65rem !important;
+    margin-left: 0 !important;
+  }
+
+  .refresh-fullscreen-row .btn-refresh,
+  .refresh-fullscreen-row .btn-fullscreen-toggle {
+    flex: 1 1 50% !important;
+    width: calc(50% - 0.325rem) !important;
+    max-width: calc(50% - 0.325rem) !important;
     min-width: 0 !important;
-    width: calc(50% - 0.35rem) !important;
-    justify-content: center !important;
-    text-align: center !important;
-    padding: 0.65rem 0.6rem !important;
+    height: 44px !important;
+    padding: 0 0.5rem !important;
     font-size: 0.88rem !important;
     font-weight: 600 !important;
-    height: 44px !important;
     border-radius: 9999px !important;
-    margin: 0 !important;
-    order: 2 !important;
-    box-sizing: border-box !important;
-  }
-
-  .btn-fullscreen-toggle {
-    flex: 1 1 0% !important;
-    min-width: 0 !important;
-    width: calc(50% - 0.35rem) !important;
     justify-content: center !important;
     text-align: center !important;
-    padding: 0.65rem 0.6rem !important;
-    font-size: 0.88rem !important;
-    font-weight: 700 !important;
-    height: 44px !important;
-    border-radius: 9999px !important;
-    margin: 0 !important;
-    margin-left: 0 !important;
-    order: 3 !important;
     box-sizing: border-box !important;
+    margin: 0 !important;
   }
 }
