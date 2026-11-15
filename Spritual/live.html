@@ -25,24 +25,24 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    /* Scoped helpers for Live Darshan Compact Half-Height Screen */
+    /* Scoped helpers for Small Compact Live Darshan Screen */
     .player-container {
-      max-width: 520px !important;
+      max-width: 480px !important;
       margin: 0 auto !important;
     }
     .player-frame-wrap {
       position: relative !important;
       width: 100% !important;
-      max-width: 520px !important;
+      max-width: 380px !important;
       aspect-ratio: 16 / 9 !important;
       height: auto !important;
-      max-height: 285px !important;
+      max-height: 215px !important;
       margin: 0 auto 0.6rem auto !important;
       padding: 0 !important;
-      border-radius: 1rem !important;
+      border-radius: 0.85rem !important;
       overflow: hidden !important;
-      box-shadow: 0 10px 30px -4px rgba(46, 26, 71, 0.35), 0 0 18px rgba(212, 175, 55, 0.25) !important;
-      border: 2px solid rgba(212, 175, 55, 0.4) !important;
+      box-shadow: 0 8px 25px -4px rgba(46, 26, 71, 0.3), 0 0 16px rgba(212, 175, 55, 0.22) !important;
+      border: 2px solid rgba(212, 175, 55, 0.45) !important;
       background: #000 !important;
     }
     .player-frame-wrap iframe {
@@ -53,6 +53,38 @@
       height: 100% !important;
       border: 0 !important;
       object-fit: cover !important;
+    }
+    .live-actions-row {
+      max-width: 380px !important;
+      margin: 0 auto 0.75rem auto !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 0.4rem !important;
+      flex-wrap: nowrap !important;
+    }
+    .btn-yt-watch {
+      padding: 0.42rem 0.85rem !important;
+      font-size: 0.78rem !important;
+      gap: 0.35rem !important;
+      white-space: nowrap !important;
+    }
+    .btn-refresh {
+      padding: 0.42rem 0.75rem !important;
+      font-size: 0.78rem !important;
+      gap: 0.3rem !important;
+      white-space: nowrap !important;
+    }
+    .btn-fullscreen-toggle {
+      padding: 0.42rem 0.75rem !important;
+      font-size: 0.78rem !important;
+      white-space: nowrap !important;
+    }
+    .audio-tip-banner {
+      max-width: 480px !important;
+      margin: 0 auto 1.25rem auto !important;
+      padding: 0.6rem 0.85rem !important;
+      font-size: 0.82rem !important;
     }
     .custom-stream-box {
       margin-top: 0.75rem;
@@ -85,7 +117,7 @@
         box-shadow: 0 0 2px #EF4444;
       }
     }
-    /* Compact Sleek Hero Banner so video player is immediately fully visible on laptop */
+    /* Compact Sleek Hero Banner so video player is immediately fully visible */
     .darshan-hero {
       padding: 0.5rem 0 0.6rem !important;
     }
@@ -112,10 +144,13 @@
       display: none !important;
     }
     .player-section {
-      padding: 0.5rem 0 1.25rem !important;
+      padding: 0.45rem 0 1.25rem !important;
     }
     .live-header-row {
       margin-bottom: 0.4rem !important;
+      max-width: 480px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
     .live-badge-pill {
       font-size: 0.72rem !important;

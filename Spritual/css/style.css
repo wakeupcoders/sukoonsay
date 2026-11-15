@@ -7936,7 +7936,7 @@ button:hover .cta-arrow {
 }
 
 .player-container {
-  max-width: 520px;
+  max-width: 480px;
   margin: 0 auto;
 }
 
@@ -7999,16 +7999,18 @@ button:hover .cta-arrow {
 .player-frame-wrap {
   position: relative;
   width: 100%;
+  max-width: 380px;
   aspect-ratio: 16 / 9;
   height: auto;
-  max-height: 285px;
+  max-height: 215px;
+  margin: 0 auto;
   padding: 0;
-  border-radius: var(--radius-lg, 16px);
+  border-radius: var(--radius-lg, 14px);
   overflow: hidden;
   box-shadow:
-    0 0 0 3px rgba(212, 175, 55, 0.3),
-    0 12px 35px rgba(46, 26, 71, 0.22),
-    0 0 40px rgba(212, 175, 55, 0.08);
+    0 0 0 2px rgba(212, 175, 55, 0.3),
+    0 10px 30px rgba(46, 26, 71, 0.2),
+    0 0 30px rgba(212, 175, 55, 0.08);
   animation: playerGoldenGlow 4s ease-in-out infinite alternate;
   background: #0D0D0D;
 }
