@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const presetBtns = document.querySelectorAll('.preset-btn');
   const lastCheckedTime = document.getElementById('lastCheckedTime');
 
-  const DEFAULT_VIDEO_ID = 'p1potl1sbjA';
+  const DEFAULT_VIDEO_ID = '1csZkqyVToM';
 
   // 1. Live Clock & Last Checked Time
   function updateTime() {
