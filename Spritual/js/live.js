@@ -100,6 +100,10 @@ document.addEventListener('DOMContentLoaded', function () {
       ytWatchBtn.href = 'https://www.youtube.com/watch?v=' + videoId;
     }
 
+    if (customStreamInput) {
+      customStreamInput.value = 'https://youtu.be/' + videoId;
+    }
+
     // Sync presets visual state
     presetBtns.forEach(btn => {
       const chip = btn.querySelector('.preset-playing-chip');
@@ -133,7 +137,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 4. Determine which stream to play on page load
   function initLiveStream() {
-    // A. URL query parameter takes top priority
+    // Clear any obsolete legacy test streams from localStorage so visitors don't get trapped on old videos
+    try {
+      const savedVid = localStorage.getItem('divyasukoon_live_vid');
+      if (savedVid && savedVid !== DEFAULT_VIDEO_ID) {
+        localStorage.removeItem('divyasukoon_live_vid');
+      }
+    } catch (e) {}
+
+    // A. URL query parameter takes top priority (for shared links or direct ?v=)
     const urlParams = new URLSearchParams(window.location.search);
     const paramVid = urlParams.get('v') || urlParams.get('stream');
 
@@ -142,16 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    // B. User locally saved video
-    try {
-      const savedVid = localStorage.getItem('divyasukoon_live_vid');
-      if (savedVid && parseYouTubeId(savedVid)) {
-        switchStream(parseYouTubeId(savedVid), false);
-        return;
-      }
-    } catch (e) {}
-
-    // C. Global server config
+    // B. Global server / site config (data/live-stream.json) - Always prioritize the live configured stream!
     fetch('data/live-stream.json?t=' + Date.now())
       .then(res => (res.ok ? res.json() : null))
       .then(data => {
