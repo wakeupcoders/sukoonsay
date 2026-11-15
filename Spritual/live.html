@@ -34,8 +34,8 @@
       padding: 1.5rem 0 3rem !important;
     }
     .player-container {
-      max-width: 880px !important;
-      width: 94% !important;
+      max-width: 1040px !important;
+      width: 96% !important;
       margin: 0 auto !important;
     }
     .player-frame-wrap {
@@ -414,7 +414,7 @@
           <iframe
             id="liveStreamIframe"
             class="yt-iframe"
-            src="https://www.youtube-nocookie.com/embed/5qap5aO4i9A?autoplay=1&mute=1&enablejsapi=1&rel=0"
+            src="https://www.youtube.com/embed/4dloJNwOyDc?autoplay=1&mute=1&enablejsapi=1&rel=0"
             title="divyasukoon Live Darshan"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
@@ -426,7 +426,7 @@
         <div class="live-actions-row d-flex align-items-center gap-2 mb-3">
           <a
             id="ytWatchBtn"
-            href="https://www.youtube.com"
+            href="https://www.youtube.com/watch?v=4dloJNwOyDc"
             target="_blank"
             rel="noopener noreferrer"
             class="btn-yt-watch">
@@ -482,7 +482,7 @@
 
           <!-- 3 Presets Grid (Exact from Screenshot 3) -->
           <div class="presets-grid">
-            <button type="button" class="preset-btn active" data-vid="5qap5aO4i9A" id="preset1Btn">
+            <button type="button" class="preset-btn active" data-vid="4dloJNwOyDc" id="preset1Btn">
               <span class="preset-icon">🪔</span>
               <span class="preset-details">
                 <span class="preset-hindi">हरिद्वार महा आरती</span>
@@ -835,144 +835,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/app.js"></script>
 
-  <!-- Interactive Live Darshan Page Scripts -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const iframe = document.getElementById('liveStreamIframe');
-      const videoEl = document.getElementById('liveVideoPlayer');
-      const ytWatchBtn = document.getElementById('ytWatchBtn');
-      const refreshBtn = document.getElementById('refreshStreamBtn');
-      const toggleSampleVidBtn = document.getElementById('toggleSampleVidBtn');
-      const toggleCustomStreamBtn = document.getElementById('toggleCustomStreamBtn');
-      const customStreamPanel = document.getElementById('customStreamPanel');
-      const closeCustomStreamBtn = document.getElementById('closeCustomStreamBtn');
-      const customStreamInput = document.getElementById('customStreamInput');
-      const applyCustomStreamBtn = document.getElementById('applyCustomStreamBtn');
-      const customInputMsg = document.getElementById('customInputMsg');
-      const presetBtns = document.querySelectorAll('.preset-btn');
-      const lastCheckedTime = document.getElementById('lastCheckedTime');
-
-      // Update last checked time
-      function updateTime() {
-        const now = new Date();
-        if (lastCheckedTime) {
-          lastCheckedTime.textContent = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        }
-      }
-      updateTime();
-      setInterval(updateTime, 30000);
-
-      // Extract video ID from URL or bare ID
-      function parseYouTubeId(input) {
-        if (!input) return null;
-        input = input.trim();
-        if (/^[a-zA-Z0-9_-]{11}$/.test(input)) return input;
-        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-        const match = input.match(regExp);
-        return (match && match[2].length === 11) ? match[2] : null;
-      }
-
-      function switchStream(videoId) {
-        if (!videoId) return;
-        videoEl.style.display = 'none';
-        videoEl.pause();
-        iframe.style.display = 'block';
-        iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&mute=1&enablejsapi=1&rel=0';
-        ytWatchBtn.href = 'https://www.youtube.com/watch?v=' + videoId;
-        localStorage.setItem('divyasukoon_live_vid', videoId);
-      }
-
-      // Check saved stream
-      const savedVid = localStorage.getItem('divyasukoon_live_vid');
-      if (savedVid) {
-        switchStream(savedVid);
-      }
-
-      // Preset buttons click
-      presetBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-          presetBtns.forEach(b => {
-            b.classList.remove('active');
-            const chip = b.querySelector('.preset-playing-chip');
-            if (chip) chip.remove();
-          });
-          this.classList.add('active');
-          const chipHtml = '<span class="preset-playing-chip"><span class="pulse-ring"></span>Playing Now</span>';
-          this.insertAdjacentHTML('beforeend', chipHtml);
-          const vid = this.getAttribute('data-vid');
-          switchStream(vid);
-        });
-      });
-
-      // Toggle Custom Link Panel (Discreet admin side button)
-      if (toggleCustomStreamBtn && customStreamPanel) {
-        toggleCustomStreamBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const isHidden = customStreamPanel.style.display === 'none';
-          customStreamPanel.style.display = isHidden ? 'block' : 'none';
-          if (isHidden && customStreamInput) customStreamInput.focus();
-        });
-      }
-
-      if (closeCustomStreamBtn && customStreamPanel) {
-        closeCustomStreamBtn.addEventListener('click', function() {
-          customStreamPanel.style.display = 'none';
-        });
-      }
-
-      // Apply custom YouTube video
-      if (applyCustomStreamBtn) {
-        applyCustomStreamBtn.addEventListener('click', function() {
-          const val = customStreamInput.value.trim();
-          const vidId = parseYouTubeId(val);
-          if (vidId) {
-            switchStream(vidId);
-            presetBtns.forEach(b => {
-              b.classList.remove('active');
-              const chip = b.querySelector('.preset-playing-chip');
-              if (chip) chip.remove();
-            });
-            customInputMsg.style.display = 'block';
-            customInputMsg.style.color = '#10B981';
-            customInputMsg.textContent = '✓ Live stream loaded successfully!';
-            setTimeout(() => { customInputMsg.style.display = 'none'; }, 3500);
-          } else {
-            customInputMsg.style.display = 'block';
-            customInputMsg.style.color = '#EF4444';
-            customInputMsg.textContent = '⚠️ Invalid YouTube Link or Video ID. Please check and retry.';
-          }
-        });
-      }
-
-      // Refresh Button
-      if (refreshBtn) {
-        refreshBtn.addEventListener('click', function() {
-          iframe.src = iframe.src;
-          updateTime();
-        });
-      }
-
-      // Sample Video Toggle Button
-      if (toggleSampleVidBtn) {
-        toggleSampleVidBtn.addEventListener('click', function() {
-          if (videoEl.style.display === 'none') {
-            iframe.style.display = 'none';
-            videoEl.style.display = 'block';
-            videoEl.play();
-            this.classList.add('btn-warning');
-            this.classList.remove('btn-outline-secondary');
-            this.innerHTML = '<i class="fa-solid fa-tv me-1"></i> Switch to Live Stream';
-          } else {
-            videoEl.pause();
-            videoEl.style.display = 'none';
-            iframe.style.display = 'block';
-            this.classList.remove('btn-warning');
-            this.classList.add('btn-outline-secondary');
-            this.innerHTML = '<i class="fa-solid fa-film me-1"></i> Sample Video';
-          }
-        });
-      }
-    });
-  </script>
+  <!-- Interactive Live Darshan Page Script -->
+  <script src="js/live.js"></script>
 </body>
 </html>
