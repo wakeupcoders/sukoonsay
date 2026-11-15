@@ -9189,10 +9189,6 @@ button:hover .cta-arrow {
 /* ============================================================
    SAKOON TEMPLE — AUTHENTIC LIVE DARSHAN PORTAL STYLES
    ============================================================ */
-.darshan-hero {
-  display: none !important;
-}
-
 body.live-darshan-page {
   padding-top: 88px;
 }
