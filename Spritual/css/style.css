@@ -4101,21 +4101,89 @@ img {
 
 @media (max-width: 600px) {
   .hero-slider-section {
-    height: 70vh;
-    min-height: 480px;
+    height: 62vh;
+    min-height: 390px;
+    max-height: 520px;
   }
 
-  .slide-title {
-    font-size: 1.85rem;
+  .slide-content-container {
+    align-items: flex-end;
+    padding-bottom: 2.2rem;
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .slide-content {
+    max-width: 100%;
+  }
+
+  .slide-overlay-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(20, 10, 32, 0.22) 0%,
+      rgba(20, 10, 32, 0.12) 30%,
+      rgba(20, 10, 32, 0.72) 75%,
+      rgba(20, 10, 32, 0.92) 100%
+    );
   }
 
   .slide-badge-row {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.35rem;
+    gap: 0.5rem;
   }
 
-  .hero-btn, .hero-secondary-btn {
+  .slide-badge {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .slide-motto {
+    display: none;
+  }
+
+  .slide-title {
+    font-size: clamp(1.35rem, 5.2vw, 1.7rem);
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+
+  .slide-subtitle {
+    font-size: 0.82rem;
+    line-height: 1.35;
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 100%;
+  }
+
+  .slide-cta-row {
+    gap: 0.5rem;
+    flex-wrap: nowrap;
     width: 100%;
+  }
+
+  .hero-btn {
+    width: auto;
+    flex: 1;
+    padding: 0.52rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 999px;
     justify-content: center;
+    white-space: nowrap;
+  }
+
+  .hero-secondary-btn {
+    width: auto;
+    flex: 1;
+    padding: 0.52rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 999px;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .btn-svg-diya {
+    width: 14px;
+    height: 14px;
   }
 
   .slider-arrow {
@@ -8976,4 +9044,153 @@ button:hover .cta-arrow {
 .btn-fullscreen-toggle:hover {
   background: rgba(212, 175, 55, 0.35) !important;
   color: #5c4803 !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   SANCTUM STATUS STRIP ENHANCED MOBILE RESPONSIVENESS
+   -------------------------------------------------------------------------- */
+.strip-item {
+  min-width: 0;
+}
+
+.strip-text-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.strip-clock-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+  width: 100%;
+}
+
+.sanctum-country-select {
+  max-width: 100%;
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 991px) {
+  .sanctum-status-strip {
+    margin-top: -15px !important;
+    border-radius: 14px !important;
+    max-width: calc(100% - 20px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-shadow: 0 4px 20px rgba(46, 26, 71, 0.1) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.35) !important;
+  }
+
+  .strip-content {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.85rem !important;
+    padding: 0.85rem 1rem !important;
+  }
+
+  .strip-divider {
+    display: none !important;
+  }
+
+  .strip-item {
+    width: 100% !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+  }
+
+  .strip-icon-box {
+    width: 38px !important;
+    height: 38px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .strip-clock-head-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.3rem !important;
+    width: 100% !important;
+  }
+
+  .strip-clock-head-row .strip-label {
+    margin-bottom: 0 !important;
+  }
+
+  .sanctum-country-select {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 0.8rem !important;
+    padding: 0.35rem 0.65rem !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+  }
+
+  .strip-value.mono-clock {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  .ist-clock {
+    font-size: 0.98rem !important;
+  }
+
+  .local-clock-pill {
+    font-size: 0.76rem !important;
+    padding: 0.15rem 0.45rem !important;
+  }
+
+  .next-event-val {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    font-size: 0.86rem !important;
+  }
+
+  .clean-countdown-badge {
+    margin-left: 0 !important;
+    font-size: 0.72rem !important;
+    padding: 0.15rem 0.45rem !important;
+  }
+
+  .strip-action {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-wrap: wrap !important;
+    padding-top: 0.35rem !important;
+    border-top: 1px dashed rgba(212, 175, 55, 0.3) !important;
+  }
+
+  .strip-action .audio-chime-toggle {
+    flex: 1 1 auto !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.82rem !important;
+  }
+
+  .strip-action .strip-live-btn {
+    flex: 1.2 1 auto !important;
+    justify-content: center !important;
+    padding: 0.5rem 0.85rem !important;
+    font-size: 0.82rem !important;
+  }
+
+  .strip-action .strip-cta-btn {
+    flex: 100% !important;
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.55rem 1rem !important;
+    font-size: 0.84rem !important;
+  }
 }
