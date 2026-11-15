@@ -25,25 +25,33 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    /* Scoped helpers for Live Darshan Netlify page */
-    .player-frame-wrap {
-      position: relative;
-      padding-top: 56.25%;
-      border-radius: 1.25rem;
-      overflow: hidden;
-      box-shadow: 0 16px 48px -8px rgba(46, 26, 71, 0.4), 0 0 24px rgba(212, 175, 55, 0.3);
-      border: 2px solid rgba(212, 175, 55, 0.4);
-      background: #000;
+    /* Scoped helpers for Live Darshan Compact Screen */
+    .player-container {
+      max-width: 680px !important;
+      margin: 0 auto !important;
     }
-    .player-frame-wrap iframe,
-    .player-frame-wrap video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      object-fit: cover;
+    .player-frame-wrap {
+      position: relative !important;
+      width: 100% !important;
+      aspect-ratio: 16 / 9 !important;
+      height: auto !important;
+      max-height: 385px !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      border-radius: 1.15rem !important;
+      overflow: hidden !important;
+      box-shadow: 0 12px 36px -6px rgba(46, 26, 71, 0.35), 0 0 20px rgba(212, 175, 55, 0.25) !important;
+      border: 2px solid rgba(212, 175, 55, 0.4) !important;
+      background: #000 !important;
+    }
+    .player-frame-wrap iframe {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      border: 0 !important;
+      object-fit: cover !important;
     }
     .custom-stream-box {
       margin-top: 1rem;
@@ -75,6 +83,36 @@
         transform: scale(1.35);
         box-shadow: 0 0 2px #EF4444;
       }
+    }
+    /* Compact hero banner for laptop viewport fit */
+    .darshan-hero {
+      padding: 0.75rem 0 0.85rem !important;
+    }
+    .hero-emblem-row {
+      margin-bottom: 0.2rem !important;
+      gap: 0.65rem !important;
+      font-size: 1.25rem !important;
+    }
+    .om-symbol {
+      font-size: 1.65rem !important;
+    }
+    .hero-title {
+      font-size: clamp(1.6rem, 2.5vw, 2.1rem) !important;
+      margin: 0.15rem 0 0.25rem !important;
+    }
+    .hero-desc {
+      font-size: 0.86rem !important;
+      margin: 0 auto 0.35rem !important;
+      line-height: 1.35 !important;
+    }
+    .hero-wave-divider svg {
+      height: 14px !important;
+    }
+    .player-section {
+      padding: 0.75rem 0 1.25rem !important;
+    }
+    .live-header-row {
+      margin-bottom: 0.5rem !important;
     }
   </style>
 </head>
