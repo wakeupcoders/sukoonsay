@@ -9354,12 +9354,24 @@ body.live-darshan-page {
 }
 
 .custom-stream-box {
+  display: none;
   margin-top: 1rem !important;
-  padding: 1rem !important;
-  background: rgba(24, 13, 38, 0.6) !important;
-  border: 1px dashed rgba(212, 175, 55, 0.35) !important;
-  border-radius: 12px !important;
+  padding: 1.15rem !important;
+  background: rgba(24, 13, 38, 0.75) !important;
+  border: 1.5px dashed rgba(212, 175, 55, 0.45) !important;
+  border-radius: 14px !important;
   transition: all 0.3s ease !important;
+}
+
+.custom-stream-box.open {
+  display: block !important;
+  animation: fadeInDown 0.3s ease both;
+}
+
+.discreet-stream-gear-btn.active {
+  background: rgba(212, 175, 55, 0.3) !important;
+  border-color: #D4AF37 !important;
+  color: #FFF !important;
 }
 
 .live-dot-pulse {

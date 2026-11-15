@@ -302,16 +302,16 @@
                 <span class="live-pulse-dot-sm"></span>
                 Live Running Preview
               </span>
-              <!-- Quick jump button for live stream link setup -->
-              <button id="toggleCustomStreamBtn" class="discreet-stream-gear-btn" title="Change Stream Link">
-                <i class="fa-solid fa-link"></i>
-                <span>Change Link</span>
+              <!-- Button to open/close stream link form on click (Mobile & Laptop) -->
+              <button id="toggleCustomStreamBtn" class="discreet-stream-gear-btn" title="Toggle Live Stream Setup Form">
+                <i class="fa-solid fa-sliders me-1"></i>
+                <span id="toggleCustomStreamText">Change Link</span>
               </button>
             </div>
           </div>
 
           <p class="switcher-subtitle mt-2">
-            Click any sacred live stream below to watch, or paste any YouTube live link or video ID below to update the live stream.
+            Click any sacred live stream below to watch, or click <strong>Change Link</strong> to update the live stream.
           </p>
 
           <!-- 3 Presets Grid (Exact from Screenshot 3) -->
@@ -345,16 +345,14 @@
             </button>
           </div>
 
-          <!-- Prominent Custom YouTube URL / ID Input Form (Always Open, Works on Mobile & Desktop) -->
-          <div id="customStreamPanel" class="custom-stream-box mt-3">
+          <!-- Custom YouTube URL / ID Input Form (Opens ONLY on button click on Laptop & Mobile) -->
+          <div id="customStreamPanel" class="custom-stream-box mt-3" style="display: none;">
             <div class="d-flex align-items-center justify-content-between mb-2 flex-wrap gap-2">
               <label class="custom-input-label m-0 fw-bold" for="customStreamInput">
                 <span class="label-icon">🔗</span>
                 <span><strong>Live Stream Link Changer:</strong> (Paste any YouTube video or live URL)</span>
               </label>
-              <span class="badge bg-warning text-dark px-2 py-1 rounded-pill small">
-                <i class="fa-solid fa-bolt me-1"></i> Live Update
-              </span>
+              <button type="button" class="btn-close btn-close-white small" id="closeCustomStreamBtn" aria-label="Close"></button>
             </div>
             <form id="customStreamForm" onsubmit="return false;" class="m-0">
               <div class="custom-input-group d-flex flex-column flex-sm-row gap-2">
