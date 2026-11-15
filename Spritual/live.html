@@ -23,175 +23,8 @@
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-
-  <style>
-    /* Scoped helpers for Authentic Live Darshan Screen matching Netlify */
-    .darshan-hero {
-      display: none !important;
-    }
-    .player-section {
-      background: #FDFBF7 !important;
-      padding: 1.5rem 0 3rem !important;
-    }
-    .player-container {
-      max-width: 1040px !important;
-      width: 96% !important;
-      margin: 0 auto !important;
-    }
-    .player-frame-wrap {
-      position: relative !important;
-      width: 100% !important;
-      aspect-ratio: 16 / 9 !important;
-      height: auto !important;
-      padding: 0 !important;
-      border-radius: 1.25rem !important;
-      overflow: hidden !important;
-      box-shadow: 0 16px 48px -8px rgba(46, 26, 71, 0.4), 0 0 24px rgba(212, 175, 55, 0.3) !important;
-      border: 2px solid rgba(212, 175, 55, 0.4) !important;
-      background: #000 !important;
-      margin-bottom: 1.25rem !important;
-    }
-    .player-frame-wrap iframe {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      border: 0 !important;
-      object-fit: cover !important;
-    }
-    .live-header-row {
-      margin-bottom: 1.15rem !important;
-    }
-    .live-badge-group {
-      display: flex !important;
-      align-items: center !important;
-      gap: 0.65rem !important;
-      margin-bottom: 0.25rem !important;
-    }
-    .live-badge-pill {
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 0.4rem !important;
-      background: #DC2626 !important;
-      color: #FFF !important;
-      font-size: 0.82rem !important;
-      font-weight: 800 !important;
-      letter-spacing: 0.08em !important;
-      padding: 0.28rem 0.85rem !important;
-      border-radius: 9999px !important;
-      box-shadow: 0 0 12px rgba(220, 38, 38, 0.5) !important;
-      animation: badgePulseGlow 2s ease-in-out infinite alternate !important;
-    }
-    .live-label-text {
-      font-size: 1.15rem !important;
-      font-weight: 700 !important;
-      color: #2E1A47 !important;
-    }
-    .broadcast-title {
-      font-size: 0.95rem !important;
-      color: #6B7280 !important;
-      font-style: italic !important;
-      margin: 0 !important;
-    }
-    .live-actions-row {
-      display: flex !important;
-      align-items: center !important;
-      gap: 0.75rem !important;
-      margin-bottom: 1.5rem !important;
-      flex-wrap: wrap !important;
-    }
-    .btn-yt-watch {
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 0.5rem !important;
-      padding: 0.65rem 1.4rem !important;
-      background: #FF0000 !important;
-      color: #FFF !important;
-      border-radius: 9999px !important;
-      font-weight: 700 !important;
-      font-size: 0.9rem !important;
-      text-decoration: none !important;
-      box-shadow: 0 4px 14px rgba(255, 0, 0, 0.3) !important;
-      white-space: nowrap !important;
-      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-    }
-    .btn-yt-watch:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 6px 18px rgba(255, 0, 0, 0.4) !important;
-      color: #FFF !important;
-    }
-    .btn-refresh {
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 0.45rem !important;
-      padding: 0.62rem 1.25rem !important;
-      background: rgba(255, 255, 255, 0.95) !important;
-      color: #2E1A47 !important;
-      border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
-      border-radius: 9999px !important;
-      font-weight: 600 !important;
-      font-size: 0.9rem !important;
-      cursor: pointer !important;
-      white-space: nowrap !important;
-      transition: all 0.2s ease !important;
-    }
-    .btn-refresh:hover {
-      background: rgba(212, 175, 55, 0.12) !important;
-      border-color: #D4AF37 !important;
-      transform: translateY(-2px) !important;
-    }
-    .btn-fullscreen-toggle {
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 0.45rem !important;
-      padding: 0.62rem 1.25rem !important;
-      font-size: 0.9rem !important;
-      font-weight: 700 !important;
-      border-radius: 9999px !important;
-      margin-left: auto !important;
-      white-space: nowrap !important;
-    }
-    .audio-tip-banner {
-      margin-bottom: 1.5rem !important;
-      padding: 0.85rem 1.25rem !important;
-      font-size: 0.9rem !important;
-      border-radius: 12px !important;
-    }
-    .custom-stream-box {
-      margin-top: 1rem;
-      padding: 1rem;
-      background: rgba(24, 13, 38, 0.6);
-      border: 1px dashed rgba(212, 175, 55, 0.35);
-      border-radius: 12px;
-      transition: all 0.3s ease;
-    }
-    .live-dot-pulse {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #EF4444;
-      box-shadow: 0 0 8px #EF4444;
-      animation: liveRedPulse 1.4s ease-in-out infinite;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-    @keyframes liveRedPulse {
-      0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-        box-shadow: 0 0 6px #EF4444, 0 0 14px rgba(239, 68, 68, 0.85);
-      }
-      50% {
-        opacity: 0.35;
-        transform: scale(1.35);
-        box-shadow: 0 0 2px #EF4444;
-      }
-    }
-  </style>
 </head>
-<body class="live-darshan-page" style="padding-top: 88px;">
+<body class="live-darshan-page">
 
   <!-- ======================================================
        1. SACRED VEDIC TEMPLE PRELOADER
@@ -383,7 +216,7 @@
   <!-- ======================================================
        MAIN LIVE DARSHAN PLAYER SECTION (NETLIFY AUTHENTIC DESIGN)
        ====================================================== -->
-  <section class="player-section" style="background: #FDFBF7; padding: 1.5rem 0 3rem;">
+  <section class="player-section">
     <div class="container player-container">
       <div class="live-wrapper">
         <!-- Live badge + title -->
@@ -393,9 +226,9 @@
               <span class="live-pulse-dot"></span>
               LIVE
             </span>
-            <span class="live-label-text fw-bold" style="color: #2E1A47;">Live Now – Join Our Divine Darshan</span>
+            <span class="live-label-text fw-bold">Live Now – Join Our Divine Darshan</span>
           </div>
-          <p class="broadcast-title mb-0 text-muted small" style="font-style: italic;">
+          <p class="broadcast-title mb-0 text-muted small fst-italic">
             Maha Aarti &amp; Daily Divine Darshan — Live from Haridwar Sanctum
           </p>
         </div>
@@ -442,7 +275,7 @@
             </svg>
             Refresh
           </button>
-          <button class="btn btn-sm rounded-pill px-3 ms-auto fw-bold btn-fullscreen-toggle" id="fullScreenBtn" title="Full Screen Immersion" style="background: rgba(212, 175, 55, 0.15); border: 1.5px solid rgba(212, 175, 55, 0.6); color: #8A6D05; transition: all 0.25s ease;">
+          <button class="btn btn-sm rounded-pill px-3 ms-auto fw-bold btn-fullscreen-toggle" id="fullScreenBtn" title="Full Screen Immersion">
             <i class="fa-solid fa-expand me-1"></i> Full Screen
           </button>
         </div>

@@ -9186,5 +9186,203 @@ button:hover .cta-arrow {
   }
 }
 
-/* Live darshan netlify layout alignment */
-.darshan-hero { display: none !important; }
+/* ============================================================
+   SAKOON TEMPLE — AUTHENTIC LIVE DARSHAN PORTAL STYLES
+   ============================================================ */
+.darshan-hero {
+  display: none !important;
+}
+
+body.live-darshan-page {
+  padding-top: 88px;
+}
+
+.player-section {
+  background: #FDFBF7 !important;
+  padding: 1.5rem 0 3rem !important;
+}
+
+.player-container {
+  max-width: 1040px !important;
+  width: 96% !important;
+  margin: 0 auto !important;
+}
+
+.player-frame-wrap {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  padding: 0 !important;
+  border-radius: 1.25rem !important;
+  overflow: hidden !important;
+  box-shadow: 0 16px 48px -8px rgba(46, 26, 71, 0.4), 0 0 24px rgba(212, 175, 55, 0.3) !important;
+  border: 2px solid rgba(212, 175, 55, 0.4) !important;
+  background: #000 !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.player-frame-wrap iframe {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+  object-fit: cover !important;
+}
+
+.live-header-row {
+  margin-bottom: 1.15rem !important;
+}
+
+.live-badge-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.live-badge-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+  background: #DC2626 !important;
+  color: #FFF !important;
+  font-size: 0.82rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  padding: 0.28rem 0.85rem !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.5) !important;
+  animation: badgePulseGlow 2s ease-in-out infinite alternate !important;
+}
+
+.live-label-text {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #2E1A47 !important;
+}
+
+.broadcast-title {
+  font-size: 0.95rem !important;
+  color: #6B7280 !important;
+  font-style: italic !important;
+  margin: 0 !important;
+}
+
+.live-actions-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  margin-bottom: 1.5rem !important;
+  flex-wrap: wrap !important;
+}
+
+.btn-yt-watch {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.65rem 1.4rem !important;
+  background: #FF0000 !important;
+  color: #FFF !important;
+  border-radius: 9999px !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(255, 0, 0, 0.3) !important;
+  white-space: nowrap !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.btn-yt-watch:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(255, 0, 0, 0.4) !important;
+  color: #FFF !important;
+}
+
+.btn-refresh {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  padding: 0.62rem 1.25rem !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #2E1A47 !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+  border-radius: 9999px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-refresh:hover {
+  background: rgba(212, 175, 55, 0.12) !important;
+  border-color: #D4AF37 !important;
+  transform: translateY(-2px) !important;
+}
+
+.btn-fullscreen-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  padding: 0.62rem 1.25rem !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  border-radius: 9999px !important;
+  margin-left: auto !important;
+  white-space: nowrap !important;
+  background: rgba(212, 175, 55, 0.15) !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.6) !important;
+  color: #8A6D05 !important;
+  transition: all 0.25s ease !important;
+}
+
+.btn-fullscreen-toggle:hover {
+  background: rgba(212, 175, 55, 0.25) !important;
+  color: #5C4500 !important;
+  border-color: #D4AF37 !important;
+  transform: translateY(-1px) !important;
+}
+
+.audio-tip-banner {
+  margin-bottom: 1.5rem !important;
+  padding: 0.85rem 1.25rem !important;
+  font-size: 0.9rem !important;
+  border-radius: 12px !important;
+}
+
+.custom-stream-box {
+  margin-top: 1rem !important;
+  padding: 1rem !important;
+  background: rgba(24, 13, 38, 0.6) !important;
+  border: 1px dashed rgba(212, 175, 55, 0.35) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.live-dot-pulse {
+  display: inline-block !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: #EF4444 !important;
+  box-shadow: 0 0 8px #EF4444 !important;
+  animation: liveRedPulse 1.4s ease-in-out infinite !important;
+  margin-left: 6px !important;
+  vertical-align: middle !important;
+}
+
+@keyframes liveRedPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 6px #EF4444, 0 0 14px rgba(239, 68, 68, 0.85);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.35);
+    box-shadow: 0 0 2px #EF4444;
+  }
+}
