@@ -247,9 +247,10 @@
           <iframe
             id="liveStreamIframe"
             class="yt-iframe"
-            src="https://www.youtube.com/embed/4dloJNwOyDc?autoplay=1&mute=1&enablejsapi=1&rel=0"
+            src="https://www.youtube.com/embed/Kqa_WYw5lXo?autoplay=1&mute=1&enablejsapi=1&rel=0"
             title="divyasukoon Live Darshan"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
             loading="lazy">
           </iframe>
@@ -259,7 +260,7 @@
         <div class="live-actions-row d-flex align-items-center gap-2 mb-3">
           <a
             id="ytWatchBtn"
-            href="https://www.youtube.com/watch?v=4dloJNwOyDc"
+            href="https://www.youtube.com/watch?v=Kqa_WYw5lXo"
             target="_blank"
             rel="noopener noreferrer"
             class="btn-yt-watch">
@@ -301,21 +302,21 @@
                 <span class="live-pulse-dot-sm"></span>
                 Live Running Preview
               </span>
-              <!-- Discreet side button for admin live stream link setup (as requested by user) -->
-              <button id="toggleCustomStreamBtn" class="discreet-stream-gear-btn" title="Stream Link Settings">
-                <i class="fa-solid fa-sliders"></i>
-                <span class="d-none d-sm-inline">Custom Link</span>
+              <!-- Quick jump button for live stream link setup -->
+              <button id="toggleCustomStreamBtn" class="discreet-stream-gear-btn" title="Change Stream Link">
+                <i class="fa-solid fa-link"></i>
+                <span>Change Link</span>
               </button>
             </div>
           </div>
 
           <p class="switcher-subtitle mt-2">
-            Click any sacred live stream below to watch, or paste any YouTube live link or video ID to preview how it appears to devotees.
+            Click any sacred live stream below to watch, or paste any YouTube live link or video ID below to update the live stream.
           </p>
 
           <!-- 3 Presets Grid (Exact from Screenshot 3) -->
           <div class="presets-grid">
-            <button type="button" class="preset-btn active" data-vid="4dloJNwOyDc" id="preset1Btn">
+            <button type="button" class="preset-btn active" data-vid="Kqa_WYw5lXo" id="preset1Btn">
               <span class="preset-icon">🪔</span>
               <span class="preset-details">
                 <span class="preset-hindi">हरिद्वार महा आरती</span>
@@ -344,29 +345,37 @@
             </button>
           </div>
 
-          <!-- Discreet Custom YouTube URL / ID Input (Hidden by default, toggled via discreet button) -->
-          <div id="customStreamPanel" class="custom-stream-box" style="display: none;">
-            <div class="d-flex align-items-center justify-content-between mb-2">
-              <label class="custom-input-label m-0" for="customStreamInput">
+          <!-- Prominent Custom YouTube URL / ID Input Form (Always Open, Works on Mobile & Desktop) -->
+          <div id="customStreamPanel" class="custom-stream-box mt-3">
+            <div class="d-flex align-items-center justify-content-between mb-2 flex-wrap gap-2">
+              <label class="custom-input-label m-0 fw-bold" for="customStreamInput">
                 <span class="label-icon">🔗</span>
-                <span><strong>Custom YouTube Link / Video ID:</strong> (Paste any link e.g. <code>https://www.youtube.com/watch?v=...</code> or ID)</span>
+                <span><strong>Live Stream Link Changer:</strong> (Paste any YouTube video or live URL)</span>
               </label>
-              <button type="button" class="btn-close small" id="closeCustomStreamBtn" aria-label="Close"></button>
+              <span class="badge bg-warning text-dark px-2 py-1 rounded-pill small">
+                <i class="fa-solid fa-bolt me-1"></i> Live Update
+              </span>
             </div>
-            <div class="custom-input-group d-flex gap-2">
-              <input
-                id="customStreamInput"
-                type="text"
-                class="form-control custom-stream-input"
-                placeholder="Paste YouTube Link or Video ID here..." />
-              <button
-                type="button"
-                id="applyCustomStreamBtn"
-                class="btn-apply-stream">
-                ▶ Run Video
-              </button>
-            </div>
-            <p id="customInputMsg" class="custom-input-error small mt-1 mb-0" style="display: none;"></p>
+            <form id="customStreamForm" onsubmit="return false;" class="m-0">
+              <div class="custom-input-group d-flex flex-column flex-sm-row gap-2">
+                <input
+                  id="customStreamInput"
+                  type="text"
+                  class="form-control custom-stream-input"
+                  placeholder="Paste YouTube Link (e.g. https://youtu.be/...)"
+                  autocomplete="off"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false" />
+                <button
+                  type="button"
+                  id="applyCustomStreamBtn"
+                  class="btn-apply-stream">
+                  ▶ Run Video
+                </button>
+              </div>
+            </form>
+            <p id="customInputMsg" class="custom-input-error small mt-2 mb-0" style="display: none;"></p>
           </div>
         </div>
 

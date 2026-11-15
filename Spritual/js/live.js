@@ -1,12 +1,12 @@
 /**
  * divyasukoon — Live Darshan Interactive Player Script
- * Global Synchronized Live Stream Manager:
- * - Fetches published stream from data/live-stream.json (visible to all devotees worldwide)
- * - Supports URL query ?v=VIDEO_ID for instant shared streaming
- * - Presets switching, custom stream loading, fullscreen, and stream refreshes.
+ * Mobile & Desktop Synchronized Live Stream Manager:
+ * - Dynamic iframe recreation for 100% reliable stream switching on mobile & desktop
+ * - Supports any YouTube link format (youtu.be, /watch?v=, /live/, /shorts/, m.youtube, etc.)
+ * - Syncs URL query (?v=VIDEO_ID) and preserves user selected live stream in localStorage
+ * - Seamless preset switching and custom link submission
  */
 document.addEventListener('DOMContentLoaded', function () {
-  const iframe = document.getElementById('liveStreamIframe');
   const ytWatchBtn = document.getElementById('ytWatchBtn');
   const refreshBtn = document.getElementById('refreshStreamBtn');
   const fullScreenBtn = document.getElementById('fullScreenBtn');
@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const toggleCustomStreamBtn = document.getElementById('toggleCustomStreamBtn');
   const customStreamPanel = document.getElementById('customStreamPanel');
-  const closeCustomStreamBtn = document.getElementById('closeCustomStreamBtn');
+  const customStreamForm = document.getElementById('customStreamForm');
   const customStreamInput = document.getElementById('customStreamInput');
   const applyCustomStreamBtn = document.getElementById('applyCustomStreamBtn');
   const customInputMsg = document.getElementById('customInputMsg');
   const presetBtns = document.querySelectorAll('.preset-btn');
   const lastCheckedTime = document.getElementById('lastCheckedTime');
 
-  const DEFAULT_VIDEO_ID = '4dloJNwOyDc';
+  const DEFAULT_VIDEO_ID = 'Kqa_WYw5lXo';
 
   // 1. Live Clock & Last Checked Time
   function updateTime() {
@@ -39,30 +39,61 @@ document.addEventListener('DOMContentLoaded', function () {
   updateTime();
   setInterval(updateTime, 30000);
 
-  // 2. Robust YouTube ID extractor
+  // 2. High-Precision Universal YouTube ID extractor
   function parseYouTubeId(input) {
     if (!input) return null;
     input = input.trim();
+
+    // Direct 11-char ID
     if (/^[a-zA-Z0-9_-]{11}$/.test(input)) return input;
-    const match = input.match(
-      /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|live\/|shorts\/))([\w-]{11})/
+
+    // Standard matchers for all YouTube URL formats
+    let match = input.match(
+      /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|live\/|shorts\/))([a-zA-Z0-9_-]{11})/
     );
     if (match && match[1]) return match[1];
-    const idMatch = input.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+
+    // Query parameter ?v= or &v=
+    let idMatch = input.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
     if (idMatch && idMatch[1]) return idMatch[1];
+
+    // Loose match inside URL string
+    let looseMatch = input.match(
+      /(?:youtu\.be\/|v=|\/live\/|\/embed\/)([a-zA-Z0-9_-]{11})/
+    );
+    if (looseMatch && looseMatch[1]) return looseMatch[1];
+
     return null;
   }
 
-  // 3. Switch Stream safely
+  // 3. Switch Stream safely with full DOM Node recreation (Guarantees instant playback on Mobile & Desktop)
   function switchStream(videoId, updateUrl) {
     if (!videoId) return;
 
-    if (iframe) {
-      iframe.style.display = 'block';
-      iframe.src =
+    const wrap = document.getElementById('playerFrameWrap');
+    if (wrap) {
+      const oldIframe = document.getElementById('liveStreamIframe');
+
+      // Recreate iframe node from scratch to force immediate reload across all mobile engines
+      const newIframe = document.createElement('iframe');
+      newIframe.id = 'liveStreamIframe';
+      newIframe.className = 'yt-iframe';
+      newIframe.src =
         'https://www.youtube.com/embed/' +
         videoId +
         '?autoplay=1&mute=1&enablejsapi=1&rel=0';
+      newIframe.title = 'divyasukoon Live Darshan';
+      newIframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      newIframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      newIframe.allowFullscreen = true;
+      newIframe.loading = 'lazy';
+
+      if (oldIframe && oldIframe.parentNode) {
+        oldIframe.parentNode.replaceChild(newIframe, oldIframe);
+      } else {
+        wrap.appendChild(newIframe);
+      }
     }
 
     if (ytWatchBtn) {
@@ -86,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Update URL query parameter so sharing the URL shows this live stream to everyone
+    // Update URL query parameter
     if (updateUrl !== false) {
       try {
         const url = new URL(window.location.href);
@@ -100,9 +131,9 @@ document.addEventListener('DOMContentLoaded', function () {
     } catch (e) {}
   }
 
-  // 4. Determine which stream to play on page load (URL param > Global JSON > Default)
+  // 4. Determine which stream to play on page load
   function initLiveStream() {
-    // Check URL parameter first: e.g. live.html?v=4dloJNwOyDc
+    // A. URL query parameter takes top priority
     const urlParams = new URLSearchParams(window.location.search);
     const paramVid = urlParams.get('v') || urlParams.get('stream');
 
@@ -111,30 +142,28 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    // Check remote global published live config (synchronizes live stream for all devotees)
-    fetch('data/live-stream.json?t=' + Date.now())
-      .then(res => (res.ok ? res.json() : null))
-      .then(data => {
-        if (data && data.videoId) {
-          switchStream(data.videoId, false);
-        } else {
-          fallbackLocalStream();
-        }
-      })
-      .catch(() => {
-        fallbackLocalStream();
-      });
-  }
-
-  function fallbackLocalStream() {
+    // B. User locally saved video
     try {
       const savedVid = localStorage.getItem('divyasukoon_live_vid');
-      if (savedVid) {
-        switchStream(savedVid, false);
+      if (savedVid && parseYouTubeId(savedVid)) {
+        switchStream(parseYouTubeId(savedVid), false);
         return;
       }
     } catch (e) {}
-    switchStream(DEFAULT_VIDEO_ID, false);
+
+    // C. Global server config
+    fetch('data/live-stream.json?t=' + Date.now())
+      .then(res => (res.ok ? res.json() : null))
+      .then(data => {
+        if (data && data.videoId && parseYouTubeId(data.videoId)) {
+          switchStream(parseYouTubeId(data.videoId), false);
+        } else {
+          switchStream(DEFAULT_VIDEO_ID, false);
+        }
+      })
+      .catch(() => {
+        switchStream(DEFAULT_VIDEO_ID, false);
+      });
   }
 
   initLiveStream();
@@ -143,53 +172,79 @@ document.addEventListener('DOMContentLoaded', function () {
   presetBtns.forEach(btn => {
     btn.addEventListener('click', function () {
       const vid = this.getAttribute('data-vid');
-      switchStream(vid, true);
+      if (vid) switchStream(vid, true);
     });
   });
 
-  // 6. Toggle Custom Stream Link Panel
-  if (toggleCustomStreamBtn && customStreamPanel) {
+  // 6. Quick Jump / Focus to Stream Input
+  if (toggleCustomStreamBtn) {
     toggleCustomStreamBtn.addEventListener('click', function (e) {
       e.preventDefault();
-      const isHidden = customStreamPanel.style.display === 'none';
-      customStreamPanel.style.display = isHidden ? 'block' : 'none';
-      if (isHidden && customStreamInput) customStreamInput.focus();
+      if (customStreamInput) {
+        customStreamInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        customStreamInput.focus();
+      }
     });
   }
 
-  if (closeCustomStreamBtn && customStreamPanel) {
-    closeCustomStreamBtn.addEventListener('click', function () {
-      customStreamPanel.style.display = 'none';
-    });
-  }
-
-  // 7. Apply Custom YouTube Link / ID
-  function handleApplyCustom() {
+  // 7. Apply Custom YouTube Link / ID (Form Submission)
+  function handleApplyCustom(e) {
+    if (e && e.preventDefault) e.preventDefault();
     if (!customStreamInput) return;
+
     const val = customStreamInput.value.trim();
+    if (!val) {
+      if (customInputMsg) {
+        customInputMsg.style.display = 'block';
+        customInputMsg.style.color = '#EF4444';
+        customInputMsg.textContent = '⚠️ Please paste a YouTube link or Video ID first.';
+      }
+      return;
+    }
+
     const vidId = parseYouTubeId(val);
 
     if (vidId) {
+      // 1. Immediately switch stream
       switchStream(vidId, true);
 
+      // 2. Visual button feedback
+      if (applyCustomStreamBtn) {
+        const originalText = applyCustomStreamBtn.innerHTML;
+        applyCustomStreamBtn.innerHTML = '✓ Video Loaded!';
+        applyCustomStreamBtn.style.background = '#10B981';
+        applyCustomStreamBtn.style.color = '#FFFFFF';
+        setTimeout(() => {
+          applyCustomStreamBtn.innerHTML = originalText;
+          applyCustomStreamBtn.style.background = '';
+          applyCustomStreamBtn.style.color = '';
+        }, 2200);
+      }
+
+      // 3. Status message & copy link button
       if (customInputMsg) {
         customInputMsg.style.display = 'block';
         customInputMsg.style.color = '#10B981';
         customInputMsg.innerHTML =
-          '✓ Live stream active! <span class="d-inline-block ms-2 text-decoration-underline" style="cursor:pointer;" id="copyShareLinkBtn">📋 Copy Share Link</span>';
-        
+          '<strong>✓ Live stream active!</strong> Video ID: <code>' +
+          vidId +
+          '</code> ' +
+          '<button type="button" class="btn btn-sm btn-outline-success ms-2 py-0 px-2 rounded-pill" id="copyShareLinkBtn">📋 Copy Link to Share</button>';
+
         const copyBtn = document.getElementById('copyShareLinkBtn');
         if (copyBtn) {
-          copyBtn.onclick = function() {
+          copyBtn.onclick = function () {
             if (navigator.clipboard) {
               navigator.clipboard.writeText(window.location.href);
               copyBtn.textContent = '✓ Copied!';
             }
           };
         }
-        setTimeout(() => {
-          if (customInputMsg) customInputMsg.style.display = 'none';
-        }, 8000);
+      }
+
+      // 4. Scroll smoothly to player so the user immediately sees the video running!
+      if (playerFrameWrap) {
+        playerFrameWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     } else {
       if (customInputMsg) {
@@ -201,34 +256,46 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // Bind to click, touch, and form submit
   if (applyCustomStreamBtn) {
     applyCustomStreamBtn.addEventListener('click', handleApplyCustom);
+    applyCustomStreamBtn.addEventListener('touchend', function (e) {
+      e.preventDefault();
+      handleApplyCustom(e);
+    });
+  }
+
+  if (customStreamForm) {
+    customStreamForm.addEventListener('submit', handleApplyCustom);
   }
 
   if (customStreamInput) {
     customStreamInput.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') {
         e.preventDefault();
-        handleApplyCustom();
+        handleApplyCustom(e);
       }
     });
   }
 
   // 8. Refresh Button
-  if (refreshBtn && iframe) {
+  if (refreshBtn) {
     refreshBtn.addEventListener('click', function () {
-      const curSrc = iframe.src;
-      iframe.src = '';
-      setTimeout(() => {
-        iframe.src = curSrc;
-      }, 50);
+      const iframe = document.getElementById('liveStreamIframe');
+      if (iframe) {
+        const curSrc = iframe.src;
+        iframe.src = '';
+        setTimeout(() => {
+          iframe.src = curSrc;
+        }, 60);
+      }
       updateTime();
     });
   }
 
   // 9. Fullscreen Toggle
   function toggleFullscreen(targetElem) {
-    const el = targetElem || playerFrameWrap || iframe;
+    const el = targetElem || playerFrameWrap || document.getElementById('liveStreamIframe');
     if (!el) return;
 
     if (!document.fullscreenElement) {
