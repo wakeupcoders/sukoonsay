@@ -7936,7 +7936,8 @@ button:hover .cta-arrow {
 }
 
 .player-container {
-  max-width: 680px;
+  max-width: 880px;
+  width: 94%;
   margin: 0 auto;
 }
 
@@ -9184,3 +9185,6 @@ button:hover .cta-arrow {
     font-size: 0.84rem !important;
   }
 }
+
+/* Live darshan netlify layout alignment */
+.darshan-hero { display: none !important; }
