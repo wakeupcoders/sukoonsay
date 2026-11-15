@@ -2,77 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>24/7 Sanctum Live Darshan &amp; YouTube Streams | Sukoon Temple, Ropar Punjab</title>
+  <title>24/7 Live Darshan &amp; Sacred Aarti Stream | divyasukoon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <link rel="canonical" href="https://sakoontemple.com/live">
-  <meta name="description" content="Watch 24/7 Live Sanctum Darshan &amp; Special Festival YouTube Live Broadcasts from Sukoon Temple, Rupnagar (Ropar), Punjab. Daily Maha Aartis, 432 Hz Solfeggio, and interactive prayer wall.">
-  <meta name="keywords" content="Live Darshan, Sukoon Temple Live, Temple Live Stream, YouTube Live Aarti, Ropar Temple Live, Punjab Mandir Live Darshan, Sukoonsay, Sutlej Ghat Aarti">
-  <meta name="author" content="Sukoon Temple Trust • Sukoonsay">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="description" content="Watch 24/7 uninterrupted Live Sanctum Darshan, Maha Aarti, and Havan ceremonies from divyasukoon Haridwar. Experience divine tranquility worldwide.">
+  <meta name="keywords" content="Live Darshan, Haridwar Live Aarti, Temple Webcast, divyasukoon Live, divyasukoon, Sukoonsay, 432Hz Sound">
   <meta name="theme-color" content="#2E1A47">
-  <meta name="geo.region" content="IN-PB">
-  <meta name="geo.placename" content="Rupnagar (Ropar), Punjab, India">
-
-  <!-- Open Graph / Facebook / WhatsApp -->
-  <meta property="og:type" content="video.other">
-  <meta property="og:url" content="https://sakoontemple.com/live">
-  <meta property="og:site_name" content="Sukoon Temple">
-  <meta property="og:title" content="24/7 Sanctum Live Darshan &amp; YouTube Streams | Sukoon Temple">
-  <meta property="og:description" content="Live stream from the sacred sanctum of Sukoon Temple, Rupnagar (Ropar), Punjab. Join daily Maha Aartis and Solfeggio Chimes.">
-  <meta property="og:image" content="assets/images/hero-temple.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="en_IN">
-  <meta property="og:locale:alternate" content="hi_IN">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="24/7 Live Darshan | Sukoon Temple, Ropar">
-  <meta name="twitter:description" content="Watch live sacred temple Aarti & darshan 24/7 with 432 Hz healing solfeggio audio.">
-  <meta name="twitter:image" content="assets/images/hero-temple.jpg">
-
-  <!-- Schema.org JSON-LD Structured Data for Google Video / Broadcast Ranking -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BroadcastEvent",
-        "name": "Sukoon Temple 24/7 Sanctum Live Darshan",
-        "description": "Continuous 24/7 sacred sanctum broadcast and festival YouTube livestreams from Sukoon Temple in Rupnagar (Ropar), Punjab.",
-        "isLiveBroadcast": true,
-        "startDate": "2026-01-01T00:00:00+05:30",
-        "broadcastOfEvent": {
-          "@type": "Event",
-          "name": "Daily Sacred Aarti & Sanctum Darshan",
-          "location": {
-            "@type": "Place",
-            "name": "Sukoon Temple Main Sanctum",
-            "address": "Rupnagar (Ropar), Punjab, India"
-          }
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://sakoontemple.com/live#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://sakoontemple.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Live Darshan",
-            "item": "https://sakoontemple.com/live"
-          }
-        ]
-      }
-    ]
-  }
-  </script>
 
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="alternate icon" type="image/x-icon" href="assets/icons/favicon.ico">
@@ -88,706 +23,280 @@
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .pulse-dot-green {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 10px #4ade80;
+      animation: pulseGreen 1.8s infinite;
+      display: inline-block;
+    }
+    @keyframes pulseGreen {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+    .video-container {
+      position: relative;
+      padding-top: 56.25%;
+      background: #000;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .stream-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem;
+      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.6) 100%);
+    }
+    .stream-overlay > * {
+      pointer-events: auto;
+    }
+    @media (max-width: 991.98px) {
+      .navbar-brand {
+        margin: 0 auto;
+      }
+      .mobile-bell-left {
+        display: inline-flex !important;
+      }
+    }
+  </style>
 </head>
-<body>
+<body style="padding-top: 0 !important; background: #180D26;">
 
-  <!-- ======================================================
-       SACRED VEDIC TEMPLE PRELOADER
-       ====================================================== -->
-  <div id="templePreloader" class="temple-loader-overlay">
-    <div class="loader-inner-card">
-      <div class="sacred-yantra-pulse">
-        <div class="yantra-outer-ring"></div>
-        <div class="yantra-inner-halo"></div>
-        <div class="yantra-om-center">ॐ</div>
-      </div>
-      <div class="loader-typography">
-        <h2 class="loader-temple-name">SUKOON TEMPLE</h2>
-        <span class="loader-sanskrit-sub">॥ ॐ नमः शिवाय • शान्तिः प्रशान्तिः ॥</span>
-        <p class="loader-sacred-caption">Entering the Divine Vedic Sanctum • Rupnagar (Ropar), Punjab</p>
-      </div>
-      <div class="loader-gold-bar-track">
-        <div class="loader-gold-bar-fill"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ======================================================
-       FIXED DUAL-ROW HEADER
-       Row 1 (topbar): Brand + 432Hz Sound + Ball Bell + CTA + Hamburger
-       Row 2 (navbar): Navigation Links with Hover/Scroll Underline
-       ====================================================== -->
-  <header class="site-header">
-    <!-- ROW 1: TOPBAR -->
-    <div class="hdr-topbar">
-      <div class="hdr-topbar-inner">
-        <!-- Sacred Temple Bell Button ("Ball") - Left on Mobile, Grouped on Desktop -->
-        <div class="hdr-topbar-left">
-          <button class="tb-icon-btn ring-bell-btn trigger-sacred-bell" title="Ring Sacred Temple Bell" aria-label="Ring Temple Bell">
-            <i class="fa-solid fa-bell"></i>
+  <!-- Topbar Strip -->
+  <header class="site-header" style="position: relative !important; background: transparent !important; box-shadow: none !important; border: none !important;">
+    <div class="temple-topbar py-1" style="background: linear-gradient(90deg, #180D26 0%, #2E1A47 50%, #180D26 100%); border-bottom: 1px solid rgba(212, 175, 55, 0.35); font-size: 0.82rem; color: #F9E79F;">
+      <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div class="d-flex align-items-center gap-3">
+          <span><i class="fa-solid fa-location-dot text-warning"></i> Haridwar, Uttarakhand</span>
+          <span class="text-white-50">|</span>
+          <span id="sanctumLiveClock" class="fw-semibold text-white">IST --:--:--</span>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <a href="../index.html" class="text-decoration-none text-white-50" style="transition: color 0.2s;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+            <i class="fa-solid fa-arrow-left"></i> Sukoonsay Main
+          </a>
+          <a href="../Phycartist/index.html" class="text-decoration-none" style="color: #F9E79F;">
+            <i class="fa-solid fa-brain"></i> Psychiatry Clinic
+          </a>
+          <button class="btn btn-sm trigger-sacred-bell" style="background: rgba(212, 175, 55, 0.2); border: 1px solid var(--sacred-gold); color: #F9E79F; border-radius: 20px; font-size: 0.75rem; padding: 2px 10px;" title="Ring Sacred Temple Bell">
+            <i class="fa-solid fa-bell"></i> 432Hz Bell
           </button>
         </div>
+      </div>
+    </div>
 
-        <!-- Brand Link (Centered on Mobile, Left-aligned on Desktop) -->
-        <a href="index.html" class="brand-link" aria-label="Sukoon Temple Home">
-          <div class="brand-emblem-wrap">
-            <img src="assets/icons/temple-logo.svg" alt="Sukoon Temple Sacred Emblem" class="brand-logo-img" onerror="this.onerror=null;this.src='assets/images/logo.jpg';">
-          </div>
-          <div class="brand-text">
-            <span class="brand-title">SUKOON TEMPLE</span>
-            <span class="brand-subtitle">Vedic Peace &amp; Sacred Sanctum</span>
+    <!-- Main Navigation Bar (Clean Netlify UI) -->
+    <nav class="navbar navbar-expand-lg" style="background: rgba(24, 13, 38, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212, 175, 55, 0.25);">
+      <div class="container d-flex align-items-center justify-content-between">
+        <!-- Left Bell for Mobile -->
+        <button class="btn btn-sm d-lg-none mobile-bell-left trigger-sacred-bell" style="background: rgba(212, 175, 55, 0.2); border: 1px solid rgba(212, 175, 55, 0.4); color: #D4AF37; border-radius: 50%; width: 38px; height: 38px; padding: 0; display: none; align-items: center; justify-content: center;" title="Ring Temple Bell">
+          <i class="fa-solid fa-bell"></i>
+        </button>
+
+        <a class="navbar-brand d-flex align-items-center gap-2 m-0" href="index.html">
+          <span style="font-size: 1.8rem; color: #D4AF37; font-family: 'Cinzel', serif;">ॐ</span>
+          <div>
+            <div style="font-family: 'Cinzel', serif; font-weight: 800; font-size: 1.25rem; color: #D4AF37; letter-spacing: 0.05em; line-height: 1;">divyasukoon</div>
+            <small style="font-size: 0.68rem; color: #FFA000; letter-spacing: 0.08em; text-transform: uppercase;">A Sukoonsay Sacred Sanctum</small>
           </div>
         </a>
 
-        <!-- Header Buttons (Right side: 432Hz & CTA for Desktop; Hamburger Toggle for Mobile) -->
-        <div class="hdr-btn-group">
-          <!-- 432 Hz Solfeggio Audio Button (Desktop only, moved to drawer on mobile) -->
-          <button class="tb-audio-btn audio-chime-toggle hdr-hide-mobile" title="432 Hz Solfeggio Chimes">
-            <span class="audio-bars" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </span>
-            <span class="tb-btn-label">432Hz</span>
-          </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#templeNavbar" aria-controls="templeNavbar" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(212, 175, 55, 0.4);">
+          <span class="fa-solid fa-bars" style="color: #D4AF37;"></span>
+        </button>
 
-          <!-- Return to Sukoonsay Main CTA (Desktop only) -->
-          <a href="../index.html" class="tb-cta-btn hdr-hide-mobile hdr-hide-xs" title="Return to Sukoonsay Main">
-            <i class="fa-solid fa-archway"></i>
-            <span>Sukoonsay Main</span>
-          </a>
-
-          <!-- Mobile Hamburger Toggle (Right side on mobile) -->
-          <button id="mobileToggleBtn" class="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
-            <span class="ham-bar bar-1"></span>
-            <span class="ham-bar bar-2"></span>
-            <span class="ham-bar bar-3"></span>
-          </button>
+        <div class="collapse navbar-collapse" id="templeNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
+            <li class="nav-item"><a class="nav-link text-white-50" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white-50" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link text-white-50" href="services.html">Pujas &amp; Services</a></li>
+            <li class="nav-item"><a class="nav-link text-white-50" href="timings.html">Aarti Timings</a></li>
+            <li class="nav-item"><a class="nav-link text-white active fw-bold" href="live.html" style="color: #D4AF37 !important;">Live Darshan</a></li>
+            <li class="nav-item"><a class="nav-link text-white-50" href="calendar.html">Panchang</a></li>
+            <li class="nav-item"><a class="nav-link text-white-50" href="contact.html">Contact</a></li>
+            <li class="nav-item ms-lg-2">
+              <a href="booking.html" class="btn btn-sm" style="background: linear-gradient(135deg, #E65100 0%, #FFA000 100%); color: #fff; font-weight: 700; border-radius: 20px; padding: 6px 18px; border: none;">
+                <i class="fa-solid fa-calendar-check me-1"></i> Book Puja
+              </a>
+            </li>
+          </ul>
         </div>
-      </div>
-    </div>
-
-    <!-- ROW 2: NAVBAR (All Navigation Links cleanly displayed below) -->
-    <nav class="hdr-navbar" aria-label="Sacred Temple Navigation">
-      <div class="hdr-navbar-inner">
-        <a href="index.html" class="nav-item"><i class="fa-solid fa-om"></i><span>Home</span></a>
-        <a href="about.html" class="nav-item"><i class="fa-solid fa-gopuram"></i><span>About Mandir</span></a>
-        <a href="services.html" class="nav-item"><i class="fa-solid fa-hands-praying"></i><span>Pujas &amp; Sevas</span></a>
-        <a href="timings.html" class="nav-item"><i class="fa-regular fa-clock"></i><span>Aarti Timings</span></a>
-        <a href="live.html" class="nav-item active-link"><i class="fa-solid fa-video"></i><span>Live Darshan</span></a>
-        <a href="calendar.html" class="nav-item"><i class="fa-regular fa-calendar-days"></i><span>Panchang Calendar</span></a>
-        <a href="booking.html" class="nav-item"><i class="fa-solid fa-fire-burner"></i><span>Book Puja</span></a>
-        <a href="contact.html" class="nav-item"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
       </div>
     </nav>
   </header>
 
-  <!-- Mobile Off-Canvas Sidebar / Drawer -->
-  <div id="sidebarBackdrop" class="sidebar-backdrop" style="display: none;"></div>
-  <aside id="mobileSidebarDrawer" class="mobile-sidebar-drawer" aria-label="Mobile Sacred Drawer">
-    <div class="drawer-header">
-      <div class="drawer-brand">
-        <div class="drawer-emblem">
-          <img src="assets/icons/temple-logo.svg" alt="Sukoon Temple" class="drawer-logo-img" onerror="this.onerror=null;this.src='assets/images/logo.jpg';">
-        </div>
-        <span class="drawer-title">SUKOON TEMPLE</span>
-      </div>
-      <button id="drawerCloseBtn" class="drawer-close-btn" aria-label="Close Mobile Menu">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
-
-    <!-- Live Sanctum Status Badge inside Drawer -->
-    <div class="drawer-status-strip">
-      <span class="drawer-pulse-dot"></span>
-      <span id="drawerSanctumClock">Ropar Punjab (IST): --:--:--</span>
-    </div>
-
-    <!-- Devotee Country Switcher in Drawer -->
-    <div class="drawer-country-box">
-      <label for="drawerCountrySelect"><i class="fa-solid fa-earth-americas me-1 text-warning"></i> Devotee Timezone:</label>
-      <select id="drawerCountrySelect" class="drawer-country-select" aria-label="Select Devotee Country">
-        <!-- Populated by JS -->
-      </select>
-    </div>
-
-    <!-- Navigation Links in Drawer -->
-    <nav class="drawer-nav" aria-label="Mobile Drawer Navigation">
-      <a href="index.html" class="drawer-link">
-        <span class="drawer-link-icon"><i class="fa-solid fa-om"></i></span>
-        <span>Sanctum Home</span>
-        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
-      </a>
-      <a href="about.html" class="drawer-link">
-        <span class="drawer-link-icon"><i class="fa-solid fa-gopuram"></i></span>
-        <span>About Mandir &amp; Heritage</span>
-        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
-      </a>
-      <a href="services.html" class="drawer-link">
-        <span class="drawer-link-icon"><i class="fa-solid fa-hands-praying"></i></span>
-        <span>Pujas &amp; Sevas</span>
-        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
-      </a>
-      <a href="timings.html" class="drawer-link">
-        <span class="drawer-link-icon"><i class="fa-regular fa-clock"></i></span>
-        <span>Aarti Timings (IST &amp; Local)</span>
-        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
-      </a>
-      <a href="live.html" class="drawer-link active">
-        <span class="drawer-link-icon"><i class="fa-solid fa-video"></i></span>
-        <span>Live Darshan 24/7</span>
-        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
-      </a>
-      <a href="calendar.html" class="drawer-link">
-        <span class="drawer-link-icon"><i class="fa-regular fa-calendar-days"></i></span>
-        <span>Hindu Panchang Calendar</span>
-        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
-      </a>
-      <a href="booking.html" class="drawer-link">
-        <span class="drawer-link-icon"><i class="fa-solid fa-fire-burner"></i></span>
-        <span>Book Puja &amp; Havan</span>
-        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
-      </a>
-      <a href="contact.html" class="drawer-link">
-        <span class="drawer-link-icon"><i class="fa-solid fa-envelope"></i></span>
-        <span>Contact &amp; Reach</span>
-        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
-      </a>
-    </nav>
-
-    <!-- Sanctuary Access Portal Quick Links -->
-    <div class="drawer-portals-section">
-      <div class="dp-title">DIRECT SANCTUARY ACCESS</div>
-      <a href="../index.html" class="drawer-portal-card sukoonsay-hub-card">
-        <div class="dp-icon"><i class="fa-solid fa-archway"></i></div>
-        <div class="dp-text">
-          <strong>Sukoonsay Main Hub</strong>
-          <span>Access Sanctuary ↗</span>
-        </div>
-      </a>
-      <a href="../Phycartist/index.html" class="drawer-portal-card psychiatry-card">
-        <div class="dp-icon"><i class="fa-solid fa-brain"></i></div>
-        <div class="dp-text">
-          <strong>Psychiatrist Sanctuary</strong>
-          <span>Access Portal ↗</span>
-        </div>
-      </a>
-    </div>
-
-    <!-- 432 Hz Solfeggio Audio Player Button in Drawer -->
-    <div class="drawer-footer-audio">
-      <button class="drawer-audio-btn audio-chime-toggle">
-        <i class="fa-solid fa-bell"></i>
-        <span>Play 432Hz Sound</span>
-      </button>
-    </div>
-  </aside>
-
-  <!-- ======================================================
-       PAGE HEADER HERO (Luminous Royal Aura Theme)
-       ====================================================== -->
-  <section class="subpage-hero-header">
-    <div class="container text-center py-2">
-      <div class="d-inline-flex align-items-center gap-2 mb-3 flex-wrap justify-content-center">
-        <div class="subpage-badge" style="background: rgba(230, 81, 0, 0.1); border-color: #E65100; color: #E65100; margin-bottom: 0;">
-          <span class="pulse-dot-green me-1" style="display: inline-block;"></span> 24/7 SANCTUM &amp; SPECIAL YOUTUBE LIVE
-        </div>
-        <span id="liveStatusBadge" class="badge bg-success px-3 py-2 fw-semibold rounded-pill">OPEN NOW • Pratah Kaal Darshan</span>
-      </div>
-      <h1 class="subpage-title">
-        24/7 Sanctum Live Darshan
-      </h1>
-      <p class="subpage-desc">
-        Connect to the sacred inner sanctum of holy <strong>Rupnagar (Ropar), Punjab</strong>. Watch daily Vedic aartis, and participate in special festival live broadcasts hosted on YouTube directly from this page.
-      </p>
-    </div>
-  </section>
-
-  <!-- ======================================================
-       YOUTUBE LIVE STREAMING HUB & ACTIVE BROADCAST SECTION
-       ====================================================== -->
-  <section class="py-4" style="background: var(--bg-gradient);">
-    <div class="container pb-4">
-      
-      <!-- Top Live Controller Strip -->
-      <div class="p-3 mb-4 rounded-4 bg-white shadow-sm border d-flex justify-content-between align-items-center flex-wrap gap-3" style="border-color: rgba(212, 175, 55, 0.38) !important;">
-        <div class="d-flex align-items-center gap-2">
-          <span class="badge bg-danger px-3 py-2 d-inline-flex align-items-center gap-2 shadow-sm">
-            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: pulseSacred 1.5s infinite;"></span>
-            <i class="fa-brands fa-youtube fs-6"></i> YOUTUBE LIVE READY
-          </span>
-          <span class="text-muted small d-none d-md-inline">Live streams broadcasted directly on special festivals &amp; daily evening aarti.</span>
-        </div>
-
-        <!-- Quick Share & YouTube Controls -->
-        <div class="d-flex align-items-center gap-2 flex-wrap">
-          <button id="setLiveLinkBtn" class="btn btn-sm btn-outline-dark d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="modal" data-bs-target="#youtubeLinkModal" title="Set or Update YouTube Live Link" style="padding: 6px 14px; border-radius: 9999px;">
-            <i class="fa-solid fa-gear"></i> <span>Stream Settings</span>
-          </button>
-          <a id="shareWhatsappBtn" href="https://api.whatsapp.com/send?text=Join%20Sukoon%20Temple%20Special%20Live%20Darshan%20now:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm d-inline-flex align-items-center justify-content-center gap-2" style="background: #25D366; color: #fff; border-radius: 9999px; font-weight: 700; padding: 6px 15px;">
-            <i class="fa-brands fa-whatsapp fs-6"></i> <span>Share Live</span>
-          </a>
-          <a id="openYoutubeLiveBtn" href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold d-inline-flex align-items-center justify-content-center gap-2" style="padding: 6px 16px;">
-            <i class="fa-brands fa-youtube text-danger fs-6"></i> <span>Watch on YouTube ↗</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="row g-4 justify-content-center">
-        <!-- Live Video Player Frame -->
-        <div class="col-lg-8">
-          <div class="card border-0 shadow-lg rounded-4 overflow-hidden" style="border: 2px solid rgba(212, 175, 55, 0.45) !important; background: #000;">
-            <div id="videoPlayerFrame" class="position-relative" style="padding-top: 56.25%;">
-              
-              <!-- Video Embed / Fallback Live View -->
-              <div id="activeStreamArea" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                <img id="streamCoverImg" src="assets/images/hero-temple.jpg" alt="Ropar Sanctum Live Darshan" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.92;">
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(24,13,38,0.7) 100%);"></div>
-
-                <!-- Center Play Indicator for YouTube Streams -->
-                <div class="position-absolute top-50 start-50 translate-middle text-center w-100 px-3" style="max-width: 440px; z-index: 5;">
-                  <div class="p-3 p-md-4 rounded-4 shadow-lg text-center" style="background: rgba(24, 13, 38, 0.88); border: 1.5px solid rgba(212, 175, 55, 0.65); backdrop-filter: blur(8px);">
-                    <a id="playStreamBtn" href="https://www.youtube.com" target="_blank" rel="noopener" class="rounded-circle d-inline-flex align-items-center justify-content-center shadow-lg mb-2" style="width: 68px; height: 68px; background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%); color: #fff; text-decoration: none; border: 2.5px solid #FDE68A; transition: transform 0.25s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                      <i class="fa-solid fa-play fs-4" style="margin-left: 3px;"></i>
-                    </a>
-                    <h5 class="text-white fw-bold mb-1 font-serif" style="font-size: 1.05rem; letter-spacing: 0.04em;">Sukoon Temple Live Broadcast</h5>
-                    <p class="text-white-50 small mb-3">Live streaming directly on special festival days &amp; evening Maha Aarti.</p>
-                    <div class="d-flex justify-content-center gap-2">
-                      <button class="btn btn-sm btn-card-gold d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="modal" data-bs-target="#youtubeLinkModal">
-                        <i class="fa-solid fa-gear"></i> <span>Set Stream Link</span>
-                      </button>
-                      <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light rounded-pill px-3 d-inline-flex align-items-center justify-content-center gap-2">
-                        <i class="fa-brands fa-youtube text-danger"></i> <span>YouTube ↗</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Top Overlay Indicators -->
-              <div class="position-absolute top-0 start-0 p-3 d-flex align-items-center gap-2">
-                <span class="badge bg-danger px-3 py-2 d-flex align-items-center gap-2 shadow-sm">
-                  <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: pulseSacred 1.5s infinite;"></span> LIVE SANCTUM BROADCAST
-                </span>
-                <span class="badge bg-dark text-white-50 px-3 py-2 shadow-sm">
-                  <i class="fa-solid fa-users text-warning me-1"></i> <span id="liveViewerCount">3,420</span> Devotees Joined
-                </span>
-              </div>
-
-              <!-- Sound Wave indicator & bell trigger -->
-              <div class="position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-between align-items-center flex-wrap gap-2" style="background: linear-gradient(0deg, rgba(0,0,0,0.88) 0%, transparent 100%);">
-                <div class="text-white">
-                  <h5 class="mb-0" style="font-family: 'Cinzel', serif; font-size: 1.05rem; color: #F9E79F;">
-                    Sukoon Temple (Ropar, Punjab) • Special Darshan Stream
-                  </h5>
-                  <small class="text-white-50"><i class="fa-solid fa-music me-1 text-warning"></i> Transmitting 432 Hz Solfeggio Frequency</small>
-                </div>
-                <button class="btn btn-card-gold trigger-sacred-bell" title="Resonate Sanctum Bell">
-                  <i class="fa-solid fa-bell me-1"></i> Ring Bell
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Real-Time Next Aarti Countdown Bar -->
-          <div class="card border-0 shadow-sm rounded-4 mt-3 p-3 bg-white" style="border: 1.5px solid rgba(212, 175, 55, 0.4) !important;">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-              <div>
-                <small class="text-muted text-uppercase fw-bold" style="letter-spacing: 0.06em; font-size: 0.72rem;">Next Upcoming Sacred Aarti:</small>
-                <h5 id="nextAartiName" class="mb-0 fw-bold" style="color: #2E1A47; font-family: 'Cinzel', serif;">Mangala Aarti (06:00 AM IST)</h5>
-                <small class="text-muted">Live bell resonance &amp; camphor offering from Ropar Temple</small>
-              </div>
-              <div class="text-end flex-shrink-0" style="width: 140px; min-width: 140px;">
-                <small class="text-muted text-uppercase fw-bold d-block" style="letter-spacing: 0.06em; font-size: 0.72rem;">Time Remaining:</small>
-                <div id="aartiCountdown" class="fw-bold font-monospace d-block text-end" style="font-size: 1.6rem; color: #E65100; line-height: 1.1; font-variant-numeric: tabular-nums;">00:00:00</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Live Devotee Prayer Wall & Sankalpa Submission -->
-        <div class="col-lg-4">
-          <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-white d-flex flex-column justify-content-between" style="border: 1.5px solid rgba(212, 175, 55, 0.35) !important;">
-            <div>
-              <div class="d-flex align-items-center gap-2 mb-3">
-                <span style="font-size: 1.4rem;">🪔</span>
-                <div>
-                  <h5 class="mb-0 fw-bold font-serif" style="color: #2E1A47;">Devotee Prayer Wall</h5>
-                  <small class="text-muted">Leave your sacred Pranam &amp; prayers</small>
-                </div>
-              </div>
-
-              <!-- Instant Prayer Submission -->
-              <form id="livePrayerForm" class="mb-3">
-                <div class="mb-2">
-                  <input type="text" id="prayerName" class="form-control form-control-sm rounded-3" placeholder="Your Name / City" required style="border-color: rgba(212, 175, 55, 0.4);">
-                </div>
-                <div class="mb-2">
-                  <textarea id="prayerMsg" class="form-control form-control-sm rounded-3" rows="2" placeholder="Write your prayer, wish or pranam..." required style="border-color: rgba(212, 175, 55, 0.4);"></textarea>
-                </div>
-                <button type="submit" class="btn btn-card-saffron w-100 py-2">
-                  <i class="fa-solid fa-hands-praying me-1"></i> Offer Prayer / Pranam
-                </button>
-              </form>
-
-              <div class="border-top pt-3">
-                <small class="text-muted fw-bold text-uppercase d-block mb-2" style="font-size: 0.68rem; letter-spacing: 0.05em;">Live Prayers from Devotees Worldwide:</small>
-                <div id="prayerWallItems" style="max-height: 240px; overflow-y: auto; padding-right: 4px;">
-                  <div class="p-2 mb-2 rounded bg-light border border-warning-subtle">
-                    <div class="d-flex justify-content-between">
-                      <strong class="small text-dark font-serif">Simranjeet Kaur (Mohali)</strong>
-                      <span class="badge bg-warning-subtle text-warning small">2 mins ago</span>
-                    </div>
-                    <p class="small text-muted mb-0 mt-1">May the divine blessings of Sukoon Temple bring peace, good health and prosperity to our family.</p>
-                  </div>
-
-                  <div class="p-2 mb-2 rounded bg-light border border-warning-subtle">
-                    <div class="d-flex justify-content-between">
-                      <strong class="small text-dark font-serif">Raman Sharma (Ludhiana)</strong>
-                      <span class="badge bg-warning-subtle text-warning small">7 mins ago</span>
-                    </div>
-                    <p class="small text-muted mb-0 mt-1">Om Namah Shivaya! Grateful for the divine sanctum darshan from Ropar.</p>
-                  </div>
-
-                  <div class="p-2 mb-2 rounded bg-light border border-warning-subtle">
-                    <div class="d-flex justify-content-between">
-                      <strong class="small text-dark font-serif">Arun Patel (London, UK)</strong>
-                      <span class="badge bg-warning-subtle text-warning small">15 mins ago</span>
-                    </div>
-                    <p class="small text-muted mb-0 mt-1">Watching live Maha Aarti from abroad. The conch sound brings pure solace.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-3 text-center">
-              <a href="booking.html" class="btn btn-card-gold w-100 py-2" style="font-size: 0.82rem;">
-                <i class="fa-solid fa-fire me-1"></i> Book Dedicated Puja Sankalp →
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================================================
-       SPECIAL FESTIVAL DAYS: UPCOMING YOUTUBE LIVE CALENDAR
-       ====================================================== -->
-  <section class="py-5" style="background: #FFFFFF; border-top: 1px solid rgba(212, 175, 55, 0.25);">
+  <!-- Live Stream Section -->
+  <section class="py-5" style="background: #180D26; color: #FFFFFF;">
     <div class="container">
-      <div class="text-center mb-5">
-        <span class="badge px-3 py-2 mb-2" style="background: rgba(220, 38, 38, 0.12); border: 1.5px solid #DC2626; color: #DC2626; font-family: 'Cinzel', serif;">
-          <i class="fa-brands fa-youtube me-1"></i> YOUTUBE SPECIAL LIVE STREAM SCHEDULE
+      <div class="text-center mb-4">
+        <span class="badge px-3 py-2 mb-2" style="background: rgba(230, 81, 0, 0.2); border: 1px solid #FF9800; color: #FFA000; font-family: 'Cinzel', serif;">
+          <span class="pulse-dot-green me-1"></span> LIVE VEDIC STREAM FROM HARIDWAR
         </span>
-        <h2 style="font-family: 'Cinzel', serif; color: #2E1A47; font-weight: 800;">
-          Special Festival Days Live Broadcasts
-        </h2>
-        <p class="text-muted small mx-auto" style="max-width: 760px;">
-          On auspicious tithis and major festivals, Sukoon Temple streams grand ceremonies live on YouTube. Devotees worldwide can watch directly right here or share the live broadcast link with loved ones.
+        <h1 style="font-family: 'Cinzel', serif; color: #F9E79F; font-size: clamp(1.8rem, 3.5vw, 2.8rem);">
+          24/7 Sanctum Live Darshan
+        </h1>
+        <p class="text-white-50" style="max-width: 600px; margin: 0 auto;">
+          Immerse in the direct spiritual vibrations of the inner sanctum, Vedic stotras, and continuous temple bells.
         </p>
       </div>
 
-      <div class="row g-4">
-        <!-- Event 1: Maha Shivratri -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card h-100 border rounded-4 p-3 bg-white shadow-sm d-flex flex-column justify-content-between" style="border-color: rgba(212, 175, 55, 0.38) !important;">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="badge bg-danger">YOUTUBE LIVE</span>
-                <small class="text-muted"><i class="fa-solid fa-moon me-1 text-primary"></i> 4 Prahara</small>
-              </div>
-              <h5 class="fw-bold font-serif mb-2" style="color: #2E1A47;">Maha Shivratri Akhand Rudrabhishek</h5>
-              <p class="text-muted small mb-3" style="line-height: 1.6;">
-                All-night Rudrabhishek with 1008 Bilva Patra, holy Panchamrit snan, and hourly Maha Aartis live from Ropar sanctum.
-              </p>
-              <div class="bg-light p-2 rounded-3 mb-3 small">
-                <div><i class="fa-regular fa-calendar me-1 text-warning"></i> <strong>March 7, 2026</strong></div>
-                <div><i class="fa-regular fa-clock me-1 text-warning"></i> 06:00 PM – 06:00 AM IST</div>
-              </div>
-            </div>
-            <div class="d-flex gap-2">
-              <a href="https://api.whatsapp.com/send?text=Join%20Maha%20Shivratri%20Live%20YouTube%20Aarti%20from%20Sukoon%20Temple:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm btn-outline-success flex-fill rounded-pill d-inline-flex align-items-center justify-content-center gap-2 py-2">
-                <i class="fa-brands fa-whatsapp fs-6"></i> <span>Share</span>
-              </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold flex-fill d-inline-flex align-items-center justify-content-center gap-2 py-2">
-                <i class="fa-brands fa-youtube text-danger fs-6"></i> <span>Watch Live</span>
-              </a>
-            </div>
-          </div>
-        </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="rounded-4 overflow-hidden position-relative shadow-lg border border-warning" style="border-color: rgba(212, 175, 55, 0.4) !important; background: #000;">
+            <!-- Real Sample Video Player Container -->
+            <div class="video-container">
+              <video id="liveVideoPlayer" autoplay loop muted playsinline controls poster="assets/images/hero-temple.jpg">
+                <source src="assets/videos/sample-darshan.mp4" type="video/mp4">
+                <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
 
-        <!-- Event 2: Chaitra Navratri -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card h-100 border rounded-4 p-3 bg-white shadow-sm d-flex flex-column justify-content-between" style="border-color: rgba(212, 175, 55, 0.38) !important;">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="badge bg-danger">YOUTUBE LIVE</span>
-                <small class="text-muted"><i class="fa-solid fa-fire me-1 text-danger"></i> Maha Yagya</small>
-              </div>
-              <h5 class="fw-bold font-serif mb-2" style="color: #2E1A47;">Navratri Chandi Havan &amp; Ashtami Aarti</h5>
-              <p class="text-muted small mb-3" style="line-height: 1.6;">
-                Vedic Chandi Paath with pure lotus ghee offerings and grand Kanya Pujan live broadcast on YouTube.
-              </p>
-              <div class="bg-light p-2 rounded-3 mb-3 small">
-                <div><i class="fa-regular fa-calendar me-1 text-warning"></i> <strong>April 15, 2026</strong></div>
-                <div><i class="fa-regular fa-clock me-1 text-warning"></i> 08:00 AM – 01:00 PM IST</div>
-              </div>
-            </div>
-            <div class="d-flex gap-2">
-              <a href="https://api.whatsapp.com/send?text=Join%20Navratri%20Chandi%20Havan%20Live%20on%20YouTube:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm btn-outline-success flex-fill rounded-pill d-inline-flex align-items-center justify-content-center gap-2 py-2">
-                <i class="fa-brands fa-whatsapp fs-6"></i> <span>Share</span>
-              </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold flex-fill d-inline-flex align-items-center justify-content-center gap-2 py-2">
-                <i class="fa-brands fa-youtube text-danger fs-6"></i> <span>Watch Live</span>
-              </a>
-            </div>
-          </div>
-        </div>
+              <!-- Stream Overlay UI -->
+              <div class="stream-overlay">
+                <!-- Top Badges -->
+                <div class="d-flex align-items-center gap-2">
+                  <span class="badge bg-danger px-3 py-2 d-flex align-items-center gap-2">
+                    <span class="pulse-dot-green" style="background: #fff; width: 8px; height: 8px;"></span> LIVE
+                  </span>
+                  <span class="badge bg-dark text-white-50 px-3 py-2">
+                    <i class="fa-solid fa-users me-1 text-warning"></i> 2,481 Devotees Watching
+                  </span>
+                </div>
 
-        <!-- Event 3: Janmashtami -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card h-100 border rounded-4 p-3 bg-white shadow-sm d-flex flex-column justify-content-between" style="border-color: rgba(212, 175, 55, 0.38) !important;">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="badge bg-danger">YOUTUBE LIVE</span>
-                <small class="text-muted"><i class="fa-solid fa-crown me-1 text-warning"></i> Janmotsav</small>
-              </div>
-              <h5 class="fw-bold font-serif mb-2" style="color: #2E1A47;">Shri Krishna Janmashtami Midnight Aarti</h5>
-              <p class="text-muted small mb-3" style="line-height: 1.6;">
-                Midnight sacred avatar appearance, silver cradle swinging (Jhulan), conch sound and Makhan Bhog distribution.
-              </p>
-              <div class="bg-light p-2 rounded-3 mb-3 small">
-                <div><i class="fa-regular fa-calendar me-1 text-warning"></i> <strong>September 3, 2026</strong></div>
-                <div><i class="fa-regular fa-clock me-1 text-warning"></i> 11:00 PM – 12:45 AM IST</div>
-              </div>
-            </div>
-            <div class="d-flex gap-2">
-              <a href="https://api.whatsapp.com/send?text=Watch%20Janmashtami%20Midnight%20Aarti%20Live:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm btn-outline-success flex-fill rounded-pill d-inline-flex align-items-center justify-content-center gap-2 py-2">
-                <i class="fa-brands fa-whatsapp fs-6"></i> <span>Share</span>
-              </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold flex-fill d-inline-flex align-items-center justify-content-center gap-2 py-2">
-                <i class="fa-brands fa-youtube text-danger fs-6"></i> <span>Watch Live</span>
-              </a>
-            </div>
-          </div>
-        </div>
+                <!-- Center 432 Hz Bell Chime Button -->
+                <div class="text-center align-self-center my-auto">
+                  <button class="btn btn-lg rounded-circle trigger-sacred-bell shadow-lg" style="width: 72px; height: 72px; background: linear-gradient(135deg, #D4AF37 0%, #B3861B 100%); color: #180D26; border: none; font-size: 1.6rem;" title="Sound Sacred Chime">
+                    <i class="fa-solid fa-bell"></i>
+                  </button>
+                  <div class="mt-2 text-white fw-semibold small" style="text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Click to Sound 432 Hz Bell</div>
+                </div>
 
-        <!-- Event 4: Deepotsav -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card h-100 border rounded-4 p-3 bg-white shadow-sm d-flex flex-column justify-content-between" style="border-color: rgba(212, 175, 55, 0.38) !important;">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="badge bg-danger">YOUTUBE LIVE</span>
-                <small class="text-muted"><i class="fa-solid fa-sparkles me-1 text-warning"></i> Deepotsav</small>
+                <!-- Bottom Status Bar -->
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 p-2 rounded-3" style="background: rgba(0,0,0,0.65); backdrop-filter: blur(8px);">
+                  <div class="d-flex align-items-center gap-2 text-white small">
+                    <span class="text-warning fw-bold">Current Aarti:</span>
+                    <span>Maha Sandhya Aarti Preparations</span>
+                  </div>
+                  <div>
+                    <a href="booking.html" class="btn btn-sm btn-warning fw-bold px-3 rounded-pill text-dark">
+                      Send Prayer Intention
+                    </a>
+                  </div>
+                </div>
               </div>
-              <h5 class="fw-bold font-serif mb-2" style="color: #2E1A47;">Kartik Purnima 108 Deepa Maha Aarti</h5>
-              <p class="text-muted small mb-3" style="line-height: 1.6;">
-                108 brass oil lamps lit simultaneously along sacred Sutlej waters with chanting of Vedic peace hymns and Aarti.
-              </p>
-              <div class="bg-light p-2 rounded-3 mb-3 small">
-                <div><i class="fa-regular fa-calendar me-1 text-warning"></i> <strong>November 24, 2026</strong></div>
-                <div><i class="fa-regular fa-clock me-1 text-warning"></i> 06:15 PM – 08:30 PM IST</div>
-              </div>
-            </div>
-            <div class="d-flex gap-2">
-              <a href="https://api.whatsapp.com/send?text=Watch%20Kartik%20Purnima%20108%20Deepa%20Aarti%20Live:%20https://sakoontemple.com/live" target="_blank" rel="noopener" class="btn btn-sm btn-outline-success flex-fill rounded-pill d-inline-flex align-items-center justify-content-center gap-2 py-2">
-                <i class="fa-brands fa-whatsapp fs-6"></i> <span>Share</span>
-              </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn-sm btn-card-gold flex-fill d-inline-flex align-items-center justify-content-center gap-2 py-2">
-                <i class="fa-brands fa-youtube text-danger fs-6"></i> <span>Watch Live</span>
-              </a>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ======================================================
-       MODAL: SET / SWITCH YOUTUBE LIVE STREAM LINK
-       ====================================================== -->
-  <div class="modal fade" id="youtubeLinkModal" tabindex="-1" aria-labelledby="youtubeLinkModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content rounded-4 border-0 shadow-lg">
-        <div class="modal-header" style="background: linear-gradient(135deg, #2E1A47 0%, #180D26 100%); color: #F9E79F;">
-          <h5 class="modal-title font-serif fw-bold" id="youtubeLinkModalLabel">
-            <i class="fa-brands fa-youtube text-danger me-2"></i> Update Special Day YouTube Live
-          </h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-4">
-          <p class="small text-muted">
-            Paste your active YouTube Live Video URL or Video ID below. On festival days, this will embed and broadcast the stream directly right here for all devotees.
-          </p>
-          <div class="mb-3">
-            <label class="form-label fw-bold small text-dark">YouTube Live Video URL or ID:</label>
-            <input type="text" id="customYoutubeInput" class="form-control" placeholder="e.g. https://www.youtube.com/watch?v=XXXX or video ID" value="">
-          </div>
-          <div class="alert alert-info py-2 small mb-0">
-            <i class="fa-solid fa-circle-info me-1"></i> Devotees can also watch and share the link on WhatsApp with one click.
+  <!-- Devotee Prayer Intentions Wall -->
+  <section class="py-5" style="background: #FDFBF7;">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h3 style="font-family: 'Cinzel', serif; color: #2E1A47;">Devotee Prayer Intentions Wall</h3>
+        <p class="text-muted">Offer your mental prayer; an Acharya will recite universal shanti prayers during the evening aarti.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="p-3 bg-white rounded-3 border shadow-sm">
+            <span class="badge bg-light text-dark mb-2">Health &amp; Healing</span>
+            <p class="mb-1 text-secondary" style="font-size: 0.92rem;">"Praying for my mother's recovery and inner peace for our whole family."</p>
+            <small class="text-muted">— Priya S., Mumbai</small>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" id="saveCustomYoutubeBtn" class="btn btn-card-gold btn-sm px-4" data-bs-dismiss="modal">
-            Apply Live Stream
-          </button>
+        <div class="col-md-4">
+          <div class="p-3 bg-white rounded-3 border shadow-sm">
+            <span class="badge bg-light text-dark mb-2">Peace of Mind</span>
+            <p class="mb-1 text-secondary" style="font-size: 0.92rem;">"Seeking calm mind and freedom from work anxiety. Om Namah Shivaya."</p>
+            <small class="text-muted">— Rohit V., Bengaluru</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3 bg-white rounded-3 border shadow-sm">
+            <span class="badge bg-light text-dark mb-2">Family Harmony</span>
+            <p class="mb-1 text-secondary" style="font-size: 0.92rem;">"May love, truth, and respect return to our ancestral household."</p>
+            <small class="text-muted">— Anita &amp; Manoj, Delhi</small>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- ======================================================
-       MAIN SANCTUARY FOOTER
-       ====================================================== -->
-  <footer class="main-footer">
-    <div class="container footer-container">
-      <div class="footer-top-grid">
-        <!-- Col 1: Brand & Philosophy -->
-        <div class="footer-col brand-col">
-          <div class="footer-brand">
-            <span class="brand-footer-om">ॐ</span>
-            <span class="footer-brand-title">SUKOON TEMPLE</span>
+  <!-- Footer -->
+  <footer class="py-5" style="background: #180D26; color: #FFFFFF; border-top: 2px solid #D4AF37;">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span style="font-size: 1.8rem; color: #D4AF37; font-family: 'Cinzel', serif;">ॐ</span>
+            <span style="font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 800; color: #D4AF37;">divyasukoon</span>
           </div>
-          <p class="footer-desc">
-            A sacred sanctuary in Rupnagar (Ropar), Punjab dedicated to ancient Vedic rituals, daily Maha Aarti, Shastric havan ceremonies, and holistic spiritual peace for families across the world.
+          <p class="text-white-50" style="font-size: 0.9rem;">
+            A sacred Vedic temple sanctuary dedicated to universal peace, Vedic rituals, live darshan, and planetary harmony.
           </p>
-          <div class="footer-mantra-line mb-3">
-            ॐ असतो मा सद्गमय | तमसो मा ज्योतिर्गमय
-          </div>
-          <div class="footer-socials">
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://whatsapp.com" target="_blank" rel="noopener" class="footer-social-btn" title="WhatsApp Blessings"><i class="fa-brands fa-whatsapp"></i></a>
-          </div>
         </div>
 
-        <!-- Col 2: Sister Portals -->
-        <div class="footer-col">
-          <h4 class="footer-col-title">Sister Sanctuaries</h4>
-          <ul class="footer-links">
-            <li><a href="../index.html"><i class="fa-solid fa-archway text-warning"></i> Sukoonsay Main Hub ↗</a></li>
-            <li><a href="../Phycartist/index.html"><i class="fa-solid fa-brain" style="color: #BB86FC;"></i> Clinical Psychiatry Clinic ↗</a></li>
-            <li><a href="about.html"><i class="fa-solid fa-gopuram text-warning"></i> About Mandir &amp; Heritage</a></li>
-            <li><a href="services.html"><i class="fa-solid fa-hands-praying text-warning"></i> Sacred Vedic Pujas &amp; Sevas</a></li>
-            <li><a href="timings.html"><i class="fa-regular fa-clock text-warning"></i> Daily Aarti Timetable</a></li>
+        <div class="col-sm-6 col-lg-3">
+          <h5 style="font-family: 'Cinzel', serif; color: #F9E79F; font-size: 1.05rem;" class="mb-3">Quick Navigation</h5>
+          <ul class="list-unstyled" style="font-size: 0.9rem;">
+            <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">Home Sanctum</a></li>
+            <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">About Mandir</a></li>
+            <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none">Sacred Pujas</a></li>
+            <li class="mb-2"><a href="timings.html" class="text-white-50 text-decoration-none">Aarti Timings</a></li>
+            <li class="mb-2"><a href="calendar.html" class="text-white-50 text-decoration-none">Panchang</a></li>
+            <li class="mb-2"><a href="booking.html" class="text-white-50 text-decoration-none">Book Puja</a></li>
+            <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Sacred Offerings -->
-        <div class="footer-col">
-          <h4 class="footer-col-title">Sacred Offerings</h4>
-          <ul class="footer-links">
-            <li><a href="calendar.html"><i class="fa-regular fa-calendar-days text-warning"></i> Hindu Panchang Calendar</a></li>
-            <li><a href="live.html"><i class="fa-solid fa-video text-warning"></i> 24/7 Live Sanctum Darshan</a></li>
-            <li><a href="booking.html"><i class="fa-solid fa-fire-burner text-warning"></i> Online Puja &amp; Havan Sankalp</a></li>
-            <li><a href="contact.html"><i class="fa-solid fa-location-dot text-warning"></i> Ropar (Punjab) Sanctum Address</a></li>
+        <div class="col-sm-6 col-lg-2">
+          <h5 style="font-family: 'Cinzel', serif; color: #F9E79F; font-size: 1.05rem;" class="mb-3">Timings</h5>
+          <ul class="list-unstyled text-white-50" style="font-size: 0.88rem;">
+            <li class="mb-1">Morning: 05:30 AM - 12:30 PM</li>
+            <li class="mb-1">Evening: 04:30 PM - 09:30 PM</li>
+            <li class="mb-1 text-warning">Live Darshan: 24/7</li>
           </ul>
         </div>
 
-        <!-- Col 4: Sanctum Timings & 432 Hz Solfeggio Sound -->
-        <div class="footer-col">
-          <h4 class="footer-col-title">Sanctum Timings</h4>
-          <ul class="footer-timings">
-            <li><span>Pratah Mangala:</span> <strong>05:30 AM – 07:00 AM</strong></li>
-            <li><span>Madhyahna Bhog:</span> <strong>12:00 PM – 12:30 PM</strong></li>
-            <li><span>Maha Sandhya Aarti:</span> <strong>06:45 PM – 07:45 PM</strong></li>
-            <li><span>432 Hz Solfeggio:</span> <strong>24 Hours Continuous</strong></li>
-          </ul>
-          <div class="footer-audio-quick mt-3">
-            <button class="btn btn-warning w-100 audio-chime-toggle text-dark fw-bold btn-sm shadow-sm" style="background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%); border: none; padding: 0.55rem 1rem; border-radius: 9999px;">
-              <i class="fa-solid fa-bell me-1"></i>
-              <span class="tb-btn-label">Play 432Hz Sound</span>
-            </button>
-          </div>
+        <div class="col-lg-3">
+          <h5 style="font-family: 'Cinzel', serif; color: #F9E79F; font-size: 1.05rem;" class="mb-3">Temple Bell</h5>
+          <button class="btn btn-sm w-100 trigger-sacred-bell" style="background: linear-gradient(135deg, #D4AF37 0%, #B3861B 100%); color: #180D26; font-weight: 700; border-radius: 20px;">
+            <i class="fa-solid fa-bell me-1"></i> Ring Sacred Bell
+          </button>
         </div>
       </div>
 
-      <!-- Footer Bottom Bar -->
-      <div class="footer-bottom-bar">
-        <p class="mb-0">© 2026 <strong>Sukoon Temple (Sukoonsay)</strong>. Located in Rupnagar (Ropar), Punjab. All Rights Reserved.</p>
-        <div class="footer-sub-links d-flex align-items-center gap-3">
-          <span class="text-warning fw-semibold font-serif">ॐ शान्तिः शान्तिः शान्तिः</span>
-          <a href="#top" class="text-warning text-decoration-none fw-bold">Back to Top <i class="fa-solid fa-arrow-up"></i></a>
-        </div>
+      <div class="text-center pt-4 mt-4 border-top border-secondary text-white-50" style="font-size: 0.85rem;">
+        © 2026 divyasukoon (Sukoonsay). All Rights Reserved. Designed with Sacred Vedic Harmony.
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Clean up temporary file -->
+  <!-- Bootstrap 5 Bundle JS CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/app.js"></script>
-  <script>
-    // YouTube Live Stream link controller
-    document.addEventListener('DOMContentLoaded', () => {
-      const saveBtn = document.getElementById('saveCustomYoutubeBtn');
-      const input = document.getElementById('customYoutubeInput');
-      const activeArea = document.getElementById('activeStreamArea');
-      const openBtn = document.getElementById('openYoutubeLiveBtn');
-      const playBtn = document.getElementById('playStreamBtn');
-      const shareBtn = document.getElementById('shareWhatsappBtn');
-
-      function extractYouTubeId(url) {
-        if (!url) return '';
-        url = url.trim();
-        if (/^[a-zA-Z0-9_-]{11}$/.test(url)) return url;
-        const regExp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-        const match = url.match(regExp);
-        return (match && match[1]) ? match[1] : '';
-      }
-
-      function applyStream(val) {
-        const videoId = extractYouTubeId(val);
-        if (videoId && activeArea) {
-          activeArea.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" title="Sukoon Temple YouTube Live Stream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>';
-          const fullUrl = 'https://www.youtube.com/watch?v=' + videoId;
-          if (openBtn) openBtn.href = fullUrl;
-          if (playBtn) playBtn.href = fullUrl;
-          if (shareBtn) shareBtn.href = 'https://api.whatsapp.com/send?text=Join%20Sukoon%20Temple%20Special%20Live%20YouTube%20Darshan:%20' + encodeURIComponent(fullUrl);
-          localStorage.setItem('sukoon_youtube_stream', val);
-        }
-      }
-
-      // Check saved stream from localStorage
-      const savedStream = localStorage.getItem('sukoon_youtube_stream');
-      if (savedStream) {
-        if (input) input.value = savedStream;
-        applyStream(savedStream);
-      }
-
-      if (saveBtn && input) {
-        saveBtn.addEventListener('click', () => {
-          const val = input.value.trim();
-          if (val) {
-            applyStream(val);
-            alert('Sukoon Temple Live Stream link updated successfully!');
-          }
-        });
-      }
-
-      // Dynamic Prayer Wall Submission & Local Persistence
-      const prayerForm = document.getElementById('livePrayerForm');
-      const prayerName = document.getElementById('prayerName');
-      const prayerMsg = document.getElementById('prayerMsg');
-      const prayerWallItems = document.getElementById('prayerWallItems');
-
-      if (prayerForm && prayerName && prayerMsg && prayerWallItems) {
-        prayerForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const n = prayerName.value.trim();
-          const t = prayerMsg.value.trim();
-          if (n && t) {
-            const card = document.createElement('div');
-            card.className = 'p-2 mb-2 rounded bg-light border border-warning-subtle';
-            card.innerHTML = '<div class="d-flex justify-content-between"><strong class="small text-dark font-serif">' + n + '</strong><span class="badge bg-warning-subtle text-warning small">Just Now</span></div><p class="small text-muted mb-0 mt-1">' + t + '</p>';
-            prayerWallItems.prepend(card);
-            prayerForm.reset();
-            alert('Om Shanti! Your prayer has been received and presented before the sanctum altar.');
-          }
-        });
-      }
-    });
-  </script>
 </body>
 </html>
