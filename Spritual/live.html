@@ -25,217 +25,613 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    .pulse-dot-green {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #4ade80;
-      box-shadow: 0 0 10px #4ade80;
-      animation: pulseGreen 1.8s infinite;
-      display: inline-block;
-    }
-    @keyframes pulseGreen {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.2); }
-    }
-    .video-container {
+    /* Scoped helpers for Live Darshan Netlify page */
+    .player-frame-wrap {
       position: relative;
       padding-top: 56.25%;
-      background: #000;
-      border-radius: 1rem;
+      border-radius: 1.25rem;
       overflow: hidden;
+      box-shadow: 0 16px 48px -8px rgba(46, 26, 71, 0.4), 0 0 24px rgba(212, 175, 55, 0.3);
+      border: 2px solid rgba(212, 175, 55, 0.4);
+      background: #000;
     }
-    .video-container video {
+    .player-frame-wrap iframe,
+    .player-frame-wrap video {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      border: 0;
       object-fit: cover;
     }
-    .stream-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .custom-stream-box {
+      margin-top: 1rem;
       padding: 1rem;
-      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.6) 100%);
+      background: rgba(24, 13, 38, 0.6);
+      border: 1px dashed rgba(212, 175, 55, 0.35);
+      border-radius: 12px;
+      transition: all 0.3s ease;
     }
-    .stream-overlay > * {
-      pointer-events: auto;
+    .live-dot-pulse {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 0 0 8px #EF4444;
+      animation: liveRedPulse 1.4s ease-in-out infinite;
+      margin-left: 6px;
+      vertical-align: middle;
     }
-    @media (max-width: 991.98px) {
-      .navbar-brand {
-        margin: 0 auto;
+    @keyframes liveRedPulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 6px #EF4444, 0 0 14px rgba(239, 68, 68, 0.85);
       }
-      .mobile-bell-left {
-        display: inline-flex !important;
+      50% {
+        opacity: 0.35;
+        transform: scale(1.35);
+        box-shadow: 0 0 2px #EF4444;
       }
     }
   </style>
 </head>
-<body style="padding-top: 0 !important; background: #180D26;">
+<body class="live-darshan-page" style="padding-top: 88px;">
 
-  <!-- Topbar Strip -->
-  <header class="site-header" style="position: relative !important; background: transparent !important; box-shadow: none !important; border: none !important;">
-    <div class="temple-topbar py-1" style="background: linear-gradient(90deg, #180D26 0%, #2E1A47 50%, #180D26 100%); border-bottom: 1px solid rgba(212, 175, 55, 0.35); font-size: 0.82rem; color: #F9E79F;">
-      <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
-        <div class="d-flex align-items-center gap-3">
-          <span><i class="fa-solid fa-location-dot text-warning"></i> Haridwar, Uttarakhand</span>
-          <span class="text-white-50">|</span>
-          <span id="sanctumLiveClock" class="fw-semibold text-white">IST --:--:--</span>
+  <!-- ======================================================
+       1. SACRED VEDIC TEMPLE PRELOADER
+       ====================================================== -->
+  <div id="templePreloader" class="temple-loader-overlay">
+    <div class="loader-inner-card">
+      <div class="sacred-yantra-pulse">
+        <div class="yantra-outer-ring"></div>
+        <div class="yantra-inner-halo"></div>
+        <div class="yantra-om-center">ॐ</div>
+      </div>
+      <div class="loader-typography">
+        <h2 class="loader-temple-name">divyasukoon</h2>
+        <span class="loader-sanskrit-sub">॥ ॐ नमः शिवाय • शान्तिः प्रशान्तिः ॥</span>
+        <p class="loader-sacred-caption">Entering the 24/7 Live Sanctum Stream</p>
+      </div>
+      <div class="loader-gold-bar-track">
+        <div class="loader-gold-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       2. FIXED SITE HEADER & TOPBAR (EXACT SAME AS HOME PAGE)
+       ====================================================== -->
+  <header class="site-header">
+    <!-- ROW 1: TOPBAR -->
+    <div class="hdr-topbar">
+      <div class="hdr-topbar-inner">
+        <!-- Sacred Temple Bell Button ("Ball") - Left on Mobile, Grouped on Desktop -->
+        <div class="hdr-topbar-left">
+          <button class="tb-icon-btn ring-bell-btn trigger-sacred-bell" title="Ring Sacred Temple Bell" aria-label="Ring Temple Bell">
+            <i class="fa-solid fa-bell"></i>
+          </button>
         </div>
-        <div class="d-flex align-items-center gap-3">
-          <a href="../index.html" class="text-decoration-none text-white-50" style="transition: color 0.2s;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
-            <i class="fa-solid fa-arrow-left"></i> Sukoonsay Main
+
+        <!-- Brand Link (Centered on Mobile, Left-aligned on Desktop) -->
+        <a href="index.html" class="brand-link" aria-label="divyasukoon Home">
+          <div class="brand-emblem-wrap">
+            <img src="assets/icons/temple-logo.svg" alt="divyasukoon Sacred Emblem" class="brand-logo-img" onerror="this.onerror=null;this.src='assets/images/logo.jpg';">
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">divyasukoon</span>
+            <span class="brand-subtitle">Vedic Peace &amp; Sacred Sanctum</span>
+          </div>
+        </a>
+
+        <!-- Header Buttons (Right side: 432Hz & CTA for Desktop; Hamburger Toggle for Mobile) -->
+        <div class="hdr-btn-group">
+          <!-- 432 Hz Solfeggio Audio Button (Desktop only) -->
+          <button class="tb-audio-btn audio-chime-toggle hdr-hide-mobile" title="432 Hz Solfeggio Chimes">
+            <span class="audio-bars" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+            <span class="tb-btn-label">432Hz</span>
+          </button>
+
+          <!-- Return to Sukoonsay Main CTA (Desktop only) -->
+          <a href="../index.html" class="tb-cta-btn hdr-hide-mobile hdr-hide-xs" title="Return to Sukoonsay Main">
+            <i class="fa-solid fa-archway"></i>
+            <span>Sukoonsay Main</span>
           </a>
-          <a href="../Phycartist/index.html" class="text-decoration-none" style="color: #F9E79F;">
-            <i class="fa-solid fa-brain"></i> Psychiatry Clinic
-          </a>
-          <button class="btn btn-sm trigger-sacred-bell" style="background: rgba(212, 175, 55, 0.2); border: 1px solid var(--sacred-gold); color: #F9E79F; border-radius: 20px; font-size: 0.75rem; padding: 2px 10px;" title="Ring Sacred Temple Bell">
-            <i class="fa-solid fa-bell"></i> 432Hz Bell
+
+          <!-- Mobile Hamburger Toggle (Right side on mobile) -->
+          <button id="mobileToggleBtn" class="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
+            <span class="ham-bar bar-1"></span>
+            <span class="ham-bar bar-2"></span>
+            <span class="ham-bar bar-3"></span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Main Navigation Bar (Clean Netlify UI) -->
-    <nav class="navbar navbar-expand-lg" style="background: rgba(24, 13, 38, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212, 175, 55, 0.25);">
-      <div class="container d-flex align-items-center justify-content-between">
-        <!-- Left Bell for Mobile -->
-        <button class="btn btn-sm d-lg-none mobile-bell-left trigger-sacred-bell" style="background: rgba(212, 175, 55, 0.2); border: 1px solid rgba(212, 175, 55, 0.4); color: #D4AF37; border-radius: 50%; width: 38px; height: 38px; padding: 0; display: none; align-items: center; justify-content: center;" title="Ring Temple Bell">
-          <i class="fa-solid fa-bell"></i>
-        </button>
-
-        <a class="navbar-brand d-flex align-items-center gap-2 m-0" href="index.html">
-          <span style="font-size: 1.8rem; color: #D4AF37; font-family: 'Cinzel', serif;">ॐ</span>
-          <div>
-            <div style="font-family: 'Cinzel', serif; font-weight: 800; font-size: 1.25rem; color: #D4AF37; letter-spacing: 0.05em; line-height: 1;">divyasukoon</div>
-            <small style="font-size: 0.68rem; color: #FFA000; letter-spacing: 0.08em; text-transform: uppercase;">A Sukoonsay Sacred Sanctum</small>
-          </div>
+    <!-- ROW 2: NAVBAR (All Navigation Links cleanly displayed with blinking red Live dot) -->
+    <nav class="hdr-navbar" aria-label="Sacred Temple Navigation">
+      <div class="hdr-navbar-inner">
+        <a href="index.html" class="nav-item "><i class="fa-solid fa-om"></i><span>Home</span></a>
+        <a href="about.html" class="nav-item "><i class="fa-solid fa-gopuram"></i><span>About</span></a>
+        <a href="services.html" class="nav-item "><i class="fa-solid fa-hands-praying"></i><span>Pujas &amp; Services</span></a>
+        <a href="timings.html" class="nav-item "><i class="fa-regular fa-clock"></i><span>Aarti Timings</span></a>
+        <a href="live.html" class="nav-item active-link" style="color: var(--sacred-saffron); font-weight: 700;">
+          <i class="fa-solid fa-video text-danger"></i>
+          <span>Live Darshan</span>
+          <span class="live-dot-pulse"></span>
         </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#templeNavbar" aria-controls="templeNavbar" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(212, 175, 55, 0.4);">
-          <span class="fa-solid fa-bars" style="color: #D4AF37;"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="templeNavbar">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
-            <li class="nav-item"><a class="nav-link text-white-50" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link text-white-50" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link text-white-50" href="services.html">Pujas &amp; Services</a></li>
-            <li class="nav-item"><a class="nav-link text-white-50" href="timings.html">Aarti Timings</a></li>
-            <li class="nav-item"><a class="nav-link text-white active fw-bold" href="live.html" style="color: #D4AF37 !important;">Live Darshan</a></li>
-            <li class="nav-item"><a class="nav-link text-white-50" href="calendar.html">Panchang</a></li>
-            <li class="nav-item"><a class="nav-link text-white-50" href="contact.html">Contact</a></li>
-            <li class="nav-item ms-lg-2">
-              <a href="booking.html" class="btn btn-sm" style="background: linear-gradient(135deg, #E65100 0%, #FFA000 100%); color: #fff; font-weight: 700; border-radius: 20px; padding: 6px 18px; border: none;">
-                <i class="fa-solid fa-calendar-check me-1"></i> Book Puja
-              </a>
-            </li>
-          </ul>
-        </div>
+        <a href="calendar.html" class="nav-item "><i class="fa-regular fa-calendar-days"></i><span>Panchang</span></a>
+        <a href="booking.html" class="nav-item "><i class="fa-solid fa-fire-burner"></i><span>Book Puja</span></a>
+        <a href="contact.html" class="nav-item "><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
       </div>
     </nav>
   </header>
 
-  <!-- Live Stream Section -->
-  <section class="py-5" style="background: #180D26; color: #FFFFFF;">
-    <div class="container">
-      <div class="text-center mb-4">
-        <span class="badge px-3 py-2 mb-2" style="background: rgba(230, 81, 0, 0.2); border: 1px solid #FF9800; color: #FFA000; font-family: 'Cinzel', serif;">
-          <span class="pulse-dot-green me-1"></span> LIVE VEDIC STREAM FROM HARIDWAR
+  <!-- Mobile Off-Canvas Sidebar / Drawer -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop" style="display: none;"></div>
+  <aside id="mobileSidebarDrawer" class="mobile-sidebar-drawer" aria-label="Mobile Sacred Drawer">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <div class="drawer-emblem">
+          <img src="assets/icons/temple-logo.svg" alt="divyasukoon" class="drawer-logo-img" onerror="this.onerror=null;this.src='assets/images/logo.jpg';">
+        </div>
+        <span class="drawer-title">divyasukoon</span>
+      </div>
+      <button id="drawerCloseBtn" class="drawer-close-btn" aria-label="Close Mobile Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Live Sanctum Status Badge inside Drawer -->
+    <div class="drawer-status-strip">
+      <span class="drawer-pulse-dot"></span>
+      <span id="drawerSanctumClock">Haridwar / Ropar (IST): --:--:--</span>
+    </div>
+
+    <!-- Navigation Links in Drawer -->
+    <nav class="drawer-nav" aria-label="Mobile Drawer Navigation">
+      <a href="index.html" class="drawer-link ">
+        <span class="drawer-link-icon"><i class="fa-solid fa-om"></i></span>
+        <span>Sanctum Home</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="about.html" class="drawer-link ">
+        <span class="drawer-link-icon"><i class="fa-solid fa-gopuram"></i></span>
+        <span>About</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="services.html" class="drawer-link ">
+        <span class="drawer-link-icon"><i class="fa-solid fa-hands-praying"></i></span>
+        <span>Pujas &amp; Services</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="timings.html" class="drawer-link ">
+        <span class="drawer-link-icon"><i class="fa-regular fa-clock"></i></span>
+        <span>Aarti Timings</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="live.html" class="drawer-link active">
+        <span class="drawer-link-icon"><i class="fa-solid fa-video text-danger"></i></span>
+        <span>Live Darshan</span>
+        <span class="live-dot-pulse"></span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="calendar.html" class="drawer-link ">
+        <span class="drawer-link-icon"><i class="fa-regular fa-calendar-days"></i></span>
+        <span>Panchang</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="booking.html" class="drawer-link ">
+        <span class="drawer-link-icon"><i class="fa-solid fa-fire-burner"></i></span>
+        <span>Book Puja &amp; Havan</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+      <a href="contact.html" class="drawer-link ">
+        <span class="drawer-link-icon"><i class="fa-solid fa-envelope"></i></span>
+        <span>Contact</span>
+        <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
+      </a>
+    </nav>
+
+    <!-- Sanctuary Access Portal Quick Links -->
+    <div class="drawer-portals-section">
+      <div class="dp-title">DIRECT SANCTUARY ACCESS</div>
+      <a href="../index.html" class="drawer-portal-card sukoonsay-hub-card">
+        <div class="dp-icon"><i class="fa-solid fa-archway"></i></div>
+        <div class="dp-text">
+          <strong>Sukoonsay Main Hub</strong>
+          <span>Access Sanctuary ↗</span>
+        </div>
+      </a>
+      <a href="../Phycartist/index.html" class="drawer-portal-card psychiatry-clinic-card">
+        <div class="dp-icon"><i class="fa-solid fa-brain"></i></div>
+        <div class="dp-text">
+          <strong>Psychiatrist &amp; Mind Therapy</strong>
+          <span>Clinical Healing ↗</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- 432 Hz Solfeggio Audio in Drawer -->
+    <div class="drawer-footer-audio">
+      <button class="tb-audio-btn audio-chime-toggle w-100 justify-content-center" title="432 Hz Solfeggio Chimes">
+        <span class="audio-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
         </span>
-        <h1 style="font-family: 'Cinzel', serif; color: #F9E79F; font-size: clamp(1.8rem, 3.5vw, 2.8rem);">
-          24/7 Sanctum Live Darshan
-        </h1>
-        <p class="text-white-50" style="max-width: 600px; margin: 0 auto;">
-          Immerse in the direct spiritual vibrations of the inner sanctum, Vedic stotras, and continuous temple bells.
+        <span class="tb-btn-label">432Hz Sacred Chimes</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ======================================================
+       3. HERO HEADER (NETLIFY AUTHENTIC DESIGN)
+       ====================================================== -->
+  <section class="darshan-hero">
+    <div class="hero-aura-layer"></div>
+    <div class="hero-mandala-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-emblem-row">
+        <span class="diya-anim">🪔</span>
+        <span class="om-symbol">ॐ</span>
+        <span class="diya-anim diya-right">🪔</span>
+      </div>
+      <div class="section-subtitle hero-subtitle-pill">
+        <span>🛕</span> divyasukoon Live
+      </div>
+      <h1 class="hero-title">Live Darshan</h1>
+      <p class="hero-desc">
+        Experience Divine Blessings, Daily Havan, Aarti &amp; Spiritual Celebrations Live.
+      </p>
+
+      <!-- Live status pill with red blinking light -->
+      <div class="hero-status-row">
+        <span class="status-pill status-live">
+          <span class="live-pulse-dot"></span>
+          LIVE NOW
+        </span>
+      </div>
+    </div>
+
+    <!-- Wave divider SVG -->
+    <div class="hero-wave-divider">
+      <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 48 C360 0 1080 0 1440 48 L1440 48 L0 48Z" fill="#FDFBF7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       4. MAIN PLAYER SECTION (SCREENSHOTS 3 & 4)
+       ====================================================== -->
+  <section class="player-section section-padding py-5" style="background: #FDFBF7;">
+    <div class="container player-container">
+      <div class="live-wrapper">
+        <!-- Live badge + title -->
+        <div class="live-header-row mb-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
+          <div class="live-badge-group d-flex align-items-center gap-2">
+            <span class="live-badge-pill">
+              <span class="live-pulse-dot"></span>
+              LIVE
+            </span>
+            <span class="live-label-text fw-bold" style="color: #2E1A47;">Live Now – Join Our Divine Darshan</span>
+          </div>
+          <p class="broadcast-title mb-0 text-muted small">
+            Maha Aarti &amp; Daily Divine Darshan — Live from Haridwar Sanctum
+          </p>
+        </div>
+
+        <!-- High-Definition Video Player Frame with Glowing Ring -->
+        <div class="player-frame-wrap mb-3 position-relative">
+          <div class="player-glow-ring"></div>
+          
+          <!-- YouTube Live Stream / Aarti Player -->
+          <iframe
+            id="liveStreamIframe"
+            class="yt-iframe"
+            src="https://www.youtube-nocookie.com/embed/5qap5aO4i9A?autoplay=1&mute=1&enablejsapi=1&rel=0"
+            title="divyasukoon Live Darshan"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+
+          <!-- Fallback local sample video (Hidden by default, used on demand) -->
+          <video id="liveVideoPlayer" loop muted playsinline controls poster="assets/images/hero-temple.jpg" style="display: none;">
+            <source src="assets/videos/sample-darshan.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Watch on YouTube & Refresh Controls -->
+        <div class="live-actions-row d-flex align-items-center gap-2 mb-3">
+          <a
+            id="ytWatchBtn"
+            href="https://www.youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-yt-watch">
+            <svg viewBox="0 0 24 24" class="yt-icon" fill="currentColor">
+              <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/>
+            </svg>
+            Watch on YouTube
+          </a>
+          <button class="btn-refresh" id="refreshStreamBtn" title="Refresh live stream">
+            <svg viewBox="0 0 24 24" class="refresh-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1 4 1 10 7 10"/>
+              <path d="M3.51 15a9 9 0 1 0 .49-4.99"/>
+            </svg>
+            Refresh
+          </button>
+          <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 ms-auto" id="toggleSampleVidBtn" title="Toggle Tranquil Offline Sample">
+            <i class="fa-solid fa-film me-1"></i> Sample Video
+          </button>
+        </div>
+
+        <!-- Audio Guide Tip Banner (Exact from Screenshot 3) -->
+        <div class="audio-tip-banner mb-4">
+          <span class="tip-icon">🔊</span>
+          <span class="tip-text">
+            <strong>Audio Notice:</strong> Web browsers start autoplay videos muted. Please tap the speaker / volume icon on the player to hear the divine Aarti bhajans &amp; mantras!
+          </span>
+        </div>
+
+        <!-- Live Darshan Channels & Test Streams Card (Screenshot 3) -->
+        <div class="stream-switcher-card">
+          <div class="switcher-top d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <div class="switcher-title d-flex align-items-center gap-2">
+              <span class="switcher-om">🪔</span>
+              <span class="switcher-heading">Live Darshan Channels &amp; Test Streams</span>
+            </div>
+            
+            <div class="d-flex align-items-center gap-2">
+              <span class="switcher-badge">
+                <span class="live-pulse-dot-sm"></span>
+                Live Running Preview
+              </span>
+              <!-- Discreet side button for admin live stream link setup (as requested by user) -->
+              <button id="toggleCustomStreamBtn" class="discreet-stream-gear-btn" title="Stream Link Settings">
+                <i class="fa-solid fa-sliders"></i>
+                <span class="d-none d-sm-inline">Custom Link</span>
+              </button>
+            </div>
+          </div>
+
+          <p class="switcher-subtitle mt-2">
+            Click any sacred live stream below to watch, or paste any YouTube live link or video ID to preview how it appears to devotees.
+          </p>
+
+          <!-- 3 Presets Grid (Exact from Screenshot 3) -->
+          <div class="presets-grid">
+            <button type="button" class="preset-btn active" data-vid="5qap5aO4i9A" id="preset1Btn">
+              <span class="preset-icon">🪔</span>
+              <span class="preset-details">
+                <span class="preset-hindi">हरिद्वार महा आरती</span>
+                <span class="preset-sub">Haridwar Sanctum Live</span>
+              </span>
+              <span class="preset-playing-chip">
+                <span class="pulse-ring"></span>
+                Playing Now
+              </span>
+            </button>
+
+            <button type="button" class="preset-btn" data-vid="y7dZ621X7C8" id="preset2Btn">
+              <span class="preset-icon">🌊</span>
+              <span class="preset-details">
+                <span class="preset-hindi">दिव्य गंगा आरती</span>
+                <span class="preset-sub">Devotional Ganga Aarti</span>
+              </span>
+            </button>
+
+            <button type="button" class="preset-btn" data-vid="3yK3fS3X93w" id="preset3Btn">
+              <span class="preset-icon">🔥</span>
+              <span class="preset-details">
+                <span class="preset-hindi">वैदिक शांति पाठ एवं हवन</span>
+                <span class="preset-sub">Vedic Shanti Mantra &amp; Havan</span>
+              </span>
+            </button>
+          </div>
+
+          <!-- Discreet Custom YouTube URL / ID Input (Hidden by default, toggled via discreet button) -->
+          <div id="customStreamPanel" class="custom-stream-box" style="display: none;">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <label class="custom-input-label m-0" for="customStreamInput">
+                <span class="label-icon">🔗</span>
+                <span><strong>Custom YouTube Link / Video ID:</strong> (Paste any link e.g. <code>https://www.youtube.com/watch?v=...</code> or ID)</span>
+              </label>
+              <button type="button" class="btn-close small" id="closeCustomStreamBtn" aria-label="Close"></button>
+            </div>
+            <div class="custom-input-group d-flex gap-2">
+              <input
+                id="customStreamInput"
+                type="text"
+                class="form-control custom-stream-input"
+                placeholder="Paste YouTube Link or Video ID here..." />
+              <button
+                type="button"
+                id="applyCustomStreamBtn"
+                class="btn-apply-stream">
+                ▶ Run Video
+              </button>
+            </div>
+            <p id="customInputMsg" class="custom-input-error small mt-1 mb-0" style="display: none;"></p>
+          </div>
+        </div>
+
+        <p class="last-checked-note text-center text-muted small mt-3">
+          Last checked: <span id="lastCheckedTime">10:18:24 AM</span> IST
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       5. DAILY SPIRITUAL PROGRAMS (EXACT FROM SCREENSHOT 2)
+       ====================================================== -->
+  <section class="programs-section section-padding py-5" style="background: #FFFFFF;">
+    <div class="container">
+      <div class="text-center section-header-block mb-4">
+        <span class="section-subtitle"><span>🕉️</span> Daily Programmes</span>
+        <h2 class="section-title">Daily Spiritual Programs</h2>
+        <p class="section-desc">
+          Every day at divyasukoon is a celebration of divine presence through sacred rituals,
+          Vedic chanting, and spiritual devotion.
         </p>
       </div>
 
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="rounded-4 overflow-hidden position-relative shadow-lg border border-warning" style="border-color: rgba(212, 175, 55, 0.4) !important; background: #000;">
-            <!-- Real Sample Video Player Container -->
-            <div class="video-container">
-              <video id="liveVideoPlayer" autoplay loop muted playsinline controls poster="assets/images/hero-temple.jpg">
-                <source src="assets/videos/sample-darshan.mp4" type="video/mp4">
-                <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+      <div class="programs-grid">
+        <!-- Card 1: Daily Havan -->
+        <div class="program-card glass-card color-saffron">
+          <div class="program-icon-wrap">
+            <span class="program-icon">🔥</span>
+          </div>
+          <div class="program-info">
+            <h3 class="program-name">DAILY HAVAN</h3>
+            <p class="program-hindi">दैनिक हवन</p>
+            <span class="program-time-pill">⏰ Morning &amp; Evening</span>
+            <p class="program-desc">
+              Sacred fire ritual with Vedic mantras for universal peace, health, and divine blessings.
+            </p>
+          </div>
+        </div>
 
-              <!-- Stream Overlay UI -->
-              <div class="stream-overlay">
-                <!-- Top Badges -->
-                <div class="d-flex align-items-center gap-2">
-                  <span class="badge bg-danger px-3 py-2 d-flex align-items-center gap-2">
-                    <span class="pulse-dot-green" style="background: #fff; width: 8px; height: 8px;"></span> LIVE
-                  </span>
-                  <span class="badge bg-dark text-white-50 px-3 py-2">
-                    <i class="fa-solid fa-users me-1 text-warning"></i> 2,481 Devotees Watching
-                  </span>
-                </div>
+        <!-- Card 2: Morning Aarti -->
+        <div class="program-card glass-card color-amber">
+          <div class="program-icon-wrap">
+            <span class="program-icon">🌅</span>
+          </div>
+          <div class="program-info">
+            <h3 class="program-name">MORNING AARTI</h3>
+            <p class="program-hindi">प्रातः आरती</p>
+            <span class="program-time-pill">⏰ 06:00 AM IST</span>
+            <p class="program-desc">
+              Mangala Aarti welcoming the divine with sacred conch blowing and devotional chants.
+            </p>
+          </div>
+        </div>
 
-                <!-- Center 432 Hz Bell Chime Button -->
-                <div class="text-center align-self-center my-auto">
-                  <button class="btn btn-lg rounded-circle trigger-sacred-bell shadow-lg" style="width: 72px; height: 72px; background: linear-gradient(135deg, #D4AF37 0%, #B3861B 100%); color: #180D26; border: none; font-size: 1.6rem;" title="Sound Sacred Chime">
-                    <i class="fa-solid fa-bell"></i>
-                  </button>
-                  <div class="mt-2 text-white fw-semibold small" style="text-shadow: 0 2px 8px rgba(0,0,0,0.8);">Click to Sound 432 Hz Bell</div>
-                </div>
+        <!-- Card 3: Evening Aarti -->
+        <div class="program-card glass-card color-purple">
+          <div class="program-icon-wrap">
+            <span class="program-icon">🌆</span>
+          </div>
+          <div class="program-info">
+            <h3 class="program-name">EVENING AARTI</h3>
+            <p class="program-hindi">सन्ध्या आरती</p>
+            <span class="program-time-pill">⏰ 07:00 PM IST</span>
+            <p class="program-desc">
+              Maha Sandhya Aarti — a serene evening worship with diyas, incense, and hymns.
+            </p>
+          </div>
+        </div>
 
-                <!-- Bottom Status Bar -->
-                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 p-2 rounded-3" style="background: rgba(0,0,0,0.65); backdrop-filter: blur(8px);">
-                  <div class="d-flex align-items-center gap-2 text-white small">
-                    <span class="text-warning fw-bold">Current Aarti:</span>
-                    <span>Maha Sandhya Aarti Preparations</span>
-                  </div>
-                  <div>
-                    <a href="booking.html" class="btn btn-sm btn-warning fw-bold px-3 rounded-pill text-dark">
-                      Send Prayer Intention
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <!-- Card 4: Special Puja -->
+        <div class="program-card glass-card color-gold">
+          <div class="program-icon-wrap">
+            <span class="program-icon">🪔</span>
+          </div>
+          <div class="program-info">
+            <h3 class="program-name">SPECIAL PUJA</h3>
+            <p class="program-hindi">विशेष पूजा</p>
+            <span class="program-time-pill">⏰ On Festive Days</span>
+            <p class="program-desc">
+              Elaborate special pujas on ekadashi, purnima, sankranti, and auspicious Hindu festivals.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Devotee Prayer Intentions Wall -->
-  <section class="py-5" style="background: #FDFBF7;">
+  <!-- ======================================================
+       6. PREVIOUS LIVE BROADCASTS (EXACT FROM SCREENSHOT 1)
+       ====================================================== -->
+  <section class="recordings-section section-padding py-5" style="background: #FDFBF7;">
+    <div class="container">
+      <div class="text-center section-header-block mb-4">
+        <span class="section-subtitle"><span>📹</span> Sacred Recordings</span>
+        <h2 class="section-title">Previous Live Broadcasts</h2>
+        <p class="section-desc">
+          Missed today's live Aarti or Havan? All past divine broadcasts are automatically archived on our official YouTube channel for devotion anytime, anywhere.
+        </p>
+      </div>
+
+      <div class="recordings-hub-card glass-card">
+        <div class="recordings-visual-col">
+          <div class="yt-play-shield">
+            <svg viewBox="0 0 24 24" class="yt-shield-icon" fill="currentColor">
+              <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/>
+            </svg>
+          </div>
+          <div class="archive-glow-ring"></div>
+        </div>
+
+        <div class="recordings-details-col">
+          <div class="archive-badge-pill">
+            <span>✨</span> Official YouTube Live Stream Archive
+          </div>
+          <h3 class="archive-heading">Watch Past Havans, Aartis &amp; Special Pujas</h3>
+          <p class="archive-text">
+            Browse our complete video collection on YouTube. Access high-definition full recordings of past Mangala Aartis, Maha Sandhya Aartis, Vedic Yagyas, and special festive celebrations.
+          </p>
+
+          <!-- Recording Category Chips -->
+          <div class="archive-chips-row">
+            <span class="archive-chip">🔥 Past Havans</span>
+            <span class="archive-chip">🌅 Morning Aartis</span>
+            <span class="archive-chip">🌇 Evening Aartis</span>
+            <span class="archive-chip">🪔 Special Festive Pujas</span>
+            <span class="archive-chip">📜 Vedic Mantras</span>
+          </div>
+
+          <div class="archive-cta-row">
+            <a
+              href="https://www.youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary archive-btn">
+              <svg viewBox="0 0 24 24" class="yt-icon-sm" fill="currentColor">
+                <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/>
+              </svg>
+              Browse Recorded Broadcasts
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       7. DEVOTEE PRAYER INTENTIONS WALL
+       ====================================================== -->
+  <section class="py-5" style="background: #FFFFFF;">
     <div class="container">
       <div class="text-center mb-4">
-        <h3 style="font-family: 'Cinzel', serif; color: #2E1A47;">Devotee Prayer Intentions Wall</h3>
+        <span class="section-subtitle"><span>🙏</span> Sacred Prayers</span>
+        <h3 style="font-family: 'Cinzel', serif; color: #2E1A47; font-weight: 700;">Devotee Prayer Intentions Wall</h3>
         <p class="text-muted">Offer your mental prayer; an Acharya will recite universal shanti prayers during the evening aarti.</p>
       </div>
 
       <div class="row g-4 justify-content-center">
         <div class="col-md-4">
-          <div class="p-3 bg-white rounded-3 border shadow-sm">
-            <span class="badge bg-light text-dark mb-2">Health &amp; Healing</span>
+          <div class="p-3 bg-white rounded-3 border shadow-sm h-100">
+            <span class="badge bg-light text-dark mb-2 border">Health &amp; Healing</span>
             <p class="mb-1 text-secondary" style="font-size: 0.92rem;">"Praying for my mother's recovery and inner peace for our whole family."</p>
             <small class="text-muted">— Priya S., Mumbai</small>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="p-3 bg-white rounded-3 border shadow-sm">
-            <span class="badge bg-light text-dark mb-2">Peace of Mind</span>
+          <div class="p-3 bg-white rounded-3 border shadow-sm h-100">
+            <span class="badge bg-light text-dark mb-2 border">Peace of Mind</span>
             <p class="mb-1 text-secondary" style="font-size: 0.92rem;">"Seeking calm mind and freedom from work anxiety. Om Namah Shivaya."</p>
             <small class="text-muted">— Rohit V., Bengaluru</small>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="p-3 bg-white rounded-3 border shadow-sm">
-            <span class="badge bg-light text-dark mb-2">Family Harmony</span>
+          <div class="p-3 bg-white rounded-3 border shadow-sm h-100">
+            <span class="badge bg-light text-dark mb-2 border">Family Harmony</span>
             <p class="mb-1 text-secondary" style="font-size: 0.92rem;">"May love, truth, and respect return to our ancestral household."</p>
             <small class="text-muted">— Anita &amp; Manoj, Delhi</small>
           </div>
@@ -244,59 +640,262 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-5" style="background: #180D26; color: #FFFFFF; border-top: 2px solid #D4AF37;">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <div class="d-flex align-items-center gap-2 mb-3">
-            <span style="font-size: 1.8rem; color: #D4AF37; font-family: 'Cinzel', serif;">ॐ</span>
-            <span style="font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 800; color: #D4AF37;">divyasukoon</span>
+  <!-- ======================================================
+       8. MAIN SANCTUARY FOOTER (EXACT SAME AS HOME PAGE)
+       ====================================================== -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand & Philosophy -->
+        <div class="footer-col brand-col">
+          <div class="footer-brand">
+            <span class="brand-footer-om">ॐ</span>
+            <span class="footer-brand-title">divyasukoon</span>
           </div>
-          <p class="text-white-50" style="font-size: 0.9rem;">
-            A sacred Vedic temple sanctuary dedicated to universal peace, Vedic rituals, live darshan, and planetary harmony.
+          <p class="footer-desc">
+            The sacred Vedic temple sanctuary of Sukoonsay. Dedicated to universal serenity, daily Ganga ghat aartis, 7 Chakras energy alignment, authentic panchang wisdom, and inner spiritual peace.
           </p>
+          <div class="footer-mantra-line mb-3">
+            ॐ असतो मा सद्गमय | तमसो मा ज्योतिर्गमय
+          </div>
+          <div class="footer-socials">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://whatsapp.com" target="_blank" rel="noopener" class="footer-social-btn" title="WhatsApp Blessings"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
         </div>
 
-        <div class="col-sm-6 col-lg-3">
-          <h5 style="font-family: 'Cinzel', serif; color: #F9E79F; font-size: 1.05rem;" class="mb-3">Quick Navigation</h5>
-          <ul class="list-unstyled" style="font-size: 0.9rem;">
-            <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">Home Sanctum</a></li>
-            <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">About Mandir</a></li>
-            <li class="mb-2"><a href="services.html" class="text-white-50 text-decoration-none">Sacred Pujas</a></li>
-            <li class="mb-2"><a href="timings.html" class="text-white-50 text-decoration-none">Aarti Timings</a></li>
-            <li class="mb-2"><a href="calendar.html" class="text-white-50 text-decoration-none">Panchang</a></li>
-            <li class="mb-2"><a href="booking.html" class="text-white-50 text-decoration-none">Book Puja</a></li>
-            <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
+        <!-- Col 2: The Two Sanctuaries / Sister Portals -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Sister Sanctuaries</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="../index.html">
+                <i class="fa-solid fa-archway text-warning"></i> Sukoonsay Main Hub ↗
+              </a>
+            </li>
+            <li>
+              <a href="../Phycartist/index.html">
+                <i class="fa-solid fa-brain" style="color: #BB86FC;"></i> Clinical Psychiatry Clinic ↗
+              </a>
+            </li>
+            <li>
+              <a href="about.html">
+                <i class="fa-solid fa-gopuram text-warning"></i> About Mandir &amp; Priests
+              </a>
+            </li>
+            <li>
+              <a href="services.html">
+                <i class="fa-solid fa-hands-praying text-warning"></i> Sacred Vedic Pujas &amp; Sevas
+              </a>
+            </li>
+            <li>
+              <a href="timings.html">
+                <i class="fa-regular fa-clock text-warning"></i> Daily Aarti Timetable
+              </a>
+            </li>
           </ul>
         </div>
 
-        <div class="col-sm-6 col-lg-2">
-          <h5 style="font-family: 'Cinzel', serif; color: #F9E79F; font-size: 1.05rem;" class="mb-3">Timings</h5>
-          <ul class="list-unstyled text-white-50" style="font-size: 0.88rem;">
-            <li class="mb-1">Morning: 05:30 AM - 12:30 PM</li>
-            <li class="mb-1">Evening: 04:30 PM - 09:30 PM</li>
-            <li class="mb-1 text-warning">Live Darshan: 24/7</li>
+        <!-- Col 3: Sacred Offerings & Pathways -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Sacred Offerings</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="calendar.html">
+                <i class="fa-regular fa-calendar-days text-warning"></i> Hindu Panchang Calendar
+              </a>
+            </li>
+            <li>
+              <a href="live.html">
+                <i class="fa-solid fa-video text-warning"></i> 24/7 Live Sanctum Darshan
+              </a>
+            </li>
+            <li>
+              <a href="booking.html">
+                <i class="fa-solid fa-fire-burner text-warning"></i> Online Puja &amp; Havan Sankalp
+              </a>
+            </li>
+            <li>
+              <a href="contact.html">
+                <i class="fa-solid fa-location-dot text-warning"></i> Mandir Location &amp; Directions
+              </a>
+            </li>
           </ul>
         </div>
 
-        <div class="col-lg-3">
-          <h5 style="font-family: 'Cinzel', serif; color: #F9E79F; font-size: 1.05rem;" class="mb-3">Temple Bell</h5>
-          <button class="btn btn-sm w-100 trigger-sacred-bell" style="background: linear-gradient(135deg, #D4AF37 0%, #B3861B 100%); color: #180D26; font-weight: 700; border-radius: 20px;">
-            <i class="fa-solid fa-bell me-1"></i> Ring Sacred Bell
-          </button>
+        <!-- Col 4: Sanctum Timings & 432 Hz Solfeggio Sound -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Sanctum Timings</h4>
+          <ul class="footer-timings">
+            <li><span>Pratah Mangala:</span> <strong>05:30 AM – 07:00 AM</strong></li>
+            <li><span>Madhyahna Bhog:</span> <strong>12:00 PM – 12:30 PM</strong></li>
+            <li><span>Maha Sandhya Aarti:</span> <strong>06:45 PM – 07:45 PM</strong></li>
+            <li><span>432 Hz Solfeggio:</span> <strong>24 Hours Continuous</strong></li>
+          </ul>
+          <div class="footer-audio-quick mt-3">
+            <button class="btn btn-warning w-100 audio-chime-toggle text-dark fw-bold btn-sm" style="background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 100%); border: none; padding: 0.55rem 1rem; border-radius: 9999px;">
+              <i class="fa-solid fa-bell me-1"></i>
+              <span class="tb-btn-label">Play 432Hz Sound</span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <div class="text-center pt-4 mt-4 border-top border-secondary text-white-50" style="font-size: 0.85rem;">
-        © 2026 divyasukoon (Sukoonsay). All Rights Reserved. Designed with Sacred Vedic Harmony.
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <p class="mb-0">© 2026 <strong>divyasukoon (Sukoonsay)</strong>. All Rights Reserved. Divine Peace, Royal Healing &amp; Vedic Sanctuary.</p>
+        <div class="footer-sub-links d-flex align-items-center gap-3">
+          <span class="text-warning fw-semibold font-serif">ॐ शान्तिः शान्तिः शान्तिः</span>
+          <a href="#" class="text-warning text-decoration-none fw-bold" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to Top <i class="fa-solid fa-arrow-up"></i></a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Clean up temporary file -->
   <!-- Bootstrap 5 Bundle JS CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/app.js"></script>
+
+  <!-- Interactive Live Darshan Page Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const iframe = document.getElementById('liveStreamIframe');
+      const videoEl = document.getElementById('liveVideoPlayer');
+      const ytWatchBtn = document.getElementById('ytWatchBtn');
+      const refreshBtn = document.getElementById('refreshStreamBtn');
+      const toggleSampleVidBtn = document.getElementById('toggleSampleVidBtn');
+      const toggleCustomStreamBtn = document.getElementById('toggleCustomStreamBtn');
+      const customStreamPanel = document.getElementById('customStreamPanel');
+      const closeCustomStreamBtn = document.getElementById('closeCustomStreamBtn');
+      const customStreamInput = document.getElementById('customStreamInput');
+      const applyCustomStreamBtn = document.getElementById('applyCustomStreamBtn');
+      const customInputMsg = document.getElementById('customInputMsg');
+      const presetBtns = document.querySelectorAll('.preset-btn');
+      const lastCheckedTime = document.getElementById('lastCheckedTime');
+
+      // Update last checked time
+      function updateTime() {
+        const now = new Date();
+        if (lastCheckedTime) {
+          lastCheckedTime.textContent = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        }
+      }
+      updateTime();
+      setInterval(updateTime, 30000);
+
+      // Extract video ID from URL or bare ID
+      function parseYouTubeId(input) {
+        if (!input) return null;
+        input = input.trim();
+        if (/^[a-zA-Z0-9_-]{11}$/.test(input)) return input;
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = input.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
+      }
+
+      function switchStream(videoId) {
+        if (!videoId) return;
+        videoEl.style.display = 'none';
+        videoEl.pause();
+        iframe.style.display = 'block';
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&mute=1&enablejsapi=1&rel=0';
+        ytWatchBtn.href = 'https://www.youtube.com/watch?v=' + videoId;
+        localStorage.setItem('divyasukoon_live_vid', videoId);
+      }
+
+      // Check saved stream
+      const savedVid = localStorage.getItem('divyasukoon_live_vid');
+      if (savedVid) {
+        switchStream(savedVid);
+      }
+
+      // Preset buttons click
+      presetBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          presetBtns.forEach(b => {
+            b.classList.remove('active');
+            const chip = b.querySelector('.preset-playing-chip');
+            if (chip) chip.remove();
+          });
+          this.classList.add('active');
+          const chipHtml = '<span class="preset-playing-chip"><span class="pulse-ring"></span>Playing Now</span>';
+          this.insertAdjacentHTML('beforeend', chipHtml);
+          const vid = this.getAttribute('data-vid');
+          switchStream(vid);
+        });
+      });
+
+      // Toggle Custom Link Panel (Discreet admin side button)
+      if (toggleCustomStreamBtn && customStreamPanel) {
+        toggleCustomStreamBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const isHidden = customStreamPanel.style.display === 'none';
+          customStreamPanel.style.display = isHidden ? 'block' : 'none';
+          if (isHidden && customStreamInput) customStreamInput.focus();
+        });
+      }
+
+      if (closeCustomStreamBtn && customStreamPanel) {
+        closeCustomStreamBtn.addEventListener('click', function() {
+          customStreamPanel.style.display = 'none';
+        });
+      }
+
+      // Apply custom YouTube video
+      if (applyCustomStreamBtn) {
+        applyCustomStreamBtn.addEventListener('click', function() {
+          const val = customStreamInput.value.trim();
+          const vidId = parseYouTubeId(val);
+          if (vidId) {
+            switchStream(vidId);
+            presetBtns.forEach(b => {
+              b.classList.remove('active');
+              const chip = b.querySelector('.preset-playing-chip');
+              if (chip) chip.remove();
+            });
+            customInputMsg.style.display = 'block';
+            customInputMsg.style.color = '#10B981';
+            customInputMsg.textContent = '✓ Live stream loaded successfully!';
+            setTimeout(() => { customInputMsg.style.display = 'none'; }, 3500);
+          } else {
+            customInputMsg.style.display = 'block';
+            customInputMsg.style.color = '#EF4444';
+            customInputMsg.textContent = '⚠️ Invalid YouTube Link or Video ID. Please check and retry.';
+          }
+        });
+      }
+
+      // Refresh Button
+      if (refreshBtn) {
+        refreshBtn.addEventListener('click', function() {
+          iframe.src = iframe.src;
+          updateTime();
+        });
+      }
+
+      // Sample Video Toggle Button
+      if (toggleSampleVidBtn) {
+        toggleSampleVidBtn.addEventListener('click', function() {
+          if (videoEl.style.display === 'none') {
+            iframe.style.display = 'none';
+            videoEl.style.display = 'block';
+            videoEl.play();
+            this.classList.add('btn-warning');
+            this.classList.remove('btn-outline-secondary');
+            this.innerHTML = '<i class="fa-solid fa-tv me-1"></i> Switch to Live Stream';
+          } else {
+            videoEl.pause();
+            videoEl.style.display = 'none';
+            iframe.style.display = 'block';
+            this.classList.remove('btn-warning');
+            this.classList.add('btn-outline-secondary');
+            this.innerHTML = '<i class="fa-solid fa-film me-1"></i> Sample Video';
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
