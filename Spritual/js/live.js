@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const presetBtns = document.querySelectorAll('.preset-btn');
   const lastCheckedTime = document.getElementById('lastCheckedTime');
 
-  const DEFAULT_VIDEO_ID = '1csZkqyVToM';
+  const DEFAULT_VIDEO_ID = 'ffU9c8puVA8';
 
   // 1. Live Clock & Last Checked Time
   function updateTime() {
@@ -66,9 +66,12 @@ document.addEventListener('DOMContentLoaded', function () {
     return null;
   }
 
+  let currentActiveVideoId = DEFAULT_VIDEO_ID;
+
   // 3. Switch Stream safely with full DOM Node recreation (Guarantees instant playback on Mobile & Desktop)
   function switchStream(videoId, updateUrl) {
     if (!videoId) return;
+    currentActiveVideoId = videoId;
 
     const wrap = document.getElementById('playerFrameWrap');
     if (wrap) {
@@ -170,6 +173,26 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   initLiveStream();
+
+  // 4b. Real-Time Broadcaster Polling: Automatically updates the stream on all screens currently open across the world
+  function syncActiveStreamWithServer() {
+    // If the visitor explicitly navigated with ?v= in URL, preserve their intentional choice
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('v') || urlParams.get('stream')) return;
+
+    fetch('data/live-stream.json?t=' + Date.now())
+      .then(res => (res.ok ? res.json() : null))
+      .then(data => {
+        if (data && data.videoId) {
+          const parsed = parseYouTubeId(data.videoId);
+          if (parsed && parsed !== currentActiveVideoId) {
+            switchStream(parsed, false);
+          }
+        }
+      })
+      .catch(() => {});
+  }
+  setInterval(syncActiveStreamWithServer, 12000);
 
   // 5. Preset Buttons Click
   presetBtns.forEach(btn => {
