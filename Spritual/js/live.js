@@ -158,20 +158,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // B. Update broadcast title if provided in JSON
-        if (data.title) {
+        if (data && data.title) {
           const broadcastTitle = document.querySelector('.broadcast-title');
           if (broadcastTitle) broadcastTitle.textContent = data.title;
         }
 
-        // C. Check URL query override (?v= or ?stream=)
-        const urlParams = new URLSearchParams(window.location.search);
-        const hasUrlOverride = urlParams.get('v') || urlParams.get('stream');
-
-        // Only switch stream if the visitor has not explicitly selected a custom ?v= parameter
-        if (!hasUrlOverride) {
-          if (isInitial || parsedId !== currentActiveVideoId) {
-            switchStream(parsedId, false);
-          }
+        if (isInitial || parsedId !== currentActiveVideoId) {
+          switchStream(parsedId, false);
         }
       })
       .catch(() => {
@@ -183,19 +176,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 4b. Initialize stream on page load
   function initLiveStream() {
-    // Clear any obsolete localStorage so visitors never get stuck on outdated streams
     try {
       localStorage.removeItem('divyasukoon_live_vid');
     } catch (e) {}
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const paramVid = urlParams.get('v') || urlParams.get('stream');
-
-    if (paramVid && parseYouTubeId(paramVid)) {
-      switchStream(parseYouTubeId(paramVid), false);
-    } else {
-      syncWithServerConfig(true);
-    }
+    syncWithServerConfig(true);
   }
 
   initLiveStream();

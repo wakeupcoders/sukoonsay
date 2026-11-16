@@ -313,36 +313,32 @@
 
         <!-- Watch on YouTube & Refresh Controls -->
         <div class="live-actions-row">
-          <a
-            id="ytWatchBtn"
-            href="https://www.youtube.com/watch?v=OqxSZytsjMA"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-yt-watch">
-            <svg viewBox="0 0 24 24" class="yt-icon" fill="currentColor">
-              <path
-                d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z" />
-            </svg>
-            Watch on YouTube
-          </a>
-          <div class="refresh-fullscreen-row">
-            <button class="btn-refresh" id="refreshStreamBtn" title="Refresh live stream">
-              <svg viewBox="0 0 24 24" class="refresh-icon" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="1 4 1 10 7 10" />
-                <path d="M3.51 15a9 9 0 1 0 .49-4.99" />
+          <a id="ytWatchBtn" href="https://www.youtube.com/watch?v=OqxSZytsjMA" target="_blank"
+            rel="noopener noreferrer" class="btn-yt-watch">
+              <svg viewBox="0 0 24 24" class="yt-icon" fill="currentColor">
+                <path
+                  d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z" />
               </svg>
-              <span>Refresh</span>
-            </button>
-            <button class="btn-fullscreen-toggle" id="fullScreenBtn" title="Full Screen Immersion">
-              <i class="fa-solid fa-expand me-1"></i>
-              <span>Full Screen</span>
-            </button>
-          </div>
+              Watch on YouTube
+            </a>
+            <div class="refresh-fullscreen-row">
+              <button class="btn-refresh" id="refreshStreamBtn" title="Refresh live stream">
+                <svg viewBox="0 0 24 24" class="refresh-icon" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="1 4 1 10 7 10" />
+                  <path d="M3.51 15a9 9 0 1 0 .49-4.99" />
+                </svg>
+                <span>Refresh</span>
+              </button>
+              <button class="btn-fullscreen-toggle" id="fullScreenBtn" title="Full Screen Immersion">
+                <i class="fa-solid fa-expand me-1"></i>
+                <span>Full Screen</span>
+              </button>
+            </div>
         </div>
 
-        <!-- Audio Guide Tip Banner (Exact from Screenshot 3) -->
-        <div class="audio-tip-banner mb-4">
+        <!-- Audio Guide Tip Banner -->
+        <div class="audio-tip-banner mb-3">
           <span class="tip-icon">🔊</span>
           <span class="tip-text">
             <strong>Audio Notice:</strong> Web browsers start autoplay videos muted. Please tap the speaker / volume
@@ -350,12 +346,183 @@
           </span>
         </div>
 
-        <p class="last-checked-note text-center text-muted small mt-3">
-          Last checked: <span id="lastCheckedTime">10:18:24 AM</span> IST
-        </p>
+        <!-- Live Broadcast Status & Pure IST Clock -->
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 py-2 px-3 rounded-3"
+          style="background: rgba(255, 122, 0, 0.06); border: 1px solid rgba(255, 122, 0, 0.18);">
+          <div class="d-flex align-items-center gap-2">
+            <span class="live-pulse-dot-sm"></span>
+            <span class="small fw-semibold text-dark">Live Transmission Active (All Screens Synchronized)</span>
+          </div>
+          <p class="last-checked-note text-muted small m-0">
+            Current Time: <span id="lastCheckedTime" class="fw-semibold text-dark">--:--:--</span> IST
+          </p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- SECTIONS BELOW LIVE SCREEN COMMENTED OUT AS PER USER REQUEST: START -->
+  <!--
+  <section class="programs-section section-padding py-5" style="background: #FFFFFF;">
+    <div class="container">
+      <div class="text-center section-header-block mb-4">
+        <span class="section-subtitle"><span>🕉️</span> Daily Programmes</span>
+        <h2 class="section-title">Daily Spiritual Programs</h2>
+        <p class="section-desc">
+          Every day at divyasukoon is a celebration of divine presence through sacred rituals,
+          Vedic chanting, and spiritual devotion.
+        </p>
+      </div>
+
+      <div class="programs-grid">
+        <div class="program-card glass-card color-saffron">
+          <div class="program-icon-wrap">
+            <span class="program-icon">🔥</span>
+          </div>
+          <div class="program-info">
+            <h3 class="program-name">DAILY HAVAN</h3>
+            <p class="program-hindi">दैनिक हवन</p>
+            <span class="program-time-pill">⏰ Morning &amp; Evening</span>
+            <p class="program-desc">
+              Sacred fire ritual with Vedic mantras for universal peace, health, and divine blessings.
+            </p>
+          </div>
+        </div>
+
+        <div class="program-card glass-card color-amber">
+          <div class="program-icon-wrap">
+            <span class="program-icon">🌅</span>
+          </div>
+          <div class="program-info">
+            <h3 class="program-name">MORNING AARTI</h3>
+            <p class="program-hindi">प्रातः आरती</p>
+            <span class="program-time-pill">⏰ 06:00 AM IST</span>
+            <p class="program-desc">
+              Mangala Aarti welcoming the divine with sacred conch blowing and devotional chants.
+            </p>
+          </div>
+        </div>
+
+        <div class="program-card glass-card color-purple">
+          <div class="program-icon-wrap">
+            <span class="program-icon">🌆</span>
+          </div>
+          <div class="program-info">
+            <h3 class="program-name">EVENING AARTI</h3>
+            <p class="program-hindi">सन्ध्या आरती</p>
+            <span class="program-time-pill">⏰ 07:00 PM IST</span>
+            <p class="program-desc">
+              Maha Sandhya Aarti — a serene evening worship with diyas, incense, and hymns.
+            </p>
+          </div>
+        </div>
+
+        <div class="program-card glass-card color-gold">
+          <div class="program-icon-wrap">
+            <span class="program-icon">🪔</span>
+          </div>
+          <div class="program-info">
+            <h3 class="program-name">SPECIAL PUJA</h3>
+            <p class="program-hindi">विशेष पूजा</p>
+            <span class="program-time-pill">⏰ On Festive Days</span>
+            <p class="program-desc">
+              Elaborate special pujas on ekadashi, purnima, sankranti, and auspicious Hindu festivals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="recordings-section section-padding py-5" style="background: #FDFBF7;">
+    <div class="container">
+      <div class="text-center section-header-block mb-4">
+        <span class="section-subtitle"><span>📹</span> Sacred Recordings</span>
+        <h2 class="section-title">Previous Live Broadcasts</h2>
+        <p class="section-desc">
+          Missed today's live Aarti or Havan? All past divine broadcasts are automatically archived on our official YouTube channel for devotion anytime, anywhere.
+        </p>
+      </div>
+
+      <div class="recordings-hub-card glass-card">
+        <div class="recordings-visual-col">
+          <div class="yt-play-shield">
+            <svg viewBox="0 0 24 24" class="yt-shield-icon" fill="currentColor">
+              <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/>
+            </svg>
+          </div>
+          <div class="archive-glow-ring"></div>
+        </div>
+
+        <div class="recordings-details-col">
+          <div class="archive-badge-pill">
+            <span>✨</span> Official YouTube Live Stream Archive
+          </div>
+          <h3 class="archive-heading">Watch Past Havans, Aartis &amp; Special Pujas</h3>
+          <p class="archive-text">
+            Browse our complete video collection on YouTube. Access high-definition full recordings of past Mangala Aartis, Maha Sandhya Aartis, Vedic Yagyas, and special festive celebrations.
+          </p>
+
+          <div class="archive-chips-row">
+            <span class="archive-chip">🔥 Past Havans</span>
+            <span class="archive-chip">🌅 Morning Aartis</span>
+            <span class="archive-chip">🌇 Evening Aartis</span>
+            <span class="archive-chip">🪔 Special Festive Pujas</span>
+            <span class="archive-chip">📜 Vedic Mantras</span>
+          </div>
+
+          <div class="archive-cta-row">
+            <a
+              href="https://www.youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary archive-btn">
+              <svg viewBox="0 0 24 24" class="yt-icon-sm" fill="currentColor">
+                <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/>
+              </svg>
+              Browse Recorded Broadcasts
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5" style="background: #FFFFFF;">
+    <div class="container">
+      <div class="text-center mb-4">
+        <span class="section-subtitle"><span>🙏</span> Sacred Prayers</span>
+        <h3 style="font-family: 'Cinzel', serif; color: #2E1A47; font-weight: 700;">Devotee Prayer Intentions Wall</h3>
+        <p class="text-muted">Offer your mental prayer; an Acharya will recite universal shanti prayers during the evening aarti.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="p-3 bg-white rounded-3 border shadow-sm h-100">
+            <span class="badge bg-light text-dark mb-2 border">Health &amp; Healing</span>
+            <p class="mb-1 text-secondary" style="font-size: 0.92rem;">"Praying for my mother's recovery and inner peace for our whole family."</p>
+            <small class="text-muted">— Priya S., Mumbai</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3 bg-white rounded-3 border shadow-sm h-100">
+            <span class="badge bg-light text-dark mb-2 border">Peace of Mind</span>
+            <p class="mb-1 text-secondary" style="font-size: 0.92rem;">"Seeking calm mind and freedom from work anxiety. Om Namah Shivaya."</p>
+            <small class="text-muted">— Rohit V., Bengaluru</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3 bg-white rounded-3 border shadow-sm h-100">
+            <span class="badge bg-light text-dark mb-2 border">Family Harmony</span>
+            <p class="mb-1 text-secondary" style="font-size: 0.92rem;">"May love, truth, and respect return to our ancestral household."</p>
+            <small class="text-muted">— Anita &amp; Manoj, Delhi</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+  <!-- SECTIONS BELOW LIVE SCREEN COMMENTED OUT AS PER USER REQUEST: END -->
 
   <!-- ======================================================
        8. MAIN SANCTUARY FOOTER (EXACT SAME AS HOME PAGE)
