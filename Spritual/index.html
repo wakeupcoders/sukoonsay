@@ -197,7 +197,7 @@
         <a href="index.html" class="nav-item active-link"><i class="fa-solid fa-om"></i><span>Home</span></a>
         <a href="about.html" class="nav-item "><i class="fa-solid fa-gopuram"></i><span>About</span></a>
         <a href="services.html" class="nav-item "><i class="fa-solid fa-hands-praying"></i><span>Pujas &amp; Services</span></a>
-        <a href="timings.html" class="nav-item "><i class="fa-regular fa-clock"></i><span>Aarti Timings</span></a>
+        <a href="timings.html" class="nav-item "><i class="fa-solid fa-calendar-check"></i><span>Events</span></a>
         <a href="live.html" class="nav-item "><i class="fa-solid fa-video text-danger"></i><span>Live Darshan</span><span class="live-dot-pulse"></span></a>
         <a href="calendar.html" class="nav-item "><i class="fa-regular fa-calendar-days"></i><span>Panchang</span></a>
         <a href="booking.html" class="nav-item "><i class="fa-solid fa-fire-burner"></i><span>Book Puja</span></a>
@@ -227,13 +227,14 @@
       <span id="drawerSanctumClock">Ropar Punjab (IST): --:--:--</span>
     </div>
 
-    <!-- Devotee Country Switcher in Drawer -->
+    <!-- Devotee Country Switcher in Drawer (Disabled per user request for pure Indian Standard Time) -->
+    <!--
     <div class="drawer-country-box">
       <label for="drawerCountrySelect"><i class="fa-solid fa-earth-americas me-1 text-warning"></i> Devotee Timezone:</label>
       <select id="drawerCountrySelect" class="drawer-country-select" aria-label="Select Devotee Country">
-        <!-- Populated by JS -->
       </select>
     </div>
+    -->
 
     <!-- Navigation Links in Drawer -->
     <nav class="drawer-nav" aria-label="Mobile Drawer Navigation">
@@ -253,8 +254,8 @@
         <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
       </a>
       <a href="timings.html" class="drawer-link ">
-        <span class="drawer-link-icon"><i class="fa-regular fa-clock"></i></span>
-        <span>Aarti Timings</span>
+        <span class="drawer-link-icon"><i class="fa-solid fa-calendar-check"></i></span>
+        <span>Events</span>
         <i class="fa-solid fa-chevron-right link-arrow ms-auto"></i>
       </a>
       <a href="live.html" class="drawer-link ">
@@ -410,7 +411,7 @@
                 <span>Explore Temple Sevas</span>
               </a>
               <a href="timings.html" class="btn-secondary hero-secondary-btn">
-                <span>Aarti Timings</span>
+                <span>Temple Events</span>
                 <span class="cta-arrow">→</span>
               </a>
             </div>
@@ -537,7 +538,7 @@
 
       <div class="strip-divider"></div>
 
-      <!-- Item 2: Sanctum & Local Clock with Country Timezone Selector -->
+      <!-- Item 2: Sanctum Live Clock (Indian Standard Time - Only India) -->
       <div class="strip-item">
         <div class="strip-icon-box">
           <svg viewBox="0 0 24 24" class="strip-svg" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -546,15 +547,9 @@
           </svg>
         </div>
         <div class="strip-text-col">
-          <div class="strip-clock-head-row">
-            <span class="strip-label">Sanctum &amp; Devotee Clock</span>
-            <select id="heroCountrySelect" class="sanctum-country-select" aria-label="Select Devotee Country">
-              <!-- Populated via ALL_COUNTRIES in app.js -->
-            </select>
-          </div>
+          <span class="strip-label">Sanctum Clock (India)</span>
           <div class="strip-value mono-clock">
-            <span class="ist-clock" id="sanctumLiveClock">IST --:--:--</span>
-            <span class="local-clock-pill" id="devoteeCountryClock">--:--:--</span>
+            <span class="ist-clock" id="sanctumLiveClock" style="font-size: 1.05rem; font-weight: 700; color: #D4AF37;">IST --:--:--</span>
           </div>
         </div>
       </div>
@@ -1027,7 +1022,7 @@
             </li>
             <li>
               <a href="timings.html">
-                <i class="fa-regular fa-clock text-warning"></i> Daily Aarti Timetable
+                <i class="fa-solid fa-calendar-check text-warning"></i> Temple Events &amp; Timetable
               </a>
             </li>
           </ul>

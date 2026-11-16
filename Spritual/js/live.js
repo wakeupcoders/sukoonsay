@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const presetBtns = document.querySelectorAll('.preset-btn');
   const lastCheckedTime = document.getElementById('lastCheckedTime');
 
-  const DEFAULT_VIDEO_ID = 'EWtvGC5MEC8';
+  const DEFAULT_VIDEO_ID = 'OqxSZytsjMA';
 
   // 1. Live Clock & Last Checked Time
   function updateTime() {
@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // 2. High-Precision Universal YouTube ID extractor
   function parseYouTubeId(input) {
     if (!input) return null;
-    input = input.trim();
+    input = String(input).trim();
 
-    // Direct 11-char ID
+    // Direct 11-char ID (e.g. EWtvGC5MEC8)
     if (/^[a-zA-Z0-9_-]{11}$/.test(input)) return input;
 
-    // Standard matchers for all YouTube URL formats
+    // Standard matchers for all YouTube URL formats (youtu.be, /watch?v=, /live/, /embed/, /v/, /shorts/)
     let match = input.match(
       /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|live\/|shorts\/))([a-zA-Z0-9_-]{11})/
     );
@@ -77,25 +77,27 @@ document.addEventListener('DOMContentLoaded', function () {
     if (wrap) {
       const oldIframe = document.getElementById('liveStreamIframe');
 
-      // Recreate iframe node from scratch to force immediate reload across all mobile engines
-      const newIframe = document.createElement('iframe');
-      newIframe.id = 'liveStreamIframe';
-      newIframe.className = 'yt-iframe';
-      newIframe.src =
-        'https://www.youtube.com/embed/' +
-        videoId +
-        '?autoplay=1&mute=1&enablejsapi=1&rel=0';
-      newIframe.title = 'divyasukoon Live Darshan';
-      newIframe.allow =
-        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-      newIframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-      newIframe.allowFullscreen = true;
-      newIframe.loading = 'lazy';
+      // Only update or recreate if the iframe isn't already playing this exact video
+      if (!oldIframe || !oldIframe.src || oldIframe.src.indexOf('embed/' + videoId) === -1) {
+        const newIframe = document.createElement('iframe');
+        newIframe.id = 'liveStreamIframe';
+        newIframe.className = 'yt-iframe';
+        newIframe.src =
+          'https://www.youtube.com/embed/' +
+          videoId +
+          '?autoplay=1&mute=1&playsinline=1&enablejsapi=1&rel=0';
+        newIframe.title = 'divyasukoon Live Darshan';
+        newIframe.allow =
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        newIframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        newIframe.allowFullscreen = true;
+        newIframe.loading = 'lazy';
 
-      if (oldIframe && oldIframe.parentNode) {
-        oldIframe.parentNode.replaceChild(newIframe, oldIframe);
-      } else {
-        wrap.appendChild(newIframe);
+        if (oldIframe && oldIframe.parentNode) {
+          oldIframe.parentNode.replaceChild(newIframe, oldIframe);
+        } else {
+          wrap.appendChild(newIframe);
+        }
       }
     }
 
@@ -124,75 +126,84 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Update URL query parameter
-    if (updateUrl !== false) {
+    // Update URL query parameter only when requested (e.g. user manually clicked preset or entered link)
+    if (updateUrl === true) {
       try {
         const url = new URL(window.location.href);
         url.searchParams.set('v', videoId);
         window.history.replaceState({}, '', url.toString());
       } catch (e) {}
     }
-
-    try {
-      localStorage.setItem('divyasukoon_live_vid', videoId);
-    } catch (e) {}
   }
 
-  // 4. Determine which stream to play on page load
+  // 4. Server Config Synchronizer (Single Source of Truth)
+  // Reads Spritual/data/live-stream.json. If updated, changes stream on EVERY visitor's screen in real time.
+  function syncWithServerConfig(isInitial) {
+    fetch('data/live-stream.json?t=' + Date.now(), { cache: 'no-store' })
+      .then(res => (res.ok ? res.json() : null))
+      .then(data => {
+        if (!data) return;
+
+        const rawVal = data.videoId || data.url || data.link || data.id || data.video_id;
+        const parsedId = parseYouTubeId(rawVal) || DEFAULT_VIDEO_ID;
+
+        // A. Keep Preset 1 in sync with active server broadcast
+        const preset1 = document.getElementById('preset1Btn');
+        if (preset1) {
+          preset1.setAttribute('data-vid', parsedId);
+          if (data.title) {
+            const sub = preset1.querySelector('.preset-sub');
+            if (sub) sub.textContent = data.title;
+          }
+        }
+
+        // B. Update broadcast title if provided in JSON
+        if (data.title) {
+          const broadcastTitle = document.querySelector('.broadcast-title');
+          if (broadcastTitle) broadcastTitle.textContent = data.title;
+        }
+
+        // C. Check URL query override (?v= or ?stream=)
+        const urlParams = new URLSearchParams(window.location.search);
+        const hasUrlOverride = urlParams.get('v') || urlParams.get('stream');
+
+        // Only switch stream if the visitor has not explicitly selected a custom ?v= parameter
+        if (!hasUrlOverride) {
+          if (isInitial || parsedId !== currentActiveVideoId) {
+            switchStream(parsedId, false);
+          }
+        }
+      })
+      .catch(() => {
+        if (isInitial && !currentActiveVideoId) {
+          switchStream(DEFAULT_VIDEO_ID, false);
+        }
+      });
+  }
+
+  // 4b. Initialize stream on page load
   function initLiveStream() {
-    // Clear any obsolete legacy test streams from localStorage so visitors don't get trapped on old videos
+    // Clear any obsolete localStorage so visitors never get stuck on outdated streams
     try {
-      const savedVid = localStorage.getItem('divyasukoon_live_vid');
-      if (savedVid && savedVid !== DEFAULT_VIDEO_ID) {
-        localStorage.removeItem('divyasukoon_live_vid');
-      }
+      localStorage.removeItem('divyasukoon_live_vid');
     } catch (e) {}
 
-    // A. URL query parameter takes top priority (for shared links or direct ?v=)
     const urlParams = new URLSearchParams(window.location.search);
     const paramVid = urlParams.get('v') || urlParams.get('stream');
 
     if (paramVid && parseYouTubeId(paramVid)) {
       switchStream(parseYouTubeId(paramVid), false);
-      return;
+    } else {
+      syncWithServerConfig(true);
     }
-
-    // B. Global server / site config (data/live-stream.json) - Always prioritize the live configured stream!
-    fetch('data/live-stream.json?t=' + Date.now())
-      .then(res => (res.ok ? res.json() : null))
-      .then(data => {
-        if (data && data.videoId && parseYouTubeId(data.videoId)) {
-          switchStream(parseYouTubeId(data.videoId), false);
-        } else {
-          switchStream(DEFAULT_VIDEO_ID, false);
-        }
-      })
-      .catch(() => {
-        switchStream(DEFAULT_VIDEO_ID, false);
-      });
   }
 
   initLiveStream();
 
-  // 4b. Real-Time Broadcaster Polling: Automatically updates the stream on all screens currently open across the world
-  function syncActiveStreamWithServer() {
-    // If the visitor explicitly navigated with ?v= in URL, preserve their intentional choice
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('v') || urlParams.get('stream')) return;
-
-    fetch('data/live-stream.json?t=' + Date.now())
-      .then(res => (res.ok ? res.json() : null))
-      .then(data => {
-        if (data && data.videoId) {
-          const parsed = parseYouTubeId(data.videoId);
-          if (parsed && parsed !== currentActiveVideoId) {
-            switchStream(parsed, false);
-          }
-        }
-      })
-      .catch(() => {});
-  }
-  setInterval(syncActiveStreamWithServer, 12000);
+  // 4c. Real-Time Broadcaster Polling: Automatically updates all open screens every 10 seconds
+  setInterval(function () {
+    syncWithServerConfig(false);
+  }, 10000);
 
   // 5. Preset Buttons Click
   presetBtns.forEach(btn => {
