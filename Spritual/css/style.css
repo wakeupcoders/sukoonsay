@@ -4559,7 +4559,7 @@ button:hover .cta-arrow {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+  grid-template-columns: 1.8fr 1.1fr 1.1fr;
   gap: 2.5rem;
 }
 
@@ -6692,9 +6692,24 @@ button:hover .cta-arrow {
 
 .footer-top-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  grid-template-columns: 1.8fr 1.1fr 1.1fr;
   gap: 2.5rem;
   margin-bottom: 3.5rem;
+}
+
+/* Sticky Sidebar for Puja & Samagri Detail Pages */
+.puja-sticky-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+  z-index: 10;
+}
+
+@media (max-width: 991.98px) {
+  .puja-sticky-sidebar {
+    position: static;
+    top: auto;
+  }
 }
 
 .footer-brand {

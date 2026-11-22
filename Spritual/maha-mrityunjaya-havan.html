@@ -194,7 +194,7 @@
   <!-- MAIN PUJA DETAILS SECTION -->
   <section class="py-5" style="background: var(--bg-gradient);">
     <div class="container">
-      <div class="row g-4">
+      <div class="row g-4 align-items-start">
         <!-- Left / Main Column (Details, Vidhi, Benefits & Samagri) -->
         <div class="col-lg-8">
           <!-- Featured Image Card -->
@@ -321,78 +321,82 @@
           </div>
         </div>
 
-        <!-- Right Column / Sidebar (Quick Info, Mandir Timings & Contact) -->
+        <!-- Right Column / Sticky Sidebar (Samagri PDF Download, Quick Info & Inquiries) -->
         <div class="col-lg-4">
-          <!-- Quick Info Card -->
-          <div class="p-4 rounded-4 shadow-sm border bg-white mb-4" style="border-color: rgba(212, 175, 55, 0.38) !important;">
-            <h5 class="fw-bold mb-3" style="font-family: 'Cinzel', serif; color: #2E1A47;">
-              <i class="fa-solid fa-gopuram text-warning me-2"></i> Ritual Overview
-            </h5>
-            <ul class="list-unstyled small text-muted mb-4" style="line-height: 2;">
-              <li><strong class="text-dark">Presiding Deity:</strong> Lord Shiva (Mrityunjaya)</li>
-              <li><strong class="text-dark">Auspicious Days:</strong> Mondays, Pradosham, Shivratri, Birthdays</li>
-              <li><strong class="text-dark">Sanctum:</strong> Shri Sarveshwar Mandir</li>
-              <li><strong class="text-dark">Location:</strong> Rupnagar (Ropar), Punjab</li>
-              <li><strong class="text-dark">Samagri Guidance:</strong> Verified by Narayan Sir</li>
-              <li><strong class="text-dark">Participation:</strong> In-Person or Live Online Sankalpa</li>
-            </ul>
+          <div class="puja-sticky-sidebar">
+            <!-- Sticky Samagri PDF Fast Download Card -->
+            <div class="p-4 rounded-4 shadow-sm border bg-white mb-4" style="border: 2px solid #D4AF37 !important;">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="rounded-3 p-2 text-danger d-flex align-items-center justify-content-center" style="background: rgba(220, 53, 69, 0.1); width: 48px; height: 48px;">
+                  <i class="fa-solid fa-file-pdf fs-3"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-0 text-dark" style="font-family: 'Cinzel', serif;">Samagri PDF List</h6>
+                  <small class="text-muted">By Narayan Sir • Mandir Verified</small>
+                </div>
+              </div>
+              <p class="text-muted small mb-3">
+                Download the complete, official itemized Samagri checklist for Maha Mrityunjaya Havan at Shri Sarveshwar Mandir.
+              </p>
+              <a href="assets/pdf/maha-mrityunjaya-havan-samagri.pdf" download="maha-mrityunjaya-havan-samagri.pdf" target="_blank" class="btn btn-card-gold w-100 py-2 shadow-sm d-flex align-items-center justify-content-center gap-2 mb-2">
+                <i class="fa-solid fa-download"></i>
+                <span>Download Samagri PDF</span>
+              </a>
+              <a href="contact.html" class="btn btn-outline-dark rounded-pill w-100 py-1 small text-center" style="font-size: 0.85rem;">
+                <i class="fa-solid fa-hands-praying me-1 text-warning"></i> Inquire at Seva Desk
+              </a>
+            </div>
 
-            <!-- Direct Contact Help -->
-            <a href="contact.html" class="btn btn-card-saffron w-100 py-2 text-center mb-2 shadow-sm">
-              <i class="fa-solid fa-hands-praying me-1"></i> Inquire at Seva Desk
-            </a>
-            <a href="https://wa.me/919876543210?text=Namaste,%20I%20wish%20to%20perform%20Maha%20Mrityunjaya%20Havan%20at%20Shri%20Sarveshwar%20Mandir%20Ropar." target="_blank" rel="noopener" class="btn btn-outline-success w-100 py-2 text-center">
-              <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp Inquiry
-            </a>
-          </div>
+            <!-- Quick Info Card -->
+            <div class="p-4 rounded-4 shadow-sm border bg-white mb-4" style="border-color: rgba(212, 175, 55, 0.38) !important;">
+              <h5 class="fw-bold mb-3" style="font-family: 'Cinzel', serif; color: #2E1A47;">
+                <i class="fa-solid fa-gopuram text-warning me-2"></i> Ritual Overview
+              </h5>
+              <ul class="list-unstyled small text-muted mb-4" style="line-height: 2;">
+                <li><strong class="text-dark">Presiding Deity:</strong> Lord Shiva (Mrityunjaya)</li>
+                <li><strong class="text-dark">Auspicious Days:</strong> Mondays, Pradosham, Shivratri, Birthdays</li>
+                <li><strong class="text-dark">Sanctum:</strong> Shri Sarveshwar Mandir</li>
+                <li><strong class="text-dark">Location:</strong> Rupnagar (Ropar), Punjab</li>
+                <li><strong class="text-dark">Samagri Guidance:</strong> Verified by Narayan Sir</li>
+                <li><strong class="text-dark">Participation:</strong> In-Person or Live Online Sankalpa</li>
+              </ul>
 
-          <!-- Mandir Timings Card -->
-          <div class="p-4 rounded-4 shadow-sm border bg-white mb-4" style="border-color: rgba(212, 175, 55, 0.38) !important;">
-            <h5 class="fw-bold mb-3" style="font-family: 'Cinzel', serif; color: #2E1A47;">
-              <i class="fa-solid fa-clock text-warning me-2"></i> Mandir Timings
-            </h5>
-            <div class="mb-3">
-              <span class="badge bg-warning-subtle text-warning-emphasis fw-bold mb-2">MORNING TIMINGS</span>
-              <ul class="list-unstyled small text-muted mb-0" style="line-height: 1.8;">
-                <li><i class="fa-solid fa-sun text-warning me-2"></i> Mandir Opens: <strong>4:00 AM</strong></li>
-                <li><i class="fa-solid fa-fire text-danger me-2"></i> Pratah Aarti: <strong>6:00 AM</strong></li>
-                <li><i class="fa-solid fa-bowl-food text-warning me-2"></i> Madhyahna Bhog: <strong>11:00 AM</strong></li>
+              <!-- Direct Contact Help -->
+              <a href="contact.html" class="btn btn-card-saffron w-100 py-2 text-center mb-2 shadow-sm">
+                <i class="fa-solid fa-hands-praying me-1"></i> Inquire at Seva Desk
+              </a>
+              <a href="https://wa.me/919876543210?text=Namaste,%20I%20wish%20to%20perform%20Maha%20Mrityunjaya%20Havan%20at%20Shri%20Sarveshwar%20Mandir%20Ropar." target="_blank" rel="noopener" class="btn btn-outline-success w-100 py-2 text-center">
+                <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp Inquiry
+              </a>
+            </div>
+
+            <!-- Other Sacred Pujas Navigation -->
+            <div class="p-4 rounded-4 shadow-sm border bg-white" style="border-color: rgba(212, 175, 55, 0.38) !important;">
+              <h5 class="fw-bold mb-3" style="font-family: 'Cinzel', serif; color: #2E1A47;">
+                <i class="fa-solid fa-om text-warning me-2"></i> Other Sacred Pujas
+              </h5>
+              <ul class="list-unstyled small mb-0" style="line-height: 2.2;">
+                <li><a href="kundali-graha-paramarsh.html" class="text-decoration-none text-dark fw-semibold">› Kundali &amp; Graha Paramarsh</a></li>
+                <li><a href="griha-shanti-vastu-havan.html" class="text-decoration-none text-dark fw-semibold">› Griha Shanti &amp; Vastu Havan</a></li>
+                <li><a href="pitra-tarpan-shradh-seva.html" class="text-decoration-none text-dark fw-semibold">› Pitra Tarpan &amp; Shradh Seva</a></li>
+                <li><a href="rudrabhishek-archana.html" class="text-decoration-none text-dark fw-semibold">› Special Rudrabhishek &amp; Archana</a></li>
+                <li><a href="prashna-kundali-tarot.html" class="text-decoration-none text-dark fw-semibold">› Prashna Kundali &amp; Tarot Solace</a></li>
               </ul>
             </div>
-            <div>
-              <span class="badge bg-primary-subtle text-primary-emphasis fw-bold mb-2">EVENING TIMINGS</span>
-              <ul class="list-unstyled small text-muted mb-0" style="line-height: 1.8;">
-                <li><i class="fa-solid fa-moon text-primary me-2"></i> Mandir Opens: <strong>4:00 PM</strong></li>
-                <li><i class="fa-solid fa-fire text-danger me-2"></i> Sandhya Aarti: <strong>6:00 PM</strong></li>
-                <li><i class="fa-solid fa-music text-success me-2"></i> Kirtan &amp; Satsang: <strong>7:00 PM</strong></li>
-                <li><i class="fa-solid fa-door-closed text-secondary me-2"></i> Mandir Closes: <strong>8:30 PM</strong></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Other Sacred Pujas Navigation -->
-          <div class="p-4 rounded-4 shadow-sm border bg-white" style="border-color: rgba(212, 175, 55, 0.38) !important;">
-            <h5 class="fw-bold mb-3" style="font-family: 'Cinzel', serif; color: #2E1A47;">
-              <i class="fa-solid fa-om text-warning me-2"></i> Other Sacred Pujas
-            </h5>
-            <ul class="list-unstyled small mb-0" style="line-height: 2.2;">
-              <li><a href="kundali-graha-paramarsh.html" class="text-decoration-none text-dark fw-semibold">› Kundali &amp; Graha Paramarsh</a></li>
-              <li><a href="griha-shanti-vastu-havan.html" class="text-decoration-none text-dark fw-semibold">› Griha Shanti &amp; Vastu Havan</a></li>
-              <li><a href="pitra-tarpan-shradh-seva.html" class="text-decoration-none text-dark fw-semibold">› Pitra Tarpan &amp; Shradh Seva</a></li>
-              <li><a href="rudrabhishek-archana.html" class="text-decoration-none text-dark fw-semibold">› Special Rudrabhishek &amp; Archana</a></li>
-              <li><a href="prashna-kundali-tarot.html" class="text-decoration-none text-dark fw-semibold">› Prashna Kundali &amp; Tarot Solace</a></li>
-            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MAIN SANCTUARY FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-grid">
-        <!-- Col 1: Temple Brand -->
+  <!-- ======================================================
+       MAIN SANCTUARY FOOTER
+       Harmonized with MainSkoonsay & Phycartist Architecture
+       ====================================================== -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand & Philosophy -->
         <div class="footer-col brand-col">
           <div class="footer-brand">
             <span class="brand-footer-om">ॐ</span>
@@ -413,40 +417,62 @@
           </div>
         </div>
 
-        <!-- Col 2: Sister Sanctuaries -->
+        <!-- Col 2: The Two Sanctuaries / Sister Portals -->
         <div class="footer-col">
           <h4 class="footer-col-title">Sister Sanctuaries</h4>
           <ul class="footer-links">
-            <li><a href="../index.html"><i class="fa-solid fa-archway text-warning"></i> Sukoonsay Main Hub ↗</a></li>
-            <li><a href="../Phycartist/index.html"><i class="fa-solid fa-brain" style="color: #BB86FC;"></i> Clinical Psychiatry Clinic ↗</a></li>
-            <li><a href="about.html"><i class="fa-solid fa-gopuram text-warning"></i> About Mandir &amp; Priests</a></li>
-            <li><a href="services.html"><i class="fa-solid fa-hands-praying text-warning"></i> Sacred Vedic Pujas &amp; Sevas</a></li>
-            <li><a href="timings.html"><i class="fa-solid fa-calendar-check text-warning"></i> Temple Events &amp; Timetable</a></li>
+            <li>
+              <a href="../index.html">
+                <i class="fa-solid fa-archway text-warning"></i> Sukoonsay Main Hub ↗
+              </a>
+            </li>
+            <li>
+              <a href="../Phycartist/index.html">
+                <i class="fa-solid fa-brain" style="color: #BB86FC;"></i> Clinical Psychiatry Clinic ↗
+              </a>
+            </li>
+            <li>
+              <a href="about.html">
+                <i class="fa-solid fa-gopuram text-warning"></i> About Mandir &amp; Priests
+              </a>
+            </li>
+            <li>
+              <a href="services.html">
+                <i class="fa-solid fa-hands-praying text-warning"></i> Sacred Vedic Pujas &amp; Sevas
+              </a>
+            </li>
+            <li>
+              <a href="timings.html">
+                <i class="fa-solid fa-calendar-check text-warning"></i> Temple Events &amp; Timetable
+              </a>
+            </li>
           </ul>
         </div>
 
-        <!-- Col 3: Sacred Pathways -->
+        <!-- Col 3: Sacred Offerings & Pathways -->
         <div class="footer-col">
           <h4 class="footer-col-title">Sacred Offerings</h4>
           <ul class="footer-links">
-            <li><a href="calendar.html"><i class="fa-regular fa-calendar-days text-warning"></i> Hindu Panchang Calendar</a></li>
-            <li><a href="live.html"><i class="fa-solid fa-video text-warning"></i> 24/7 Live Sanctum Darshan</a></li>
-            <li><a href="services.html"><i class="fa-solid fa-fire text-warning"></i> Vedic Havans &amp; Pujas</a></li>
-            <li><a href="contact.html"><i class="fa-solid fa-location-dot text-warning"></i> Shri Sarveshwar Mandir, Ropar</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 4: Mandir Timings -->
-        <div class="footer-col">
-          <h4 class="footer-col-title">Mandir Timings</h4>
-          <ul class="footer-timings">
-            <li><span>Morning Opens:</span> <strong>04:00 AM</strong></li>
-            <li><span>Morning Aarti:</span> <strong>06:00 AM</strong></li>
-            <li><span>Morning Bhog:</span> <strong>11:00 AM</strong></li>
-            <li><span>Evening Opens:</span> <strong>04:00 PM</strong></li>
-            <li><span>Evening Aarti:</span> <strong>06:00 PM</strong></li>
-            <li><span>Evening Kirtan:</span> <strong>07:00 PM</strong></li>
-            <li><span>Mandir Closes:</span> <strong>08:30 PM</strong></li>
+            <li>
+              <a href="calendar.html">
+                <i class="fa-regular fa-calendar-days text-warning"></i> Hindu Panchang Calendar
+              </a>
+            </li>
+            <li>
+              <a href="live.html">
+                <i class="fa-solid fa-video text-warning"></i> 24/7 Live Sanctum Darshan
+              </a>
+            </li>
+            <li>
+              <a href="services.html">
+                <i class="fa-solid fa-fire text-warning"></i> Vedic Havans &amp; Pujas
+              </a>
+            </li>
+            <li>
+              <a href="contact.html">
+                <i class="fa-solid fa-location-dot text-warning"></i> Shri Sarveshwar Mandir, Ropar
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -459,7 +485,8 @@
         </div>
         <div class="footer-sub-links d-flex align-items-center gap-3">
           <span class="text-warning fw-semibold font-serif">ॐ शान्तिः शान्तिः शान्तिः</span>
-          <a href="#" class="text-warning text-decoration-none fw-bold">Back to Top <i class="fa-solid fa-arrow-up"></i></a>
+          <a href="#" class="text-warning text-decoration-none fw-bold">Back to Top <i
+              class="fa-solid fa-arrow-up"></i></a>
         </div>
       </div>
     </div>
