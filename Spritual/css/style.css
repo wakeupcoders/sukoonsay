@@ -6697,41 +6697,18 @@ button:hover .cta-arrow {
   margin-bottom: 3.5rem;
 }
 
-/* Sticky & Independently Scrollable Sidebar for Puja & Samagri Detail Pages */
+/* Pure Smooth Sticky Sidebar for Puja & Samagri Detail Pages (No internal scrollbar) */
 .puja-sticky-sidebar {
   position: -webkit-sticky;
   position: sticky;
   top: 100px;
-  max-height: calc(100vh - 110px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-right: 6px;
-  scrollbar-width: thin;
-  scrollbar-color: #D4AF37 rgba(212, 175, 55, 0.12);
   z-index: 10;
-}
-
-.puja-sticky-sidebar::-webkit-scrollbar {
-  width: 5px;
-}
-
-.puja-sticky-sidebar::-webkit-scrollbar-track {
-  background: rgba(212, 175, 55, 0.08);
-  border-radius: 4px;
-}
-
-.puja-sticky-sidebar::-webkit-scrollbar-thumb {
-  background: #D4AF37;
-  border-radius: 4px;
 }
 
 @media (max-width: 991.98px) {
   .puja-sticky-sidebar {
     position: static;
     top: auto;
-    max-height: none;
-    overflow-y: visible;
-    padding-right: 0;
   }
 }
 
