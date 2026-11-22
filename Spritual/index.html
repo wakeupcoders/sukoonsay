@@ -960,7 +960,7 @@
   <!-- ======================================================
        10. TEMPLE FOOTER
        ====================================================== -->
-    <!-- ======================================================
+      <!-- ======================================================
        MAIN SANCTUARY FOOTER
        Harmonized with MainSkoonsay & Phycartist Architecture
        ====================================================== -->
@@ -988,35 +988,14 @@
           </div>
         </div>
 
-        <!-- Col 2: The Two Sanctuaries / Sister Portals -->
+        <!-- Col 2: Sister Sanctuaries -->
         <div class="footer-col">
           <h4 class="footer-col-title">Sister Sanctuaries</h4>
           <ul class="footer-links">
-            <li>
-              <a href="../index.html">
-                <i class="fa-solid fa-archway text-warning"></i> Sukoonsay Main Hub ↗
-              </a>
-            </li>
-            <li>
-              <a href="../Phycartist/index.html">
-                <i class="fa-solid fa-brain" style="color: #BB86FC;"></i> Clinical Psychiatry Clinic ↗
-              </a>
-            </li>
-            <li>
-              <a href="about.html">
-                <i class="fa-solid fa-gopuram text-warning"></i> About Mandir &amp; Priests
-              </a>
-            </li>
-            <li>
-              <a href="services.html">
-                <i class="fa-solid fa-hands-praying text-warning"></i> Sacred Vedic Pujas &amp; Sevas
-              </a>
-            </li>
-            <li>
-              <a href="timings.html">
-                <i class="fa-solid fa-calendar-check text-warning"></i> Temple Events &amp; Timetable
-              </a>
-            </li>
+            <li><a href="../index.html">Sukoonsay Main Hub</a></li>
+            <li><a href="../Phycartist/index.html">Clinical Psychiatry Clinic</a></li>
+            <li><a href="about.html">About Mandir &amp; Priests</a></li>
+            <li><a href="services.html">Sacred Vedic Pujas &amp; Sevas</a></li>
           </ul>
         </div>
 
@@ -1024,31 +1003,15 @@
         <div class="footer-col">
           <h4 class="footer-col-title">Sacred Offerings</h4>
           <ul class="footer-links">
-            <li>
-              <a href="calendar.html">
-                <i class="fa-regular fa-calendar-days text-warning"></i> Hindu Panchang Calendar
-              </a>
-            </li>
-            <li>
-              <a href="live.html">
-                <i class="fa-solid fa-video text-warning"></i> 24/7 Live Sanctum Darshan
-              </a>
-            </li>
-            <li>
-              <a href="services.html">
-                <i class="fa-solid fa-fire text-warning"></i> Vedic Havans &amp; Pujas
-              </a>
-            </li>
-            <li>
-              <a href="contact.html">
-                <i class="fa-solid fa-location-dot text-warning"></i> Shri Sarveshwar Mandir, Ropar
-              </a>
-            </li>
+            <li><a href="calendar.html">Hindu Panchang Calendar</a></li>
+            <li><a href="live.html">24/7 Live Sanctum Darshan</a></li>
+            <li><a href="services.html">Vedic Havans &amp; Pujas</a></li>
+            <li><a href="contact.html">Shri Sarveshwar Mandir, Ropar</a></li>
           </ul>
         </div>
       </div>
 
-      <!-- Footer Bottom Bar with EXACT requested 2-line format -->
+      <!-- Footer Bottom Bar with EXACT requested format -->
       <div class="footer-bottom-bar">
         <div class="footer-copyright-text text-start">
           <p class="mb-0">© 2026 <strong>divyasukoon (Shri Sarveshwar Mandir)</strong>. All Rights Reserved.</p>
@@ -1056,64 +1019,13 @@
         </div>
         <div class="footer-sub-links d-flex align-items-center gap-3">
           <span class="text-warning fw-semibold font-serif">ॐ शान्तिः शान्तिः शान्तिः</span>
-          <a href="#" class="text-warning text-decoration-none fw-bold">Back to Top <i
-              class="fa-solid fa-arrow-up"></i></a>
+          <a href="#" class="text-warning text-decoration-none fw-bold" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to Top <i class="fa-solid fa-arrow-up"></i></a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- ======================================================
-       11. BOOKING MODAL (BOOTSTRAP 5)
-       ====================================================== -->
-  <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content" style="background: rgba(255, 255, 255, 0.98); border: 2px solid #D4AF37; border-radius: 20px;">
-        <div class="modal-header border-0 pb-0">
-          <div>
-            <span class="badge" style="background: rgba(212, 175, 55, 0.2); color: #B3861B;">॥ संकल्प एवं बुकिंग ॥</span>
-            <h5 class="modal-title mt-2" id="bookingModalLabel" style="font-family: 'Cinzel', serif; color: #2E1A47; font-weight: 700;">Reserve Your Sacred Puja or Darshan</h5>
-          </div>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-        <div class="modal-body py-3">
-          <div id="bookingSuccessAlert" class="alert alert-success" style="display: none;" role="alert">
-            <i class="fa-solid fa-circle-check me-1"></i> Sacred booking registered! An Acharya will connect with your sankalp details shortly.
-          </div>
-
-          <form id="templeBookingForm">
-            <div class="mb-3">
-              <label class="form-label text-dark fw-semibold" style="font-size: 0.88rem;">Your Full Name (यजमान का नाम)</label>
-              <input type="text" class="form-control" placeholder="Enter your full name" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label text-dark fw-semibold" style="font-size: 0.88rem;">WhatsApp / Phone Number</label>
-              <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label text-dark fw-semibold" style="font-size: 0.88rem;">Select Sacred Offering</label>
-              <select class="form-select">
-                <option>Maha Mrityunjaya Havan</option>
-                <option>Kundali &amp; Jyotish Consultation</option>
-                <option>Griha Shanti &amp; Family Puja</option>
-                <option>Pitra Tarpan &amp; Shradh Seva</option>
-                <option>Special Archana &amp; Abhishek</option>
-                <option>Prashna Kundali &amp; Tarot Solace</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label text-dark fw-semibold" style="font-size: 0.88rem;">Gotra &amp; Birth Details (Optional)</label>
-              <input type="text" class="form-control" placeholder="e.g. Kashyap Gotra, Delhi">
-            </div>
-            <button type="submit" class="btn w-100 py-2" style="background: linear-gradient(135deg, #E65100 0%, #FFA000 100%); color: #fff; font-weight: 700; border-radius: 9999px; border: none; font-family: 'Cinzel', serif;">
-              <i class="fa-solid fa-paper-plane me-1"></i> Confirm Sacred Booking
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
   <!-- Bootstrap 5 Bundle JS CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
