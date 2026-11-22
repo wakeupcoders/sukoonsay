@@ -6697,18 +6697,41 @@ button:hover .cta-arrow {
   margin-bottom: 3.5rem;
 }
 
-/* Sticky Sidebar for Puja & Samagri Detail Pages */
+/* Sticky & Independently Scrollable Sidebar for Puja & Samagri Detail Pages */
 .puja-sticky-sidebar {
   position: -webkit-sticky;
   position: sticky;
-  top: 90px;
+  top: 100px;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: #D4AF37 rgba(212, 175, 55, 0.12);
   z-index: 10;
+}
+
+.puja-sticky-sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.puja-sticky-sidebar::-webkit-scrollbar-track {
+  background: rgba(212, 175, 55, 0.08);
+  border-radius: 4px;
+}
+
+.puja-sticky-sidebar::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 4px;
 }
 
 @media (max-width: 991.98px) {
   .puja-sticky-sidebar {
     position: static;
     top: auto;
+    max-height: none;
+    overflow-y: visible;
+    padding-right: 0;
   }
 }
 
@@ -7425,19 +7448,20 @@ button:hover .cta-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
-  padding: 0.55rem 1.35rem;
+  gap: 0.35rem;
+  padding: 0.38rem 0.85rem;
   border-radius: 9999px;
   background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #B3861B 100%) !important;
   color: #180D26 !important;
   font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 0.86rem;
+  font-size: 0.8rem;
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.5) !important;
-  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
   transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .btn-card-gold:hover {
@@ -7450,19 +7474,20 @@ button:hover .cta-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
-  padding: 0.55rem 1.35rem;
+  gap: 0.35rem;
+  padding: 0.38rem 0.85rem;
   border-radius: 9999px;
   background: linear-gradient(135deg, #FFA000 0%, #E65100 100%) !important;
   color: #FFFFFF !important;
   font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 0.86rem;
+  font-size: 0.8rem;
   text-decoration: none;
   border: 1px solid rgba(255, 230, 150, 0.4) !important;
-  box-shadow: 0 4px 14px rgba(230, 81, 0, 0.35);
+  box-shadow: 0 3px 10px rgba(230, 81, 0, 0.3);
   transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .btn-card-saffron:hover {
@@ -7475,19 +7500,20 @@ button:hover .cta-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
-  padding: 0.55rem 1.35rem;
+  gap: 0.35rem;
+  padding: 0.38rem 0.85rem;
   border-radius: 9999px;
   background: linear-gradient(135deg, #4A306D 0%, #2E1A47 100%) !important;
   color: #F9E79F !important;
   font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 0.86rem;
+  font-size: 0.8rem;
   text-decoration: none;
   border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
-  box-shadow: 0 4px 14px rgba(46, 26, 71, 0.3);
+  box-shadow: 0 3px 10px rgba(46, 26, 71, 0.3);
   transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .btn-card-purple:hover {
