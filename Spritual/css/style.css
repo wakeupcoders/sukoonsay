@@ -10116,3 +10116,71 @@ body.live-darshan-page {
     display: none;
   }
 }
+
+/* ============================================================
+   AUTOMATIC CONTINUOUS SCROLLING DEVOTEE REFLECTIONS (TICKER)
+   ============================================================ */
+.reflections-marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 1rem 0 1.5rem 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.reflections-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: reflectionsTicker 42s linear infinite;
+  will-change: transform;
+}
+
+.reflections-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.reflections-marquee-group {
+  display: flex;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.reflections-card-item {
+  width: 360px;
+  max-width: 360px;
+  flex-shrink: 0;
+  display: flex;
+}
+
+.reflections-card-inner {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.reflections-card-inner:hover {
+  transform: translateY(-5px);
+  border-color: #D4AF37 !important;
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.22) !important;
+  background: #FFFFFF !important;
+}
+
+@keyframes reflectionsTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .reflections-card-item {
+    width: 290px;
+    max-width: 290px;
+  }
+  .reflections-marquee-track {
+    animation-duration: 30s;
+  }
+}
