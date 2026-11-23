@@ -571,8 +571,9 @@
 
       <!-- Item 4: Quick Sacred Actions -->
       <div class="strip-action">
-        <button class="btn btn-sm trigger-sacred-bell audio-chime-toggle me-1" style="background: #FAF7F2; border: 1.5px solid #D4AF37; color: #8B5A00; border-radius: 6px; font-weight: 700; padding: 0.6rem 0.9rem;" title="Play 432 Hz Solfeggio Chimes">
-          <i class="fa-solid fa-bell me-1"></i> <span class="tb-btn-label">432Hz</span>
+        <button class="strip-sound-btn trigger-sacred-bell audio-chime-toggle" title="Play 432 Hz Solfeggio Chimes">
+          <i class="fa-solid fa-bell"></i>
+          <span class="tb-btn-label">432Hz Sound</span>
         </button>
         <a href="live.html" class="strip-live-btn" title="Watch Daily Live Havan &amp; Aarti">
           <span class="live-dot-pulse-mini"></span>
@@ -763,66 +764,82 @@
   <!-- ======================================================
        7. TEMPLE DARSHAN & AARTI SCHEDULE
        ====================================================== -->
-  <section id="timings" class="py-5" style="background: #FFFFFF;">
+  <section id="timings" class="py-5" style="background: var(--bg-gradient);">
     <div class="container">
       <div class="text-center mb-5">
         <span class="badge px-3 py-2 mb-2" style="background: rgba(212, 175, 55, 0.15); border: 1px solid #D4AF37; color: #B3861B; font-family: 'Cinzel', serif;">
           ॥ नित्य आरती तालिका ॥
         </span>
         <h2 style="font-family: 'Cinzel', serif; color: #2E1A47; font-weight: 700;">Temple Darshan &amp; Aarti Schedule</h2>
-        <p class="text-muted">Observed punctually according to Indian Standard Time (IST).</p>
+        <p class="text-muted">Observed punctually every day according to Indian Standard Time (IST).</p>
       </div>
 
-      <div class="row g-4">
-        <!-- Morning Schedule -->
-        <div class="col-lg-6">
-          <div class="p-4 rounded-4" style="background: rgba(240, 234, 248, 0.5); border: 1.5px solid rgba(212, 175, 55, 0.4);">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <h4 style="font-family: 'Cinzel', serif; color: #2E1A47; margin: 0;">Pratah Kaal (Morning Timings)</h4>
-              <span class="badge" style="background: #D4AF37; color: #180D26;">04:00 AM - 11:30 AM</span>
+      <div class="row g-4 align-items-stretch">
+        <!-- Morning Schedule Card -->
+        <div class="col-12 col-lg-6 d-flex">
+          <div class="p-4 rounded-4 w-100 d-flex flex-column justify-content-between shadow-sm bg-white" style="border: 1.5px solid rgba(212, 175, 55, 0.4);">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 style="font-family: 'Cinzel', serif; color: #2E1A47; margin: 0; font-size: 1.25rem;">Pratah Kaal (Morning Timings)</h4>
+                <span class="badge px-3 py-2" style="background: #D4AF37; color: #180D26; font-size: 0.85rem; font-weight: 700;">04:00 AM – 11:30 AM</span>
+              </div>
+              <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                <li class="py-2 px-3 rounded-2 border-bottom d-flex justify-content-between align-items-center" style="background: rgba(240, 234, 248, 0.4);">
+                  <span><strong>04:00 AM</strong> — Mandir Opens</span>
+                  <span class="text-muted small">Gates Open</span>
+                </li>
+                <li class="py-2 px-3 rounded-2 border-bottom d-flex justify-content-between align-items-center" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.3);">
+                  <span><strong>06:00 AM</strong> — Aarti</span>
+                  <span class="text-warning-emphasis fw-bold small">Morning Aarti</span>
+                </li>
+                <li class="py-2 px-3 rounded-2 border-bottom d-flex justify-content-between align-items-center" style="background: rgba(240, 234, 248, 0.4);">
+                  <span><strong>11:00 AM</strong> — Bhog Offering</span>
+                  <span class="text-muted small">Sacred Prasad</span>
+                </li>
+                <li class="py-2 px-3 rounded-2 d-flex justify-content-between align-items-center" style="background: rgba(240, 234, 248, 0.4);">
+                  <span><strong>11:30 AM</strong> — Mandir Closes</span>
+                  <span class="text-muted small">Afternoon Rest</span>
+                </li>
+              </ul>
             </div>
-            <ul class="list-unstyled mb-0">
-              <li class="py-2 border-bottom d-flex justify-content-between">
-                <span><strong>04:00 AM</strong> — Mandir Opens</span>
-                <span class="text-muted">Gates Open</span>
-              </li>
-              <li class="py-2 border-bottom d-flex justify-content-between" style="background: rgba(212, 175, 55, 0.1); padding-left: 8px; border-radius: 6px;">
-                <span><strong>06:00 AM</strong> — Aarti</span>
-                <span class="text-warning fw-bold">Morning Aarti</span>
-              </li>
-              <li class="py-2 d-flex justify-content-between">
-                <span><strong>11:00 AM</strong> — Bhog</span>
-                <span class="text-muted">Sacred Bhog Offering</span>
-              </li>
-            </ul>
+            <div class="pt-3 mt-4 border-top d-flex justify-content-between align-items-center">
+              <small class="text-muted"><i class="fa-solid fa-sun text-warning me-1"></i> Morning Darshan</small>
+              <a href="timings.html" class="text-decoration-none fw-bold small text-warning-emphasis">Full Schedule →</a>
+            </div>
           </div>
         </div>
 
-        <!-- Evening Schedule -->
-        <div class="col-lg-6">
-          <div class="p-4 rounded-4" style="background: rgba(240, 234, 248, 0.5); border: 1.5px solid rgba(212, 175, 55, 0.4);">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <h4 style="font-family: 'Cinzel', serif; color: #2E1A47; margin: 0;">Sandhya Kaal (Evening Timings)</h4>
-              <span class="badge" style="background: #E65100; color: #fff;">04:00 PM - 08:30 PM</span>
+        <!-- Evening Schedule Card -->
+        <div class="col-12 col-lg-6 d-flex">
+          <div class="p-4 rounded-4 w-100 d-flex flex-column justify-content-between shadow-sm bg-white" style="border: 1.5px solid rgba(212, 175, 55, 0.4);">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 style="font-family: 'Cinzel', serif; color: #2E1A47; margin: 0; font-size: 1.25rem;">Sandhya Kaal (Evening Timings)</h4>
+                <span class="badge px-3 py-2" style="background: #E65100; color: #fff; font-size: 0.85rem; font-weight: 700;">04:00 PM – 08:30 PM</span>
+              </div>
+              <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                <li class="py-2 px-3 rounded-2 border-bottom d-flex justify-content-between align-items-center" style="background: rgba(240, 234, 248, 0.4);">
+                  <span><strong>04:00 PM</strong> — Mandir Opens</span>
+                  <span class="text-muted small">Evening Gates Open</span>
+                </li>
+                <li class="py-2 px-3 rounded-2 border-bottom d-flex justify-content-between align-items-center" style="background: rgba(230, 81, 0, 0.12); border: 1px solid rgba(230, 81, 0, 0.3);">
+                  <span><strong>06:00 PM</strong> — Aarti</span>
+                  <span class="text-danger fw-bold small">Evening Aarti</span>
+                </li>
+                <li class="py-2 px-3 rounded-2 border-bottom d-flex justify-content-between align-items-center" style="background: rgba(240, 234, 248, 0.4);">
+                  <span><strong>07:00 PM</strong> — Kirtan</span>
+                  <span class="text-muted small">Bhajan &amp; Kirtan</span>
+                </li>
+                <li class="py-2 px-3 rounded-2 d-flex justify-content-between align-items-center" style="background: rgba(240, 234, 248, 0.4);">
+                  <span><strong>08:30 PM</strong> — Mandir Closes</span>
+                  <span class="text-muted small">Night Closing</span>
+                </li>
+              </ul>
             </div>
-            <ul class="list-unstyled mb-0">
-              <li class="py-2 border-bottom d-flex justify-content-between">
-                <span><strong>04:00 PM</strong> — Mandir Opens</span>
-                <span class="text-muted">Evening Gates Open</span>
-              </li>
-              <li class="py-2 border-bottom d-flex justify-content-between" style="background: rgba(230, 81, 0, 0.1); padding-left: 8px; border-radius: 6px;">
-                <span><strong>06:00 PM</strong> — Aarti</span>
-                <span class="text-danger fw-bold">Evening Aarti</span>
-              </li>
-              <li class="py-2 border-bottom d-flex justify-content-between">
-                <span><strong>07:00 PM</strong> — Kirtan</span>
-                <span class="text-muted">Bhajan &amp; Kirtan</span>
-              </li>
-              <li class="py-2 d-flex justify-content-between">
-                <span><strong>08:30 PM</strong> — Mandir Closes</span>
-                <span class="text-muted">Closing Time</span>
-              </li>
-            </ul>
+            <div class="pt-3 mt-4 border-top d-flex justify-content-between align-items-center">
+              <small class="text-muted"><i class="fa-solid fa-moon text-primary me-1"></i> Evening Darshan</small>
+              <a href="timings.html" class="text-decoration-none fw-bold small text-warning-emphasis">Full Schedule →</a>
+            </div>
           </div>
         </div>
       </div>
@@ -905,54 +922,131 @@
         <p class="text-muted">Heartfelt experiences from pilgrims and families who discovered peace at divyasukoon.</p>
       </div>
 
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="p-4 rounded-4 h-100" style="background: rgba(240, 234, 248, 0.5); border: 1px solid rgba(212, 175, 55, 0.3);">
-            <div class="text-warning mb-2">★★★★★</div>
-            <p class="text-muted" style="font-size: 0.95rem;">
-              "The Maha Mrityunjaya Havan conducted at divyasukoon gave our family immense mental peace during my father's surgery. The priests chanted with such Vedic precision."
-            </p>
-            <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top">
-              <div class="rounded-circle text-white d-flex align-items-center justify-content-center fw-bold" style="width: 38px; height: 38px; background: #D4AF37;">RS</div>
+      <!-- Left-to-Right Scrolling Reviews Slider -->
+      <div class="reflections-slider-wrapper position-relative">
+        <button class="reflections-nav-btn prev-btn" id="reflectionsPrev" aria-label="Previous Reviews" title="Scroll Left">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="reflections-scroll-track" id="reflectionsTrack">
+          <!-- Card 1 -->
+          <div class="reflections-card-item">
+            <div class="p-4 rounded-4 h-100 w-100 d-flex flex-column justify-content-between shadow-sm" style="background: rgba(240, 234, 248, 0.5); border: 1px solid rgba(212, 175, 55, 0.35);">
               <div>
-                <strong style="color: #2E1A47; display: block; font-size: 0.9rem;">Rajesh &amp; Sunita Sharma</strong>
-                <small class="text-muted">New Delhi</small>
+                <div class="text-warning mb-2">★★★★★</div>
+                <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
+                  "The Maha Mrityunjaya Havan conducted at divyasukoon gave our family immense mental peace during my father's surgery. The priests chanted with such Vedic precision."
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top">
+                <div class="rounded-circle text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width: 38px; height: 38px; background: #D4AF37;">RS</div>
+                <div>
+                  <strong style="color: #2E1A47; display: block; font-size: 0.9rem;">Rajesh &amp; Sunita Sharma</strong>
+                  <small class="text-muted">New Delhi</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="reflections-card-item">
+            <div class="p-4 rounded-4 h-100 w-100 d-flex flex-column justify-content-between shadow-sm" style="background: rgba(240, 234, 248, 0.5); border: 1px solid rgba(212, 175, 55, 0.35);">
+              <div>
+                <div class="text-warning mb-2">★★★★★</div>
+                <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
+                  "The Kundali Jyotish guidance was very helpful and easy to understand. The pandit ji gave practical solutions without any fear, bringing peace into my career."
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top">
+                <div class="rounded-circle text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width: 38px; height: 38px; background: #4A306D;">AD</div>
+                <div>
+                  <strong style="color: #2E1A47; display: block; font-size: 0.9rem;">Ananya Deshmukh</strong>
+                  <small class="text-muted">Pune, Maharashtra</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="reflections-card-item">
+            <div class="p-4 rounded-4 h-100 w-100 d-flex flex-column justify-content-between shadow-sm" style="background: rgba(240, 234, 248, 0.5); border: 1px solid rgba(212, 175, 55, 0.35);">
+              <div>
+                <div class="text-warning mb-2">★★★★★</div>
+                <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
+                  "We performed our new vehicle Vahan Pujan and birthday archana here. The temple courtyard with flower decorations and peaceful priests made the celebration divine."
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top">
+                <div class="rounded-circle text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width: 38px; height: 38px; background: #E65100;">VK</div>
+                <div>
+                  <strong style="color: #2E1A47; display: block; font-size: 0.9rem;">Vikas &amp; Meera Kapoor</strong>
+                  <small class="text-muted">Chandigarh</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 (New) -->
+          <div class="reflections-card-item">
+            <div class="p-4 rounded-4 h-100 w-100 d-flex flex-column justify-content-between shadow-sm" style="background: rgba(240, 234, 248, 0.5); border: 1px solid rgba(212, 175, 55, 0.35);">
+              <div>
+                <div class="text-warning mb-2">★★★★★</div>
+                <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
+                  "Participating in the Somwar Rudrabhishek brought deep calmness and positive energy into our home. The prayers were done with authentic devotion and clarity."
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top">
+                <div class="rounded-circle text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width: 38px; height: 38px; background: #00897B;">HN</div>
+                <div>
+                  <strong style="color: #2E1A47; display: block; font-size: 0.9rem;">Harish &amp; Priya Nambiar</strong>
+                  <small class="text-muted">Bengaluru</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 (New) -->
+          <div class="reflections-card-item">
+            <div class="p-4 rounded-4 h-100 w-100 d-flex flex-column justify-content-between shadow-sm" style="background: rgba(240, 234, 248, 0.5); border: 1px solid rgba(212, 175, 55, 0.35);">
+              <div>
+                <div class="text-warning mb-2">★★★★★</div>
+                <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
+                  "We organized a Griha Shanti Vastu Havan for our new house. The holy mantras, sacred havan fire, and peaceful priests filled our home with divine positivity."
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top">
+                <div class="rounded-circle text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width: 38px; height: 38px; background: #5E35B1;">MS</div>
+                <div>
+                  <strong style="color: #2E1A47; display: block; font-size: 0.9rem;">Dr. Manmohan Singh &amp; Family</strong>
+                  <small class="text-muted">Ludhiana, Punjab</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 (New) -->
+          <div class="reflections-card-item">
+            <div class="p-4 rounded-4 h-100 w-100 d-flex flex-column justify-content-between shadow-sm" style="background: rgba(240, 234, 248, 0.5); border: 1px solid rgba(212, 175, 55, 0.35);">
+              <div>
+                <div class="text-warning mb-2">★★★★★</div>
+                <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
+                  "The Pitra Tarpan Seva during Shradh Paksha was performed with sincere rituals and devotion. It brought deep inner peace and satisfaction to our entire family."
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top">
+                <div class="rounded-circle text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width: 38px; height: 38px; background: #C2185B;">SD</div>
+                <div>
+                  <strong style="color: #2E1A47; display: block; font-size: 0.9rem;">Savitri Devi</strong>
+                  <small class="text-muted">Haridwar</small>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="p-4 rounded-4 h-100" style="background: rgba(240, 234, 248, 0.5); border: 1px solid rgba(212, 175, 55, 0.3);">
-            <div class="text-warning mb-2">★★★★★</div>
-            <p class="text-muted" style="font-size: 0.95rem;">
-              "The Kundali Jyotish paramarsh provided genuine Vedic guidance without inducing fear. The gemstone and mantra suggestions have brought tremendous harmony into my career."
-            </p>
-            <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top">
-              <div class="rounded-circle text-white d-flex align-items-center justify-content-center fw-bold" style="width: 38px; height: 38px; background: #4A306D;">AD</div>
-              <div>
-                <strong style="color: #2E1A47; display: block; font-size: 0.9rem;">Ananya Deshmukh</strong>
-                <small class="text-muted">Pune, Maharashtra</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="p-4 rounded-4 h-100" style="background: rgba(240, 234, 248, 0.5); border: 1px solid rgba(212, 175, 55, 0.3);">
-            <div class="text-warning mb-2">★★★★★</div>
-            <p class="text-muted" style="font-size: 0.95rem;">
-              "We performed our new vehicle Vahan Pujan and birthday archana here. The temple courtyard with flower decorations and peaceful priests made the celebration divine."
-            </p>
-            <div class="d-flex align-items-center gap-2 mt-3 pt-3 border-top">
-              <div class="rounded-circle text-white d-flex align-items-center justify-content-center fw-bold" style="width: 38px; height: 38px; background: #E65100;">VK</div>
-              <div>
-                <strong style="color: #2E1A47; display: block; font-size: 0.9rem;">Vikas &amp; Meera Kapoor</strong>
-                <small class="text-muted">Chandigarh</small>
-              </div>
-            </div>
-          </div>
-        </div>
+        <button class="reflections-nav-btn next-btn" id="reflectionsNext" aria-label="Next Reviews" title="Scroll Right">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </section>
@@ -974,7 +1068,7 @@
             <span class="footer-brand-title">divyasukoon</span>
           </div>
           <p class="footer-desc">
-            Shri Sarveshwar Mandir, 599, Baba Deep Singh Nagar, Jagjit Nagar, Power Colony, Rupnagar (Ropar), Punjab – 140001, India. Dedicated to universal serenity, daily aartis, authentic panchang wisdom, and spiritual peace.
+            Shri Sarweshwar Mandir, 599, Baba Deep Singh Nagar, Jagjit Nagar, Power Colony, Rupnagar (Ropar), Punjab – 140001, India. A sacred haven devoted to daily aartis, authentic Vedic prayers, temple wisdom, and inner peace for every devotee.
           </p>
           <div class="footer-mantra-line mb-3">
             ॐ असतो मा सद्गमय | तमसो मा ज्योतिर्गमय
@@ -983,7 +1077,7 @@
           <div class="footer-socials">
             <a href="https://www.instagram.com/wakeupcoders/" target="_blank" rel="noopener noreferrer"
               class="footer-social-btn" title="WakeupCoders Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/wakeupcoders/" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.facebook.com/@wakeupcoder/?hr=1&wtsid=rdr_0HeuvC1ITqNKnG8JT" target="_blank" rel="noopener noreferrer"
               class="footer-social-btn" title="WakeupCoders Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           </div>
         </div>
@@ -1015,10 +1109,10 @@
 
       <!-- Footer Bottom Bar with EXACT requested format -->
       <div class="footer-bottom-bar">
-        <div class="footer-copyright-text text-start">
-          <p class="mb-0">© 2026 <strong>divyasukoon (Shri Sarveshwar Mandir)</strong>. All Rights Reserved.</p>
-          <p class="mb-0"><strong>Powered by WakeupCoders.</strong></p>
-        </div>
+        <div class="footer-copyright-text">
+            <p class="mb-0">© 2026 divyasukoon (Shri Sarweshwar Mandir)</p>
+            <p class="mb-0">All Rights Reserved Powered by WakeupCoders.</p>
+          </div>
         <div class="footer-sub-links d-flex align-items-center gap-3">
           <span class="text-warning fw-semibold font-serif">ॐ शान्तिः शान्तिः शान्तिः</span>
           <a href="#" class="text-warning text-decoration-none fw-bold" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to Top <i class="fa-solid fa-arrow-up"></i></a>
@@ -1034,6 +1128,22 @@
 
   <!-- Temple App JS -->
   <script src="js/app.js"></script>
+
+  <script>
+    (function initReflectionsSlider() {
+      const track = document.getElementById('reflectionsTrack');
+      const prev = document.getElementById('reflectionsPrev');
+      const next = document.getElementById('reflectionsNext');
+      if (track && prev && next) {
+        prev.addEventListener('click', function() {
+          track.scrollBy({ left: -340, behavior: 'smooth' });
+        });
+        next.addEventListener('click', function() {
+          track.scrollBy({ left: 340, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
 
