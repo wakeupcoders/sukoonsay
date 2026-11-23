@@ -580,9 +580,7 @@ img {
 
 /* Mobile responsive padding for bottom bar and layout */
 @media (max-width: 900px) {
-  body {
-    padding-bottom: calc(var(--bottom-bar-height) + 12px);
-  }
+  body { padding-bottom: 0 !important; }
 
   .section-padding {
     padding-top: 3.5rem;
@@ -3109,7 +3107,7 @@ img {
 
 .slider-dots {
   position: absolute;
-  bottom: 2rem;
+  bottom: 3.5rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -7629,7 +7627,7 @@ button:hover .cta-arrow {
 }
 
 /* Responsive adjustments for Sanctum Status Strip */
-@media (max-width: 991px) {
+@media (max-width: 767.98px) {
   .sanctum-status-strip {
     margin-top: 0;
     border-radius: 0;
@@ -10182,5 +10180,291 @@ body.live-darshan-page {
   }
   .reflections-marquee-track {
     animation-duration: 30s;
+  }
+}
+
+/* ============================================================
+   CONTACT TOP CARDS - RESPONSIVE IPAD & TABLET OPTIMIZATIONS
+   ============================================================ */
+.contact-top-card {
+  border-color: rgba(212, 175, 55, 0.38) !important;
+  box-shadow: 0 8px 24px rgba(74, 48, 109, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-top-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(212, 175, 55, 0.2);
+  border-color: #D4AF37 !important;
+}
+
+.contact-card-footer {
+  min-height: 42px;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .contact-top-card {
+    padding: 1.15rem 0.85rem !important;
+  }
+  .contact-card-icon {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .contact-card-icon i {
+    font-size: 1rem !important;
+  }
+  .contact-card-title {
+    font-size: 0.98rem !important;
+  }
+  .contact-card-body p,
+  .contact-card-body ul,
+  .contact-card-body div {
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+  }
+  .contact-card-footer small {
+    font-size: 0.72rem !important;
+  }
+  .contact-card-footer .btn-sm,
+  .contact-card-footer a {
+    padding: 3px 8px !important;
+    font-size: 0.72rem !important;
+  }
+}
+
+
+/* ============================================================
+   IPAD MINI & TABLET MASTER RESPONSIVE PERFECTION (768px - 1024px)
+   ============================================================ */
+
+/* 1. Eliminate any blank footer gap across all viewports */
+body {
+  padding-bottom: 0 !important;
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding-bottom: 0 !important;
+  }
+}
+
+/* 2. Hero Section on iPad Mini / iPad (768px - 991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-slider-section {
+    min-height: 620px !important;
+    height: 72vh !important;
+  }
+
+  /* Generous left and right clearance so arrows NEVER touch slide content */
+  .slide-content-container {
+    padding-left: 5.25rem !important;
+    padding-right: 5.25rem !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 4rem !important;
+    align-items: center !important;
+    display: flex !important;
+  }
+
+  .slide-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    text-align: left !important;
+  }
+
+  .slide-badge-row {
+    margin-bottom: 0.75rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  .slide-badge {
+    font-size: 0.72rem !important;
+    padding: 0.25rem 0.65rem !important;
+  }
+
+  .slide-motto {
+    font-size: 0.78rem !important;
+  }
+
+  .slide-title {
+    font-size: 2.15rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .slide-subtitle {
+    font-size: 0.98rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.35rem !important;
+    max-width: 520px !important;
+  }
+
+  /* Two clean CTA buttons side-by-side */
+  .slide-cta-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.85rem !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .hero-btn,
+  .hero-secondary-btn {
+    width: auto !important;
+    min-width: 165px !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    padding: 0 1.25rem !important;
+    font-size: 0.88rem !important;
+  }
+
+  /* Slider Arrows positioned cleanly with safe buffer from text */
+  .prev-arrow {
+    left: 1.15rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .next-arrow {
+    right: 1.15rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .slider-arrow {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .slider-dots {
+    bottom: 3.25rem !important;
+  }
+}
+
+/* 3. Sanctum Status Strip on iPad Mini / iPad (768px - 991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .sanctum-status-strip {
+    margin-top: -24px !important;
+    border-radius: 14px !important;
+    max-width: calc(100% - 32px) !important;
+    padding: 0.75rem 1rem !important;
+    box-shadow: 0 6px 24px rgba(46, 26, 71, 0.08) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.35) !important;
+    background: #FFFFFF !important;
+  }
+
+  .strip-content {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.75rem 1rem !important;
+    padding: 0.25rem !important;
+  }
+
+  .strip-divider {
+    display: none !important;
+  }
+
+  /* 3 Status Items in Row 1 */
+  .strip-item:nth-child(1) {
+    flex: 1 1 200px !important;
+    width: auto !important;
+    gap: 0.5rem !important;
+  }
+
+  .strip-item:nth-child(3) {
+    flex: 1 1 180px !important;
+    width: auto !important;
+    gap: 0.5rem !important;
+  }
+
+  .strip-item:nth-child(5) {
+    flex: 1.2 1 240px !important;
+    width: auto !important;
+    gap: 0.5rem !important;
+  }
+
+  .strip-icon-box {
+    width: 36px !important;
+    height: 36px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .strip-icon-box .strip-svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .strip-label {
+    font-size: 0.68rem !important;
+  }
+
+  .strip-value {
+    font-size: 0.82rem !important;
+  }
+
+  /* Row 2: Action Buttons in 1 Symmetrical Row */
+  .strip-action {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.65rem !important;
+    padding-top: 0.65rem !important;
+    border-top: 1px dashed rgba(212, 175, 55, 0.35) !important;
+  }
+
+  .strip-action .strip-sound-btn,
+  .strip-action .strip-live-btn,
+  .strip-action .strip-cta-btn {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    justify-content: center !important;
+    font-size: 0.82rem !important;
+    padding: 0.52rem 0.65rem !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* 4. Mobile (under 768px): Hide slider arrows to prevent mobile touch conflict */
+@media (max-width: 767.98px) {
+  .slider-arrow {
+    display: none !important;
+  }
+}
+
+/* ============================================================
+   TIMINGS STATUS BANNER RESPONSIVE POLISH
+   ============================================================ */
+.timings-status-banner #sanctumLiveClock,
+#sanctumLiveClock {
+  white-space: nowrap !important;
+  display: inline-block !important;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .timings-status-banner {
+    padding: 0.85rem 0 !important;
+  }
+  .timings-status-banner .col-12 {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+  .timings-status-banner #liveStatusBadge {
+    font-size: 0.78rem !important;
+  }
+  .timings-status-banner #sanctumLiveClock {
+    font-size: 1.1rem !important;
+    white-space: nowrap !important;
   }
 }
