@@ -1138,7 +1138,6 @@ function initPanchangCalendar() {
         cell.classList.add('is-selected');
         selectedDayData = day;
         renderDayInspector(day);
-        playSacredBell();
       });
 
       gridEl.appendChild(cell);

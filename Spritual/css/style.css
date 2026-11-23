@@ -5317,6 +5317,7 @@ button:hover .cta-arrow {
 .calendar-scroll-viewport {
   width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
 }
 
@@ -5325,6 +5326,7 @@ button:hover .cta-arrow {
   grid-template-columns: repeat(7, 1fr);
   gap: 10px;
   margin-bottom: 12px;
+  min-width: 800px;
 }
 
 .weekday-cell {
@@ -5355,13 +5357,15 @@ button:hover .cta-arrow {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 10px;
+  min-width: 800px;
 }
 
 .calendar-day-cell {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1.5px solid rgba(74, 48, 109, 0.12);
+  background: #FFFFFF;
+  border: 1.5px solid rgba(212, 175, 55, 0.28);
   border-radius: var(--radius-md);
-  padding: 0.6rem 0.65rem 0.5rem;
+  padding: 0.65rem 0.65rem 0.5rem;
+  min-height: 135px;
   height: 135px;
   max-height: 135px;
   display: flex;
@@ -5371,24 +5375,26 @@ button:hover .cta-arrow {
   transition: all 0.22s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 6px rgba(74, 48, 109, 0.04);
 }
 
 .calendar-day-cell:hover {
-  background: #FFFFFF;
+  background: #FFFDF8;
   border-color: var(--sacred-gold);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(74, 48, 109, 0.12);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.25);
 }
 
 .calendar-day-cell.other-month {
-  opacity: 0.35;
-  background: rgba(240, 234, 248, 0.3);
+  opacity: 0.38;
+  background: rgba(245, 240, 250, 0.4);
+  border-color: rgba(74, 48, 109, 0.08);
 }
 
 .calendar-day-cell.is-today {
   border: 2px solid #E65100;
-  background: rgba(255, 243, 224, 0.85);
-  box-shadow: 0 0 12px rgba(230, 81, 0, 0.25);
+  background: linear-gradient(180deg, #FFF8E7 0%, #FFFFFF 100%);
+  box-shadow: 0 0 12px rgba(230, 81, 0, 0.22);
 }
 
 .calendar-day-cell.is-selected {
