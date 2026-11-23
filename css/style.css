@@ -4878,6 +4878,57 @@ img {
   transform: translateY(-2px);
 }
 
+.footer-col-nav {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  width: fit-content !important;
+  margin: 0 auto !important;
+}
+
+.footer-col-nav .footer-col-title {
+  text-align: left !important;
+  display: block !important;
+  width: 100% !important;
+  margin-bottom: 1.25rem !important;
+  position: relative !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.footer-col-nav .footer-col-title::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  width: 35px !important;
+  height: 2px !important;
+  background: var(--sacred-gold) !important;
+}
+
+.footer-col-nav .footer-links {
+  align-items: flex-start !important;
+  text-align: left !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  list-style: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+}
+
+.footer-col-nav .footer-links li {
+  text-align: left !important;
+  width: 100% !important;
+}
+
+.footer-col-nav .footer-links li a {
+  justify-content: flex-start !important;
+  text-align: left !important;
+  display: inline-flex !important;
+}
+
 .footer-links li a {
   font-size: 0.88rem !important;
   line-height: 1.8 !important;
@@ -4889,7 +4940,7 @@ img {
 
 .footer-links li a:hover {
   color: #F9E79F !important;
-  transform: translateX(3px);
+  transform: translateY(-2px);
 }
 
 .footer-bottom-bar {
@@ -4897,9 +4948,19 @@ img {
   padding-top: 1.5rem !important;
 }
 
-.footer-copyright-text p {
+.footer-copyright-text {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 0.4rem 0.8rem !important;
   color: #C5BED2 !important;
   font-size: 0.88rem !important;
+  line-height: 1.5 !important;
+}
+
+.footer-copyright-text span {
+  color: inherit;
 }
 
 @media (max-width: 991.98px) {
@@ -4909,6 +4970,13 @@ img {
   }
   .footer-top-grid .brand-col {
     grid-column: 1 / -1 !important;
+    text-align: center !important;
+  }
+  .footer-top-grid .brand-col .footer-brand {
+    justify-content: center !important;
+  }
+  .footer-top-grid .brand-col .footer-social-links {
+    justify-content: center !important;
   }
 }
 
