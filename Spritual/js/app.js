@@ -43,7 +43,7 @@ function setSelectedCountry(code) {
 function convertIstTimeToLocal(istTimeStr, targetCountry) {
   if (!targetCountry || targetCountry.code === 'IN') return istTimeStr;
   try {
-    const parts = istTimeStr.split('-').map(s => s.trim());
+    const parts = istTimeStr.split(/[-–—]/).map(s => s.trim());
     const converted = parts.map(part => {
       const match = part.match(/(\d+):(\d+)\s*(AM|PM)/i);
       if (!match) return part;
@@ -1079,6 +1079,28 @@ function initPanchangCalendar() {
     const countryNoticeEl = document.getElementById('calCountryNotice');
     if (countryNoticeEl) {
       countryNoticeEl.innerHTML = `Devotee Zone: <strong>${country.flag} ${country.name} (${country.tzName})</strong>`;
+    }
+
+    // Dynamic conversion of Today's Shubh Muhurat Top Cards to devotee zone
+    const brahmaEl = document.getElementById('todayBrahmaTime');
+    if (brahmaEl) {
+      const converted = convertIstTimeToLocal('04:45 AM - 05:35 AM', country);
+      brahmaEl.textContent = converted + (country.code !== 'IN' ? ` (${country.tzName})` : ' IST');
+    }
+    const abhijitEl = document.getElementById('todayAbhijitTime');
+    if (abhijitEl) {
+      const converted = convertIstTimeToLocal('11:52 AM - 12:38 PM', country);
+      abhijitEl.textContent = converted + (country.code !== 'IN' ? ` (${country.tzName})` : ' IST');
+    }
+    const amritEl = document.getElementById('todayAmritTime');
+    if (amritEl) {
+      const converted = convertIstTimeToLocal('02:15 PM - 03:45 PM', country);
+      amritEl.textContent = converted + (country.code !== 'IN' ? ` (${country.tzName})` : ' IST');
+    }
+    const rahuEl = document.getElementById('todayRahuTime');
+    if (rahuEl) {
+      const converted = convertIstTimeToLocal('04:30 PM - 06:00 PM', country);
+      rahuEl.textContent = converted + (country.code !== 'IN' ? ` (${country.tzName})` : ' IST');
     }
 
     // Grid Rendering
